@@ -1,0 +1,478 @@
+%\documentclass[aps,prd,twocolumn,floatfix]{revtex4}   % style for Physical Review B and AJP are similar
+\documentclass[twocolumn,floatfix,nofootinbib]{revtex4}   % style for Physical Review B and AJP are similar
+%\documentclass[12pt,aps,prb,preprint]{revtex4}
+
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{sublem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{ax}[thm]{Axiom}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{clm}[thm]{Claim}
+\newtheorem{lemdef}[thm]{Lemma-Definition}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{cons}[thm]{\rm\bfseries{Construction}}
+\newtheorem{exm}[thm]{Example}
+\newtheorem{conds}[thm]{Condition}
+\newtheorem{proper}[thm]{Property}
+\newtheorem{defnlem}[thm]{Definition-Lemma}
+\newtheorem{assump}[thm]{Assumption}
+\newtheorem{warn}[thm]{Warning}
+\newtheorem{situ}[thm]{Situation}
+
+\begin{document}
+
+\title{Deriving Hamiltonian mechanics from physics, without passing passing through Lagrangians.}
+\author{Gabriele Carcassi}
+\affiliation{Brookhaven National Laboratory, Upton, NY 11973}
+\email{carcassi@bnl.gov}
+\date{August 25, 2013}
+
+\begin{abstract}
+We derive the Hamiltonian formulation of classical mechanics directly, without reference to Lagrangian mechanics.
+We start from the definition of states and the labels used to identify them, and show how simple properties required
+on those labels lead to the Hamiltonian formulation.\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+In physics Hamiltonian mechanics is usually presented as a reformulation of Lagrangian mechanics, which is how it was originally developed. In this work we aim to derive it on its own, starting from simple physical assumptions, without any reference to Lagrangian mechanics. We believe that provides more direct insight in the theory and a direct physical interpretation of its geometric features.
+
+
+
+Hamiltonian is either math or physics from Lagrangian. Lagrangian are not well motivated anyway.
+
+We start from scratch and find Hamiltonian. $dt \wedge dE$
+
+\section{States}
+\textbf{State definition}. Suppose we have a physical system that can be found in different configurations. Each unique configuration, or configuration state, is identified by a label. The label could correspond to a measurement, a way to prepare the system or any other mechanism that can be used to distinguish between configuration states. For our purposes, it does not matter what it is, just that it exists.
+
+\begin{defn}\label{statedef}
+Let $I$ be a set of labels. Let $\mathbbm{C}_{I}$ be the set of all possible configuration states of our system identified by the labels. $\forall i \in I, \exists \mathbbm{c}_{i} \in \mathbbm{C}_{I}$.
+\end{defn}
+
+The following definitions allow us to use multiple labels.
+
+\begin{defn}\label{combine label}
+Let $I_1$ and $I_2$ be two sets of labels. We call $I = \langle I_1, I_2 \rangle$ the combined set of labels if an injective map exists such that $\forall i \in I \rightarrowtail i_1 \in I_1, i_2 \in I_2$.
+\end{defn}
+
+\begin{defn}\label{orth}
+The two label sets $I_1$ and $I_2$ are said to be orthogonal iff $I = \langle I_1, I_2 \rangle = I_1 \times I_2$.
+\end{defn}
+
+The following assumptions and definitions allow us to describe a configuration state by its parts.
+
+\begin{assump}\label{classical}
+(\emph{Classical assumption}) The system is infinitesimally reducible: it can be thought as composed by two or more similar but smaller systems, each in its own configuration state, which also can be thought as composed by two or more, ad infinitum.
+\end{assump}
+
+\begin{defn}\label{statedef}
+Let $\mathbbm{S}_I$ be the set of all possible configuration states of the infinitesimal subdivision. We call this set phase space. We call each element $\mathbbm{s}_i$ a state.
+\end{defn}
+
+\begin{cor}\label{statedistr}
+Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. In physics term, the distribution can be visualized as a histogram of discrete data.
+\end{cor}
+
+Under the classical assumption, we can then limit ourselves to the study of the labels of states and their properties without losing generality.
+
+\textbf{State mapping}. We will now concentrate ourselves on deterministic and reversible evolution, defined as:
+\begin{defn}\label{determ}
+Under deterministic evolution, the future state (i.e. label) is fully identified by the present state: $i'=f(i)$. Under reversible evolution, the present state is fully identified by the future state: $i=g(i')$.
+\end{defn}
+
+\begin{cor}\label{detAndRev}
+Under deterministic and reversible evolution $i'=f(i)$ and $i=f^{-1}(i')$
+\end{cor}
+
+\begin{cor}\label{discreteEv}
+The deterministic and reversible evolution of a reducible configuration state $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$ is given by $\mathbbm{c}_{j'}=\sum D'(i) \mathbbm{s}_{i}=\sum D(f^{-1}(i)) \mathbbm{s}_{i}$.
+\end{cor}
+
+The value of the new distribution at a label is simply the value of the old distribution at the previous label. The bars of the discrete histogram move place, but keep the same height.
+
+\begin{defn}\label{labelsIndep}
+Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. Let $f:i \in I \leftrightarrow i' \in I'$ be a bijective map. The labels are said independent iff we can define two sets of orthogonal labels $I_1'$ and $I_2'$ such that we can define separate mappings:
+\begin{enumerate}
+\item $I_1' \times I_2' = I$
+\item there exists a bijective map $f_1: i_1 \in I_1 \leftrightarrow i_1' \in I_1'$
+\item there exists a bijective map $f_2: i_2 \in I_2 \leftrightarrow i_2' \in I_2'$
+\item $f(i) = \{f_1(i_1), f_2(i_2)\}$
+\end{enumerate}
+\end{defn}
+
+\textbf{State counting}. Given that deterministic and reversible evolution defines a bijective map between past and future states, we have the following.
+
+\begin{cor}\label{labelsCount}
+Let $\hat{I} \subset I$ of finite size $n(\hat{I})$. Let $f(\hat{I})$ and $f^{-1}(\hat{I})$ be respectively the forward and backward image of a deterministic and reversible mapping. We then have $n(\hat{I})=n(f(\hat{I}))=n(f^{-1}(\hat{I}))$, the number of states is conserved.
+\end{cor}
+
+\begin{cor}\label{labelsMultiCount}
+Let $\hat{I_1} \subset I_1$ and $\hat{I_2} \subset I_2$ of finite size $n(\hat{I_1})$ and $n(\hat{I_2})$. Let $f(\hat{I_1})$, $f(\hat{I_2})$, $f^{-1}(\hat{I_1})$ and $f^{-1}(\hat{I_2})$ be the corresponding forward and backward images. We then have $n(\hat{I_1}\times\hat{I_2})=n(\hat{I_1})n(\hat{I_2})=n(f(\hat{I_1})) n(f(\hat{I_2}))=n(f^{-1}(\hat{I_1})) n(f^{-1}(\hat{I_2}))$, the total number of states is conserved and remains the product of the number of labels in each set.
+\end{cor}
+
+These statements, properly generalized for the continuous case, will allow us to define a metric. Conserving that metric will lead to Hamiltonian mechanics.
+
+\section{Numeric labels}
+
+Labels often will be numbers. For integers, we simply use $\mathbb{Z}$ as our set of labels. For real number, we need to update our definitions.
+
+\textbf{Discrete labels over $\mathbb{R}$}.
+
+\begin{defn}\label{disclabelsoverr}
+Consider a continuous numeric range. We divide the full range into contiguous cells. Let $I$ be the set of cells. For each cell we have a center value $x: I \mapsto \mathbb{R}$ and a width $w: I \mapsto \mathbb{R}$. $I$ is a set of discrete labels over a continuous range.
+\end{defn}
+
+\begin{cor}\label{disclabelsoverrdist}
+Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i=\sum \rho(i) w(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ is defined as before, and $\rho(i)\equiv D(i) / w(i)$ is the density of the distribution for the cell. In physics term, the distribution can be visualized as a histogram where $w(i)$, $\rho(i)$ and $D(i)$ are respectively the width, height and area of the each bin.
+\end{cor}
+
+\begin{cor}\label{discreteEv}
+Under deterministic and reversible evolution $i' = f(i)$, where $i', i \in I$, we have $\mathbbm{c}_j=\sum D'(i') \mathbbm{s}_i'=\sum \rho'(i') w(i') \mathbbm{s}_i' = \sum D(i) \mathbbm{s}_i' = \sum rho(i) w(i) \mathbbm{s}_i'$. $\rho'(i') = \rho(i) w(i) / w(i')$.
+\end{cor}
+
+The area moves from one cell of the histogram to the other. The height need to be adjusted if the cell is of a different size.
+
+\begin{defn}\label{discreteHomogeneous}
+A set $I$ of discrete labels over a continuous range is said to be homogeneous if $w(i)=k$: the bins are of equal width.
+\end{defn}
+
+With homogeneous labels no adjusting is needed, and the range can be used as a measure of the number of labels.
+
+\textbf{Continuous labels over $\mathbb{R}$}.
+
+\begin{defn}\label{continuousLabels}
+A state variable $X$ is the continuous limit of a set $I$ of discrete labels over a continuous range.
+\end{defn}
+
+To prepare for the limit we define $m(i)=w(i)/\Delta w$, where $\Delta w$ represents the average width of the cells. We increase the number of the cells and reduce their width such that $max(m(i))$ is bounded. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply x) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $X$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x ds$.
+
+\begin{prop}\label{continuousMapping}
+Let $f: X \mapsto X$ be a deterministic and reversible mapping on a state variable. The mapping must be continuous.
+\end{prop}
+%http://en.wikipedia.org/wiki/Limiting_density_of_discrete_points
+Assume mapping is discontinuous at point $x$. Consider the cell at $x$ of width $m(x)dx$. The cell would be split into two, so it would not be mapped to one and only one other cell.
+
+\begin{prop}\label{widthMapping}
+Let $f: X \mapsto X$ be a deterministic and reversible mapping on a state variable. Then $m(x') dx' \equiv m(f(x)) df(x)/dx dx = m(x) dx$. If $X$ is homogeneous, then $dx' = dx$ and the range gives us a measure of the number of states.
+\end{prop}
+The mapping must be done so that the width of the cells is mapped as well, not just the center value.
+
+\section{Single degree of freedom}
+
+\begin{defn}\label{sdof}
+A degree of freedom is a label set $X$ given by a pair of homogeneous and orthogonal state variables $P$ and $Q$. We call these conjugate variables. A state variable is said conjugate of the first iff they together form a pair of conjugate variables.
+\end{defn}
+
+\begin{prop}\label{sdofMap}
+Let $f: X \mapsto X$ be a deterministic and reversible mapping on a degree of freedom. Then $dx' \wedge dp' = dx \wedge dp$.
+\end{prop}
+
+This is the generalization of \ref{widthMapping} for two state variable. The density $\rho(p,q)$ will be defined on cells of area proportional to $dx \wedge dp$. When mapping one cell to another, it is the area that will need to remain the same and that can be used as a measure of number of labels. We can re-express area conservation as the invariance of the vector product, which defines a metric in terms of labels along a degree of freedom.
+
+\begin{prop}\label{sdofInvariance}
+Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
+\begin{align*}
+\omega_{\alpha, \beta} = \left[
+  \begin{array}{cc}
+    0 & 1 \\
+    -1 & 0 \\
+  \end{array}
+\right] \\
+\end{align*}
+then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under detrev transformation.
+\end{prop}
+
+\begin{lem}\label{genAntisim}
+Let $v$ and $w$ be two vectors. Let $v^{\alpha} \omega_{\alpha, \beta} w^{\alpha}$ be an antisymmetric metric product conserved under a continuous transformation parameterized by $t$. We can then define a generating function $H$ such that:
+\begin{enumerate}
+\item $S^{\alpha} \equiv d_{t}x^{\alpha}$, vector field that tells us how the state variables change
+\item $S_{\beta} \equiv S^{\alpha} \omega_{\alpha, \beta}$
+\item $S_{\alpha} = \partial_{\alpha}H$
+\end{enumerate}
+\end{lem}
+
+Simply applying the vector transformation rules under continuous transformation we have:
+\begin{align*}
+V^{\alpha} \Omega_{\alpha, \beta} W^{\beta} &= V'^{\alpha} \Omega_{\alpha, \beta} W'^{\beta}  \\
+&= (V^{\alpha} + \partial_{\gamma} S^{\alpha} dt V^{\gamma}) \Omega_{\alpha, \beta} ( W^{\beta} + \partial_{\delta} S^{\beta} W^{\delta} dt) \\
+&= V^{\alpha} \Omega_{\alpha, \beta} W^{\beta} + (\partial_{\gamma} S^{\alpha} V^{\gamma} \Omega_{\alpha, \beta} W^{\beta} \\
+ &+ V^{\alpha} \Omega_{\alpha, \beta} \partial_{\delta} S^{\beta} W^{\delta}) dt + O(dt^2)
+\end{align*}
+\begin{align*}
+V^{\gamma} W^{\beta} \partial_{\gamma} S_{\beta} - V^{\alpha} W^{\delta} \partial_{\delta} S_{\alpha} = 0
+\end{align*}
+\begin{align*}
+\partial_{\alpha} S_{\beta} - \partial_{\beta} S_{\alpha} &= curl(S_{\alpha}) = 0 \\
+S_{\alpha} &= \partial_{\alpha}H
+\end{align*}
+
+\begin{prop}\label{sdofHam}
+The evolution for a single degree of freedom is given by:
+\begin{align*}
+d_{t}q &= \partial_{p} H \\
+d_{t}p &= - \partial_{q} H
+\end{align*}
+\end{prop}
+
+This is just expanding \ref{genAntisim} with the metric defined in \ref{sdofInvariance}. We recognise Hamilton's equations for one degree of freedom.
+
+\section{Multiple degrees of freedom}
+
+\begin{defn}\label{mdof}
+Two degrees of freedom are said independent if the corresponding label set $X^1$ and $X^2$ are independent.
+\end{defn}
+
+\begin{prop}\label{mdofInvariance}
+Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two independent degrees of freedom. Let
+\begin{align*}
+\omega_{\alpha, \beta} = \left[
+  \begin{array}{cccc}
+    0 & 1 & 0 & 0 \\
+    -1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & -1 & 0 \\
+  \end{array}
+\right] \\
+\end{align*}
+then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under detrev transformation.
+\end{prop}
+
+The orthogonality of the labels corresponds to orthogonality in the manifold. Consider a hypercube oriented in such a way that some sides align to the first degree of freedom and some sides align to the second. Let $V$ its hypervolume and $V'$ the hypervolume of its map. and Let $A_1$ and $A_2$ the area of two regions of each degree of freedom. Let $A_1'$ and $A_2'$ be the corresponding maps. From \ref{labelsCount} and \ref{labelsMultiCount} we have $V=V'=A_1A_2=A_1'A_2'$, which can hold only if the two degrees of freedom are orthogonal and remain orthogonal. This means we need to require the conservation of the scalar product across independent degrees of freedoms, while still requiring conservation of the vector product within. Our metric will be given by:
+\begin{align*}
+\omega_{\alpha, \beta} =  \left[
+  \begin{array}{cc}
+    1 & 0 \\
+    0 & 1 \\
+  \end{array}
+\right] \otimes \left[
+  \begin{array}{cc}
+    0 & 1 \\
+    -1 & 0 \\
+  \end{array}
+\right] \\
+\end{align*}
+The metric corresponds to a measure of the labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dx^1 \wedge dp^1 + dx^2 \wedge dp^2$, the sum of the projections on the independent planes.
+
+\begin{prop}\label{mdofHam}
+The evolution for a multiple degrees of freedom is given by:
+\begin{align*}
+d_{t}q^i &= \partial_{p^i} H \\
+d_{t}p^i &= - \partial_{q^i} H
+\end{align*}
+\end{prop}
+
+Expand \ref{genAntisim} with the metric defined in \ref{mdofInvariance}. We recognise Hamilton equations for multiple degrees of freedom.
+
+\section{Time dependence}
+So far we have assumed that both state labeling and mapping do not change in time. To be general, then we have to introduce an extra degree of freedom.
+
+\begin{defn}\label{tdof}
+The temporal degree of freedom is a label set $X$ given by the pair of conjugate variables $T$ and $E$. We call extended phase space the outer product between phase space and the temporal degree of freedom.
+\end{defn}
+
+\begin{prop}\label{tdofMonotonic}
+Let $s$ be the parameter of a trajectory in the extended phase space of a deterministic and reversible system. The trajectory must be continuous. There must exist a strictly monotonic function $t(s)$. States connected by a trajectory where $dt/ds>0$ are called particle states, while the ones for which $dt/ds<0$ are called anti-particle states.
+\end{prop}
+
+The trajectory has to be continuous in both spatial and temporal variables because of \ref{continuousMapping}. The mapping still needs to give one and only one value in time, so in principle we should be able to use $t$ as a parameter, we much have an invertible mapping between $t$ and $s$, which means we must have a strictly monotonic $t(s)$. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical, instead, is that $dt/ds$ along a trajectory cannot change sign, so particle and anti-particle states cannot be connected by deterministic and reversible evolution.
+
+\begin{prop}\label{tdofInvariant}
+Let $v$ and $w$ be two vectors defined on the tangent space of the extended phase space for one degree of freedom. Let $\alpha$ and $\beta$ be indexes for $t, E, x, p$. Let
+\begin{align*}
+\omega_{\alpha, \beta} = \omega_{\alpha, \beta} =  \left[
+  \begin{array}{cc}
+    -1 & 0 \\
+    0 & 1 \\
+  \end{array}
+\right] \otimes \left[
+  \begin{array}{cc}
+    0 & 1 \\
+    -1 & 0 \\
+  \end{array}
+\right]
+= \left[
+  \begin{array}{cccc}
+    0 & -1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & -1 & 0 \\
+  \end{array}
+\right] \\
+\end{align*}
+then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under detrev transformation.
+\end{prop}
+
+$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. They are not necessarily orthogonal directions in the extended phase space. Looking back at \ref{disclabelsoverr}, cells need to be defined on the plane where $\langle Q, P \rangle$ changes: they are not defined on the plane of constant $\langle E, T \rangle$ (they are not orthogonal), but on the plane perpendicular to $\langle Q, P \rangle$. Areas defined on that plane are then going to be invariant.
+
+Like before, we have three planes of conjugate variables forming a right triangle-like relationship with one side invariant. In this case, the right angle is between the invariant and the plane of constant $\langle Q, P \rangle$ (on which $dt$ and $dE$ are defined). So we must have $dt \wedge dE + k = dq \wedge dp$. Which corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, gives us a measure for states.
+
+\begin{prop}\label{tdofConstrain}
+The evolution is constrained by $H_{e}=k$, the generating function defined in \ref{genAntisim} generalized for the extended phase space.
+\end{prop}
+
+Given N degrees of freedom, phase space is $\mathbb{R}^{2*N}$. Extended phase space is $\mathbb{R}^{2*N + 2}$. Phase space evolved in time is $\mathbb{R}^{2*N + 1}$. Since $H_{e}$ is constant through the evolution, it can serve both as the generating function and as the evolution constrain. By convention, we set $H_{e}=0$.
+
+\begin{prop}\label{tdofHam}
+The evolution for time varying multiple degrees of freedom is given by:
+\begin{align*}
+d_{s}t &= - \partial_{E} H_{e} \\
+d_{s}E &= \partial_{t} H_{e} \\
+d_{s}q^i &= \partial_{p^i} H_{e} \\
+d_{s}p^i &= - \partial_{q^i} H_{e}
+\end{align*}
+\end{prop}
+
+Expand \ref{genAntisim} with the metric defined in \ref{tdofInvariant}. We recognise Hamilton equations in the extended phase space.
+
+It should not be a surprise that the equations do not mention $c$. In fact, nothing says that all $q^i$ represent space, and with the same unit, and that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same measure for labels.
+
+We wrap up with an example. Let $H_{E}= mc^2 + ((p^i)^2 - E^2/c^2) / 2m$. This represents the rest energy of a free particle, the conjugate of which is proper time. Therefore the parametrization of a particle-state is $s=\tau$ while the parametrization for an anti-particle state is $s=-\tau$. If we apply \ref{tdofHam} we have:
+\begin{align*}
+d_{s}t &= E / mc^2 \\
+d_{s}E &= 0 \\
+d_{s}q^i &= p^i / m \\
+d_{s}p^i &= 0
+\end{align*}
+For particles, we have:
+\begin{align*}
+E / c &= m c d_{\tau}t = m U^0 = P^0 \\
+p^i &= m d_{\tau}q^i = m U^i = P^i \\
+\end{align*}
+so we recognize the four-momentum $P^\alpha = {E/c, p^i}$. For anti-particles:
+\begin{align*}
+- E / c &= m c d_{\tau}t = m U^0 = P^0 \\
+- p^i &= m d_{\tau}q^i = m U^i = P^i \\
+\end{align*}
+we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = {-E/c, -p^i}$. 
+
+\section{Conclusion}
+I hope this work convinced you that we can derive Hamiltonian mechanics from simple definitions of label, states, determinism and reversibility. I believe this approach helps give direct physical meaning to phase space and its geometric properties, and it shows that Hamiltonian mechanics can stand on its own, without Lagrangians. I find it uncanny how so much can be derived with so little.
+
+While no mathematical breakthrough is revealed (we have just put together in a novel way the known pieces of the puzzle), I am not aware of any work that focus on this aspect. We already have ideas on how to extend this work to Quantum Mechanics, and we hope to gain insight on how to extend to General Relativity.
+
+\section{Thermodynamics}
+\begin{align*}
+\oint \delta E &= \oint (\frac{dE}{dt} \delta t + \frac{dx_i}{dt} \delta p_i - \frac{dp_i}{dt} \delta x_i) \\
+ &= \oint (\frac{dE}{d\tau} \frac{d\tau}{dt} \delta t + \frac{dx_i}{d\tau}\frac{d\tau}{dt} \delta p_i - \frac{dp_i}{d\tau}\frac{d\tau}{dt} \delta x_i) \\
+\oint \frac{dt}{d\tau} \delta E &= \oint (\frac{dE}{d\tau} \delta t + \frac{dx_i}{d\tau} \delta p_i - \frac{dp_i}{d\tau} \delta x_i) \\
+\oint (\frac{dt}{d\tau} \delta E &- \frac{dE}{d\tau} \delta t - \frac{dx_i}{d\tau} \delta p_i + \frac{dp_i}{d\tau} \delta x_i) = 0 \\
+\end{align*}
+
+
+\section{Math notes}
+
+Define a product of vectors defined in phase space (space tangent at each point in phase space).
+
+\begin{align*}
+\vec{V} \ast \vec{W} &= V^{\alpha} \Omega_{\alpha, \beta} W^{\beta} \\
+\Omega_{\alpha, \beta} &= \left(
+                      \begin{array}{cccccccc}
+                        0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+                        0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+                        0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 \\
+                        0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+                        0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 \\
+                        0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+                      \end{array}
+                    \right) \\
+\end{align*}
+
+\begin{align*}
+x'^{\alpha}&=x^{\alpha} + S^{\alpha} d\tau \\
+S^{\alpha} &= d_{\tau}x^{\alpha}  \\
+S_{\beta} &\equiv S^{\alpha} \Omega_{\alpha, \beta} \\
+S_{\alpha} &= - S^{\beta} \Omega_{\alpha, \beta}
+\end{align*}
+
+\begin{align*}
+V^{\alpha} \Omega_{\alpha, \beta} W^{\beta} &= V'^{\alpha} \Omega_{\alpha, \beta} W'^{\beta}  \\
+&= (V^{\alpha} + \partial_{\gamma} S^{\alpha} dt V^{\gamma}) \Omega_{\alpha, \beta} ( W^{\beta} + \partial_{\delta} S^{\beta} W^{\delta} dt) \\
+&= V^{\alpha} \Omega_{\alpha, \beta} W^{\beta} + (\partial_{\gamma} S^{\alpha} V^{\gamma} \Omega_{\alpha, \beta} W^{\beta} \\
+ &+ V^{\alpha} \Omega_{\alpha, \beta} \partial_{\delta} S^{\beta} W^{\delta}) dt + O(dt^2) \\
+\end{align*}
+
+\begin{align*}
+V^{\gamma} W^{\beta} \partial_{\gamma} S_{\beta} - V^{\alpha} W^{\delta} \partial_{\delta} S_{\alpha} = 0
+\end{align*}
+
+\begin{align*}
+\partial_{\alpha} S_{\beta} - \partial_{\beta} S_{\alpha} &= 0 \\
+S_{\alpha} &= \partial_{\alpha}H \\
+S^{\alpha} &= d_{\tau}x^{\alpha}
+\end{align*}
+
+\begin{align*}
+d_{\tau}(ct) &= S^{ct} = S_{E/c} = \partial_{E/c} H \\
+d_{\tau}t &= \partial_{E} H \\
+\end{align*}
+
+\begin{align*}
+d_{\tau}(E/c) &= S^{E/c} = - S_{ct} = - \partial_{ct} H \\
+d_{\tau}E &= - \partial_{t} H \\
+\end{align*}
+
+\begin{align*}
+d_{\tau}(x) &= S^{x} = - S_{p_x} = - \partial_{p_x} H \\
+d_{\tau}x &= - \partial_{p_x} H \\
+d_{\tau}y &= - \partial_{p_y} H \\
+d_{\tau}z &= - \partial_{p_z} H \\
+\end{align*}
+
+\begin{align*}
+d_{\tau}(p_x) &= S^{p_x} = S_{x} = \partial_{x} H \\
+d_{\tau}p_x &= \partial_{x} H \\
+d_{\tau}p_y &= \partial_{y} H \\
+d_{\tau}p_z &= \partial_{z} H \\
+\end{align*}
+
+All 8 equations:
+\begin{align*}
+d_{\tau}t &= \partial_{E} H \\
+d_{\tau}x &= - \partial_{p_x} H \\
+d_{\tau}y &= - \partial_{p_y} H \\
+d_{\tau}z &= - \partial_{p_z} H \\
+d_{\tau}E &= - \partial_{t} H \\
+d_{\tau}p_x &= \partial_{x} H \\
+d_{\tau}p_y &= \partial_{y} H \\
+d_{\tau}p_z &= \partial_{z} H \\
+\end{align*}
+
+Free massive particle:
+\begin{align*}
+H &= (E^2/c^2 - p_x^2 - p_y^2 - p_z^2)/2m \\
+d_{\tau}t &= E/mc^2 \\
+d_{\tau}x &= p_x/m \\
+d_{\tau}y &= p_y/m \\
+d_{\tau}z &= p_z/m \\
+d_{\tau}E &= 0 \\
+d_{\tau}p_x &= 0 \\
+d_{\tau}p_y &= 0 \\
+d_{\tau}p_z &= 0 \\
+\end{align*}
+
+
+\begin{thebibliography}{5}
+
+\bibitem{extend} No bib right now.
+
+\end{thebibliography}
+
+\end{document}
