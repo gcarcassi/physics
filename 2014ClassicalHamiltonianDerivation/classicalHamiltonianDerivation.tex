@@ -97,7 +97,7 @@ The system undergoes deterministic (future state identified by the present state
 \end{assump}
 
 \begin{prop}\label{detMap}
-Let $I$ be a set of labels of a system that undergoes deterministic and reversible evolution. There exists a bijective map $f:i \in I \leftrightarrow i' \in I$.
+Let $I$ be a set of labels of a system that undergoes deterministic and reversible evolution. There exists a bijective map $f:I \leftrightarrow I$.
 \end{prop}
 
 \begin{cor}\label{discreteEv}
@@ -107,11 +107,11 @@ The evolution of a reducible configuration state $\mathbbm{c}_j=\sum D(i) \mathb
 Mathematically, studying \ref{detAss} means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the discrete histogram move place, but keep the same height.
 
 \begin{defn}\label{labelsIndep}
-Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. Let $f:i \in I \leftrightarrow i' \in I$ be a bijective map. The labels are said independent iff we can define two sets of orthogonal labels $I_1'$ and $I_2'$ such that we can define separate mappings:
+Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. Let $f:I \leftrightarrow I$ be a bijective map. The labels are said independent iff we can define two sets of orthogonal labels $I_1'$ and $I_2'$ such that we can define separate mappings:
 \begin{enumerate}
 \item $I_1' \times I_2' = I$
-\item there exists a bijective map $f_1: i_1 \in I_1 \leftrightarrow i_1' \in I_1'$
-\item there exists a bijective map $f_2: i_2 \in I_2 \leftrightarrow i_2' \in I_2'$
+\item there exists a bijective map $f_1: I_1 \leftrightarrow I_1'$
+\item there exists a bijective map $f_2: I_2 \leftrightarrow I_2'$
 \item $f(i) = \{f_1(i_1), f_2(i_2)\}$
 \end{enumerate}
 \end{defn}
@@ -141,7 +141,7 @@ Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by 
 \end{cor}
 
 \begin{cor}\label{discreteEv}
-Let $f: i \in I \leftrightarrow i'$ be a bijective map, we have $\mathbbm{c}_j=\sum D'(i') \mathbbm{s}_i'=\sum \rho'(i') w(i') \mathbbm{s}_i' = \sum D(i) \mathbbm{s}_i' = \sum \rho(i) w(i) \mathbbm{s}_i'$. $\rho'(i') = \rho(i) w(i) / w(i')$.
+Let $f: I \leftrightarrow I$ be a bijective map, we have $\mathbbm{c}_j=\sum D'(i) \mathbbm{s}_i=\sum \rho'(i) w(i) \mathbbm{s}_i = \sum D(f^{-1}(i)) \mathbbm{s}_i = \sum \rho(f^{-1}(i)) w(f^{-1}(i)) \mathbbm{s}_i$. $\rho'(i) = \rho(f^{-1}(i)) w(f^{-1}(i)) / w(i)$.
 \end{cor}
 
 The area moves from one cell of the histogram to the other. The height need to be adjusted if the cell is of a different size.
@@ -150,7 +150,7 @@ The area moves from one cell of the histogram to the other. The height need to b
 A set $I$ of discrete labels over a continuous range is said to be homogeneous if $w(i)=k$: the bins are of equal width.
 \end{defn}
 
-With homogeneous labels no adjusting is needed, and the range can be used as a measure of the number of labels.
+With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.
 
 \textbf{Continuous labels over $\mathbb{R}$}. We now make the bin width arbitrarily small.
 
@@ -161,13 +161,13 @@ A state variable $X$ is the continuous limit of a set $I$ of discrete labels ove
 To prepare for the limit we define $m(i)=w(i)/\Delta w$, where $\Delta w$ represents the average width of the cells. We increase the number of the cells and reduce $\Delta w$ such that $max(m(i))$ is bounded. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $X$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x ds$.
 
 \begin{prop}\label{continuousMapping}
-Let $f: X \mapsto X$ be a bijective map on a state variable. The mapping must be continuous.
+Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping must be continuous.
 \end{prop}
 %http://en.wikipedia.org/wiki/Limiting_density_of_discrete_points
 Assume mapping is discontinuous at point $x$. Consider the cell at $x$ of width $m(x)dx$. The cell would be split into two, so it would not be mapped to one and only one cell.
 
 \begin{prop}\label{widthMapping}
-Let $f: X \mapsto X$ be a deterministic and reversible mapping on a state variable. Then $m(x') dx' \equiv m(f(x)) \frac{\partial f(x)}{\partial x} dx = m(x) dx$. If $X$ is homogeneous, then $dx' = dx$ and the range gives us a measure of the number of states.
+Let $f: X \leftrightarrow X$ be a bijective map on a state variable. Then $m(x') dx' \equiv m(f(x)) \frac{\partial f(x)}{\partial x} dx = m(x) dx$. If $X$ is homogeneous, then $dx' = dx$ and the range gives us a measure of the number of states.
 \end{prop}
 The mapping must be done so that the width of the cells is mapped as well, not just the center value.
 
@@ -178,7 +178,7 @@ A degree of freedom is a label set $X$ given by a pair of homogeneous and orthog
 \end{defn}
 
 \begin{prop}\label{sdofMap}
-Let $f: X \mapsto X$ be a bijective map on a degree of freedom. Then $dq' \wedge dp' = dq \wedge dp$.
+Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Then $dq' \wedge dp' = dq \wedge dp$.
 \end{prop}
 
 This is the generalization of \ref{widthMapping} for two state variable. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables. Area conservation is equivalent to requiring the invariance of the vector product.
@@ -202,13 +202,13 @@ Let $v$ and $w$ be two vectors. Let $v^{\alpha} \omega_{\alpha, \beta} w^{\alpha
 
 Simply applying the vector transformation rules under continuous transformation we have:
 \begin{align*}
-V^{\alpha} \Omega_{\alpha, \beta} W^{\beta} &= V'^{\alpha} \Omega_{\alpha, \beta} W'^{\beta}  \\
-&= (V^{\alpha} + \partial_{\gamma} S^{\alpha} dt V^{\gamma}) \Omega_{\alpha, \beta} ( W^{\beta} + \partial_{\delta} S^{\beta} W^{\delta} dt) \\
-&= V^{\alpha} \Omega_{\alpha, \beta} W^{\beta} + (\partial_{\gamma} S^{\alpha} V^{\gamma} \Omega_{\alpha, \beta} W^{\beta} \\
- &+ V^{\alpha} \Omega_{\alpha, \beta} \partial_{\delta} S^{\beta} W^{\delta}) dt + O(dt^2)
+v^{\alpha} \omega_{\alpha, \beta} w^{\beta} &= v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}  \\
+&= (v^{\alpha} + \partial_{\gamma} S^{\alpha} dt v^{\gamma}) \omega_{\alpha, \beta} ( w^{\beta} + \partial_{\delta} S^{\beta} w^{\delta} dt) \\
+&= v^{\alpha} \omega_{\alpha, \beta} w^{\beta} + (\partial_{\gamma} S^{\alpha} v^{\gamma} \omega_{\alpha, \beta} w^{\beta} \\
+ &+ v^{\alpha} \omega_{\alpha, \beta} \partial_{\delta} S^{\beta} w^{\delta}) dt + O(dt^2)
 \end{align*}
 \begin{align*}
-V^{\gamma} W^{\beta} \partial_{\gamma} S_{\beta} - V^{\alpha} W^{\delta} \partial_{\delta} S_{\alpha} = 0
+v^{\gamma} w^{\beta} \partial_{\gamma} S_{\beta} - v^{\alpha} w^{\delta} \partial_{\delta} S_{\alpha} = 0
 \end{align*}
 \begin{align*}
 \partial_{\alpha} S_{\beta} - \partial_{\beta} S_{\alpha} &= curl(S_{\alpha}) = 0 \\
@@ -281,7 +281,7 @@ The temporal degree of freedom is a label set $X$ given by the pair of conjugate
 Let $s$ be the parameter of a trajectory in the extended phase space of a deterministic and reversible system. The trajectory must be continuous. There must exist a strictly monotonic function $t(s)$. States are connected by a trajectory where either $dt/ds>0$ (particle states) of $dt/ds<0$ (anti-particle states).
 \end{prop}
 
-The trajectory has to be continuous in both spatial and temporal variables because of \ref{continuousMapping}. The mapping still needs to give one and only one value in time, so we must have an invertible mapping between $t$ and $s$, which means we must have a strictly monotonic $t(s)$. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical, instead, is that $dt/ds$ along a trajectory cannot change sign, so particle and anti-particle states cannot be connected by deterministic and reversible evolution.
+The trajectory has to be continuous in both spatial and temporal variables because of \ref{continuousMapping}. Since determinism and reversibility are defined in time, the trajectory must traverse all times once and only once: we must have an invertible mapping between $t$ and $s$, which means we must have a strictly monotonic $t(s)$. $dt/ds$ along a trajectory cannot change sign, so we have the division between particle and anti-particle states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that particle and anti-particle states cannot be connected by deterministic and reversible evolution.
 
 \begin{prop}\label{tdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the extended phase space for one degree of freedom. Let $\alpha$ and $\beta$ be indexes for $t, E, q, p$. Let
