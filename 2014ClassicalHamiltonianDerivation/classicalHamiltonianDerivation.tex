@@ -232,7 +232,7 @@ Two degrees of freedom are said independent if the corresponding label set $X^1$
 \end{defn}
 
 \begin{prop}\label{mdofInvariance}
-Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two independent degrees of freedom. Let
+Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two independent degrees of freedom. Let $\alpha$ and $\beta$ be indexes for the state variables $q^1, p^1, q^2, p^2$. Let
 \begin{align*}
 \omega_{\alpha, \beta} =  \left[
   \begin{array}{cc}
@@ -284,7 +284,7 @@ Let $s$ be the parameter of a trajectory in the extended phase space of a determ
 The trajectory has to be continuous in both spatial and temporal variables because of \ref{continuousMapping}. Since determinism and reversibility are defined in time, the trajectory must traverse all times once and only once: we must have an invertible mapping between $t$ and $s$, which means we must have a strictly monotonic $t(s)$. $dt/ds$ along a trajectory cannot change sign, so we have the division between particle and anti-particle states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that particle and anti-particle states cannot be connected by deterministic and reversible evolution.
 
 \begin{prop}\label{tdofInvariant}
-Let $v$ and $w$ be two vectors defined on the tangent space of the extended phase space for one degree of freedom. Let $\alpha$ and $\beta$ be indexes for $t, E, q, p$. Let
+Let $v$ and $w$ be two vectors defined on the tangent space of the extended phase space for one degree of freedom. Let $\alpha$ and $\beta$ be indexes for the state variables $t, e, q, p$. Let
 \begin{align*}
 \omega_{\alpha, \beta} =  \left[
   \begin{array}{cc}
@@ -309,36 +309,36 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the extended phas
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under detrev transformation.
 \end{prop}
 
-$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{disclabelsoverr}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) changes: this is not defined on the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but on the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge dE$ is defined. On that plane we can properly count states and define our invariant.
+$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{disclabelsoverr}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) changes: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
 
 As in the case of independent d.o.f., we have three planes of conjugate variables forming a right triangle-like relationship with one side invariant.
 \begin{align*}
 dq^1 \wedge dp^1 + dq^2 \wedge dp^2 = k \\
-dt \wedge dE + k = dq \wedge dp
+dt \wedge de + k = dq \wedge dp
 \end{align*}
-In the previous case, the right angle was between the two independent degree of freedom. In this case, the right angle is between the invariant and the plane of constant $\langle Q, P \rangle$ where $dt \wedge dE$ is defined. We rewrite it as $dq \wedge dp - dt \wedge dE = k$. Which corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom.
-
-\begin{prop}\label{tdofConstrain}
-The evolution is constrained by $H_{e}=k$, the generating function defined in \ref{genAntisim} generalized for the extended phase space.
-\end{prop}
-
-Given N degrees of freedom, phase space is $\mathbb{R}^{2*N}$. Extended phase space is $\mathbb{R}^{2*N + 2}$. Phase space evolved in time is $\mathbb{R}^{2*N + 1}$. Since $H_{e}$ is constant through the evolution, it can serve both as the generating function and as the evolution constrain. By convention, we set $H_{e}=0$.
+In the previous case, the right angle was between the two independent degree of freedom. In this case, the right angle is between the invariant and the plane of constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. We rewrite it as $dq \wedge dp - dt \wedge de = k$. Which corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom.
 
 \begin{prop}\label{tdofHam}
 The evolution for time varying multiple degrees of freedom is given by:
 \begin{align*}
-d_{s}t &= - \partial_{E} H_{e} \\
-d_{s}E &= \partial_{t} H_{e} \\
-d_{s}q^i &= \partial_{p^i} H_{e} \\
-d_{s}p^i &= - \partial_{q^i} H_{e}
+d_{s}t &= - \partial_{e} \mathcal{H} \\
+d_{s}e &= \partial_{t} \mathcal{H} \\
+d_{s}q^i &= \partial_{p^i} \mathcal{H} \\
+d_{s}p^i &= - \partial_{q^i} \mathcal{H}
 \end{align*}
 \end{prop}
 
-Expand \ref{genAntisim} with the metric defined in \ref{tdofInvariant}. We recognise Hamilton equations in the extended phase space.
+Expand \ref{genAntisim} with the metric defined in \ref{tdofInvariant}, calling the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. We recognise Hamilton equations in the extended phase space.
 
-It should not be a surprise that the equations do not mention $c$. In fact, nothing says that all $q^i$ represent space, and with the same unit, and that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same measure for labels.
+It should not be a surprise that the equations do not mention $c$. In fact, nothing says that all $q^i$ represent space, and with the same unit, and that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
 
-We wrap up with an example. Let $H_{E}= mc^2 + ((p^i)^2 - E^2/c^2) / 2m$. This represents the rest energy of a free particle, the conjugate of which is proper time. Therefore the parametrization of a particle-state is $s=\tau$ while the parametrization for an anti-particle state is $s=-\tau$. If we apply \ref{tdofHam} we have:
+\begin{prop}\label{tdofConstrain}
+The evolution is constrained by $\mathcal{H}=k$, the generating function defined in \ref{genAntisim} generalized for the extended phase space.
+\end{prop}
+
+Given N degrees of freedom, phase space is $\mathbb{R}^{2*N}$. Extended phase space is $\mathbb{R}^{2*N + 2}$. Phase space evolved in time is $\mathbb{R}^{2*N + 1}$. Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constrain. By convention, we set $\mathcal{H}=0$.
+
+\textbf{Example}. We wrap up with an example. Let $\mathcal{H}= mc^2 + ((p^i)^2 - E^2/c^2) / 2m$. The non-constant term represents the rest energy of a free particle, the conjugate of which is proper time. Therefore the parametrization of a particle state is $s=\tau$ while the parametrization for an anti-particle state is $s=-\tau$. If we apply \ref{tdofHam} we have:
 \begin{align*}
 d_{s}t &= E / mc^2 \\
 d_{s}E &= 0 \\
