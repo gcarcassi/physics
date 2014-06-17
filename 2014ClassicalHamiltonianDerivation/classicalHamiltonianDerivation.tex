@@ -86,7 +86,7 @@ Let $\mathbbm{S}_I$ be the set of all possible configuration states of the infin
 \end{defn}
 
 \begin{cor}\label{statedistr}
-Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. In physics term, the distribution can be visualized as a histogram of discrete data.
+Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. In physics term, the distribution can be visualized as a histogram over the discrete labels.
 \end{cor}
 
 Under the classical assumption, we can then limit ourselves to study the labels of states and their properties without losing generality.
@@ -112,7 +112,7 @@ Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. L
 \item $I_1' \times I_2' = I$
 \item there exists a bijective map $f_1: I_1 \leftrightarrow I_1'$
 \item there exists a bijective map $f_2: I_2 \leftrightarrow I_2'$
-\item $f(i) = \{f_1(i_1), f_2(i_2)\}$
+\item $f(i) = \langle f_1(i_1), f_2(i_2)\rangle$
 \end{enumerate}
 \end{defn}
 
@@ -136,9 +136,9 @@ These statements, properly generalized for the continuous case, will allow us to
 Consider a continuous numeric range. We divide the full range into contiguous cells. Let $I$ be the set of cells. For each cell we have a center value $x: I \mapsto \mathbb{R}$ and a width $w: I \mapsto \mathbb{R}$. $I$ is a set of discrete labels over a continuous range.
 \end{defn}
 
-\begin{cor}\label{disclabelsoverrdist}
+\begin{prop}\label{disclabelsoverrdist}
 Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i=\sum \rho(i) w(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ is defined as before, and $\rho(i)\equiv D(i) / w(i)$ is the density of the distribution for the cell. In physics term, the distribution can be visualized as a histogram where $w(i)$, $\rho(i)$ and $D(i)$ are respectively the width, height and area of the each bin.
-\end{cor}
+\end{prop}
 
 \begin{cor}\label{discreteEv}
 Let $f: I \leftrightarrow I$ be a bijective map, we have $\mathbbm{c}_j=\sum D'(i) \mathbbm{s}_i=\sum \rho'(i) w(i) \mathbbm{s}_i = \sum D(f^{-1}(i)) \mathbbm{s}_i = \sum \rho(f^{-1}(i)) w(f^{-1}(i)) \mathbbm{s}_i$. $\rho'(i) = \rho(f^{-1}(i)) w(f^{-1}(i)) / w(i)$.
@@ -158,7 +158,7 @@ With homogeneous labels no adjustment is needed, and the range can be used as a 
 A state variable $X$ is the continuous limit of a set $I$ of discrete labels over a continuous range.
 \end{defn}
 
-To prepare for the limit we define $m(i)=w(i)/\Delta w$, where $\Delta w$ represents the average width of the cells. We increase the number of the cells and reduce $\Delta w$ such that $max(m(i))$ is bounded. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $X$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x ds$.
+To prepare for the limit we define $m(i)=w(i)/\Delta w$, where $\Delta w$ represents the average width of the cells. We increase the number of the cells and reduce $\Delta w$ such that $max(m(i))$ is bounded. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
 
 \begin{prop}\label{continuousMapping}
 Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping must be continuous.
@@ -167,9 +167,9 @@ Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping
 Assume mapping is discontinuous at point $x$. Consider the cell at $x$ of width $m(x)dx$. The cell would be split into two, so it would not be mapped to one and only one cell.
 
 \begin{prop}\label{widthMapping}
-Let $f: X \leftrightarrow X$ be a bijective map on a state variable. Then $m(x') dx' \equiv m(f(x)) \frac{\partial f(x)}{\partial x} dx = m(x) dx$. If $X$ is homogeneous, then $dx' = dx$ and the range gives us a measure of the number of states.
+Let $f: X \leftrightarrow X$ be a bijective map on a state variable, and $x'=f(x)$. Then $\frac{dx'}{dx} = \frac{m(x')}{m(x)} $. If $X$ is homogeneous, then $dx' = dx$ and the range gives us a measure of the cardinality of labels.
 \end{prop}
-The mapping must be done so that the width of the cells is mapped as well, not just the center value.
+The mapping must be done so that the width of the cells is mapped as well, not just the center value. The width of the transported cell $m(x)dx \rightarrow m(x) \frac{dx'}{dx} dx$ must be equal to the width of the target cell $m(x')dx$.
 
 \section{Single degree of freedom}
 
@@ -181,7 +181,7 @@ A degree of freedom is a label set $X$ given by a pair of homogeneous and orthog
 Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Then $dq' \wedge dp' = dq \wedge dp$.
 \end{prop}
 
-This is the generalization of \ref{widthMapping} for two state variable. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables. Area conservation is equivalent to requiring the invariance of the vector product.
+This is the equivalent of \ref{widthMapping} for two state variable. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables. Area conservation is equivalent to requiring the invariance of the vector product.
 
 \begin{prop}\label{sdofInvariance}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
@@ -223,7 +223,7 @@ d_{t}p &= - \partial_{q} H
 \end{align*}
 \end{prop}
 
-This is just expanding \ref{genAntisim} with the metric defined in \ref{sdofInvariance}. We recognise Hamilton's equations for one degree of freedom.
+Simply expand \ref{genAntisim} with the metric defined in \ref{sdofInvariance}. We recognise Hamilton's equations for one degree of freedom.
 
 \section{Multiple degrees of freedom}
 
@@ -271,14 +271,14 @@ d_{t}p^i &= - \partial_{q^i} H
 Expand \ref{genAntisim} with the metric defined in \ref{mdofInvariance}. We recognise Hamilton equations for multiple degrees of freedom.
 
 \section{Time dependence}
-So far we have assumed that both state labeling and mapping do not change in time. To be able to use time as a label, we now introduce an extra degree of freedom.
+So far we have assumed that both state labeling and mapping do not change in time. In that case, we need to to use time as a label. We introduce an extra degree of freedom.
 
 \begin{defn}\label{tdof}
 The temporal degree of freedom is a label set $X$ given by the pair of conjugate variables $T$ and $E$. We call extended phase space the outer product between phase space and the temporal degree of freedom.
 \end{defn}
 
 \begin{prop}\label{tdofMonotonic}
-Let $s$ be the parameter of a trajectory in the extended phase space of a deterministic and reversible system. The trajectory must be continuous. There must exist a strictly monotonic function $t(s)$. States are connected by a trajectory where either $dt/ds>0$ (particle states) of $dt/ds<0$ (anti-particle states).
+Let $s$ be the parameter of a trajectory in the extended phase space of a deterministic and reversible system. The trajectory must be continuous. There must exist a strictly monotonic function $t(s)$. States are connected by a trajectory where either $dt/ds>0$ (particle states) or $dt/ds<0$ (anti-particle states).
 \end{prop}
 
 The trajectory has to be continuous in both spatial and temporal variables because of \ref{continuousMapping}. Since determinism and reversibility are defined in time, the trajectory must traverse all times once and only once: we must have an invertible mapping between $t$ and $s$, which means we must have a strictly monotonic $t(s)$. $dt/ds$ along a trajectory cannot change sign, so we have the division between particle and anti-particle states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that particle and anti-particle states cannot be connected by deterministic and reversible evolution.
@@ -313,8 +313,8 @@ $\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as
 
 As in the case of independent d.o.f., we have three planes of conjugate variables forming a right triangle-like relationship with one side invariant.
 \begin{align*}
-dq^1 \wedge dp^1 + dq^2 \wedge dp^2 = k \\
-dt \wedge de + k = dq \wedge dp
+&dq^1 \wedge dp^1 + dq^2 \wedge dp^2 = k \\
+&dt \wedge de + k = dq \wedge dp
 \end{align*}
 In the previous case, the right angle was between the two independent degree of freedom. In this case, the right angle is between the invariant and the plane of constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. We rewrite it as $dq \wedge dp - dt \wedge de = k$. Which corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom.
 
@@ -328,7 +328,7 @@ d_{s}p^i &= - \partial_{q^i} \mathcal{H}
 \end{align*}
 \end{prop}
 
-Expand \ref{genAntisim} with the metric defined in \ref{tdofInvariant}, calling the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. We recognise Hamilton equations in the extended phase space.
+Expand \ref{genAntisim} with the metric defined in \ref{tdofInvariant}, with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. We recognise Hamilton equations in the extended phase space.
 
 It should not be a surprise that the equations do not mention $c$. In fact, nothing says that all $q^i$ represent space, and with the same unit, and that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
 
@@ -336,9 +336,9 @@ It should not be a surprise that the equations do not mention $c$. In fact, noth
 The evolution is constrained by $\mathcal{H}=k$, the generating function defined in \ref{genAntisim} generalized for the extended phase space.
 \end{prop}
 
-Given N degrees of freedom, phase space is $\mathbb{R}^{2*N}$. Extended phase space is $\mathbb{R}^{2*N + 2}$. Phase space evolved in time is $\mathbb{R}^{2*N + 1}$. Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constrain. By convention, we set $\mathcal{H}=0$.
+Given N degrees of freedom, phase space is $\mathbb{R}^{2*N}$. Extended phase space is $\mathbb{R}^{2*N + 2}$. Phase space evolved in time is $\mathbb{R}^{2*N + 1}$. Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constrain. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion.
 
-\textbf{Example}. We wrap up with an example. Let $\mathcal{H}= mc^2 + ((p^i)^2 - E^2/c^2) / 2m$. The non-constant term represents the rest energy of a free particle, the conjugate of which is proper time. Therefore the parametrization of a particle state is $s=\tau$ while the parametrization for an anti-particle state is $s=-\tau$. If we apply \ref{tdofHam} we have:
+\textbf{Example}. We wrap up with an example. Let $\mathcal{H}= mc^2 + ((p^i)^2 - E^2/c^2) / 2m$. The constant term represents the rest energy of a free particle, the conjugate of which is proper time. The parametrization of a particle state is $s=\tau$ while the parametrization for an anti-particle state is $s=-\tau$. If we apply \ref{tdofHam} we have:
 \begin{align*}
 d_{s}t &= E / mc^2 \\
 d_{s}E &= 0 \\
@@ -358,9 +358,9 @@ so we recognize the four-momentum $P^\alpha = {E/c, p^i}$. For anti-particles:
 we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = {-E/c, -p^i}$.
 
 \section{Conclusion}
-I hope this work convinced you that we can derive Hamiltonian mechanics from simple definitions of label, states, determinism and reversibility. I believe this approach helps give direct physical meaning to phase space and its geometric properties, and it shows that Hamiltonian mechanics can stand on its own, without Lagrangians. I find it uncanny how so much can be derived with so little.
+By deriving Hamiltonian mechanics from simple definitions of labels, states, determinism and reversibility we have given more direct physical meaning to phase space and its geometric properties, and shown that a good part of the Hamiltonian framework can stand on its own, without Lagrangians. No mathematical breakthrough is revealed here, yet I am not aware of any work that brings all the pieces of the puzzle in quite this way: so much derived from so little.
 
-While no mathematical breakthrough is revealed (we have just put together in a novel way the known pieces of the puzzle), I am not aware of any work that focus on this aspect. We already have ideas on how to extend this work to Quantum Mechanics, and we hope to gain insight on how to extend to General Relativity.
+The hope is that, by continuing in this approach, we can shed more light on why nature has the laws it has; and show that they are not some arbitrary rules, but indeed necessary given few simple assumptions.
 
 \begin{thebibliography}{5}
 
