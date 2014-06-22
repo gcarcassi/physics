@@ -50,16 +50,14 @@ on those labels lead to the Hamiltonian formulation.\end{abstract}
 \maketitle
 
 \section{Introduction}
-In physics Hamiltonian mechanics is usually presented as a reformulation of Lagrangian mechanics, which is how it was originally developed. In this work we aim to derive it on its own, starting from simple physical assumptions, without any reference to Lagrangian mechanics. We believe that provides more direct insight in the theory and a direct physical interpretation of its geometric features.
+In physics Hamiltonian mechanics is usually presented as a reformulation of Lagrangian mechanics, which is how it was originally developed. In this work we aim to derive it on its own, starting from simple physical assumptions, without any reference to Lagrangian mechanics.
 
+We'll give simple definitions of states in terms of labels and determinism/reversibility in terms of bijective maps; define a metric based on the idea that bijective maps preserve the cardinality of labels; obtain Hamilton's equations from the invariance of that metric.
 
-
-Hamiltonian is either math or physics from Lagrangian. Lagrangian are not well motivated anyway.
-
-We start from scratch and find Hamiltonian. $dt \wedge dE$
+No mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. All proofs are no longer than a couple of paragraphs, so the word theorem is avoided in favor of proposition and corollary.
 
 \section{States}
-\textbf{State definition}. Let's assume  we have a physical system that can be found in different configurations. Each unique configuration, or configuration state, is identified by a label. For our purposes, it does not matter what it is (a measurement, a way to prepare the system, future behavior, ...), just that it exists.
+\textbf{State definition}. We assume we have a physical system that can be found in different configurations. We call each unique configuration \emph{configuration state} and assign it a \emph{label}. For our purposes, it does not matter what the label is (a measurement, a way to prepare the system, future behavior, ...), just that it exists.
 
 \begin{defn}\label{statedef}
 Let $I$ be a set of labels. Let $\mathbbm{C}_{I}$ be the set of all possible configuration states of our system identified by the labels. $\forall i \in I, \exists \mathbbm{c}_{i} \in \mathbbm{C}_{I}$.
@@ -86,14 +84,14 @@ Let $\mathbbm{S}_I$ be the set of all possible configuration states of the infin
 \end{defn}
 
 \begin{cor}\label{statedistr}
-Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. In physics term, the distribution can be visualized as a histogram over the discrete labels.
+Each classical configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. In physics term, the distribution can be visualized as a histogram over the discrete labels.
 \end{cor}
 
 Under the classical assumption, we can then limit ourselves to study the labels of states and their properties without losing generality.
 
 \textbf{State mapping}. We will now concentrate ourselves on deterministic and reversible evolution.
 \begin{assump}\label{detAss}
-The system undergoes deterministic (future state identified by the present state) and reversible (past state identified by the present state) evolution.
+(\emph{Determinism and Reversibility}) The system undergoes deterministic (future state identified by the present state) and reversible (past state identified by the present state) evolution.
 \end{assump}
 
 \begin{prop}\label{detMap}
@@ -101,13 +99,13 @@ Let $I$ be a set of labels of a system that undergoes deterministic and reversib
 \end{prop}
 
 \begin{cor}\label{discreteEv}
-The evolution of a reducible configuration state $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$ under a bijective map is given by $\mathbbm{c}_{j'}=\sum D'(i) \mathbbm{s}_{i}=\sum D(f^{-1}(i)) \mathbbm{s}_{i}$.
+The evolution of a classical configuration state $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$ under a bijective map is given by $\mathbbm{c}_{j'}=\sum D'(i) \mathbbm{s}_{i}=\sum D(f^{-1}(i)) \mathbbm{s}_{i}$.
 \end{cor}
 
-Mathematically, studying \ref{detAss} means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the discrete histogram move place, but keep the same height.
+Mathematically, studying \ref{detAss} means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the histogram move place, but keep the same height.
 
 \begin{defn}\label{labelsIndep}
-Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. Let $f:I \leftrightarrow I$ be a bijective map. The labels are said independent iff we can define two sets of orthogonal labels $I_1'$ and $I_2'$ such that we can define separate mappings:
+Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. Let $f:I \leftrightarrow I$ be a bijective map. The labels are said independent iff we can define two sets of orthogonal labels $I_1'$ and $I_2'$ such that we can define separate maps:
 \begin{enumerate}
 \item $I_1' \times I_2' = I$
 \item there exists a bijective map $f_1: I_1 \leftrightarrow I_1'$
@@ -118,15 +116,15 @@ Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. L
 
 \textbf{State counting}. We now look at how the cardinality of states evolves under a bijective map.
 
-\begin{cor}\label{labelsCount}
+\begin{prop}\label{labelsCount}
 Let $\hat{I} \subset I$ of finite size $n(\hat{I})$. Let $f(\hat{I})$ and $f^{-1}(\hat{I})$ be respectively the forward and backward image of a bijective map. We then have $n(\hat{I})=n(f(\hat{I}))=n(f^{-1}(\hat{I}))$, the number of states is conserved.
-\end{cor}
+\end{prop}
 
-\begin{cor}\label{labelsMultiCount}
+\begin{prop}\label{labelsMultiCount}
 Let $\hat{I_1} \subset I_1$ and $\hat{I_2} \subset I_2$ of finite size $n(\hat{I_1})$ and $n(\hat{I_2})$. Let $f(\hat{I_1})$, $f(\hat{I_2})$, $f^{-1}(\hat{I_1})$ and $f^{-1}(\hat{I_2})$ be the corresponding forward and backward images. We then have $n(\hat{I_1}\times\hat{I_2})=n(\hat{I_1})n(\hat{I_2})=n(f(\hat{I_1})) n(f(\hat{I_2}))=n(f^{-1}(\hat{I_1})) n(f^{-1}(\hat{I_2}))=n(\hat{f(I_1)}\times\hat{f(I_2)})=n(f^{-1}(\hat{I_1})\times f^{-1}(\hat{I_2}))$, the total number of states is conserved and remains the product of the number of labels in each set.
-\end{cor}
+\end{prop}
 
-These statements, properly generalized for the continuous case, will allow us to define a metric. Conserving that metric will lead to Hamiltonian mechanics.
+Bijective maps preserve the number of states as they provide one-to-one association between future and past labels.
 
 \section{Numeric labels}
 
@@ -137,7 +135,7 @@ Consider a continuous numeric range. We divide the full range into contiguous ce
 \end{defn}
 
 \begin{prop}\label{disclabelsoverrdist}
-Each configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i=\sum \rho(i) w(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ is defined as before, and $\rho(i)\equiv D(i) / w(i)$ is the density of the distribution for the cell. In physics term, the distribution can be visualized as a histogram where $w(i)$, $\rho(i)$ and $D(i)$ are respectively the width, height and area of the each bin.
+Each classical configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i=\sum \rho(i) w(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ is defined as before, and $\rho(i)\equiv D(i) / w(i)$ is the density of the distribution for the cell. In physics term, the distribution can be visualized as a histogram where $w(i)$, $\rho(i)$ and $D(i)$ are respectively the width, height and area of the each bin.
 \end{prop}
 
 \begin{cor}\label{discreteEv}
@@ -158,7 +156,7 @@ With homogeneous labels no adjustment is needed, and the range can be used as a 
 A state variable $X$ is the continuous limit of a set $I$ of discrete labels over a continuous range.
 \end{defn}
 
-To prepare for the limit we define $m(i)=w(i)/\Delta w$, where $\Delta w$ represents the average width of the cells. We increase the number of the cells and reduce $\Delta w$ such that $max(m(i))$ is bounded. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
+To prepare for the limit we define $m(i)=w(i)/\bar{w}$, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
 
 \begin{prop}\label{continuousMapping}
 Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping must be continuous.
@@ -167,9 +165,15 @@ Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping
 Assume mapping is discontinuous at point $x$. Consider the cell at $x$ of width $m(x)dx$. The cell would be split into two, so it would not be mapped to one and only one cell.
 
 \begin{prop}\label{widthMapping}
-Let $f: X \leftrightarrow X$ be a bijective map on a state variable, and $x'=f(x)$. Then $\frac{dx'}{dx} = \frac{m(x')}{m(x)} $. If $X$ is homogeneous, then $dx' = dx$ and the range gives us a measure of the cardinality of labels.
+Let $f: X \leftrightarrow X$ be a bijective map on a state variable, and $x'=f(x)$. Then $dx' = \frac{m(x')}{m(x)} dx$. If $X$ is homogeneous, then $dx' = dx$, the range gives us a measure of the cardinality of labels and must be conserved.
 \end{prop}
-The mapping must be done so that the width of the cells is mapped as well, not just the center value. The width of the transported cell $m(x)dx \rightarrow m(x) \frac{dx'}{dx} dx$ must be equal to the width of the target cell $m(x')dx$.
+The mapping must be done so that the width of the cells is mapped as well, not just the center value. The width of the transported cell $m(x)dx \rightarrow m(x) dx'$ must be equal to the width of the target cell $m(x')dx$, which gives us the first part. If $X$ is homogeneous, $m(x)=m(x')=1$, which gives us the second part.
+
+Let $\Delta x$ be a finite range of $X$. Before the limit, we have:
+\begin{align*}
+\Delta x = \frac{\Delta x}{1} = \frac{n(\Delta x) k}{n(1) k} = \frac{n(\Delta x)}{n(1)}
+\end{align*}
+where $n(\Delta x)$ and $n(1)$ are the number of labels/cells in the $\Delta x$ and unit range, while k their width. The range can be seen as the ration between the number of labels in the range and the number of labels in the unit range. That ratio must be conserved by the bijective map and remains well defined during the limit. In this sense, the range can be used as a measure of the cardinality of the labels.
 
 \section{Single degree of freedom}
 
@@ -181,7 +185,7 @@ A degree of freedom is a label set $X$ given by a pair of homogeneous and orthog
 Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Then $dq' \wedge dp' = dq \wedge dp$.
 \end{prop}
 
-This is the equivalent of \ref{widthMapping} for two state variable. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables. Area conservation is equivalent to requiring the invariance of the vector product.
+This is the equivalent of \ref{widthMapping} for two state variable. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables. 
 
 \begin{prop}\label{sdofInvariance}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
@@ -195,6 +199,8 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the manifold iden
 \end{align*}
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under a bijective map.
 \end{prop}
+
+Area conservation is equivalent to requiring the invariance of the vector product, which is what $\omega_{\alpha, \beta}$ represents.
 
 \begin{lem}\label{genAntisim}
 Let $v$ and $w$ be two vectors. Let $v^{\alpha} \omega_{\alpha, \beta} w^{\alpha}$ be an antisymmetric product conserved under a continuous transformation parameterized by $t$. We can then define a function $H$ such that given $S^{\alpha} \equiv d_{t}x^{\alpha}$, the vector field that tells us how the state variables change, $S_{\beta} \equiv S^{\alpha} \omega_{\alpha, \beta}$, we have $S_{\alpha} = \partial_{\alpha}H$.
@@ -309,14 +315,14 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the extended phas
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under detrev transformation.
 \end{prop}
 
-$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{disclabelsoverr}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) changes: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
+$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{disclabelsoverr}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
 
 As in the case of independent d.o.f., we have three planes of conjugate variables forming a right triangle-like relationship with one side invariant.
 \begin{align*}
 &dq^1 \wedge dp^1 + dq^2 \wedge dp^2 = k \\
 &dt \wedge de + k = dq \wedge dp
 \end{align*}
-In the previous case, the right angle was between the two independent degree of freedom. In this case, the right angle is between the invariant and the plane of constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. We rewrite it as $dq \wedge dp - dt \wedge de = k$. Which corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom.
+In the previous case, the right angle was between the two independent degree of freedom. In this case, the right angle is between the invariant and the plane of constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. We rewrite it as $dq \wedge dp - dt \wedge de = k$. Which corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom.\footnote{Adjusted to avoid double counting}
 
 \begin{prop}\label{tdofHam}
 The evolution for time varying multiple degrees of freedom is given by:
@@ -333,29 +339,29 @@ Expand \ref{genAntisim} with the metric defined in \ref{tdofInvariant}, with the
 It should not be a surprise that the equations do not mention $c$. In fact, nothing says that all $q^i$ represent space, and with the same unit, and that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
 
 \begin{prop}\label{tdofConstrain}
-The evolution is constrained by $\mathcal{H}=k$, the generating function defined in \ref{genAntisim} generalized for the extended phase space.
+The evolution is constrained by $\mathcal{H}=k$.
 \end{prop}
 
-Given N degrees of freedom, phase space is $\mathbb{R}^{2*N}$. Extended phase space is $\mathbb{R}^{2*N + 2}$. Phase space evolved in time is $\mathbb{R}^{2*N + 1}$. Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constrain. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion.
+Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constrain. By convention, we could set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $\mathbb{R}^{2*N + 1}$, the state labels plus time.
 
-\textbf{Example}. We wrap up with an example. Let $\mathcal{H}= mc^2 + ((p^i)^2 - E^2/c^2) / 2m$. The constant term represents the rest energy of a free particle, the conjugate of which is proper time. The parametrization of a particle state is $s=\tau$ while the parametrization for an anti-particle state is $s=-\tau$. If we apply \ref{tdofHam} we have:
+\textbf{Example}. We wrap up with an example. Let $\mathcal{H} = mc^2 + ((p^i)^2 - E^2/c^2) / 2m$.  If we apply \ref{tdofHam} we have:
 \begin{align*}
 d_{s}t &= E / mc^2 \\
 d_{s}E &= 0 \\
 d_{s}q^i &= p^i / m \\
 d_{s}p^i &= 0
 \end{align*}
-For particles, we have:
+For particles, let $s=\tau$:
 \begin{align*}
 E / c &= m c d_{\tau}t = m U^0 = P^0 \\
 p^i &= m d_{\tau}q^i = m U^i = P^i \\
 \end{align*}
-so we recognize the four-momentum $P^\alpha = {E/c, p^i}$. For anti-particles:
+so we recognize the four-momentum $P^\alpha = {E/c, p^i}$ and $\tau$ proper time. For anti-particles, let $s=-\tau$:
 \begin{align*}
 - E / c &= m c d_{\tau}t = m U^0 = P^0 \\
 - p^i &= m d_{\tau}q^i = m U^i = P^i \\
 \end{align*}
-we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = {-E/c, -p^i}$.
+we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = {-E/c, -p^i}$.\footnote{This is consistent with a free Dirac field ...} $\mathcal{H}$ relates to the rest energy, the parametrization to proper time (its conjugate). Parametrization and time are aligned for particles and anti-aligned for anti-particles.
 
 \section{Conclusion}
 By deriving Hamiltonian mechanics from simple definitions of labels, states, determinism and reversibility we have given more direct physical meaning to phase space and its geometric properties, and shown that a good part of the Hamiltonian framework can stand on its own, without Lagrangians. No mathematical breakthrough is revealed here, yet I am not aware of any work that brings all the pieces of the puzzle in quite this way: so much derived from so little.
