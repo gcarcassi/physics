@@ -7,6 +7,8 @@
 *.out
 *.toc
 *.bak
+*.sav
+*~
 
 ## Intermediate documents:
 *.dvi
