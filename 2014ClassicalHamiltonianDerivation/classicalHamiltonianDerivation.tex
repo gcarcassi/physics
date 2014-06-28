@@ -265,7 +265,7 @@ then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \
 \end{prop}
 
 The orthogonality of the labels corresponds to orthogonality in phase space, which the mapping needs to preserve across independent degrees of freedom. The cardinality of labels within each degree of freedom corresponds to the area in phase space\footnote{We assume we are using the same unit across d.o.f.}, which the mapping also needs to preserve.\footnote{These statements provide a direct physical interpretation for Gromov's non-squeezing theorem.\cite{Gromov}\cite{deGosson}\cite{Stewart}} This is equivalent to requiring the conservation of the scalar product across independent degrees of freedom, while still requiring conservation of the vector product within. That leads us to the metric defined by \ref{mdofInvariant}.
-The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Moreover, because of \ref{labelsMultiCount}, the product of the areas of each d.o.f. is also conserved; the volume of phase space corresponds to the cardinality of states, which a bijective map conserves: this is the Liouville's theorem.
+The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Moreover, because of \ref{labelsMultiCount}, the product of the areas of each d.o.f. is also conserved; the volume of phase space corresponds to the cardinality of states, which a bijective map conserves: this is the Louisville's theorem.
 
 \begin{prop}\label{mdofHam}
 The evolution for multiple degrees of freedom is given by:
@@ -341,7 +341,7 @@ d_{s}p^i &= - \partial_{q^i} \mathcal{H}
 \end{align*}
 \end{prop}
 
-Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. If we set $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space.\cite{Synge}\cite{Lanczos}\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}
+Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space.\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge}\cite{Lanczos}
 
 It should not be a surprise that the equations do not mention the speed of light $c$. In fact, nothing says that all $q^i$ represent space or that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
 
@@ -351,24 +351,24 @@ The evolution is constrained by $\mathcal{H}=k$.
 
 Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we could set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $\mathbb{R}^{2*N + 1}$, the state variables plus time.
 
-\textbf{Example}. We wrap up with an example. Let $\mathcal{H} = mc^2 + ((p^i)^2 - E^2/c^2) / 2m$ = 0.  If we apply \ref{tdofHam} we have:
+\textbf{Example}. We wrap up with an example. Let $\mathcal{H} = mc^2 + ((p^i)^2 - e^2/c^2) / 2m$ = 0.  If we apply \ref{tdofHam} we have:
 \begin{align*}
-d_{s}t &= E / mc^2 \\
-d_{s}E &= 0 \\
+d_{s}t &= e / mc^2 \\
+d_{s}e &= 0 \\
 d_{s}q^i &= p^i / m \\
 d_{s}p^i &= 0
 \end{align*}
-For standard states, let $s=\tau$:
+For standard states (positive $e$), let $s=\tau$:
 \begin{align*}
-E / c &= m c d_{\tau}t = m U^0 = P^0 \\
+e / c &= m c d_{\tau}t = m U^0 = P^0 \\
 p^i &= m d_{\tau}q^i = m U^i = P^i \\
 \end{align*}
-so we recognize the four-momentum $P^\alpha = [E/c, p^i]$ and $\tau$ proper time. For anti-states, let $s=-\tau$:
+so we recognize the four-momentum $P^\alpha = [e/c, p^i]$ and $\tau$ proper time. For anti-states (negative $e$), let $s=-\tau$:
 \begin{align*}
-- E / c &= m c d_{\tau}t = m U^0 = P^0 \\
+- e / c &= m c d_{\tau}t = m U^0 = P^0 \\
 - p^i &= m d_{\tau}q^i = m U^i = P^i \\
 \end{align*}
-we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = [-E/c, -p^i]$.\footnote{This is consistent with the Dirac field where we have $[i\hbar\partial_t, -i\hbar\partial_{x^i}]$ for generators and $\psi^\dagger\gamma^0[i\hbar\partial_t, -i\hbar\partial_{x^i}]\psi$ for observables, and $\gamma^0$ is $1$ for particles and $-1$ for anti-particles.} $\mathcal{H}$ relates to the rest energy, the parametrization to proper time (its conjugate). Parametrization and time are aligned for standard states and anti-aligned for anti-states.
+we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = [-e/c, -p^i]$.\footnote{This is consistent with the Dirac field where we have $[i\hbar\partial_t, -i\hbar\partial_{x^i}]$ for generators and $\psi^\dagger\gamma^0[i\hbar\partial_t, -i\hbar\partial_{x^i}]\psi$ for observables, and $\gamma^0$ is $1$ for particles and $-1$ for anti-particles.} $\mathcal{H}$ relates to the rest energy, the parametrization to proper time (its conjugate). Parametrization and time are aligned for standard states and anti-aligned for anti-states.
 
 \section{Conclusion}
 By deriving Hamiltonian mechanics from simple definitions of labels, states, determinism and reversibility we have given more direct physical meaning to phase space and its geometric properties, and shown that a good part of the Hamiltonian framework can stand on its own, without Lagrangians. The further emergence of the Minkowsky metric and the distinction between standard and anti-states by the inclusion of the temporal d.o.g. is also noteworthy. No mathematical breakthrough is revealed here, yet I am not aware of any work that brings all the pieces of the puzzle together in quite this way: so much derived from so little.
