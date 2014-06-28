@@ -66,11 +66,11 @@ Let $I$ be a set of labels. Let $\mathbbm{C}_{I}$ be the set of all possible con
 
 The following definitions allow us to use multiple labels.
 
-\begin{defn}\label{combine label}
+\begin{defn}\label{labelsCombine}
 Let $I_1$ and $I_2$ be two sets of labels. We call $I = \langle I_1, I_2 \rangle$ a \emph{combined set of labels} if an injective map $f:I \rightarrowtail I_1, I_2$ exists that maps an element of $I$ to a pair of elements of $I_1$ and $I_2$.
 \end{defn}
 
-\begin{defn}\label{orth}
+\begin{defn}\label{labelsOrth}
 The two label sets $I_1$ and $I_2$ are said to be \emph{orthogonal} iff $I = \langle I_1, I_2 \rangle = I_1 \times I_2$.
 \end{defn}
 
@@ -80,11 +80,11 @@ The following assumptions and definitions allow us to describe a configuration s
 The system is infinitely reducible: it can be thought as composed by two or more similar but smaller systems, each in its own configuration state, which also can be thought as composed by two or more, ad infinitum.
 \end{assump1}
 
-\begin{defn}\label{statedef}
+\begin{defn}\label{classicalPhaseSpace}
 Let $\mathbbm{S}_I$ be the set of all possible configuration states of the infinitesimal subdivision. We call this set \emph{phase space}. We call each element $\mathbbm{s}_i$ a \emph{state}.
 \end{defn}
 
-\begin{cor}\label{statedistr}
+\begin{cor}\label{classicalDistribution}
 Each classical configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. In physics term, the distribution can be visualized as a histogram over the discrete labels.
 \end{cor}
 
@@ -96,11 +96,11 @@ Under the classical assumption, we can then limit ourselves to study the labels 
 The system undergoes deterministic (future state identified by the present state) and reversible (past state identified by the present state) evolution.
 \end{assump2}
 
-\begin{prop}\label{detMap}
+\begin{prop}\label{detrevMap}
 Let $I$ be a set of labels of a system that undergoes deterministic and reversible evolution. There exists a bijective map $f:I \leftrightarrow I$.
 \end{prop}
 
-\begin{cor}\label{discreteEv}
+\begin{cor}\label{detrevDist}
 The evolution of a classical configuration state $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$ under a bijective map is given by $\mathbbm{c}_{j'}=\sum D'(i) \mathbbm{s}_{i}=\sum D(f^{-1}(i)) \mathbbm{s}_{i}$.
 \end{cor}
 
@@ -132,21 +132,21 @@ Bijective maps preserve the number of states as they provide one-to-one associat
 
 \textbf{Discrete labels over $\mathbb{R}$}. Labels often will be numbers. For integers, we simply use $\mathbb{Z}$ as our set of labels. For real numbers, we need to update our definitions.
 
-\begin{defn}\label{disclabelsoverr}
+\begin{defn}\label{discreteLabelDef}
 Consider a continuous numeric range. We divide the full range into contiguous cells. Let $I$ be the set of cells. For each cell we have a center value $x: I \mapsto \mathbb{R}$ and a width $w: I \mapsto \mathbb{R}$. $I$ is a set of \emph{discrete labels over a continuous range}.
 \end{defn}
 
-\begin{prop}\label{disclabelsoverrdist}
+\begin{prop}\label{discreteLabelDist}
 Each classical configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i=\sum \rho(i) w(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ is defined as before, and $\rho(i)\equiv D(i) / w(i)$ is the density of the distribution for the cell. In physics terms, the distribution can be visualized as a histogram where $w(i)$, $\rho(i)$ and $D(i)$ are respectively the width, height and area of each bin.
 \end{prop}
 
-\begin{cor}\label{discreteEv}
+\begin{cor}\label{discreteLabelEv}
 Let $f: I \leftrightarrow I$ be a bijective map. We have $\mathbbm{c}_{j'}=\sum D'(i) \mathbbm{s}_i=\sum \rho'(i) w(i) \mathbbm{s}_i = \sum D(f^{-1}(i)) \mathbbm{s}_i = \sum \rho(f^{-1}(i)) w(f^{-1}(i)) \mathbbm{s}_i$. $\rho'(i) = \rho(f^{-1}(i)) w(f^{-1}(i)) / w(i)$.
 \end{cor}
 
 The area moves from one cell of the histogram to the other. The height needs to be adjusted if the cell is of a different size.
 
-\begin{defn}\label{discreteHomogeneous}
+\begin{defn}\label{discreteLabelHomogeneous}
 A set $I$ of discrete labels over a continuous range is said to be \emph{homogeneous} if $w(i)=k$: the bins are of equal width.
 \end{defn}
 
@@ -322,7 +322,7 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the manifold iden
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under deterministic and reversible evolution.
 \end{prop}
 
-$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{disclabelsoverr}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
+$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{discreteLabelDef}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
 
 We have right triangle-like relationship between the plane where the invariant is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
 \begin{align*}
@@ -341,7 +341,7 @@ d_{s}p^i &= - \partial_{q^i} \mathcal{H}
 \end{align*}
 \end{prop}
 
-Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. If we set $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space.\cite{Synge}\cite{Lanczos}\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary. In fact, it may not need be constant within and across trajectories.}
+Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. If we set $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space.\cite{Synge}\cite{Lanczos}\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}
 
 It should not be a surprise that the equations do not mention the speed of light $c$. In fact, nothing says that all $q^i$ represent space or that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
 
