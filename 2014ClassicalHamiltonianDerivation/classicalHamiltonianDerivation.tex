@@ -158,7 +158,7 @@ With homogeneous labels no adjustment is needed, and the range can be used as a 
 A \emph{state variable} $X$ is the continuous limit of a set $I$ of discrete labels over a continuous range.
 \end{defn}
 
-To prepare for the limit we define $m(i)=w(i)/\bar{w}$\footnote{This $m(x)$ solves the same problems addressed by the invariant measure $m(x)$ introduced by Jaynes\cite{Jaynes}, which modifies Shannon's differential information entropy definition\cite{Shannon} to be invariant under coordinate transformation.}, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
+To prepare for the limit we define\footnote{This $m(x)$ solves the same problems addressed by the invariant measure $m(x)$ introduced by Jaynes\cite{Jaynes}, which modifies Shannon's differential information entropy definition\cite{Shannon} to be invariant under coordinate transformation.} $m(i)=w(i)/\bar{w}$, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
 
 \begin{prop}\label{continuousMapping}
 Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping must be continuous.
@@ -288,13 +288,13 @@ The \emph{temporal degree of freedom} is a label set $X$ given by the pair of co
 Let $s$ be the parameter of a trajectory in the extended phase space of a deterministic and reversible system. The trajectory must be continuous. There must exist a strictly monotonic function $t(s)$.
 \end{prop}
 
-The trajectory has to be continuous in both spatial and temporal variables because of \ref{continuousMapping}. Since determinism and reversibility are defined in time, the trajectory must traverse all times once and only once: we must have an invertible mapping between $t$ and $s$, which means we must have a strictly monotonic $t(s)$.
+The trajectory has to be continuous in both standard and temporal variables because of \ref{continuousMapping}. Since determinism and reversibility are defined in time, the trajectory must traverse all times once and only once: we must have an invertible mapping between $t$ and $s$, which means we must have a strictly monotonic $t(s)$.
 
 \begin{defn}\label{tdofAntistates}
-We call \emph{standard states} those connected by a trajectory where $dt/ds>0$. We call \emph{anti-states} those connected by a trajectory where $dt/ds<0$.
+We call \emph{standard states} those connected by a trajectory where $d_{s}t>0$. We call \emph{anti-states} those connected by a trajectory where $d_{s}t<0$.
 \end{defn}
 
-Since $t(s)$ is strictly monotonic, $dt/ds$ along a trajectory cannot change sign, so we have the division between particle and anti-particle states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that particle and anti-particle states cannot be connected by deterministic and reversible evolution.
+Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between particle and anti-particle states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that particle and anti-particle states cannot be connected by deterministic and reversible evolution.
 
 \begin{prop}\label{tdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by the temporal degree of freedom and one standard degree of freedom. Let $\alpha$ and $\beta$ be indexes for the state variables $t, e, q, p$. Let
@@ -324,7 +324,7 @@ then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \
 
 $\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{discreteLabelDef}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
 
-We have right triangle-like relationship between the plane where the invariant is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
+We have a right triangle-like relationship between the plane where the invariant is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
 \begin{align*}
 m.d.o.f \;\;\; &dq^1 \wedge dp^1 + dq^2 \wedge dp^2 = k \\
 t.d.o.f \;\;\; &dt \wedge de + k = dq \wedge dp \\
@@ -341,7 +341,9 @@ d_{s}p^i &= - \partial_{q^i} \mathcal{H}
 \end{align*}
 \end{prop}
 
-Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge,Lanczos}.
+Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$.
+
+If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge,Lanczos}.
 
 It should not be a surprise that the equations do not mention the speed of light $c$. In fact, nothing says that all $q^i$ represent space or that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
 
@@ -371,7 +373,7 @@ so we recognize the four-momentum $P^\alpha = [e/c, p^i]$ and $\tau$ proper time
 we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = [-e/c, -p^i]$.\footnote{This is consistent with the Dirac field where we have $[i\hbar\partial_t, -i\hbar\partial_{x^i}]$ for generators and $\psi^\dagger\gamma^0[i\hbar\partial_t, -i\hbar\partial_{x^i}]\psi$ for observables, and $\gamma^0$ is $1$ for particles and $-1$ for anti-particles.} $\mathcal{H}$ relates to the rest energy, the parametrization to proper time (its conjugate). Parametrization and time are aligned for standard states and anti-aligned for anti-states.
 
 \section{Conclusion}
-By deriving Hamiltonian mechanics from simple definitions of labels, states, determinism and reversibility we have given more direct physical meaning to phase space and its geometric properties, and shown that a good part of the Hamiltonian framework can stand on its own, without Lagrangians. The further emergence of the Minkowsky metric and the distinction between standard and anti-states by the inclusion of the temporal d.o.g. is also noteworthy. No mathematical breakthrough is revealed here, yet I am not aware of any work that brings all the pieces of the puzzle together in quite this way: so much derived from so little.
+By deriving Hamiltonian mechanics from simple definitions of labels, states, determinism and reversibility we have given more direct physical meaning to phase space and its geometric properties, and shown that a good part of the Hamiltonian framework can stand on its own, without Lagrangians. The further emergence of the Minkowsky metric and the distinction between standard and anti-states by the inclusion of the temporal d.o.f. is also noteworthy. No mathematical breakthrough is revealed here, yet I am not aware of any work that brings all the pieces of the puzzle together in quite this way: so much derived from so little.
 
 The hope is that, by continuing in this approach, we can shed more light on why the laws of physics are what they are; and show that they are not arbitrary rules, but necessary given few simple assumptions.
 
