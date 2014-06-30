@@ -158,7 +158,7 @@ With homogeneous labels no adjustment is needed, and the range can be used as a 
 A \emph{state variable} $X$ is the continuous limit of a set $I$ of discrete labels over a continuous range.
 \end{defn}
 
-To prepare for the limit we define $m(i)=w(i)/\bar{w}$\footnote{This $m(x)$ solves the same problems addressed by the invariant measure $m(x)$ introduced by Jaynes\cite{Jaynes} in the limiting density of discrete points, which adjusts Shannon's differential information entropy definition to make it invariant.\cite{Shannon}}, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
+To prepare for the limit we define $m(i)=w(i)/\bar{w}$\footnote{This $m(x)$ solves the same problems addressed by the invariant measure $m(x)$ introduced by Jaynes\cite{Jaynes}, which modifies Shannon's differential information entropy definition to be invariant under coordinate transformation\cite{Shannon}.}, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
 
 \begin{prop}\label{continuousMapping}
 Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping must be continuous.
@@ -264,7 +264,7 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the manifold iden
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under a bijective map.
 \end{prop}
 
-The orthogonality of the labels corresponds to orthogonality in phase space, which the mapping needs to preserve across independent degrees of freedom. The cardinality of labels within each degree of freedom corresponds to the area in phase space\footnote{We assume we are using the same unit across d.o.f.}, which the mapping also needs to preserve.\footnote{These statements provide a direct physical interpretation for Gromov's non-squeezing theorem.\cite{Gromov}\cite{deGosson}\cite{Stewart}} This is equivalent to requiring the conservation of the scalar product across independent degrees of freedom, while still requiring conservation of the vector product within. That leads us to the metric defined by \ref{mdofInvariant}.
+The orthogonality of the labels corresponds to orthogonality in phase space, which the mapping needs to preserve across independent degrees of freedom. The cardinality of labels within each degree of freedom corresponds to the area in phase space\footnote{We assume we are using the same unit across d.o.f.}, which the mapping also needs to preserve.\footnote{These statements provide a direct physical interpretation for Gromov's non-squeezing theorem\cite{Gromov,deGosson,Stewart}.} This is equivalent to requiring the conservation of the scalar product across independent degrees of freedom, while still requiring conservation of the vector product within. That leads us to the metric defined by \ref{mdofInvariant}.
 The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Moreover, because of \ref{labelsMultiCount}, the product of the areas of each d.o.f. is also conserved; the volume of phase space corresponds to the cardinality of states, which a bijective map conserves: this is the Louisville's theorem.
 
 \begin{prop}\label{mdofHam}
@@ -326,8 +326,8 @@ $\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as
 
 We have right triangle-like relationship between the plane where the invariant is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
 \begin{align*}
-m.d.o.f &dq^1 \wedge dp^1 + dq^2 \wedge dp^2 = k \\
-t.d.o.t &dt \wedge de + k = dq \wedge dp
+m.d.o.f \;\;\; &dq^1 \wedge dp^1 + dq^2 \wedge dp^2 = k \\
+t.d.o.f \;\;\; &dt \wedge de + k = dq \wedge dp \\
 \end{align*}
 But in the previous case, the right angle was between the two independent d.o.f.. In this case, the right angle is between the invariant and the plane of constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. We rewrite it as $dq \wedge dp - dt \wedge de = k$. This corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom.\footnote{Adjusted to avoid double counting.}
 
@@ -341,7 +341,7 @@ d_{s}p^i &= - \partial_{q^i} \mathcal{H}
 \end{align*}
 \end{prop}
 
-Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space.\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge}\cite{Lanczos}
+Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$. If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge,Lanczos}.
 
 It should not be a surprise that the equations do not mention the speed of light $c$. In fact, nothing says that all $q^i$ represent space or that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
 
