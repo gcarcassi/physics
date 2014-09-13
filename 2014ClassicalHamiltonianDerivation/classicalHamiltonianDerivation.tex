@@ -39,38 +39,33 @@ We'll give simple definitions of states in terms of labels and of determinism/re
 
 No mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}.
 
-\section{States}
-\textbf{State definition}. We assume we have a physical system that can be found in different configurations. We call each unique configuration \emph{configuration state} and assign it a \emph{label}. For our purposes, it does not matter what the label is (a measurement, a way to prepare the system, future behavior, ...), just that it exists.
+\section{States, Labels and Maps}
 
 \begin{defn}\label{statedef}
-Let $I$ be a set of labels. Let $\mathbbm{C}_{I}$ be the set of all possible configuration states of our system identified by the labels. $\forall i \in I, \exists \mathbbm{c}_{i} \in \mathbbm{C}_{I}$.
+Fix a physical system for study. We define the set $\mathbbm{C}$ of all physically distinguishable configurations for that system. Each element $\mathbbm{c}$ we call \emph{configuration state}.
 \end{defn}
-
-The following definitions allow us to use multiple labels.
-
-\begin{defn}\label{labelsCombine}
-Let $I_1$ and $I_2$ be two sets of labels. We call $I = \langle I_1, I_2 \rangle$ a \emph{combined set of labels} if an injective map $f:I \rightarrowtail I_1, I_2$ exists that maps an element of $I$ to a pair of elements of $I_1$ and $I_2$.
-\end{defn}
-
-\begin{defn}\label{labelsOrth}
-The two label sets $I_1$ and $I_2$ are said to be \emph{orthogonal} iff $I = \langle I_1, I_2 \rangle = I_1 \times I_2$.
-\end{defn}
-
-The following assumptions and definitions allow us to describe a configuration state by its parts.
 
 \begin{assump1}\label{classical}
 The system is infinitely reducible: it can be thought as composed by two or more similar but smaller systems, each in its own configuration state, which also can be thought as composed by two or more, ad infinitum.
 \end{assump1}
 
 \begin{defn}\label{classicalPhaseSpace}
-Let $\mathbbm{S}_I$ be the set of all possible configuration states of the infinitesimal subdivision. We call this set \emph{phase space}. We call each element $\mathbbm{s}_i$ a \emph{state}.
+Let $\mathbbm{S}$ be the set of all possible configuration states of the infinitesimal subdivision. We call this set \emph{phase space}. We call each element $\mathbbm{s}$ a \emph{state}.
 \end{defn}
 
 \begin{cor}\label{classicalDistribution}
-Each classical configuration state $\mathbbm{c}_j \in \mathbbm{C}_J$ can be identified by a distribution over states: $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. In physics term, the distribution can be visualized as a histogram over the discrete labels.
+Each classical configuration state $\mathbbm{c} \in \mathbbm{C}$ is a distribution over states: $\mathbbm{c}=\sum\limits_{\mathbbm{s} \in \mathbbm{S}} D(\mathbbm{s}) \mathbbm{s}$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. The distribution can be visualized as a histogram over the states in phase space.
 \end{cor}
 
-Under the classical assumption, we can then limit ourselves to study the labels of states and their properties without loss of generality.
+Under the classical assumption, we can then limit ourselves to the study of the infinitesimal elements, their states and their properties without loss of generality.
+
+\begin{defn}\label{label}
+To help identify states, we introduce the following: we call a \emph{label} a set of states $i\subset\mathbbm{S}$; a \emph{set of labels} a collection of disjoint labels $I | \forall i_1,i_2\in I, i_1\bigcap i_2 = \emptyset$; a \emph{state variable} a set of labels $X$ that covers all of phase space: $\bigcup\limits_{i \in X}i=\mathbbm{S}$. Therefore a state is in one and only one label of a state variable.
+\end{defn}
+
+\begin{defn}\label{labelsCombine}
+Let $I_1$ and $I_2$ be two sets of labels. We can define the \emph{combined set}, $\langle I_1, I_2 \rangle$, whose labels consist of all the non-empty intersections of one label of $I_1$ and one of $I_2$. If all intersections are non-empty, $I_1$ and $I_2$ are said to be \emph{orthogonal}, and the total number of labels of $\langle I_1, I_2 \rangle$ is given by the product of the number of labels in $I_1$ and $I_2$.
+\end{defn}
 
 \textbf{State mapping}. We will now concentrate on deterministic and reversible evolution.
 
@@ -79,23 +74,21 @@ The system undergoes deterministic (future state identified by the present state
 \end{assump2}
 
 \begin{prop}\label{detrevMap}
-Let $I$ be a set of labels of a system that undergoes deterministic and reversible evolution. There exists a bijective map $f:I \leftrightarrow I$.
+Let $S$ be the set of configuration states of a system that undergoes deterministic and reversible evolution. There exists a bijective map $f:S \leftrightarrow S$.
 \end{prop}
 
 \begin{cor}\label{detrevDist}
-The evolution of a classical configuration state $\mathbbm{c}_j=\sum D(i) \mathbbm{s}_i$ under a bijective map is given by $\mathbbm{c}_{j'}=\sum D'(i) \mathbbm{s}_{i}=\sum D(f^{-1}(i)) \mathbbm{s}_{i}$.
+The evolution of a classical configuration state $\mathbbm{c}=\sum D(s) \mathbbm{s}$ under a bijective map is given by $\mathbbm{c'}=\sum D'(s) \mathbbm{s}=\sum D(f^{-1}(s)) \mathbbm{s}$.
 \end{cor}
 
 Mathematically, assuming determinism and reversibility means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the histogram move place, but keep the same height.
 
+\begin{cor}\label{detrevDist}
+Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels. Given a state variable $X$, the image $f(X)$ is also a state variable.
+\end{cor}
+
 \begin{defn}\label{labelsIndep}
-Let $I_1$ and $I_2$ be two orthogonal sets of labels and $I = I_1 \times I_2$. Let $f:I \leftrightarrow I$ be a bijective map. We call the labels \emph{independent} iff we can define two sets of orthogonal labels $I_1'$ and $I_2'$ such that we can define separate maps:
-\begin{enumerate}
-\item $I_1' \times I_2' = I$
-\item there exists a bijective map $f_1: I_1 \leftrightarrow I_1'$
-\item there exists a bijective map $f_2: I_2 \leftrightarrow I_2'$
-\item $f(i) = \langle f_1(i_1), f_2(i_2)\rangle$
-\end{enumerate}
+Let $I_1$ and $I_2$ be two orthogonal sets of labels. They are said to be \emph{independent} if and only if the image of the combined set $f(\langle I_1, I_2 \rangle)$ is equal to the combined set of the images $\langle f(I_1), f(I_2) \rangle$. It follows that $f(I_1)$ and $f(I_2)$ are orthogonal.
 \end{defn}
 
 \textbf{State counting}. We now look at how the cardinality of states evolves under a bijective map.
