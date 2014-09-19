@@ -57,14 +57,14 @@ Let $\mathbbm{S}$ be the set of all possible configuration states of the infinit
 Each classical configuration state $\mathbbm{c} \in \mathbbm{C}$ is a distribution over states: $\mathbbm{c}=\sum\limits_{\mathbbm{s} \in \mathbbm{S}} D(\mathbbm{s}) \mathbbm{s}$, where $D:I\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}_i$. The distribution can be visualized as a histogram over the states in phase space.
 \end{cor}
 
-Under the classical assumption, we can then limit ourselves to the study of the infinitesimal elements, their states and their properties without loss of generality.
+Under the classical assumption, we can then limit ourselves to the study of the infinitesimal elements, their states and their properties without loss of generality. To help identify states, we introduce the following definitions.
 
 \begin{defn}\label{label}
-To help identify states, we introduce the following: we call a \emph{label} a set of states $i\subset\mathbbm{S}$; a \emph{set of labels} a collection of disjoint labels $I | \forall i_1,i_2\in I, i_1\bigcap i_2 = \emptyset$; a \emph{state variable} a set of labels $X$ that covers all of phase space: $\bigcup\limits_{i \in X}i=\mathbbm{S}$. Therefore a state is in one and only one label of a state variable.
+We call a \emph{label} a set of states $i\subset\mathbbm{S}$; a \emph{set of labels} a collection of disjoint labels $I | \forall i_1,i_2\in I, i_1\bigcap i_2 = \emptyset$; a \emph{state variable} a set of labels $X$ that covers all of phase space: $\bigcup\limits_{i \in X}i=\mathbbm{S}$. Therefore a state belongs to one and only one label of a state variable.
 \end{defn}
 
 \begin{defn}\label{labelsCombine}
-Let $I_1$ and $I_2$ be two sets of labels. We can define the \emph{combined set}, $\langle I_1, I_2 \rangle$, whose labels consist of all the non-empty intersections of one label of $I_1$ and one of $I_2$. If all intersections are non-empty, $I_1$ and $I_2$ are said to be \emph{orthogonal}, and the total number of labels of $\langle I_1, I_2 \rangle$ is given by the product of the number of labels in $I_1$ and $I_2$.
+Let $I_1$ and $I_2$ be two sets of labels. We can define the \emph{combined set}, $\langle I_1, I_2 \rangle$, whose labels consist of all the non-empty intersections of one label of $I_1$ and one of $I_2$. If all intersections are non-empty, $I_1$ and $I_2$ are said to be \emph{independent}, and we have $n(\langle I_1, I_2 \rangle)=n(I_1)*n(I_2)$ where $n: I \rightarrow \mathbbm{R}$ gives the number of labels of each set.
 \end{defn}
 
 \textbf{State mapping}. We will now concentrate on deterministic and reversible evolution.
@@ -83,29 +83,15 @@ The evolution of a classical configuration state $\mathbbm{c}=\sum D(s) \mathbbm
 
 Mathematically, assuming determinism and reversibility means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the histogram move place, but keep the same height.
 
-\begin{cor}\label{detrevDist}
-Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels. Given a state variable $X$, the image $f(X)$ is also a state variable.
+\begin{cor}\label{labelsCount}
+Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels. Given a state variable $X$, the image $f(X)$ is also a state variable. Given two independent sets of labels $I_1$ and $I_2$, the images $f(I_1)$ and $f(I_2)$ are also independent.
 \end{cor}
 
-\begin{defn}\label{labelsIndep}
-Let $I_1$ and $I_2$ be two orthogonal sets of labels. They are said to be \emph{independent} if and only if the image of the combined set $f(\langle I_1, I_2 \rangle)$ is equal to the combined set of the images $\langle f(I_1), f(I_2) \rangle$. It follows that $f(I_1)$ and $f(I_2)$ are orthogonal.
-\end{defn}
-
-\textbf{State counting}. We now look at how the cardinality of states evolves under a bijective map.
-
-\begin{prop}\label{labelsCount}
-Let $\hat{I} \subset I$ of finite size $n(\hat{I})$. Let $f(\hat{I})$ and $f^{-1}(\hat{I})$ be respectively the forward and backward image of a bijective map. We then have $n(\hat{I})=n(f(\hat{I}))=n(f^{-1}(\hat{I}))$, the number of states is conserved.
-\end{prop}
-
-\begin{prop}\label{labelsMultiCount}
-Let $\hat{I_1} \subset I_1$ and $\hat{I_2} \subset I_2$ of finite size $n(\hat{I_1})$ and $n(\hat{I_2})$. Let $f(\hat{I_1})$, $f(\hat{I_2})$, $f^{-1}(\hat{I_1})$ and $f^{-1}(\hat{I_2})$ be the corresponding forward and backward images. We then have $n(\hat{I_1}\times\hat{I_2})=n(\hat{I_1})n(\hat{I_2})=n(f(\hat{I_1})) n(f(\hat{I_2}))=n(f^{-1}(\hat{I_1})) n(f^{-1}(\hat{I_2}))=n(\hat{f(I_1)}\times\hat{f(I_2)})=n(f^{-1}(\hat{I_1})\times f^{-1}(\hat{I_2}))$, the total number of states is conserved and remains the product of the number of labels in each set.
-\end{prop}
-
-Bijective maps preserve the number of states as they provide one-to-one association between future and past labels.
+Bijective maps preserve the number of labels as they provide one-to-one association between future and past. And they do so for each independent set of labels. These simple results, properly generalized to the continuous case, will give us Hamiltonian flow.
 
 \section{Numeric labels}
 
-\textbf{Discrete labels over $\mathbb{R}$}. Labels often will be numbers. For integers, we simply use $\mathbb{Z}$ as our set of labels. For real numbers, we need to update our definitions.
+\textbf{Discrete labels over $\mathbb{R}$}. Labels often will be numbers. For integers, there will be a one-to-one map between $z\in\mathbb{Z}$ and $i\in I$. Therefore we can use $I$ to both refer to the set of labels and the set of numbers they correspond to. For real numbers, each label will correspond to an interval.
 
 \begin{defn}\label{discreteLabelDef}
 Consider a continuous numeric range. We divide the full range into contiguous cells. Let $I$ be the set of cells. For each cell we have a center value $x: I \mapsto \mathbb{R}$ and a width $w: I \mapsto \mathbb{R}$. $I$ is a set of \emph{discrete labels over a continuous range}.
@@ -125,18 +111,18 @@ The area moves from one cell of the histogram to the other. The height needs to 
 A set $I$ of discrete labels over a continuous range is said to be \emph{homogeneous} if $w(i)=k$: the bins are of equal width.
 \end{defn}
 
-With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.
+With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.\footnote{Note that homogeneous labels are not arbitrary: they depend on the map. Any non-linear transformation will transform homogeneous labels in non-homogeneous labels. Therefore either we require specific labels, and the map will tell us whether they are homogeneous, or require homogeneous labels, and the map will determine what they are, up to a linear transformation.}
 
 \textbf{Continuous labels over $\mathbb{R}$}. We now make the bin width arbitrarily small.
 
 \begin{defn}\label{continuousLabels}
-A \emph{state variable} $X$ is the continuous limit of a set $I$ of discrete labels over a continuous range.
+A \emph{continuous state variable} $X$ is the continuous limit of a set $I$ of discrete labels over all $\mathbb{R}$.
 \end{defn}
 
 To prepare for the limit we define\footnote{This $m(x)$ solves the same problems addressed by the invariant measure $m(x)$ introduced by Jaynes\cite{Jaynes}, which modifies Shannon's differential information entropy definition\cite{Shannon} to be invariant under coordinate transformation.} $m(i)=w(i)/\bar{w}$, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}_j=\int \rho(x) m(x) \mathbbm{s}_x dx$.
 
 \begin{prop}\label{continuousMapping}
-Let $f: X \leftrightarrow X$ be a bijective map on a state variable. The mapping must be continuous.
+Let $f: X \leftrightarrow X$ be a bijective map on a continuous state variable. The mapping must be continuous.
 \end{prop}
 Assume mapping is discontinuous at point $x$. Consider the cell at $x$ of width $m(x)dx$. The cell would be split into two, so it would not be mapped to one and only one cell. Therefore the mapping must be continuous.
 
@@ -154,14 +140,14 @@ where $n(\Delta x)$ and $n(1)$ are the number of labels/cells in the $\Delta x$ 
 \section{Single degree of freedom}
 
 \begin{defn}\label{sdof}
-A \emph{degree of freedom} is a label set $X$ given by a pair of homogeneous and orthogonal state variables $P$ and $Q$. We call these \emph{conjugate variables}.
+A \emph{degree of freedom} is a label set $X$ given by a pair\footnote{Having exactly two variables for each d.o.f. is linked to the laws of physics being second order. It's justification will be part of a later work.} of homogeneous and orthogonal state variables $P$ and $Q$. We call these \emph{conjugate variables}.
 \end{defn}
 
 \begin{prop}\label{sdofMap}
 Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Then $dq' \wedge dp' = dq \wedge dp$.
 \end{prop}
 
-This is the equivalent of \ref{widthMapping} for two state variables. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables.
+This is the equivalent of \ref{widthMapping} for two state variables. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables.\footnote{P' and Q' remain homogeneous but not, in general, orthogonal.}
 
 \begin{prop}\label{sdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
@@ -239,8 +225,8 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the manifold iden
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under a bijective map.
 \end{prop}
 
-The orthogonality of the labels corresponds to orthogonality in phase space, which the mapping needs to preserve across independent degrees of freedom. The cardinality of labels within each degree of freedom corresponds to the area in phase space\footnote{We assume we are using the same unit across d.o.f.}, which the mapping also needs to preserve.\footnote{These statements provide a direct physical interpretation for Gromov's non-squeezing theorem\cite{Gromov,deGosson,Stewart}.} This is equivalent to requiring the conservation of the scalar product across independent degrees of freedom, while still requiring conservation of the vector product within. That leads us to the metric defined by \ref{mdofInvariant}.
-The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Moreover, because of \ref{labelsMultiCount}, the product of the areas of each d.o.f. is also conserved; the volume of phase space corresponds to the cardinality of states, which a bijective map conserves: this is the Louisville's theorem.
+The independence of the homogeneous state variables corresponds to orthogonality in phase space: from \ref{labelsCombine} the product between the number of labels on each d.o.f. (i.e. the area), must be equal to the number of combines labels (i.e. the hyper-volume), which is true only if the d.o.f are orthogonal in phase space. From \ref{labelsCount}, the mapping will preserve the cardinality of labels, the area\footnote{We assume we are using the same unit across d.o.f.} on each d.o.f, and the independence, orthogonality across d.o.f.\footnote{These statements provide a direct physical interpretation for Gromov's non-squeezing theorem\cite{Gromov,deGosson,Stewart}.} This is equivalent to requiring the conservation of the scalar product across independent degrees of freedom, while still requiring conservation of the vector product within. That leads us to the metric defined by \ref{mdofInvariant}.
+The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Volume in phase space corresponds to the cardinality of the combined labels, and is therefore conserved: this is the Louisville's theorem.
 
 \begin{prop}\label{mdofHam}
 The evolution for multiple degrees of freedom is given by:
@@ -269,7 +255,7 @@ The trajectory has to be continuous in both standard and temporal variables beca
 We call \emph{standard states} those connected by a trajectory where $d_{s}t>0$. We call \emph{anti-states} those connected by a trajectory where $d_{s}t<0$.
 \end{defn}
 
-Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between particle and anti-particle states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that particle and anti-particle states cannot be connected by deterministic and reversible evolution.
+Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between standard and anti states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that standard and anti states cannot be connected by deterministic and reversible evolution.
 
 \begin{prop}\label{tdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by the temporal degree of freedom and one standard degree of freedom. Let $\alpha$ and $\beta$ be indexes for the state variables $t, e, q, p$. Let
@@ -297,7 +283,7 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the manifold iden
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under deterministic and reversible evolution.
 \end{prop}
 
-$\langle T, E \rangle$ are not independent labels from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{discreteLabelDef}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
+$\langle T, E \rangle$ are not independent from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{discreteLabelDef}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
 
 We have a right triangle-like relationship between the plane where the invariant is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
 \begin{align*}
