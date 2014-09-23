@@ -35,7 +35,7 @@ reversible process, the conservation of the cardinality of the labels leads to H
 \section{Introduction}
 In physics Hamiltonian mechanics is usually presented as a reformulation of Lagrangian mechanics, which is how it was originally developed. In this work we aim to derive it on its own, starting from simple physical assumptions, without any reference to Lagrangian mechanics.
 
-We'll give simple definitions of states in terms of labels and of determinism/reversibility in terms of bijective maps; define a metric based on the idea that bijective maps preserve the cardinality of labels; obtain Hamilton's equations from the invariance of that metric.
+We'll give simple definitions of states in terms of labels and of determinism/reversibility in terms of bijective maps; define a metric based on the idea that bijective maps preserve the cardinality of labels; obtain Hamilton's equations from the invariance of that metric. In so doing we will gain better insight in various aspects, such as the geometry of phase space, continuity under evolution, conjugate variable and more.
 
 No mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. What is surprising how so much can be derived from very few definitions.
 
@@ -57,14 +57,14 @@ Let $\mathbbm{S}$ be the set of all possible configuration states of the infinit
 Each classical configuration state $\mathbbm{c} \in \mathbbm{C}$ is a distribution over states: $\mathbbm{c}=\sum\limits_{\mathbbm{s} \in \mathbbm{S}} D(\mathbbm{s}) \mathbbm{s}$, where $D:\mathbbm{S}\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}$. The distribution can be visualized as a histogram over the states in phase space.
 \end{cor}
 
-Under the classical assumption, we can then limit ourselves to the study of the infinitesimal elements, their states and their properties without loss of generality. To help identify states, we introduce the following definitions.
+Under the classical assumption, we can then limit ourselves to the study of the infinitesimal elements, their states and their properties without loss of generality. To help identify states, we introduce the following concepts.
 
 \begin{defn}\label{label}
 We call a \emph{label} a set of states $i\subset\mathbbm{S}$; a \emph{set of labels} a collection of disjoint labels $I | \forall i_1,i_2\in I, i_1\bigcap i_2 = \emptyset$; a \emph{state variable} a set of labels $X$ that covers all of phase space: $\bigcup\limits_{i \in X}i=\mathbbm{S}$. Therefore a state belongs to one and only one label of a state variable.
 \end{defn}
 
 \begin{defn}\label{labelsCombine}
-Let $I_1$ and $I_2$ be two sets of labels. We can define the \emph{combined set}, $\langle I_1, I_2 \rangle$, whose labels consist of all the non-empty intersections of one label of $I_1$ and one of $I_2$. If all intersections are non-empty, $I_1$ and $I_2$ are said to be \emph{independent}, and we have $n(\langle I_1, I_2 \rangle)=n(I_1)*n(I_2)$ where $n: I \rightarrow \mathbbm{R}$ gives the number of labels of each set.
+Let $I_1$ and $I_2$ be two sets of labels. We can define the \emph{combined set}, $\langle I_1, I_2 \rangle$, whose labels consist of all the non-empty intersections of one label of $I_1$ and one of $I_2$. If all intersections are non-empty, $I_1$ and $I_2$ are said to be \emph{independent}, and we have $n(\langle I_1, I_2 \rangle)=n(I_1)n(I_2)$ where $n: I \rightarrow \mathbbm{R}$ gives the number of labels of each set.
 \end{defn}
 
 We now want to study how states and labels evolve in time, under the following assumption.
@@ -78,22 +78,22 @@ Let $\mathbbm{S}$ be the phase space of a system that undergoes deterministic an
 \end{prop}
 
 \begin{cor}\label{detrevDist}
-The evolution of a classical configuration state $\mathbbm{c}=\sum D(s) \mathbbm{s}$ under a bijective map is given by $\mathbbm{c'}=\sum D'(s) \mathbbm{s}=\sum D(f^{-1}(s)) \mathbbm{s}$. The evolution of fraction of the system in a label $D(i)=\sum\limits_{\mathbbm{S} \in i} D(\mathbbm{s})$ is given by $D'(i)=D(f^{-1}(i))$.
+The evolution of a classical configuration state $\mathbbm{c}=\sum D(s) \mathbbm{s}$ under a bijective map is given by $\mathbbm{c'}=\sum D'(s) \mathbbm{s}=\sum D(f^{-1}(s)) \mathbbm{s}$. The evolution of the fraction of the system in a label $D(i)=\sum\limits_{\mathbbm{S} \in i} D(\mathbbm{s})$ is given by $D'(i)=D(f^{-1}(i))$.
 \end{cor}
 
 Mathematically, assuming determinism and reversibility means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the histogram move place, but keep the same height.
 
 \begin{cor}\label{labelsCount}
-Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels. Given a state variable $X$, the image $f(X)$ is also a state variable. Given two independent sets of labels $I_1$ and $I_2$, the images $f(I_1)$ and $f(I_2)$ are also independent.
+Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels. Given a state variable $X$, the image $f(X)$ is also a state variable. Given two independent sets of labels $I_1$ and $I_2$, the images $f(I_1)$ and $f(I_2)$ are also independent. Therefore $n(f(\langle I_1, I_2 \rangle))=n(f(I_1))n(f(I_2))=n(I_1)n(I_2)=n(\langle I_1, I_2 \rangle)$
 \end{cor}
 
 Bijective maps preserve the number of labels as they provide one-to-one association between future and past. And they do so for each independent set of labels. These simple results, properly generalized to the continuous case, will give us Hamiltonian flow.
 
 \section{Numeric labels}
 
-\textbf{Discrete labels over $\mathbb{R}$}. Labels are often numbers. For integers, there will be a one-to-one map between $z\in\mathbb{Z}$ and $i\in I$. Therefore we can use $I$ to both refer to the set of labels and the set of numbers they correspond to. Moreover, from now on we will assume that each numeric label $i$ is enough to identify one and only one state $\mathbb{s}_i$. This way we will be able to define the map on the numeric labels directly.
+\textbf{Discrete labels over $\mathbb{R}$}. Numeric labels are often used in physics. For integers, there will be a one-to-one map between $z\in\mathbbm{Z}$ and $i\in I$. Therefore we can use $I$ to both refer to the set of labels and the set of numbers they correspond to. Moreover, from now on we will assume that each numeric label $i$ is enough to identify one and only one state $\mathbbm{s}_i$. This allows us to define the map on the numeric labels directly.
 
-For real numbers, each label corresponds to an interval, which forces us to update our definitions.
+For real numbers, each label corresponds to an interval according to the following:
 
 \begin{defn}\label{discreteLabelDef}
 Consider a continuous numeric range. We divide the full range into contiguous cells. Let $I$ be the set of cells. For each cell we have a center value $x: I \mapsto \mathbb{R}$ and a width $w: I \mapsto \mathbb{R}$. $I$ is a set of \emph{discrete labels over a continuous range}.
@@ -104,7 +104,7 @@ The configuration state over a discrete label becomes $\mathbbm{c}=\sum D(i) \ma
 \end{prop}
 
 \begin{cor}\label{discreteLabelEv}
-Let $f: I \leftrightarrow I$ be a bijective map.\footnote{} We have $D'(i) = \rho'(i) w(i) = D(f^{-1}(i)) = \rho(f^{-1}(i)) w(f^{-1}(i))$. $\rho'(i) = \rho(f^{-1}(i)) w(f^{-1}(i)) / w(i)$.
+Let $f: I \leftrightarrow I$ be a bijective map. We have $D'(i) = \rho'(i) w(i) = D(f^{-1}(i)) = \rho(f^{-1}(i)) w(f^{-1}(i))$. $\rho'(i) = \rho(f^{-1}(i)) w(f^{-1}(i)) / w(i)$.
 \end{cor}
 
 The area moves from one cell of the histogram to the other. The height needs to be adjusted if the cell is of a different size.
@@ -113,7 +113,7 @@ The area moves from one cell of the histogram to the other. The height needs to 
 A set $I$ of discrete labels over a continuous range is said to be \emph{homogeneous} if $w(i)=k$: the bins are of equal width.
 \end{defn}
 
-With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.\footnote{Since the boundaries between intervals are part of the label, a non-linear transformation will typically transform state variables and its labels from homogeneous to non-homogeneous. Therefore, there is a class of state variables (i.e. phase space basis) that are "special" to the system, not for their physical significance per se, but for their relationship to the state definition.}
+With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.\footnote{Since the boundaries between intervals are part of the label, a non-linear transformation will typically transform state variables and its labels from homogeneous to non-homogeneous. Therefore, there is a class of state variables (i.e. a phase space basis) that hold "special status", not for what they represent physically per se, but for their relationship to state definition.}
 
 \textbf{Continuous labels over $\mathbb{R}$}. We now make the bin width arbitrarily small.
 
@@ -121,7 +121,7 @@ With homogeneous labels no adjustment is needed, and the range can be used as a 
 A \emph{continuous state variable} $X$ is the continuous limit of a set $I$ of discrete labels over all $\mathbb{R}$.
 \end{defn}
 
-To prepare for the limit we define\footnote{This $m(x)$ solves the same problems addressed by the invariant measure $m(x)$ introduced by Jaynes\cite{Jaynes}, which modifies Shannon's differential information entropy definition\cite{Shannon} to be invariant under coordinate transformation.} $m(i)=w(i)/\bar{w}$, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ for the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}=\int \rho(x) m(x) \mathbbm{s}_x dx$.
+To prepare for the limit we define\footnote{This $m(x)$ solves the same problems addressed by the invariant measure $m(x)$ introduced by Jaynes\cite{Jaynes}, which modifies Shannon's differential information entropy definition\cite{Shannon} to be invariant under coordinate transformation.} $m(i)=w(i)/\bar{w}$, where $\bar{w}$ represents the average width of the cells. We increase the number of the cells and reduce $\bar{w}$ while keeping $m(i)$ finite. In the limit we'll have a cell for each value, so we can use $x(i)$ (or simply $x$) instead of $i$ to identify the label. $\rho$ and $m$ will converge to functions defined over $x$. The corresponding configuration state will become $\mathbbm{c}=\int \rho(x) m(x) \mathbbm{s}_x dx$.
 
 \begin{prop}\label{continuousMapping}
 Let $f: X \leftrightarrow X$ be a bijective map on a continuous state variable. The mapping must be continuous.
@@ -142,14 +142,14 @@ where $n(\Delta x)$ and $n(1)$ are the number of labels/cells in the $\Delta x$ 
 \section{Single degree of freedom}
 
 \begin{defn}\label{sdof}
-A \emph{degree of freedom} is a homogeneous two dimensional state variable $X$ given by the combined pair\footnote{Having exactly two variables for each d.o.f. is linked to the laws of physics being second order. Its justification outside of the scope, will be part of a later work.} of two orthogonal state variables $Q$ and $P$. We call these \emph{conjugate variables}.
+A \emph{degree of freedom} is a homogeneous two dimensional state variable $X$ given by the combined pair\footnote{Having exactly two variables for each d.o.f. is linked to the laws of physics being second order. Its justification outside of the scope, will be part of a later work.} of orthogonal state variables $Q$ and $P$. We call these \emph{conjugate variables}.
 \end{defn}
 
 \begin{prop}\label{sdofMap}
 Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Let $Q'=f(Q)$ $P'=f(P)$. Then $dq' \wedge dp' = dq \wedge dp$.
 \end{prop}
 
-This is the equivalent of \ref{widthMapping} for a two dimensional state variables. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation for conjugate variables.\footnote{P' and Q' remain homogeneous but not, in general, orthogonal.}
+This is the equivalent of \ref{widthMapping} for a two dimensional state variables. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation\footnote{Under a generic pair of state variables, the conserved quantity related to the cardinality of labels would be $\int\limits_\mathcal{S}\frac{d\hat{q}\wedge d\hat{p}}{m(\hat{q},\hat{p})} $, not the area. Conjugate variables, therefore, simplify the equations by eliminating "apparent" dynamic that would just be the result of the difference in density of non-homogeneous labels.} for conjugate variables.\footnote{P' and Q' remain homogeneous but not, in general, orthogonal.}
 
 \begin{prop}\label{sdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
@@ -195,6 +195,7 @@ d_{t}p &= - \partial_{q} H
 
 Simply expand \ref{genAntisim} with the metric defined in \ref{sdofInvariant}. We recognize Hamilton's equations for one degree of freedom\cite{classical_dynamics}.
 
+
 \section{Multiple degrees of freedom}
 
 \begin{prop}\label{mdofInvariant}
@@ -237,7 +238,7 @@ d_{t}p^i &= - \partial_{q^i} H
 Expand \ref{genAntisim} with the metric defined in \ref{mdofInvariant}. We recognize Hamilton's equations for multiple degrees of freedom\cite{classical_dynamics}.
 
 \section{Time dependence}
-So far we have assumed that neither state labeling nor mapping change in time. If they do, we need to to use time as a label and therefore introduce an extra degree of freedom.
+So far we have assumed that neither state labeling nor mapping change in time. If they do, we also need to to use time as a label and therefore introduce an extra degree of freedom.
 
 \begin{defn}\label{tdof}
 The \emph{temporal degree of freedom} is homogeneous two dimensional state variable $X$ given by the pair of conjugate variables $T$ and $E$. We call \emph{extended phase space} the outer product between phase space and the temporal degree of freedom.
@@ -253,7 +254,7 @@ The trajectory has to be continuous in both standard and temporal variables beca
 We call \emph{standard states} those connected by a trajectory where $d_{s}t>0$. We call \emph{anti-states} those connected by a trajectory where $d_{s}t<0$.
 \end{defn}
 
-Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between standard and anti-states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call particle and anti-particle states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.
+Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between standard and anti-states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.
 
 \begin{prop}\label{tdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by the temporal degree of freedom and one standard degree of freedom. Let $\alpha$ and $\beta$ be indexes for the state variables $t, e, q, p$. Let
@@ -310,7 +311,7 @@ It should not be a surprise that the equations do not mention the speed of light
 The evolution is constrained by $\mathcal{H}=k$.
 \end{prop}
 
-Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we could set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $\mathbb{R}^{2*N + 1}$, the state variables plus time.
+Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $\mathbb{R}^{2*N + 1}$, the state variables plus time.
 
 \textbf{Example}. We wrap up with an example. Let $\mathcal{H} = mc^2 + ((p^i)^2 - e^2/c^2) / 2m$ = 0.  If we apply \ref{tdofHam} we have:
 \begin{align*}
