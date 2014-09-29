@@ -35,7 +35,7 @@ reversible process, the conservation of the cardinality of the labels leads to H
 \section{Introduction}
 In physics Hamiltonian mechanics is usually presented as a reformulation of Lagrangian mechanics, which is how it was originally developed. In this work we aim to derive it on its own, starting from simple physical assumptions, without any reference to Lagrangian mechanics.
 
-We'll give simple definitions of states in terms of labels and of determinism/reversibility in terms of bijective maps; define a metric based on the idea that bijective maps preserve the cardinality of labels; obtain Hamilton's equations from the invariance of that metric. In so doing we will gain better insight in various aspects, such as the geometry of phase space, continuity under evolution, conjugate variable and more.
+We'll give simple definitions of states in terms of labels and of determinism/reversibility in terms of bijective maps; define a metric based on the idea that bijective maps preserve the cardinality of labels; obtain Hamilton's equations from the invariance of that metric. In so doing we will be able to answer basic questions such as: what does the geometry of phase space represents? why evolution is continuous? why are conjugate variable special?
 
 No mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. What is surprising how so much can be derived from very few definitions.
 
@@ -100,7 +100,7 @@ Consider a continuous numeric range. We divide the full range into contiguous ce
 \end{defn}
 
 \begin{prop}\label{discreteLabelDist}
-The configuration state over a discrete label becomes $\mathbbm{c}=\sum D(i) \mathbbm{s}_i dx$. The fraction of the system in a label is given by $D(i)=\rho(i) w(i)$ where $\rho(i)\equiv D(i) / w(i)$ is the density of the distribution for the cell. In physics terms, the distribution can be visualized as a histogram where $w(i)$, $\rho(i)$ and $D(i)$ are respectively the width, height and area of each bin.
+The configuration state over a set of discrete labels becomes $\mathbbm{c}=\sum D(i) \mathbbm{s}_i$. The fraction of the system in a label is given by $D(i)=\rho(i) w(i)$ where $\rho(i)\equiv D(i) / w(i)$ is the density of the distribution for the cell. In physics terms, the distribution can be visualized as a histogram where $w(i)$, $\rho(i)$ and $D(i)$ are respectively the width, height and area of each bin.
 \end{prop}
 
 \begin{cor}\label{discreteLabelEv}
@@ -113,7 +113,7 @@ The area moves from one cell of the histogram to the other. The height needs to 
 A set $I$ of discrete labels over a continuous range is said to be \emph{homogeneous} if $w(i)=k$: the bins are of equal width.
 \end{defn}
 
-With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.\footnote{Since the boundaries between intervals are part of the label, a non-linear transformation will typically transform state variables and its labels from homogeneous to non-homogeneous. Therefore, there is a class of state variables (i.e. a phase space basis) that hold "special status", not for what they represent physically per se, but for their relationship to state definition.}
+With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.\footnote{Since the boundaries between intervals are part of the label, a non-linear transformation will typically transform state variables and its labels from homogeneous to non-homogeneous. Therefore, homogeneity identifies a class of state variables (i.e. a phase space basis) that hold "special status", not for what they represent physically per se, but for their relationship to state definition.}
 
 \textbf{Continuous labels over $\mathbb{R}$}. We now make the bin width arbitrarily small.
 
@@ -142,14 +142,14 @@ where $n(\Delta x)$ and $n(1)$ are the number of labels/cells in the $\Delta x$ 
 \section{Single degree of freedom}
 
 \begin{defn}\label{sdof}
-A \emph{degree of freedom} is a homogeneous two dimensional state variable $X$ given by the combined pair\footnote{Having exactly two variables for each d.o.f. is linked to the laws of physics being second order. Its justification outside of the scope, will be part of a later work.} of orthogonal state variables $Q$ and $P$. We call these \emph{conjugate variables}.
+A \emph{degree of freedom} is a homogeneous two dimensional state variable $X$ given by the combined pair\footnote{Having exactly two variables for each d.o.f. is linked to the laws of physics being second order. Its justification is outside of the scope, and will be part of a later work.} of orthogonal state variables $Q$ and $P$. We call these \emph{conjugate variables}.
 \end{defn}
 
 \begin{prop}\label{sdofMap}
 Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Let $Q'=f(Q)$ $P'=f(P)$. Then $dq' \wedge dp' = dq \wedge dp$.
 \end{prop}
 
-This is the equivalent of \ref{widthMapping} for a two dimensional state variables. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation\footnote{Under a generic pair of state variables, the conserved quantity related to the cardinality of labels would be $\int\limits_\mathcal{S}\frac{d\hat{q}\wedge d\hat{p}}{m(\hat{q},\hat{p})} $, not the area. Conjugate variables, therefore, simplify the equations by eliminating "apparent" dynamic that would just be the result of the difference in density of non-homogeneous labels.} for conjugate variables.\footnote{P' and Q' remain homogeneous but not, in general, orthogonal.}
+This is the equivalent of \ref{widthMapping} for a two dimensional state variables. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation\footnote{Under a generic pair of state variables, the conserved quantity related to the cardinality of labels would be $\int\limits_\mathcal{S}\frac{d\hat{q}\wedge d\hat{p}}{m(\hat{q},\hat{p})} $, not the area. Conjugate variables, therefore, simplify the equations by eliminating "apparent" dynamic that would just be the result of the difference in density of non-homogeneous labels.} for conjugate variables.\footnote{P' and Q' remain a homogeneous pair but not, in general, orthogonal.}
 
 \begin{prop}\label{sdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
