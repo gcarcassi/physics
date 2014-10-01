@@ -35,7 +35,7 @@ reversible process, the conservation of the cardinality of the labels leads to H
 \section{Introduction}
 In physics Hamiltonian mechanics is usually presented as a reformulation of Lagrangian mechanics, which is how it was originally developed. In this work we aim to derive it on its own, starting from simple physical assumptions, without any reference to Lagrangian mechanics.
 
-We'll give simple definitions of states in terms of labels and of determinism/reversibility in terms of bijective maps; define a metric based on the idea that bijective maps preserve the cardinality of labels; obtain Hamilton's equations from the invariance of that metric. In so doing we will be able to answer basic questions such as: what does the geometry of phase space represents? why evolution is continuous? why are conjugate variable special?
+We'll give simple definitions of states in terms of labels and of determinism/reversibility in terms of bijective maps; define a metric based on the idea that bijective maps preserve the cardinality of labels; obtain Hamilton's equations from the invariance of that metric. In so doing we will be able to answer basic questions such as: what does the geometry of phase space represent? why is evolution continuous? why are conjugate variables special?
 
 No mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. What is surprising how so much can be derived from very few definitions.
 
@@ -78,7 +78,7 @@ Let $\mathbbm{S}$ be the phase space of a system that undergoes deterministic an
 \end{prop}
 
 \begin{cor}\label{detrevDist}
-The evolution of a classical configuration state $\mathbbm{c}=\sum D(s) \mathbbm{s}$ under a bijective map is given by $\mathbbm{c'}=\sum D'(s) \mathbbm{s}=\sum D(f^{-1}(s)) \mathbbm{s}$. The evolution of the fraction of the system in a label $D(i)=\sum\limits_{\mathbbm{S} \in i} D(\mathbbm{s})$ is given by $D'(i)=D(f^{-1}(i))$.
+The evolution of a classical configuration state $\mathbbm{c}=\sum D(\mathbbm{s}) \mathbbm{s}$ under a bijective map is given by $\mathbbm{c'}=\sum D'(\mathbbm{s}) \mathbbm{s}=\sum D(f^{-1}(s)) \mathbbm{s}$. The evolution of the fraction of the system in a label $D(i)=\sum\limits_{\mathbbm{S} \in i} D(\mathbbm{s})$ is given by $D'(i)=D(f^{-1}(i))$.
 \end{cor}
 
 Mathematically, assuming determinism and reversibility means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the histogram move place, but keep the same height.
@@ -113,7 +113,7 @@ The area moves from one cell of the histogram to the other. The height needs to 
 A set $I$ of discrete labels over a continuous range is said to be \emph{homogeneous} if $w(i)=k$: the bins are of equal width.
 \end{defn}
 
-With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.\footnote{Since the boundaries between intervals are part of the label, a non-linear transformation will typically transform state variables and its labels from homogeneous to non-homogeneous. Therefore, homogeneity identifies a class of state variables (i.e. a phase space basis) that hold "special status", not for what they represent physically per se, but for their relationship to state definition.}
+With homogeneous labels no adjustment is needed, and the range can be used as a measure of the number of labels.\footnote{Since the boundaries between intervals are part of the label, a non-linear transformation will typically transform state variables and their labels from homogeneous to non-homogeneous. Therefore, homogeneity identifies a class of state variables (i.e. a phase space basis) that hold "special status", not for what they represent physically per se, but for their relationship to state definition.}
 
 \textbf{Continuous labels over $\mathbb{R}$}. We now make the bin width arbitrarily small.
 
@@ -131,7 +131,7 @@ Assume mapping is discontinuous at point $x$. Consider the cell at $x$ of width 
 \begin{prop}\label{widthMapping}
 Let $f: X \leftrightarrow X$ be a bijective map on a state variable, and $x'=f(x)$. Then $dx' = \frac{m(x')}{m(x)} dx$. If $X$ is homogeneous, then $dx' = dx$; the range gives us a measure of the cardinality of labels and must be conserved.
 \end{prop}
-The mapping must be done so that the width of the cells is mapped as well, not just the center value. The width of the transported cell $m(x)dx \rightarrow m(x) dx'$ must be equal to the width of the target cell $m(x')dx$, which gives us the first part. If $X$ is homogeneous, $m(x)=m(x')=1$, which gives us the second part.
+The mapping must be done so that the width of the cells is mapped as well, not just the center value. The width of the transported cell $m(x)dx \rightarrow m(x) dx'$ must be equal to the width of the target cell $m(x')dx$, which gives us the first part. If $X$ is homogeneous, $m(x)=m(x')$, which gives us the second part.
 
 Let $\Delta x$ be a finite range of $X$. Before the limit, we have:
 \begin{align*}
@@ -142,14 +142,14 @@ where $n(\Delta x)$ and $n(1)$ are the number of labels/cells in the $\Delta x$ 
 \section{Single degree of freedom}
 
 \begin{defn}\label{sdof}
-A \emph{degree of freedom} is a homogeneous two dimensional state variable $X$ given by the combined pair\footnote{Having exactly two variables for each d.o.f. is linked to the laws of physics being second order. Its justification is outside of the scope, and will be part of a later work.} of orthogonal state variables $Q$ and $P$. We call these \emph{conjugate variables}.
+A \emph{degree of freedom} is a homogeneous two dimensional combined state variable $X=\langle Q, P \rangle$ given by the combined pair\footnote{Having exactly two variables for each d.o.f. is linked to the laws of physics being second order. Its justification is outside of the scope, and will be part of a later work.} of orthogonal state variables $Q$ and $P$. We call these \emph{conjugate variables}.
 \end{defn}
 
 \begin{prop}\label{sdofMap}
-Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Let $Q'=f(Q)$ $P'=f(P)$. Then $dq' \wedge dp' = dq \wedge dp$.
+Let $f: X \leftrightarrow X$ be a bijective map on a degree of freedom. Let $Q'=f(Q)$ and $P'=f(P)$. Then $dq' \wedge dp' = dq \wedge dp$.
 \end{prop}
 
-This is the equivalent of \ref{widthMapping} for a two dimensional state variables. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation\footnote{Under a generic pair of state variables, the conserved quantity related to the cardinality of labels would be $\int\limits_\mathcal{S}\frac{d\hat{q}\wedge d\hat{p}}{m(\hat{q},\hat{p})} $, not the area. Conjugate variables, therefore, simplify the equations by eliminating "apparent" dynamic that would just be the result of the difference in density of non-homogeneous labels.} for conjugate variables.\footnote{P' and Q' remain a homogeneous pair but not, in general, orthogonal.}
+This is the equivalent of \ref{widthMapping} for a two dimensional state variable. The density $\rho(p,q)$ will be defined on cells of infinitesimal area proportional to $dq \wedge dp$. When mapping one cell to another, the infinitesimal area will remain the same. The area in phase space of one degree of freedom can then be used as a measure for the cardinality of the labels. \ref{labelsCount} becomes area conservation\footnote{Under a generic pair of state variables, the conserved quantity related to the cardinality of labels would be $\int\limits_\mathcal{S}\frac{d\hat{q}\wedge d\hat{p}}{m(\hat{q},\hat{p})} $, not the area. Conjugate variables, therefore, simplify the equations by eliminating "apparent" dynamics that would just be the result of the difference in density of non-homogeneous labels.} for conjugate variables.\footnote{P' and Q' remain a homogeneous pair but not, in general, orthogonal.}
 
 \begin{prop}\label{sdofInvariant}
 Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
@@ -225,7 +225,7 @@ then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \
 \end{prop}
 
 The independence of the homogeneous state variables corresponds to orthogonality in phase space: from \ref{labelsCombine} the product between the number of labels on each d.o.f. (i.e. the area), must be equal to the number of combines labels (i.e. the hyper-volume), which is true only if the d.o.f are orthogonal in phase space. From \ref{labelsCount}, the mapping will preserve the cardinality of labels, the area\footnote{We assume we are using the same unit across d.o.f.} on each d.o.f, and the independence, orthogonality across d.o.f.\footnote{These statements provide a direct physical interpretation for Gromov's non-squeezing theorem\cite{Gromov,deGosson,Stewart}.} This is equivalent to requiring the conservation of the scalar product across independent degrees of freedom, while still requiring conservation of the vector product within. That leads us to the metric defined by \ref{mdofInvariant}.
-The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Moreover, volume in phase space corresponds to the cardinality of the combined labels (i.e. the states), and is therefore conserved: this is the Louisville's theorem.
+The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary vectors. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Moreover, volume in phase space corresponds to the cardinality of the combined labels (i.e. the states), and is therefore conserved: this is Liouville's theorem.
 
 \begin{prop}\label{mdofHam}
 The evolution for multiple degrees of freedom is given by:
@@ -241,7 +241,7 @@ Expand \ref{genAntisim} with the metric defined in \ref{mdofInvariant}. We recog
 So far we have assumed that neither state labeling nor mapping change in time. If they do, we also need to to use time as a label and therefore introduce an extra degree of freedom.
 
 \begin{defn}\label{tdof}
-The \emph{temporal degree of freedom} is homogeneous two dimensional state variable $X$ given by the pair of conjugate variables $T$ and $E$. We call \emph{extended phase space} the outer product between phase space and the temporal degree of freedom.
+The \emph{temporal degree of freedom} is a homogeneous two dimensional state variable $X=\langle T, E \rangle$ given by the pair of conjugate variables $T$ and $E$. We call \emph{extended phase space} the outer product between phase space and the temporal degree of freedom.
 \end{defn}
 
 \begin{prop}\label{tdofMonotonic}
@@ -282,7 +282,7 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the manifold iden
 then $v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}=v^{\alpha} \omega_{\alpha, \beta} w^{\beta}$ under deterministic and reversible evolution.
 \end{prop}
 
-$\langle T, E \rangle$ are not independent from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{discreteLabelDef}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle E, T \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
+$\langle T, E \rangle$ are not independent from $\langle Q, P \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{discreteLabelDef}, cells need to be defined on the plane where $\langle Q, P \rangle$ (maximally) change: this is not the plane of constant $\langle T, E \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle Q, P \rangle$ where $dt \wedge de$ is defined. On that plane we can properly count states and define our invariant.
 
 We have a right triangle-like relationship between the plane where the invariant is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
 \begin{align*}
@@ -305,7 +305,7 @@ Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \
 
 If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge,Lanczos}.
 
-It should not be a surprise that the equations do not mention the speed of light $c$. In fact, nothing says that all $q^i$ represent space or that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degrees of freedom represent the same cardinality for labels.
+It should not be a surprise that the equations do not mention the speed of light $c$. In fact, nothing says that all $q^i$ represent space or that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degree of freedom represent the same cardinality for labels.
 
 \begin{prop}\label{tdofConstrain}
 The evolution is constrained by $\mathcal{H}=k$.
@@ -333,7 +333,7 @@ so we recognize the four-momentum $P^\alpha = [e/c, p^i]$ and $\tau$ proper time
 we end up with a minus sign between the four-momentum and the conjugate variables $P^\alpha = [-e/c, -p^i]$.\footnote{This is consistent with the Dirac field where we have $[i\hbar\partial_t, -i\hbar\partial_{x^i}]$ for generators and $\psi^\dagger\gamma^0[i\hbar\partial_t, -i\hbar\partial_{x^i}]\psi$ for observables, and $\gamma^0$ is $1$ for particles and $-1$ for anti-particles.} $\mathcal{H}$ relates to the rest energy, the parametrization to proper time (its conjugate). Parametrization and time are aligned for standard states and anti-aligned for anti-states.
 
 \section{Conclusion}
-By deriving Hamiltonian mechanics from simple definitions of labels, states, determinism and reversibility we have given more direct physical meaning to phase space and its geometric properties, and shown that a good part of the Hamiltonian framework can stand on its own, without Lagrangians. The further emergence of the Minkowsky metric and the distinction between standard and anti-states by the inclusion of the temporal d.o.f. is also noteworthy. No mathematical breakthrough is revealed here, yet I am not aware of any work that brings all the pieces of the puzzle together in quite this way: so much derived from so little.
+By deriving Hamiltonian mechanics from simple definitions of labels, states, determinism and reversibility we have given more direct physical meaning to phase space and its geometric properties, and shown that a good part of the Hamiltonian framework can stand on its own, without Lagrangians. The further emergence of the Minkowski metric and the distinction between standard and anti-states by the inclusion of the temporal d.o.f. is also noteworthy. No mathematical breakthrough is revealed here, yet I am not aware of any work that brings all the pieces of the puzzle together in quite this way: so much derived from so little.
 
 The hope is that, by continuing in this approach, we can shed more light on why the laws of physics are what they are; and show that they are not arbitrary rules, but necessary given few simple assumptions.
 
