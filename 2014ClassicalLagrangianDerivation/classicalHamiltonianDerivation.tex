@@ -16,6 +16,7 @@
 \newtheorem{defn}[thm]{Definition}
 \newtheorem*{assump1}{Classical assumption}
 \newtheorem*{assump2}{Determinism and Reversibility assumption}
+\newtheorem*{assump3}{Kinematic assumption}
 
 \begin{document}
 
@@ -36,6 +37,72 @@ We derive the Langrangian formalism from the assumption that trajectories in spa
 \section{Hamiltonian review}
 
 \section{Kinematics}
+\begin{assump3}\label{kinematicAssumption}
+The study of the motion of a body is equivalent to study its state under deterministic and reversible evolution.
+\end{assump3}
+
+\begin{cor}\label{}
+Consider all states at $t=t_0$ and all possible trajectories, to each state corresponds one and only one trajectory; to each trajectory corresponds one and only one state.
+\end{cor}
+
+If studying the motion and state evolution are equivalent, given a state we must be able to reconstruct the trajectory, and given the trajectory we must be able to reconstruct the state. Given that the choice of state coordinates is arbitrary, we can use position and time as a set of continuous state variables: $q^\alpha = x^\alpha$. With that in mind:
+
+\begin{prop}\label{}
+A metric $g_{\alpha\beta}$ must be defined on the manifold identified by $x^\alpha$. All trajectories must be continuous.
+\end{prop}
+
+As each label corresponds to an infinitesimal cell, we need distances properly defined. This requires a metric defined on the manifold. And since evolution is continuous on state variables, it will be continuous in $x^\alpha$ as well.
+
+\begin{defn}\label{continuousLabels}
+An \emph{inertial frame} is one for which each direction of space represents a homogeneous state variable of an independent degree of freedom.\footnote{While a local inertial frame always exists, the existence of a global one is an added requirement. We add it because it makes the discussion easier and the proofs more obvious. Most of the results, though, will hold without that assumption. This will be important in future works that will try to extend this framework to general relativity.}
+\end{defn}
+
+\begin{cor}\label{continuousLabels}
+The metric associated with an inertial frame is
+\begin{align*}
+g_{\alpha, \beta} =  \left[
+  \begin{array}{cccc}
+    -1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+  \end{array}
+\right] \\
+\end{align*}
+\end{cor}
+
+The relationships between coordinates is the same as in phase space: $X^i$ must be orthogonal with each other, as the corresponding $Q^i$ are orthogonal in phase space; $X^i$ and $X^0$ are not in general orthogonal and it is the length perpendicular to time that gets conserved. Given that $X^\alpha$ are homogeneous, the metric must be invariant under translation, does not change in space-time, it is constant. With a suitable choice of units, we can set $|g_{\alpha\alpha}|=1$. All these combines gives us the Minkowski metric. We also introduce a constant $c$\footnote{Here $c$ is not defined as a a speed: it's the constant that allows to convert the cardinality of labels between space and time coordinates.} to convert time intervals to space intervals with the same number of labels, so we have $x^0=ct$.
+
+It's important to note that the geometry of extended phase space and the geometry of space-time are linked: we cannot define cells in one without also defining cells in the other. This is true for all reference frames, not just inertial ones.
+
+\begin{prop}\label{continuousLabels}
+The position $x^\alpha$ and the velocity $dx^i/dt$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
+\end{prop}
+
+The initial conditions will be given by the position and its first $n$ derivatives: $x^i_k=d^kx^i(t_0)/dt^k$ where $k=0..n$. This means that there is a function that, given the initial conditions, gives us the trajectory: $x(t)=f(t_0, x^i_k)$. We note that the initial conditions can be changed by an active transformation, therefore counting the number of possible initial conditions is equivalent to counting the possible number of active transformations. Under such change, though, the metric cannot change: it needs to be a change in initial conditions in the same reference frame, or we would double count each case. Defining the transformation for the position also defines how all its derivatives change, and by requiring the invariance of the metric, our options are actually very limited. Assuming we start from an inertial frame, only a linear transformation in all $x^\alpha$ can preserve the metric. A linear transformation can only change position and velocity, so the initial condition can only be limited to those. We also note that the active transformation can always change the velocity of $x(t)$, so $f$ must depend on the velocity or it would not be able to reach all possible trajectories defined by an active transformation in the same reference frame. Therefore position and velocity are both necessary and sufficient initial condition.
+
+\begin{prop}
+Principle of relativity. The laws of motion have the same form for all inertial observers.
+\end{prop}
+
+We saw that an active transformation that does not change the metric is a change in the initial conditions. Such a change should not affect the form of the function that given the initial conditions gives us the whole trajectory: the observer is the same, the law of motion is the same, they just shift the value of the arguments. But if the form of the laws of motion is preserved under such active transformations, it will also not change under passive transformation that preserve the metric. Given that all inertial observers can be reached by a linear transformation, which preserves the metric, then the laws of motion will have the same form.
+
+%x(t)=f(x_0, x_1, ... x_n)
+
+%What is the space size for a particular frame?
+
+%We can reach any initial condition by coordinate changes
+%But they also change f
+%Free parameters are going to be the ones we can change without changing f
+%How many coordinate changes are available to use without changing f?
+%The ones that preserve the metric
+
+%l_\alpha^\gamma l_\beta^\delta g_{\gamma\delta} = g_{\alpha\beta}
+
+%Suppose different coordinate frame with same metric
+%x'(t)=f(x'_0, x'_1, ... x'_n)
+
+
 Assume trajectory are deterministic and reversible. Have state.
 
 How much state? Find that is two per degree of freedom. Position and momentum are only state variables.
@@ -43,7 +110,12 @@ How much state? Find that is two per degree of freedom. Position and momentum ar
 Inertial frame
 
 \section{Connect to Hamiltonian}
-Let q=x
+As we have seen, $X^\alpha$ and $U^\alpha$ are suitable state variables to fully identify our degrees of freedom. Nothing tells us, though, that
+they are conjugate variables. But, since for every set of initial condition there must be one and only one state associated with it, there must be a bijective transformation such that $q^\alpha=q^\alpha(x^\alpha,u^\alpha)$ and $p^\alpha=p^\alpha(x^\alpha,u^\alpha)$. These function must be monotonic in both variable to make sure they are invertible.
+
+Given the degree of arbitrariness in choice, we can set $q^\alpha=x^\alpha$. This creates a direct link between how space is measured ($g_{\alpha\beta}(x^\alpha)$) and the width of our cells in phase space ($m(q)$)
+
+
 
 Find that p must be contra-variant. Must be monotonic. And a linear transformation of v. Introduce mass. Introduce gauge.
 
