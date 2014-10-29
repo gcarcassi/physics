@@ -110,12 +110,39 @@ How much state? Find that is two per degree of freedom. Position and momentum ar
 Inertial frame
 
 \section{Connect to Hamiltonian}
-As we have seen, $X^\alpha$ and $U^\alpha$ are suitable state variables to fully identify our degrees of freedom. Nothing tells us, though, that
-they are conjugate variables. But, since for every set of initial condition there must be one and only one state associated with it, there must be a bijective transformation such that $q^\alpha=q^\alpha(x^\alpha,u^\alpha)$ and $p^\alpha=p^\alpha(x^\alpha,u^\alpha)$. These function must be monotonic in both variable to make sure they are invertible.
+\begin{prop}\label{continuousLabels}
+Under the kinematic assumption, there must exist a bijective transformation $q^\alpha=q^\alpha(x^\alpha,u^\alpha)$ and $p^\alpha=p^\alpha(x^\alpha,u^\alpha)$ between initial conditions and state variables. As such, they are monotonic in both variables.
+\end{prop}
 
-Given the degree of arbitrariness in choice, we can set $q^\alpha=x^\alpha$. This creates a direct link between how space is measured ($g_{\alpha\beta}(x^\alpha)$) and the width of our cells in phase space ($m(q)$)
+As we have seen, $X^\alpha$ and $U^\alpha$ are state variables that fully identify our degrees of freedom. Nothing tells us, though, that
+they are conjugate variables. But, since for every set of initial condition there must be one and only one state associated with it. This means the transformation must be invertible, monotonic.
+
+\begin{prop}\label{continuousLabels}
+Under the kinematic assumption, the extended phase space is defined on the conjugate variables $q^\alpha=x^\alpha$ and $p^\alpha=g_{\alpha\beta}(mu^\alpha+p_0^\alpha(x)$.
+\end{prop}
+
+Given the degree of arbitrariness in choice of transformation, we can set $q^\alpha=x^\alpha$. This creates a direct link between how space is measured ($g_{\alpha\beta}(x^\alpha)$) and the width of our cells in phase space ($m(q)$)
+
+$p_\alpha=m\frac{dx_\alpha}{ds}+\hat{p}_\alpha(x)$
 
 
+$\frac{dx^\alpha}{ds}=\frac{\partial H}{\partial p_\alpha}=\frac{1}{m}(p^\alpha-\hat{p}^\alpha(x))$
+
+$H=\frac{1}{2m}(p_\alpha-\hat{p}_\alpha(x))(p^\alpha-\hat{p}^\alpha(x))+\hat{H}(x)$
+
+$\frac{dp_\alpha}{ds}=-\frac{\partial H}{\partial x^\alpha}=$
+
+$\frac{1}{2m}[\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} (p^\beta -\hat{p}^\beta(x)) + (p_\beta -\hat{p}_\beta(x))\frac{\partial\hat{p}^\beta(x)}{\partial x^\alpha} ]-\frac{\partial \hat{H}(x)}{\partial x^\alpha}=$
+
+$\frac{1}{2}[\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} (\frac{dx^\beta}{ds}) + (\frac{dx_\beta}{ds})\frac{\partial\hat{p}^\beta(x)}{\partial x^\alpha} ]-\frac{\partial \hat{H}(x)}{\partial x^\alpha}=$
+
+$m\frac{d^2x_\alpha}{ds^2}+\frac{d\hat{p}_\alpha(x)}{ds}$
+
+$m\frac{d^2x_\alpha}{ds^2}=\frac{1}{2}[\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} (\frac{dx^\beta}{ds}) + (\frac{dx_\beta}{ds})\frac{\partial\hat{p}^\beta(x)}{\partial x^\alpha} ]-\frac{\partial\hat{p}_\alpha(x)}{\partial x^\beta}\frac{dx^\beta}{ds}
+-\frac{\partial \hat{H}(x)}{\partial x^\alpha}$
+
+$m\frac{d^2x_\alpha}{ds^2}=(\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} - \frac{\partial\hat{p}_\alpha(x)}{\partial x^\beta} ) \frac{dx\beta}{ds}
+-\frac{\partial \hat{H}(x)}{\partial x^\alpha}$
 
 Find that p must be contra-variant. Must be monotonic. And a linear transformation of v. Introduce mass. Introduce gauge.
 
