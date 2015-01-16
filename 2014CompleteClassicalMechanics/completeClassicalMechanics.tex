@@ -95,6 +95,37 @@ Given a label $i$, the image $f(i)$ is also a label containing the same number o
 
 Bijective maps preserve the number of labels as they provide one-to-one association between future and past. And they do so for each independent set of labels. These simple results using discrete labels, properly generalized to the continuous case, will give us Hamiltonian flow.
 
+\section{Continuous labels}
+
+Numeric labels are prevalent in physics. For the discrete case, we can use integers and expect a one-to-one map between $z\in\mathbbm{Z}$ and $i\in I$. The deterministic map than becomes $f:\mathbbm{Z} \leftrightarrow \mathbbm{Z}$. For the continuous case, one may simply expect to replace $\mathbbm{Z}$ with $\mathbbm{R}$, but this presents a problem. In the continuous limit, the distribution of our infinitesimal states will become a density which is defined over infinitesimal intervals. Since the distribution and the states must be defined on the same object, the label is really an interval over $\mathbbm{R}$, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. With this in mind, we have the following definitions.
+
+\begin{defn}\label{sdof}
+A \emph{degree of freedom} is a state variable identified by an infinitesimal cell of $\mathbbm{R}$.
+\end{defn}
+
+\begin{defn}\label{sdof}
+We define the \emph{generalized coordinate} $q$ as the center of each cell. We define the \emph{cell number}\footnote{This represents the classical analogue of the wave number.} $k$ such that $k \, dq$ represents the width of each cell.
+\end{defn}
+
+\begin{cor}\label{continuousLabels}
+Each degree of freedom is identified by the pair of labels $\langle q,k \rangle$. As $k\,dq$ is invariant under coordinate changes, $dk\wedge dq$ is invariant and $k$ is contravariant.
+\end{cor}
+
+\begin{prop}\label{continuousLabels}
+The cardinality of labels on a degree of freedom is given by $\hbar \, dq \wedge dk$, where $\hbar$ is a constant that defines the unit for labels.
+\end{prop}
+
+Since $q$ and $k$ are independent labels, the number of labels defined over a degree of freedom is the product of the labels defined on $q$ and $k$ (\ref{labelsCombine}). The number of labels for an interval of $q$ or $k$ will be proportional to said interval, therefore we have $\hbar \, dq \wedge dk$, where the constant is given by the choice of units for labels. It is customary to combine $\hbar$ with $k$.
+
+\begin{defn}\label{sdof}
+We define the \emph{conjugate momentum} $p=\hbar k$.
+\end{defn}
+
+\begin{cor}\label{continuousLabels}
+Each degree of freedom is identified by the pair of labels $\langle q,p \rangle$. $p dq$ and $dp \wedge dq$ are invariant, $p$ is contravariant.
+\end{cor}
+
+One can recognize the one-form $\theta = p dq$ and the two-form $\omega = dq \wedge dp$. They are intimately linked to the way states are defined ($\theta / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels). As such, they are truly fundamental objects.
 
 \section{Hamiltonian review}
 
