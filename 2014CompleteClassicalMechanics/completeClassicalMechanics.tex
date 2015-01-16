@@ -33,13 +33,67 @@ We introduce three fundamental principles (infinite reducibility, deterministic 
 \section{Introduction}
 Classical mechanics is usually founded on Newton's laws. These, though, are insufficient to derive the Lagrangian and Hamiltonian formalism, and usually other ad-hoc assumptions (e.g. conservative forces) are introduced. Special relativity is based on two principles (invariance of the speed of light and the principle of relativity), which lead to the Minkowskian nature of space-time but not to the equation of motion, which are a consistent reformulation of the non-relativistic ones. What we'll do in this work is see if we can re-organize all the known elements and equations in a more consistent and comprehensive way. The hope is that this gives us better insight on why the fundamental laws are what they are. Also, given that classical and quantum mechanics are formally equivalent, there is a chance that such work could be extended to quantum mechanics.
 
-We'll first mathematically define states and the labels (e.g. position, momentum) we use to identify them. Using the principle of infinite reducibility (or classical assumption), the idea that each state is always divisible into the states of its sub-systems, we show that it is sufficient to describe the evolution of infinitesimal subsystem within their state space (or phase space).
+We'll first mathematically define states and the labels (e.g. position, momentum, temperature, pressure) we use to identify them. Using the principle of infinite reducibility (or classical assumption), the idea that each state is always divisible into the states of its sub-systems, we show that it is sufficient to describe the evolution of infinitesimal subsystem within their state space (or phase space).
 
 Under the assumption of deterministic and reversible evolution, to each state corresponds one and only one future (or past) state, we show that the cardinality of labels (and states) is conserved. This allows us to define a metric on phase space, and the conservation of that metric leads to the Hamiltonian framework. That is: we can derive the Hamiltonian framework on its own merit and show that it is equivalent to deterministic and reversible motion.
 
 We then introduce the principle of kinematic equivalence, the idea that studying trajectories is equivalent to studying states, and show that under this assumption we can define a transformation between state and kinematic variables. Noting that a passive coordinate change in space-time is equivalent to a re-labelling of states, and as such should conserve the phase space metric (i.e. the cardinality of states), the metric of space-time is constrained to be locally Minkowskian. Under the kinematic equivalence, the relationship between velocity and conjugate momentum has to be monotonic, leading to a concave Hamiltonian which allows a Legendre transformation leading to the Lagrangian. We can constrain the Hamiltonian further, and show that the most general form of motion under the three condition is the one of a geodesics modified by the force given by a vector potential, such as the one of a relativistic charged particle.
 
-The above outline should help the reader maintain the big picture, as each section will go through the many details and definitions. While we try to keep a precise language, no mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. What is surprising how so much can be derived from very few definitions.
+The above outline should help the reader maintain the big picture, as each section will go through the many details and definitions. We'll keep names and notation as consistent as possible to current use, but this may lead to some non sequitur as it will not be immediately clear why the different definition will be at the end equivalent to the standard one. This is still preferable than introducing a whole new set of names one has to become familiar.
+
+While we try to keep a precise language, no mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. The novel, and surprising, result is how so much can be derived from so little.
+
+\section{States, Labels and Maps}
+
+The first two sections are dedicated to properly introduce states and the labels we use to identify them (such as position or temperature). The two issues that needs to be clarified are the nature of the system described (whole system vs infinitesimal component) and the cardinality of the states (discrete vs continuous variables). When talking about infinitesimal components and continuous labels, in fact, one must always remember that they are the result of a limit. Failure to do so would result in improper characterization of the system or counting of labels. We start with the whole system and discrete labels, then study the two limits separately.\footnote{Whole system vs infinitesimal component is also source of confusion when comparing classical and quantum states. Quantum states are always whole systems and are always distributions as there is no state uniquely attributed to its infinitesimal components.}
+
+\begin{defn}\label{statedef}
+Suppose we have a physical system to study. We define the set $\mathbbm{C}$ of all physically distinguishable configurations for that system. Each element $\mathbbm{c}$ we call \emph{configuration state}.
+\end{defn}
+
+\begin{assump1}\label{classical}
+The system is infinitely reducible: it can be thought as composed by two or more similar but smaller systems, each in its own configuration state, which also can be thought as composed by two or more, ad infinitum.
+\end{assump1}
+
+\begin{defn}\label{classicalPhaseSpace}
+Let $\mathbbm{S}$ be the set of all possible configuration states of the infinitesimal subdivision. We call this set \emph{phase space}. We call each element $\mathbbm{s}$ a \emph{state}.
+\end{defn}
+
+\begin{cor}\label{classicalDistribution}
+Each classical configuration state $\mathbbm{c} \in \mathbbm{C}$ is a distribution over states: $\mathbbm{c}=\sum\limits_{\mathbbm{s} \in \mathbbm{S}} D(\mathbbm{s}) \mathbbm{s}$, where $D:\mathbbm{S}\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}$. The distribution can be visualized as a histogram over the states in phase space.
+\end{cor}
+
+Under the classical assumption, we can then limit ourselves to the study of the infinitesimal elements, their states and their properties without loss of generality. To help identify states, we introduce the following concepts.
+
+\begin{defn}\label{label}
+We call a \emph{label} a set of states $i\subset\mathbbm{S}$; a \emph{set of labels} a collection of disjoint labels $I | \forall i_1,i_2\in I, i_1\bigcap i_2 = \emptyset$; a \emph{state variable} a set of labels $X$ that covers all of phase space: $\bigcup\limits_{i \in X}i=\mathbbm{S}$. Therefore a state belongs to one and only one label of a state variable.
+\end{defn}
+
+\begin{defn}\label{labelsCombine}
+Let $I_1$ and $I_2$ be two sets of labels. We can define the \emph{combined set}, $\langle I_1, I_2 \rangle$, whose labels consist of all the non-empty intersections of one label of $I_1$ and one of $I_2$. If all intersections are non-empty, $I_1$ and $I_2$ are said to be \emph{independent}, and we have $n(\langle I_1, I_2 \rangle)=n(I_1)n(I_2)$ where $n: I \rightarrow \mathbbm{R}$ gives the number of labels of each set.
+\end{defn}
+
+We now want to study how states and labels evolve in time, under the following assumption.
+
+\begin{assump2}
+The system undergoes deterministic (future state identified by the present state) and reversible (past state identified by the present state) evolution.
+\end{assump2}
+
+\begin{prop}\label{detrevMap}
+Let $\mathbbm{S}$ be the phase space of a system that undergoes deterministic and reversible evolution. There exists a bijective map $f:\mathbbm{S} \leftrightarrow \mathbbm{S}$ between past and future states.
+\end{prop}
+
+\begin{cor}\label{detrevDist}
+The evolution of a classical configuration state $\mathbbm{c}=\sum D(\mathbbm{s}) \mathbbm{s}$ under a bijective map is given by $\mathbbm{c'}=\sum D'(\mathbbm{s}) \mathbbm{s}=\sum D(f^{-1}(s)) \mathbbm{s}$. The evolution of the fraction of the system in a label $D(i)=\sum\limits_{\mathbbm{S} \in i} D(\mathbbm{s})$ is given by $D'(i)=D(f^{-1}(i))$.
+\end{cor}
+
+Mathematically, assuming determinism and reversibility means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the histogram move place, but keep the same height.
+
+\begin{cor}\label{labelsCount}
+Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels. Given a state variable $X$, the image $f(X)$ is also a state variable. Given two independent sets of labels $I_1$ and $I_2$, the images $f(I_1)$ and $f(I_2)$ are also independent. Therefore $n(f(\langle I_1, I_2 \rangle))=n(f(I_1))n(f(I_2))=n(I_1)n(I_2)=n(\langle I_1, I_2 \rangle)$
+\end{cor}
+
+Bijective maps preserve the number of labels as they provide one-to-one association between future and past. And they do so for each independent set of labels. These simple results using discrete labels, properly generalized to the continuous case, will give us Hamiltonian flow.
 
 
 \section{Hamiltonian review}
