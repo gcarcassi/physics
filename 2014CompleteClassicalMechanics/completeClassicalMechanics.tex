@@ -20,18 +20,26 @@
 
 \begin{document}
 
-\title{From physical principles to classical Lagrangian mechanics}
+\title{From physical principles to relativistic classical Hamiltonian and Lagrangian particle mechanics}
 \author{Gabriele Carcassi}
 \affiliation{University of Michigan, Ann Arbor, MI 48109}
 \email{carcassi@umich.edu}
 \date{June 16, 2014}
 
 \begin{abstract}
-We derive the Langrangian formalism from the assumption that trajectories in space-time are the output of a deterministic and reversible process. \end{abstract}
-
+We introduce three fundamental principles (infinite reducibility, deterministic and reversible evolution, ) and show that classical mechanics can be derived them. The core idea is that deterministic and reversible systems preserve the number of labels we use to identify states, which puts considerable constraints and leads to the Hamiltonian and Lagrangian frameworks, space-time being locally Minkowskian, the general form of the Hamiltonian and equations of motion equivalent to those for relativistic charged particles. Many familiar fundamental concepts and constants (such as mass, the speed of light, the Plank constant, the vector potential) are introduced and defined in a novel way, thus providing different insight into them. The derivation strives to use definition and mathematical concepts that would allow a future extension to quantum mechanics.\end{abstract}
 \maketitle
 
 \section{Introduction}
+Classical mechanics is usually founded on Newton's laws. These, though, are insufficient to derive the Lagrangian and Hamiltonian formalism, and usually other ad-hoc assumptions (e.g. conservative forces) are introduced. Special relativity is based on two principles (invariance of the speed of light and the principle of relativity), which lead to the Minkowskian nature of space-time but not to the equation of motion, which are a consistent reformulation of the non-relativistic ones. What we'll do in this work is see if we can re-organize all the known elements and equations in a more consistent and comprehensive way. The hope is that this gives us better insight on why the fundamental laws are what they are. Also, given that classical and quantum mechanics are formally equivalent, there is a chance that such work could be extended to quantum mechanics.
+
+We'll first mathematically define states and the labels (e.g. position, momentum) we use to identify them. Using the principle of infinite reducibility (or classical assumption), the idea that each state is always divisible into the states of its sub-systems, we show that it is sufficient to describe the evolution of infinitesimal subsystem within their state space (or phase space).
+
+Under the assumption of deterministic and reversible evolution, to each state corresponds one and only one future (or past) state, we show that the cardinality of labels (and states) is conserved. This allows us to define a metric on phase space, and the conservation of that metric leads to the Hamiltonian framework. That is: we can derive the Hamiltonian framework on its own merit and show that it is equivalent to deterministic and reversible motion.
+
+We then introduce the principle of kinematic equivalence, the idea that studying trajectories is equivalent to studying states, and show that under this assumption we can define a transformation between state and kinematic variables. Noting that a passive coordinate change in space-time is equivalent to a re-labelling of states, and as such should conserve the phase space metric (i.e. the cardinality of states), the metric of space-time is constrained to be locally Minkowskian. Under the kinematic equivalence, the relationship between velocity and conjugate momentum has to be monotonic, leading to a concave Hamiltonian which allows a Legendre transformation leading to the Lagrangian. We can constrain the Hamiltonian further, and show that the most general form of motion under the three condition is the one of a geodesics modified by the force given by a vector potential, such as the one of a relativistic charged particle.
+
+The above outline should help the reader maintain the big picture, as each section will go through the many details and definitions. While we try to keep a precise language, no mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. What is surprising how so much can be derived from very few definitions.
 
 
 \section{Hamiltonian review}
@@ -118,23 +126,38 @@ As we have seen, $X^\alpha$ and $U^\alpha$ are state variables that fully identi
 they are conjugate variables. But, since for every set of initial condition there must be one and only one state associated with it. This means the transformation must be invertible, monotonic.
 
 \begin{prop}\label{continuousLabels}
-Under the kinematic assumption, the extended phase space is defined on the conjugate variables $q^\alpha=x^\alpha$ and $p^\alpha=g_{\alpha\beta}(mu^\alpha+p_0^\alpha(x)$.
+Under the kinematic assumption, the extended phase space is defined on the conjugate variables $q^\alpha=x^\alpha$ and $p_\alpha=m\frac{dx_\alpha}{ds}+\hat{p}_\alpha(x)$.
 \end{prop}
 
 Given the degree of arbitrariness in choice of transformation, we can set $q^\alpha=x^\alpha$. This creates a direct link between how space is measured ($g_{\alpha\beta}(x^\alpha)$) and the width of our cells in phase space ($m(q)$)
+
+$\partial_\alpha \delta^\beta_\gamma = 0 = \partial_\alpha g^{\beta\delta} g_{\delta\gamma} + g^{\beta\delta} \partial_\alpha g_{\delta\gamma}$
+
+$\partial_\alpha g^{\beta\delta} g_{\delta\gamma} = - g^{\beta\delta} \partial_\alpha g_{\delta\gamma}$
+
+$\partial_\alpha g^{\beta\delta} g_{\delta\gamma} g^{\gamma\epsilon} = - g^{\beta\delta} \partial_\alpha g_{\delta\gamma} g^{\gamma\epsilon}$
+
+$\partial_\alpha g^{\beta\epsilon} = - g^{\beta\delta} g^{\gamma\epsilon} \partial_\alpha g_{\delta\gamma} $
 
 $p_\alpha=m\frac{dx_\alpha}{ds}+\hat{p}_\alpha(x)$
 
 
 $\frac{dx^\alpha}{ds}=\frac{\partial H}{\partial p_\alpha}=\frac{1}{m}(p^\alpha-\hat{p}^\alpha(x))$
 
-$H=\frac{1}{2m}(p_\alpha-\hat{p}_\alpha(x))(p^\alpha-\hat{p}^\alpha(x))+\hat{H}(x)$
+$H=\frac{1}{2m}(p_\alpha-\hat{p}_\alpha)g^{\alpha\beta}(p_\beta-\hat{p}_\beta(x))+\hat{H}(x)$
 
-$\frac{dp_\alpha}{ds}=-\frac{\partial H}{\partial x^\alpha}=$
+$\frac{dp_\alpha}{ds}=-\frac{\partial H}{\partial q^\alpha}=$
 
-$\frac{1}{2m}[\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} (p^\beta -\hat{p}^\beta(x)) + (p_\beta -\hat{p}_\beta(x))\frac{\partial\hat{p}^\beta(x)}{\partial x^\alpha} ]-\frac{\partial \hat{H}(x)}{\partial x^\alpha}=$
+$\frac{1}{2m}[\partial_\alpha \hat{p}_\beta g^{\beta \gamma} (p_\gamma -\hat{p}_\gamma)
+ - (p_\beta -\hat{p}_\beta) \partial_\alpha g^{\beta \gamma} (p_\gamma -\hat{p}_\gamma)
+ + (p_\beta -\hat{p}_\beta) g^{\beta \gamma} \partial_\alpha \hat{p}_\gamma ]- \partial_\alpha \hat{H}(x)=$
 
-$\frac{1}{2}[\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} (\frac{dx^\beta}{ds}) + (\frac{dx_\beta}{ds})\frac{\partial\hat{p}^\beta(x)}{\partial x^\alpha} ]-\frac{\partial \hat{H}(x)}{\partial x^\alpha}=$
+$\frac{1}{2}[\partial_\alpha \hat{p}_\beta u^\beta
+- m u^\delta g_{\delta\beta} \partial_\alpha g^{\beta \gamma} u^\epsilon g_{\epsilon\gamma}
++ u^\gamma \partial_\alpha \hat{p}_\gamma ]- \partial_\alpha \hat{H}(x)=$
+
+$\partial_\alpha \hat{p}_\beta u^\beta + \frac{m}{2}u^\beta \partial_\alpha g_{\beta \gamma} u^\gamma
+- \partial_\alpha \hat{H}(x)=$
 
 $m\frac{d^2x_\alpha}{ds^2}+\frac{d\hat{p}_\alpha(x)}{ds}$
 
