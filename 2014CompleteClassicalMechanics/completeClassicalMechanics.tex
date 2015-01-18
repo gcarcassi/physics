@@ -112,7 +112,7 @@ Each degree of freedom is identified by the pair of labels $\langle q,k \rangle$
 \end{cor}
 
 \begin{prop}\label{continuousLabels}
-The cardinality of labels on a degree of freedom is given by $\hbar \, dq \wedge dk$, where $\hbar$ is a constant that defines the unit for labels.
+The cardinality of labels on a degree of freedom is given by $\omega = \hbar \, dq \wedge dk$, where $\hbar$ is a constant that defines the unit for labels.
 \end{prop}
 
 Since $q$ and $k$ are independent labels, the number of labels defined over a degree of freedom is the product of the labels defined on $q$ and $k$ (\ref{labelsCombine}). The number of labels for an interval of $q$ or $k$ will be proportional to said interval, therefore we have $\hbar \, dq \wedge dk$, where the constant is given by the choice of units for labels. It is customary to combine $\hbar$ with $k$.
@@ -122,10 +122,80 @@ We define the \emph{conjugate momentum} $p=\hbar k$.
 \end{defn}
 
 \begin{cor}\label{continuousLabels}
-Each degree of freedom is identified by the pair of labels $\langle q,p \rangle$. $p dq$ and $dp \wedge dq$ are invariant, $p$ is contravariant.
+Each degree of freedom is identified by the pair of labels $\langle q,p \rangle$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant.
 \end{cor}
 
-One can recognize the one-form $\theta = p dq$ and the two-form $\omega = dq \wedge dp$. They are intimately linked to the way states are defined ($\theta / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels). As such, they are truly fundamental objects.
+\begin{prop}\label{continuousLabelDist}
+The configuration state over a degree of freedom is $\mathbbm{c}=\int D(q,p) \mathbbm{s}_{qp} = \int \rho(q,p) dq \wedge dp \mathbbm{s}_{qp}$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
+\end{prop}
+
+This is simply the limit of \ref{classicalDistribution} for the continuous case. Note that, since $\mathbbm{c}$ and $\omega$ are invariant under coordinate transformations, so is $\rho$.
+
+In the language of differential geometry, we recognise the function $\rho$, the one-form $\theta_0$ and the two-form $\omega$. They are truly fundamental objects as they are intimately linked to the way states are defined ($\rho$ is the distribution, $\theta_0 / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels) and they don't depend on coordinate choice.
+
+
+\section{Single degree of freedom}
+
+We can now derive the equation of motions for the state variables under deterministic and reversible evolution.
+
+\begin{defn}\label{canonical}
+We define \emph{canonical transformation} a bijective map on one (or more) degree of freedoms.
+\end{defn}
+
+\begin{prop}\label{continuousMapping}
+A canonical transformation must be continuous and preserve $\omega$.
+\end{prop}
+
+A bijective map conserves the cardinality of labels, see \ref{labelsCount}, therefore $\omega$ must be conserved. The map must be continuous in q, or it would split some cells into two parts: a cell would not be mapped to one and only one other cell, the mapping would not be bijective. The reverse mapping must be continuous in q as well, or the inverse would not map to one and only one cell.
+\begin{align*}
+dq' &= \frac{\partial q'}{\partial q} dq + \frac{\partial q'}{\partial p} dp \\
+dq &= \frac{\partial q}{\partial q'} dq' + \frac{\partial q}{\partial p'} dp'
+\end{align*}
+We can re-express $dp'$ in terms of $dq$ and $dp$, as the conservation of $\omega$ means the map is non-degenerate, find that all partial derivatives are well defined, and therefore the mapping is continuous in p as well.
+
+\begin{cor}\label{sdofInvariant}
+Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
+\begin{align*}
+\omega_{a, b} = \left[
+  \begin{array}{cc}
+    0 & 1 \\
+    -1 & 0 \\
+  \end{array}
+\right] \\
+\end{align*}
+then $v'^{a} \omega_{a, b} w'^{b}=v^{a} \omega_{a, b} w^{b}$ under a canonical transformation, where $a$ and $b$ represent component along coordinates $\xi^{a} \equiv \{q,p\}$.
+\end{cor}
+
+Here we are simply expressing $\omega$, $v$ and $w$ with their respective components and underlying the fact that $\omega$ defines the metric conserved under canonical transformations.
+
+\begin{lem}\label{genAntisim}
+Let $v$ and $w$ be two vectors. Let $v^{a} \omega_{a, b} w^{b}$ be an antisymmetric product conserved under a continuous transformation parameterized by $t$. We can then define a function $H$ such that given $S^{a} \equiv d_{t}\xi^{a}$ and $S_{b} \equiv S^{a} \omega_{a, b}$, we have $S_{a} = \partial_{a}H$.
+\end{lem}
+
+$S^{a}$ is the vector field that represents how the state variables change. Simply applying the vector transformation rules under continuous transformation we have:
+\begin{align*}
+v^{a} \omega_{a, b} w^{b} &= v'^{a} \omega_{a, c} w'^{b}  \\
+&= (v^{a} + \partial_{c} S^{a} dt v^{c}) \omega_{a, b} ( w^{b} + \partial_{d} S^{b} w^{d} dt) \\
+&= v^{a} \omega_{a, b} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{a, b} w^{b} \\
+ &+ v^{a} \omega_{a, b} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
+\end{align*}
+\begin{align*}
+v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0
+\end{align*}
+\begin{align*}
+\partial_{a} S_{b} - \partial_{b} S_{a} &= curl(S_{a}) = 0 \\
+S_{a} &= \partial_{a}H
+\end{align*}
+
+\begin{prop}\label{sdofHam}
+The time evolution for a single degree of freedom is given by:
+\begin{align*}
+d_{t}q &= \partial_{p} H \\
+d_{t}p &= - \partial_{q} H
+\end{align*}
+\end{prop}
+
+Simply expand \ref{genAntisim} with the metric defined in \ref{sdofInvariant}. We recognize Hamilton's equations for one degree of freedom\cite{classical_dynamics}.
 
 \section{Hamiltonian review}
 
