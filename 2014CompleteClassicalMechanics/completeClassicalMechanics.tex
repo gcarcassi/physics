@@ -16,7 +16,7 @@
 \newtheorem{defn}[thm]{Definition}
 \newtheorem*{assump1}{Classical assumption}
 \newtheorem*{assump2}{Determinism and Reversibility assumption}
-\newtheorem*{assump3}{Kinematic assumption}
+\newtheorem*{assump3}{Kinematic equivalence assumption}
 
 \begin{document}
 
@@ -316,43 +316,38 @@ The evolution is constrained by $\mathcal{H}=k$.
 Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $\mathbb{R}^{2*N + 1}$, the state variables plus time.
 
 \section{Kinematics}
+So far we talked about states without reference to what they physically represent.
+
 \begin{assump3}\label{kinematicAssumption}
-The study of the motion of a body is equivalent to study its state under deterministic and reversible evolution.
+The study of the trajectory (kinematic) of a body is equivalent to study its state (dynamic) under deterministic and reversible evolution.
 \end{assump3}
 
 \begin{cor}\label{}
-Consider all states at $t=t_0$ and all possible trajectories, to each state corresponds one and only one trajectory; to each trajectory corresponds one and only one state.
+Given all possible space-time trajectory $x^\alpha(s)$ and all possible phase space trajectory $\xi^a(s)$, there exist a bijective function $f: x^\alpha(s) \leftrightarrow \xi^a(s)$ that links each space-time trajectory with one and only one phase space trajectory.
 \end{cor}
 
-If studying the motion and state evolution are equivalent, given a state we must be able to reconstruct the trajectory, and given the trajectory we must be able to reconstruct the state. Given that the choice of state coordinates is arbitrary, we can use position and time as a set of continuous state variables: $q^\alpha = x^\alpha$. With that in mind:
+If studying the motion and state evolution are equivalent, then we must be able to go back and forth between the two pictures. Without losing generality, we can chose $x^\alpha=f(q^i,t)$ to be a function of only $q^i$ and $t$.
 
-\begin{prop}\label{}
-A metric $g_{\alpha\beta}$ must be defined on the manifold identified by $x^\alpha$. All trajectories must be continuous.
+\begin{prop}\label{locallyMinkowski}
+Space-time is locally Minkowskian Rimmanian manifold. That is, there exists a metric $g_ij$ that at any point can be expressed, with a suitable choice of coordinate, as $dx^\alpha g_{\alpha \beta}|_P dx^\beta=dx^\alpha\eta_{\alpha \beta}dx^\beta=(dx^i)^2 - (dx^0)^2=(dx^i)^2 - c^2dt^2$, where $c=n(dq)/n(dt)$ is the ration between the density of states in space and time.
 \end{prop}
 
-As each label corresponds to an infinitesimal cell, we need distances properly defined. This requires a metric defined on the manifold. And since evolution is continuous on state variables, it will be continuous in $x^\alpha$ as well.
+As states are defined on intervals, a metric $g$ must be defined on $Q$. Such a metric must be consistent with $\omega$, as both must be invariant under coordinate transformations. The idea is that each $(dx^\alpha)^2$ can be made to both represent a length square in space-time and an area in phase space, linking the two metrics. For each spatial d.o.f. fix $dp_i=\lambda dq^i$, we have $dq^i \wedge dp_i = \lambda (dx^i)^2$ where $\lambda$ converts from units of length squared to cardinality of labels. For the temporal d.o.f fix $dE = \lambda c^2 dt$, we have $dt \wedge dE = \lambda c^2 dt^2$. That is: the area in time squared is converted to an area in length squared that have the same density of states (as per definition of $c$) and then to cardinality of labels. The phase space invariant is $\omega = \lambda [(dq^i)^2 - c^2 dt^2]$.
 
-\begin{defn}\label{continuousLabels}
-An \emph{inertial frame} is one for which each direction of space represents a homogeneous state variable of an independent degree of freedom.\footnote{While a local inertial frame always exists, the existence of a global one is an added requirement. We add it because it makes the discussion easier and the proofs more obvious. Most of the results, though, will hold without that assumption. This will be important in future works that will try to extend this framework to general relativity.}
-\end{defn}
+Assume the choice of coordinates $\x^alpha$ locally diagonalizes $g(x^\alpha)$, each diagonal element being either $\pm 1$ (such coordinate system always exists). Set $x^i=q^i$ and $x^0=ct$. We have $\omega = \lambda ((dx^i)^2 - (dx^0)^2)$ and $dx^\alpha g_{\alpha \beta} dx^\beta=dx^\alpha g_{\alpha \alpha}dx^\alpha$. Both are invariant under coordinate transformation for any $dx^\alpha$. This can only be if $g_{ii}(x^\alpha)=1$ and $g_{00}(x^\alpha)=-1$.
 
-\begin{cor}\label{continuousLabels}
-The metric associated with an inertial frame is
+It is fitting that deterministic and reversible evolution requires space-time to be locally Minkowskian, as this clearly defines past and future events. To make us understand better the role of $c$, as we defined it, we prove the following.
+
+\begin{prop}\label{locallyMinkowski}
+The speed of a body cannot exceed $c$ under the kinematic equivalence assumption.
+\end{prop}
+
+Consider a movement $ds$ along any trajectory. This will go through $n(dt)$ labels in time and $n(dq)$ labels in space. As the motion is continuous, the number of labels in space cannot exceed the number of labels in time, we can't skip them, therefore $n(dq)\leq c n(dt)$. So we have:
 \begin{align*}
-g_{\alpha, \beta} =  \left[
-  \begin{array}{cccc}
-    -1 & 0 & 0 & 0 \\
-    0 & 1 & 0 & 0 \\
-    0 & 0 & 1 & 0 \\
-    0 & 0 & 0 & 1 \\
-  \end{array}
-\right] \\
+\frac{n(dq)}{n(dt)}= \frac{dq}{dt} \leq c
 \end{align*}
-\end{cor}
 
-The relationships between coordinates is the same as in phase space: $X^i$ must be orthogonal with each other, as the corresponding $Q^i$ are orthogonal in phase space; $X^i$ and $X^0$ are not in general orthogonal and it is the length perpendicular to time that gets conserved. Given that $X^\alpha$ are homogeneous, the metric must be invariant under translation, does not change in space-time, it is constant. With a suitable choice of units, we can set $|g_{\alpha\alpha}|=1$. All these combines gives us the Minkowski metric. We also introduce a constant $c$\footnote{Here $c$ is not defined as a a speed: it's the constant that allows to convert the cardinality of labels between space and time coordinates.} to convert time intervals to space intervals with the same number of labels, so we have $x^0=ct$.
 
-It's important to note that the geometry of extended phase space and the geometry of space-time are linked: we cannot define cells in one without also defining cells in the other. This is true for all reference frames, not just inertial ones.
 
 \begin{prop}\label{continuousLabels}
 The position $x^\alpha$ and the velocity $dx^i/dt$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
