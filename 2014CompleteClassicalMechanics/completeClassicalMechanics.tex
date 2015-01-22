@@ -334,7 +334,7 @@ Space-time is locally Minkowskian Rimmanian manifold. That is, there exists a me
 
 As states are defined on intervals, a metric $g$ must be defined on $Q$. Such a metric must be consistent with $\omega$, as both must be invariant under coordinate transformations. The idea is that each $(dx^\alpha)^2$ can be made to both represent a length square in space-time and an area in phase space, linking the two metrics. For each spatial d.o.f. fix $dp_i=\lambda dq^i$, we have $dq^i \wedge dp_i = \lambda (dx^i)^2$ where $\lambda$ converts from units of length squared to cardinality of labels. For the temporal d.o.f fix $dE = \lambda c^2 dt$, we have $dt \wedge dE = \lambda c^2 dt^2$. That is: the area in time squared is converted to an area in length squared that have the same density of states (as per definition of $c$) and then to cardinality of labels. The phase space invariant is $\omega = \lambda [(dq^i)^2 - c^2 dt^2]$.
 
-Assume the choice of coordinates $\x^alpha$ locally diagonalizes $g(x^\alpha)$, each diagonal element being either $\pm 1$ (such coordinate system always exists). Set $x^i=q^i$ and $x^0=ct$. We have $\omega = \lambda ((dx^i)^2 - (dx^0)^2)$ and $dx^\alpha g_{\alpha \beta} dx^\beta=dx^\alpha g_{\alpha \alpha}dx^\alpha$. Both are invariant under coordinate transformation for any $dx^\alpha$. This can only be if $g_{ii}(x^\alpha)=1$ and $g_{00}(x^\alpha)=-1$.
+Assume the choice of coordinates $x^\alpha$ locally diagonalizes $g(x^\alpha)$, each diagonal element being either $\pm 1$ (such coordinate system always exists). Set $x^i=q^i$ and $x^0=ct$. We have $\omega = \lambda ((dx^i)^2 - (dx^0)^2)$ and $dx^\alpha g_{\alpha \beta} dx^\beta=dx^\alpha g_{\alpha \alpha}dx^\alpha$. Both are invariant under coordinate transformation for any $dx^\alpha$. This can only be if $g_{ii}(x^\alpha)=1$ and $g_{00}(x^\alpha)=-1$.
 
 It is fitting that deterministic and reversible evolution requires space-time to be locally Minkowskian, as this clearly defines past and future events. To make us understand better the role of $c$, as we defined it, we prove the following.
 
@@ -344,16 +344,46 @@ The speed of a body cannot exceed $c$ under the kinematic equivalence assumption
 
 Consider a movement $ds$ along any trajectory. This will go through $n(dt)$ labels in time and $n(dq)$ labels in space. As the motion is continuous, the number of labels in space cannot exceed the number of labels in time, we can't skip them, therefore $n(dq)\leq c n(dt)$. So we have:
 \begin{align*}
-\frac{n(dq)}{n(dt)}= \frac{dq}{dt} \leq c
+\frac{n(dq)}{n(dt)}= \frac{dq}{dt} \leq c \\
 \end{align*}
 
-
-
-\begin{prop}\label{continuousLabels}
-The position $x^\alpha$ and the velocity $dx^i/dt$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
+\begin{prop}\label{initialConditions}
+Let $u^\alpha = d_s x^\alpha$ be the four-velocity, where the parametrization $s$ is chosen, by convention, to be proper time. The position $x^\alpha$ and velocity $u^\alpha$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
 \end{prop}
 
-The initial conditions will be given by the position and its first $n$ derivatives: $x^i_k=d^kx^i(t_0)/dt^k$ where $k=0..n$. This means that there is a function that, given the initial conditions, gives us the trajectory: $x(t)=f(t_0, x^i_k)$. We note that the initial conditions can be changed by an active transformation, therefore counting the number of possible initial conditions is equivalent to counting the possible number of active transformations. Under such change, though, the metric cannot change: it needs to be a change in initial conditions in the same reference frame, or we would double count each case. Defining the transformation for the position also defines how all its derivatives change, and by requiring the invariance of the metric, our options are actually very limited. Assuming we start from an inertial frame, only a linear transformation in all $x^\alpha$ can preserve the metric. A linear transformation can only change position and velocity, so the initial condition can only be limited to those. We also note that the active transformation can always change the velocity of $x(t)$, so $f$ must depend on the velocity or it would not be able to reach all possible trajectories defined by an active transformation in the same reference frame. Therefore position and velocity are both necessary and sufficient initial condition.
+The equation of motion \ref{tdofHam} can be at most second order in $q^i$, they can at most be second order in $x^\alpha=\{ct, q^i\}$ so only position and velocity can be candidates for the initial conditions. Fixing time, phase space is $\mathbbm{R}^{2n}$, too big to be covered by position only, but just right to be covered by both.
+
+\begin{prop}\label{kineticMomentum}
+Let $x^\alpha=\{ct, q^i\}$ and $p_\alpha=\{-E/c, p_i\}$. Then $p_\alpha= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)$, where $m=n(dp_\alpha)/n(d(g_{\alpha \beta}u^\beta))$ is the ration between the density of states in conjugate momentum and in contravariant velocity, and is called \emph{inertial mass}.
+\end{prop}
+
+For \ref{kinematicAssumption} and \ref{kineticMomentum}, there must exist $p_\alpha=p_\alpha(x^\beta , u^\gamma)$. We express it in terms of $u_\alpha\equiv g_{\alpha \beta} u^\beta$. We have:
+\begin{align*}
+\omega &= q^i\wedge p_i - ct \wedge E/c \\
+&=x^\alpha \wedge p_\alpha \\
+&=dx^\alpha \wedge \frac{\partial p_\alpha}{\partial u_\beta}du_\beta + dx^\alpha \wedge \frac{\partial p_\alpha}{\partial x^\gamma}dx^\gamma \\
+&=\frac{\partial p_\alpha}{\partial u_\beta}du_\beta dx^\alpha \\
+\end{align*}
+Consider the expression $m du_\alpha dx^\alpha$: this gives us the density of labels in position and velocity converted to the conjugate variables. In other world, we should have $\omega=m du_\alpha dx^\alpha$. This means:
+\begin{align*}
+\frac{\partial p_\alpha}{\partial u_\beta} &= m \delta^\beta_\alpha \\
+p_\alpha &= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)
+\end{align*}
+where $\hat{p}$ is an arbitrary function.
+
+To convince ourselves that $m$ is indeed the inertial mass, consider applying a force. We are changing the state through the velocity, meaning changing the conjugate momentum. The higher the mass, the more states we'll have to go through to reach the same velocity. The higher the mass, the more change is required, the more force needs to be applied.
+
+\begin{prop}\label{kineticHamiltonian}
+The extended Hamiltonian is $\mathcal{H}=\frac{1}{2m}(p_\alpha-\hat{p}_\alpha(x))g^{\alpha\beta}(p_\beta-\hat{p}_\beta(x))+\hat{\mathcal{H}}(x)$
+\end{prop}
+We have:
+\begin{align*}
+\frac{dq^\alpha}{ds} &= u^\alpha \\
+&= \frac{1}{m}g^{\alpha\beta}(p_\beta-\hat{p}_\beta) \\
+&= \frac{\partial \mathcal{H}}{dp_\alpha} \\
+\end{align*}
+Integrating we have the expression for the Hamiltonian, where $\hat{\mathcal{H}}$ is an arbitrary function.
+
 
 \begin{prop}
 Principle of relativity. The laws of motion have the same form for all inertial observers.
