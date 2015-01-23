@@ -384,86 +384,62 @@ We have:
 \end{align*}
 Integrating we have the expression for the Hamiltonian, where $\hat{\mathcal{H}}$ is an arbitrary function.
 
-
-\begin{prop}
-Principle of relativity. The laws of motion have the same form for all inertial observers.
+\begin{prop}\label{kineticLaw}
+Let $\hat{p}_\alpha = q A_\alpha$, $F_{\alpha \beta} \equiv \partial_\alpha A_\beta - \partial_\beta A_\alpha$ and $\hat{H} = 0$, the equations of motion are $m \nabla_s u^\alpha = g^{\alpha\beta} F_{\beta \gamma} q u^\gamma$.
 \end{prop}
 
-We saw that an active transformation that does not change the metric is a change in the initial conditions. Such a change should not affect the form of the function that given the initial conditions gives us the whole trajectory: the observer is the same, the law of motion is the same, they just shift the value of the arguments. But if the form of the laws of motion is preserved under such active transformations, it will also not change under passive transformation that preserve the metric. Given that all inertial observers can be reached by a linear transformation, which preserves the metric, then the laws of motion will have the same form.
+We first derive the following relationship for later use:
+\begin{align*}
+\partial_\alpha \delta^\beta_\gamma &= 0 = \partial_\alpha g^{\beta\delta} g_{\delta\gamma} + g^{\beta\delta} \partial_\alpha g_{\delta\gamma}\\
+\partial_\alpha g^{\beta\epsilon} &= - g^{\beta\delta} g^{\gamma\epsilon} \partial_\alpha g_{\delta\gamma} 
+\end{align*}
 
-%x(t)=f(x_0, x_1, ... x_n)
-
-%What is the space size for a particular frame?
-
-%We can reach any initial condition by coordinate changes
-%But they also change f
-%Free parameters are going to be the ones we can change without changing f
-%How many coordinate changes are available to use without changing f?
-%The ones that preserve the metric
-
-%l_\alpha^\gamma l_\beta^\delta g_{\gamma\delta} = g_{\alpha\beta}
-
-%Suppose different coordinate frame with same metric
-%x'(t)=f(x'_0, x'_1, ... x'_n)
-
-
-Assume trajectory are deterministic and reversible. Have state.
-
-How much state? Find that is two per degree of freedom. Position and momentum are only state variables.
-
-Inertial frame
-
-\section{Connect to Hamiltonian}
-\begin{prop}\label{continuousLabels}
-Under the kinematic assumption, there must exist a bijective transformation $q^\alpha=q^\alpha(x^\alpha,u^\alpha)$ and $p^\alpha=p^\alpha(x^\alpha,u^\alpha)$ between initial conditions and state variables. As such, they are monotonic in both variables.
-\end{prop}
-
-As we have seen, $X^\alpha$ and $U^\alpha$ are state variables that fully identify our degrees of freedom. Nothing tells us, though, that
-they are conjugate variables. But, since for every set of initial condition there must be one and only one state associated with it. This means the transformation must be invertible, monotonic.
-
-\begin{prop}\label{continuousLabels}
-Under the kinematic assumption, the extended phase space is defined on the conjugate variables $q^\alpha=x^\alpha$ and $p_\alpha=m\frac{dx_\alpha}{ds}+\hat{p}_\alpha(x)$.
-\end{prop}
-
-Given the degree of arbitrariness in choice of transformation, we can set $q^\alpha=x^\alpha$. This creates a direct link between how space is measured ($g_{\alpha\beta}(x^\alpha)$) and the width of our cells in phase space ($m(q)$)
-
-$\partial_\alpha \delta^\beta_\gamma = 0 = \partial_\alpha g^{\beta\delta} g_{\delta\gamma} + g^{\beta\delta} \partial_\alpha g_{\delta\gamma}$
-
-$\partial_\alpha g^{\beta\delta} g_{\delta\gamma} = - g^{\beta\delta} \partial_\alpha g_{\delta\gamma}$
-
-$\partial_\alpha g^{\beta\delta} g_{\delta\gamma} g^{\gamma\epsilon} = - g^{\beta\delta} \partial_\alpha g_{\delta\gamma} g^{\gamma\epsilon}$
-
-$\partial_\alpha g^{\beta\epsilon} = - g^{\beta\delta} g^{\gamma\epsilon} \partial_\alpha g_{\delta\gamma} $
-
-$p_\alpha=m\frac{dx_\alpha}{ds}+\hat{p}_\alpha(x)$
-
-
-$\frac{dx^\alpha}{ds}=\frac{\partial H}{\partial p_\alpha}=\frac{1}{m}(p^\alpha-\hat{p}^\alpha(x))$
-
-$H=\frac{1}{2m}(p_\alpha-\hat{p}_\alpha)g^{\alpha\beta}(p_\beta-\hat{p}_\beta(x))+\hat{H}(x)$
-
-$\frac{dp_\alpha}{ds}=-\frac{\partial H}{\partial q^\alpha}=$
-
-$\frac{1}{2m}[\partial_\alpha \hat{p}_\beta g^{\beta \gamma} (p_\gamma -\hat{p}_\gamma)
- - (p_\beta -\hat{p}_\beta) \partial_\alpha g^{\beta \gamma} (p_\gamma -\hat{p}_\gamma)
- + (p_\beta -\hat{p}_\beta) g^{\beta \gamma} \partial_\alpha \hat{p}_\gamma ]- \partial_\alpha \hat{H}(x)=$
-
-$\frac{1}{2}[\partial_\alpha \hat{p}_\beta u^\beta
+We expand \ref{tdofHam} using \ref{kineticHamiltonian}:
+\begin{align*}
+u^\alpha &= \frac{dq^\alpha}{ds} = \frac{\partial \mathcal{H}}{dp_\alpha} \\
+&= \frac{1}{m}g^{\alpha\beta}(p_\beta-\hat{p}_\beta) \\
+d_s p_\alpha &= - \frac{\partial \mathcal{H}}{\partial q^\alpha} \\
+&=\frac{1}{2m}[\partial_\alpha \hat{p}_\beta g^{\beta \gamma} (p_\gamma -\hat{p}_\gamma) \\
+ &- (p_\beta -\hat{p}_\beta) \partial_\alpha g^{\beta \gamma} (p_\gamma -\hat{p}_\gamma) \\
+ &+ (p_\beta -\hat{p}_\beta) g^{\beta \gamma} \partial_\alpha \hat{p}_\gamma ]- \partial_\alpha \hat{H} \\
+&=\frac{1}{2}[\partial_\alpha \hat{p}_\beta u^\beta
 - m u^\delta g_{\delta\beta} \partial_\alpha g^{\beta \gamma} u^\epsilon g_{\epsilon\gamma}
-+ u^\gamma \partial_\alpha \hat{p}_\gamma ]- \partial_\alpha \hat{H}(x)=$
++ u^\gamma \partial_\alpha \hat{p}_\gamma ]- \partial_\alpha \hat{H}
+\end{align*}
 
-$\partial_\alpha \hat{p}_\beta u^\beta + \frac{m}{2}u^\beta \partial_\alpha g_{\beta \gamma} u^\gamma
-- \partial_\alpha \hat{H}(x)=$
+We then calculate the four-force:
+\begin{align*}
+m d_s u^\alpha &= d_s g^{\alpha\beta}(p_\beta-\hat{p}_\beta) + g^{\alpha\beta} d_s (p_\beta-\hat{p}_\beta) \\
+&= \partial_\gamma g^{\alpha\beta} d_s x^\gamma m g_{\beta \delta} u^\delta + g^{\alpha\beta} (d_s p_\beta - \partial_\gamma \hat{p}_\beta d_s x^\gamma) \\
+&= \partial_\gamma g^{\alpha\beta} u^\gamma m g_{\beta \delta} u^\delta + g^{\alpha\beta} \frac{1}{2} [\partial_\beta \hat{p}_\gamma u^\gamma
+- m u^\epsilon g_{\epsilon\gamma} \partial_\beta g^{\gamma \delta} u^\zeta g_{\zeta\delta} \\
+&+ u^\delta \partial_\beta \hat{p}_\delta ]- g^{\alpha\beta} \partial_\beta \hat{H} - g^{\alpha\beta} \partial_\gamma \hat{p}_\beta u^\gamma \\
+&= m  g_{\beta \delta} \partial_\gamma g^{\alpha\beta} u^\gamma u^\delta - \frac{1}{2} m g^{\alpha\beta} g_{\zeta\delta} g_{\epsilon\gamma} \partial_\beta g^{\gamma \delta} u^\epsilon u^\zeta  \\
+&+ g^{\alpha\beta} \partial_\beta \hat{p}_\gamma u^\gamma - g^{\alpha\beta} \partial_\gamma \hat{p}_\beta u^\gamma
+- g^{\alpha\beta} \partial_\beta \hat{H}\\
+&= - m  g^{\alpha \beta} \partial_\gamma g_{\beta\delta} u^\gamma u^\delta + \frac{1}{2} m g^{\alpha\beta} \partial_\beta g_{\gamma \delta} u^\gamma u^\delta  \\
+&+ g^{\alpha\beta} (\partial_\beta \hat{p}_\gamma - \partial_\gamma \hat{p}_\beta ) u^\gamma
+- g^{\alpha\beta} \partial_\beta \hat{H}\\
+&= - m \frac{1}{2} g^{\alpha \beta} ( \partial_\gamma g_{\beta\delta} + \partial_\delta g_{\beta\gamma} - \partial_\beta g_{\gamma \delta} ) u^\gamma u^\delta  \\
+&+ g^{\alpha\beta} (\partial_\beta \hat{p}_\gamma - \partial_\gamma \hat{p}_\beta ) u^\gamma
+- g^{\alpha\beta} \partial_\beta \hat{H}\\
+&= - m \Gamma ^\alpha_{\ \gamma \delta} u^\gamma u^\delta + g^{\alpha\beta} (\partial_\beta \hat{p}_\gamma - \partial_\gamma \hat{p}_\beta ) u^\gamma
+- g^{\alpha\beta} \partial_\beta \hat{H}
+\end{align*}
+\begin{align*}
+m \nabla_{u} u^\alpha &= m (d_s u^\alpha + \Gamma ^\alpha_{\ \gamma \delta} u^\gamma u^\delta)  \\
+&= g^{\alpha\beta} (\partial_\beta \hat{p}_\gamma - \partial_\gamma \hat{p}_\beta ) u^\gamma - g^{\alpha\beta} \partial_\beta \hat{H}\\
+&= g^{\alpha\beta} (\nabla_\beta \hat{p}_\gamma - \nabla_\gamma \hat{p}_\beta ) u^\gamma - g^{\alpha\beta} \nabla_\beta \hat{H}
+\end{align*}
 
-$m\frac{d^2x_\alpha}{ds^2}+\frac{d\hat{p}_\alpha(x)}{ds}$
+The equation is manifestly covariant. If $\hat{p}$ and $\hat{H}$ are zero, absence of forces, we recognize the geodesic equation. We substitute $\hat{p}_\alpha = q A_\alpha$ and $\hat{H} = 0$ and have:
 
-$m\frac{d^2x_\alpha}{ds^2}=\frac{1}{2}[\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} (\frac{dx^\beta}{ds}) + (\frac{dx_\beta}{ds})\frac{\partial\hat{p}^\beta(x)}{\partial x^\alpha} ]-\frac{\partial\hat{p}_\alpha(x)}{\partial x^\beta}\frac{dx^\beta}{ds}
--\frac{\partial \hat{H}(x)}{\partial x^\alpha}$
+\begin{align*}
+m \nabla_{u} u^\alpha &= g^{\alpha\beta} (\partial_\beta A_\gamma - \partial_\gamma A_\beta ) q u^\gamma \\
+&= g^{\alpha\beta} F_{\beta \gamma} q u^\gamma\\
+\end{align*}
 
-$m\frac{d^2x_\alpha}{ds^2}=(\frac{\partial\hat{p}_\beta(x)}{\partial x^\alpha} - \frac{\partial\hat{p}_\alpha(x)}{\partial x^\beta} ) \frac{dx\beta}{ds}
--\frac{\partial \hat{H}(x)}{\partial x^\alpha}$
-
-Find that p must be contra-variant. Must be monotonic. And a linear transformation of v. Introduce mass. Introduce gauge.
+This is the relativistic equation for a charged particle.
 
 \section{Lagrangian}
 
