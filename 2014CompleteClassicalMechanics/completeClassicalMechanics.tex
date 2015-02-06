@@ -126,10 +126,12 @@ Bijective maps preserve the number of labels as they provide one-to-one associat
 
 \section{Continuous labels}
 
-Numeric labels are prevalent in physics. For the discrete case, we can use integers and expect a one-to-one map between $z\in\mathbbm{Z}$ and $i\in I$. The deterministic map than becomes $f:\mathbbm{Z} \leftrightarrow \mathbbm{Z}$. For the continuous case, one may simply expect to replace $\mathbbm{Z}$ with $\mathbbm{R}$, but this presents a problem. In the continuous limit, the distribution of our infinitesimal states will become a density which is defined over infinitesimal intervals. Since the distribution and the states must be defined on the same object, the label is really an interval over $\mathbbm{R}$, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. With this in mind, we have the following definitions.
+The above definitions readily apply for labels identified by integers.\footnote{For each label $i$ there is one and only one integer $z$.} Let $z \in \mathbbm{Z}$, we have $\mathbbm{c}=\sum\limits_{z \in \mathbbm{Z}} D(z) \mathbbm{s}(z)$ and the deterministic map becomes $f:\mathbbm{Z} \leftrightarrow \mathbbm{Z}$. For the continuous case, one may simply expect to replace $z \in \mathbbm{Z}$ with $r \in \mathbbm{R}$, but this does not work. In the continuous limit, we would have $\mathbbm{c}=\int\limits_{r \in \mathbbm{R}} \rho(r) dr \mathbbm{s}(r)$, where $\rho(r) = D(r) / dr$. The continuous distribution $\rho$ is a density, defined over interval $dr$. That is: it's really $\rho(r, dr(r))$, function of both the center and the width of the interval. A bijective map on just $r$ is not sufficient, $dr$ must be mapped as well. On one side we claim the state fully identified by $r$, on the other $dr$ (an different label) is required for the density and the bijective map. We can't have it both ways.
+ 
+In the continuous case, then, the appropriate label corresponds to a cell over $\mathbbm{R}$, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. An cell corresponds to $\mathbbm{R}^2$: the center and the width. With this in mind, we have the following definitions.
 
 \begin{defn}\label{sdof}
-A \emph{degree of freedom} is a state variable identified by an infinitesimal cell of $\mathbbm{R}$.
+A \emph{degree of freedom} is a state variable identified by an infinitesimal cell of $\mathbbm{R}$.\footnote{For each label $i$ there is one and only infinitesimal cell.}
 \end{defn}
 
 \begin{defn}\label{sdof}
@@ -137,30 +139,40 @@ We define the \emph{generalized coordinate} $q$ as the center of each cell. We d
 \end{defn}
 
 \begin{cor}\label{continuousLabels}
-Each degree of freedom is identified by the pair of labels $\langle q,k \rangle$. As $k\,dq$ is invariant under coordinate changes, $dk\wedge dq$ is invariant and $k$ is contravariant.
+Each degree of freedom is identified by the pair of labels $\langle q,k \rangle \in QT^*$. $k\,dq$ is invariant under coordinate changes, $dq\wedge dk$ is invariant and $k$ is contravariant.
 \end{cor}
+
+Let's start with the discrete case. Let $Q$ be a finite region of $\mathbbm{R}$. Divide the region in $N$ equal intervals of center $q$ and length $\Delta q$.\footnote{The definition could be mathematically more general. We use equally spaced intervals as it makes the derivation less cumbersome.} Let $K$ be a finite region of $\mathbbm{R}$. Divide the region in $M$ equal intervals of center $k$ and length $\Delta k$. Let $I$ be the label set identified by the cells in $Q$ with center $q(i)$ and width $k(i) \Delta q$. The configuration state will be given by $\mathbbm{c}=\sum\limits_{i \in \mathbbm{I}} \rho(q(i), k(i)) \Delta q \Delta k \mathbbm{s}(q(i), k(i))$, where $\rho(q(i), k(i)) = D(q(i), k(i)) / (\Delta q \Delta k)$.
+
+As we increase $N$ and $M$, the cardinality of the label set $I$ increases, $\Delta q$ and $\Delta k$ decrease and so does the width of the cells. Our definitions, though, do not change: for each $\langle q,k \rangle$ we have one and only one state. In the limit, we will cover every possible center $q$ and evert possible cell number $k$. Our configuration state becomes $\mathbbm{c}=\int\limits_{q \in Q \; k\in K} \rho(q, k) dq \wedge dk \mathbbm{s}(q(i), k(i))$. We can then arbitrarily increase the size of $Q$, and note that none of the definition change.
+
+If we apply a coordinate change $q'=q'(q)$, we change the labels but the state must remain the same, defined at the same point with the same width. $k' dq'$ must be then equal to $k dq$; $k'= k dq / dq'$ is contravariant, $dq' \wedge dk'= dq'/dq dq \wedge dk dq/dq' = dq \wedge dk$ is invariant. This means that $\rho$ is also invariant, which makes sense: the density depends only on the state (the cell), and not the coordinate chosen to represent them. As $k$ is contravariant, in the limit $K$ becomes the cotangent space of $Q$.
 
 \begin{prop}\label{continuousLabels}
-The cardinality of labels on a degree of freedom is given by $\omega = \hbar \, dq \wedge dk$, where $\hbar$ is a constant that defines the unit for labels.
+The cardinality of a label set $I$, subset of a degree of freedom, is given by $n(I)=\int \omega$, where $\omega = \hbar \, dq \wedge dk$ and $\hbar$ is a constant that defines the unit of state cardinality.
 \end{prop}
 
-Since $q$ and $k$ are independent labels, the number of labels defined over a degree of freedom is the product of the labels defined on $q$ and $k$ (\ref{labelsCombine}). The number of labels for an interval of $q$ or $k$ will be proportional to said interval, therefore we have $\hbar \, dq \wedge dk$, where the constant is given by the choice of units for labels. It is customary to combine $\hbar$ with $k$.
+As we deal with continuous labels, a label set is uncountable: given any range $\delta q$ and $\delta k$ there are an infinite number of possible labels $I$. Let $I_0$ be another set, defined on $\delta q_0$ and $\delta k_0$. In the discrete case, we have:
 
-\begin{defn}\label{sdof}
-We define the \emph{conjugate momentum} $p=\hbar k$.
+\begin{align*}
+\frac{n(I)}{n(I_0)} = \frac{\delta q \delta k / \Delta q \Delta k}{\delta q_0 \delta k_0 / \Delta q \Delta k} = \frac{\delta q \delta k}{\delta q_0 \delta k_0}
+\end{align*}
+
+That is: while the cardinality of each set diverges, the ratio between the two remains finite.\footnote{Such treatment is exactly equivalent to what one does in information theory to extend Shannon's entropy to the continuous case.} We can redefine our cardinality as the ratio of our set and our reference set $I_0$. That is $n(I)=\hbar \delta q \delta k$ where $\hbar$ is chosen such that $n(I_0)=\hbar \delta q_0 \delta k_0=1$.\footnote{The choice of angular momentum for $\hbar$ derives from the relationship between $p$ and $dq/dt$, which will be derived later. The scale in classical mechanics is arbitrary: we have no physical reason to choose a reference label set over another. In quantum mechanics, instead, we will have a preference: the set that corresponds to a single quantized system.} In general, the label set is not rectangular in $\langle q,k \rangle$ and we have $n(I)=\int \hbar dq \wedge dk$
+
+\begin{defn}\label{conjugateMomentum}
+We define the \emph{conjugate momentum} as $p=\hbar k$.
 \end{defn}
 
-\begin{cor}\label{continuousLabels}
-Each degree of freedom is identified by the pair of labels $\langle q,p \rangle$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant.
+As $\hbar dq \wedge dk$ is truly fundamental, it is customary to use $dq \wedge (\hbar dk) = dq \wedge dp$. This way the area formed by generalized coordinate and conjugate momentum corresponds to the cardinality of states defined on such area. 
+
+\begin{cor}\label{continuousConjugateRelationships}
+Each degree of freedom is identified by the pair of labels $\langle q,p \rangle \in QT^*$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant. The configuration state over a degree of freedom is $\mathbbm{c}=\int \rho(q,p) dq \wedge dp \mathbbm{s}_{qp}$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
 \end{cor}
 
-\begin{prop}\label{continuousLabelDist}
-The configuration state over a degree of freedom is $\mathbbm{c}=\int D(q,p) \mathbbm{s}_{qp} = \int \rho(q,p) dq \wedge dp \mathbbm{s}_{qp}$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
-\end{prop}
+This restates all the previous findings in terms of conjugate momentum.
 
-This is simply the limit of \ref{classicalDistribution} for the continuous case. Note that, since $\mathbbm{c}$ and $\omega$ are invariant under coordinate transformations, so is $\rho$.
-
-In the language of differential geometry, we recognise the function $\rho$, the one-form $\theta_0$ and the two-form $\omega$. They are truly fundamental objects as they are intimately linked to the way states are defined ($\rho$ is the distribution, $\theta_0 / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels) and they don't depend on coordinate choice.
+In the language of differential geometry, we recognise phase space as $Q$ extended by its cotangent space $T^*$, the function $\rho$, the one-form $\theta_0$ and the two-form $\omega$. They are truly fundamental objects as they are intimately linked to the way states are defined ($\rho$ is the distribution, $\theta_0 / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels) and they don't depend on coordinate choice.
 
 
 \section{Single degree of freedom}
