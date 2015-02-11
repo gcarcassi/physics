@@ -96,6 +96,42 @@ Should be:
 &d_tq'=d_qq'd_tq=3q^2d_tq=3q^2p/m=\frac{3p'q'^{2/3}}{m}
 \end{align*}
 
+\begin{align*}
+&p' = p &q' = p+q \\
+&p = p' &q = q'-p' \\
+&\partial_{p'}p=1 \\
+&\partial_{q'}q=1 \\
+&\partial_{p'}q=-1 \\
+&\partial_{q'}p=0 \\
+&\partial_{p}p'=1 \\
+&\partial_{q}q'=1 \\
+&\partial_{p}q'=1 \\
+&\partial_{q}p'=0 \\
+&H(q',p') = \frac{p'^2}{2m} + \frac{k(p' - q')^{2}}{2}  \\
+&H(q',p') = (\frac{1}{2m}+\frac{k}{2})p'^2 - kp'q' + \frac{kq'^{2}}{2}  \\
+&\omega_{q',p'} = \partial_{q'}a \partial_{p'}b \omega_{a,b} = \partial_{q'}q \partial_{p'}p \omega_{q,p} \\
+&\omega_{q',p'} = 1 \\
+&\omega_{p',q'} = \partial_{p'}a \partial_{q'}b \omega_{a,b} = \partial_{p'}p \partial_{q'}q \omega{p,q} \\
+&\omega_{p,q} = -1 \\
+&\omega_{a', b'} =  \left[
+  \begin{array}{cc}
+    0 & 1 \\
+    -1 & 0 \\
+  \end{array}
+\right] \\
+&S^{q'} \omega_{q', p'} = S_{p'} = \partial_{p'} H \\
+&d_tq' = \frac{p'}{m} +kp' -kq' \\
+&S^{p'} \omega_{p', q'} = S_{q'} = \partial_{q'} H \\
+&d_tp (-1) = -kp' +kq' \\
+&d_tq' = \frac{p'}{m} +kp' -kq' \\
+&d_tp' = kp' -kq' \\
+\end{align*}
+Should be:
+\begin{align*}
+&d_tp'=\partial_pp'd_tp + \partial_qp'd_tq=d_tp= -kq=-k(q'-p') \\
+&d_tq'=\partial_pq'd_tp + \partial_qq'd_tq=d_tp +d_tq=-kq + \frac{p}{m}=-k(q'-p')+ \frac{p'}{m}
+\end{align*}
+
 
 \begin{align*}
 v^{\alpha} \omega_{\alpha, \beta} w^{\beta} &= v'^{\alpha} \omega_{\alpha, \beta} w'^{\beta}  \\
