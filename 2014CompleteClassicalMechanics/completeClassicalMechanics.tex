@@ -183,25 +183,25 @@ In the language of differential geometry, we recognise phase space as the cotang
 
 \section{Single degree of freedom}
 
-Now that we have properly defined continuous labels and the cardinality of their sets, we will extend bijective maps for the continuous case. As these must preserve the cardinality of label sets, they are constrained in their form, which coincides with Hamilton's equation. In this section we'll study a single degree of freedom, then extend in the next two section to multiple degrees of freedom and to the time dependent case.
+Now that we have properly defined continuous labels and the relative cardinality of their sets, we will extend bijective maps to the continuous case. As these must preserve the cardinality of label sets, they are constrained in their form. The use of a bijective map for infinitesimal time evolution will lead us to Hamilton's equation. In this section we'll study a single degree of freedom, then extend in the next two section to multiple degrees of freedom and to the time dependent case.
 
 \begin{defn}\label{canonical}
-We define \emph{canonical transformation} a bijective map on one (or more) degree of freedoms.
+We define \emph{canonical transformation} a bijective map on one (or more) degree of freedom.
 \end{defn}
 
 \begin{prop}\label{continuousMapping}
 A canonical transformation must be continuous and preserve $\omega$.
 \end{prop}
 
-A bijective map conserves the cardinality of labels, see \ref{labelsCount}, therefore $\omega$ must be conserved. The map must be continuous in q: suppose it isn't, it would split some cells into two parts, a cell would not be mapped to one and only one other cell, the mapping would not be bijective. The reverse mapping must be continuous in q as well, or the inverse would not map to one and only one cell.
+As we saw \ref{labelsCount}, a bijective map conserves the cardinality of labels. In the continuous case, it will conserve relative cardinality and therefore $\omega$. The map must be continuous in q: suppose it isn't, it would split some cells into two parts, a cell would not be mapped to one and only one other cell, the mapping would not be bijective. The reverse mapping must be continuous in q as well, or the inverse would not map to one and only one cell.
 \begin{align*}
 dq' &= \frac{\partial q'}{\partial q} dq + \frac{\partial q'}{\partial p} dp \\
 dq &= \frac{\partial q}{\partial q'} dq' + \frac{\partial q}{\partial p'} dp'
 \end{align*}
-We can re-express $dp'$ in terms of $dq$ and $dp$, as the conservation of $\omega$ means the map is non-degenerate, find that all partial derivatives are well defined, and therefore the mapping is continuous in p as well.
+We can re-express $dp'$ in terms of $dq$ and $dp$, as the conservation of $\omega$ means the map is non-degenerate. All partial derivatives are well defined, and therefore the mapping is continuous in p as well.
 
 \begin{cor}\label{sdofInvariant}
-Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two conjugate variables. Let
+Let $v$ and $w$ be two vectors defined on the tangent space of the phase space for one degree of freedom. Let
 \begin{align*}
 \omega_{a, b} = \left[
   \begin{array}{cc}
@@ -247,7 +247,7 @@ Simply expand \ref{genAntisim} with the metric defined in \ref{sdofInvariant}. W
 \section{Multiple degrees of freedom}
 
 \begin{prop}\label{mdofInvariant}
-Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by two independent degrees of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv \{q^i, p_i\}$. Let
+Let $v$ and $w$ be two vectors defined on the tangent space of the phase space for two independent degrees of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv \{q^i, p_i\}$. Let
 \begin{align*}
 \omega_{\alpha, \beta} =  \left[
   \begin{array}{cc}
@@ -273,7 +273,7 @@ then $v'^{a} \omega_{a, b} w'^{b}=v^{a} \omega_{a, b} w^{a}$ under a canonical t
 \end{prop}
 
 The independence between degrees of freedoms corresponds to orthogonality in phase space: from \ref{labelsCombine} the product between the number of labels on each d.o.f. (i.e. the area), must be equal to the number of combines labels (i.e. the hyper-volume), which is true only if the d.o.f are orthogonal in phase space. From \ref{labelsCount}, the mapping will preserve the cardinality of labels, the area\footnote{We assume we are using the same unit across d.o.f.} on each d.o.f, and the independence, orthogonality across d.o.f.\footnote{These statements provide a direct physical interpretation for Gromov's non-squeezing theorem\cite{Gromov,deGosson,Stewart}.} This is equivalent to requiring the conservation of the scalar product across independent degrees of freedom, while still requiring conservation of the vector product within. That leads us to the metric defined by \ref{mdofInvariant}.
-The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary directions in phase space. For an infinitesimal region, this corresponds to $dq^1 \wedge dp^1 + dq^2 \wedge dp^2$, the sum of the projections on the independent planes. Moreover, volume in phase space corresponds to the cardinality of the combined labels (i.e. the states), and is therefore conserved: this is Liouville's theorem.
+The metric generalizes \ref{sdofInvariant} to give us the cardinality of labels defined on the area given by two arbitrary directions in phase space. For an infinitesimal region, this corresponds to $dq^1 \wedge dp_1 + dq^2 \wedge dp_2$, the sum of the projections on the independent planes. Moreover, volume in phase space corresponds to the cardinality of the combined labels (i.e. the states), and is therefore conserved: this is Liouville's theorem for Hamiltonian mechanics.
 
 \begin{prop}\label{mdofHam}
 The evolution for multiple degrees of freedom is given by:
@@ -303,10 +303,10 @@ The trajectory has to be continuous in both standard and temporal variables beca
 We call \emph{standard states} those connected by a trajectory where $d_{s}t>0$. We call \emph{anti-states} those connected by a trajectory where $d_{s}t<0$.
 \end{defn}
 
-Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between standard and anti-states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.
+Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between standard and anti-states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.\footnote{This represents a classical analogue for quantum anti-particle states.}
 
 \begin{prop}\label{tdofInvariant}
-Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by the temporal degree of freedom and one standard degree of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv\{t, E, q, p\}$. Let
+Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by the temporal degree of freedom and one standard degree of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv\{t, q, E, p\}$. Let
 \begin{align*}
 \omega_{a, b} =  \left[
   \begin{array}{cc}
@@ -331,14 +331,14 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the manifold iden
 then $v'^{a} \omega_{a, b} w'^{b}=v^{a} \omega_{a, b} w^{b}$ under deterministic and reversible evolution.
 \end{prop}
 
-$\langle t, E \rangle$ are not independent from $\langle q, p \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. Looking back at \ref{discreteLabelDef}, cells need to be defined on the plane where $\langle q, p \rangle$ (maximally) change: this is not the plane of constant $\langle t, E \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle q, p \rangle$ where $dt \wedge dE$ is defined. On that plane we can properly count states and define our invariant.
+$\langle t, E \rangle$ are not independent from $\langle q, p \rangle$ as they do not define new states. So they are not necessarily orthogonal in the extended phase space. States are defined on the plane where $\langle q, p \rangle$ (maximally) change: this is not the plane of constant $\langle t, E \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle q, p \rangle$ where $dt \wedge dE$ is defined. On that plane we can properly count states and define our invariant.
 
 We have a right triangle-like relationship between the plane where the invariant is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
 \begin{align*}
 m.d.o.f \;\;\; &dq^1 \wedge dp_1 + dq^2 \wedge dp_2 = k \\
 t.d.o.f \;\;\; &dt \wedge dE + k = dq \wedge dp \\
 \end{align*}
-But in the previous case, the right angle was between the two independent d.o.f.. In this case, the right angle is between the invariant and the plane of constant $\langle q, p \rangle$ where $dt \wedge dE$ is defined. We rewrite it as $dq \wedge dp - dt \wedge dE = k$. This corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom.\footnote{Adjusted to avoid double counting.}
+But in the previous case, the right angle was between the two independent d.o.f.. In this case, the right angle is between the invariant and the plane of constant $\langle q, p \rangle$ where $dt \wedge dE$ is defined. We rewrite it as $dq \wedge dp - dt \wedge dE = k$. This corresponds to the Minkowski product across d.o.f. and the vector product within. The metric, with a space-like convention, still gives us the cardinality of labels within a degree of freedom, adjusting \ref{sdofInvariant} to avoid "double counting".
 
 \begin{prop}\label{tdofHam}
 The evolution for time varying multiple degrees of freedom is given by:
@@ -354,13 +354,11 @@ Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \
 
 If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge,Lanczos}.
 
-It should not be a surprise that the equations do not mention the speed of light $c$. In fact, nothing says that all $q^i$ represent space or that the laws of motion are invariant in all inertial frames. The only requirement we have is that the areas of each degree of freedom represent the same cardinality for labels.
-
 \begin{prop}\label{tdofConstrain}
 The evolution is constrained by $\mathcal{H}=k$.
 \end{prop}
 
-Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $\mathbb{R}^{2*N + 1}$, the state variables plus time.
+Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $2N + 1$ components, the state variables plus time.
 
 \section{Kinematics}
 So far we talked about states without reference to what they physically represent.
