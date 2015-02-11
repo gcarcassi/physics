@@ -33,7 +33,9 @@ We show that classical mechanics, including Hamiltonian, Lagrangian, non-relativ
 \section{Introduction}
 
 
-Classical mechanics is usually founded on Newton's laws. These, though, are insufficient to derive the Lagrangian and Hamiltonian formalism, and usually other ad-hoc assumptions (e.g. conservative forces) are introduced. Special relativity is based on two principles (invariance of the speed of light and the principle of relativity), which lead to the Minkowskian nature of space-time but not to the equation of motion, which are a consistent reformulation of the non-relativistic ones. What we'll do in this work is see if we can re-organize all the known elements and equations in a more consistent and comprehensive way. The hope is that this gives us better insight on why the fundamental laws are what they are. Also, given that classical and quantum mechanics are formally equivalent, there is a chance that such work could be extended to quantum mechanics.
+Classical mechanics is usually founded on Newton's laws. These, though, are insufficient to derive the Lagrangian and Hamiltonian formalism, and usually other ad-hoc assumptions (e.g. conservative forces) are introduced. Special relativity is based on two principles (invariance of the speed of light and the principle of relativity), which lead to the Minkowskian nature of space-time but not to the equation of motion, which are a consistent reformulation of the non-relativistic ones. What we'll do in this work is re-organize all the known elements and equations in a more consistent and comprehensive way, leading to better insight on why the fundamental concepts and laws are what they are. The derivation will also include classical analogues of strictly quantum concepts to facilitate a future extension to quantum mechanics.
+
+
 
 The above outline should help the reader maintain the big picture, as each section will go through the many details and definitions. We'll keep names and notation as consistent as possible to current use, but this may lead to some non sequitur as it will not be immediately clear why the different definition will be at the end equivalent to the standard one. This is still preferable than introducing a whole new set of names one has to become familiar.
 
@@ -57,7 +59,7 @@ The first two sections are dedicated to properly define states. In particular, w
     \begin{tabular}{ | p{2.5cm} | p{5.5cm} | }
     \hline
     Configuration state & The state of the whole system being described. \\ \hline
-    Elemental state (or just state) & The state of an infinitesimal part of the system. \\ \hline
+    Particle state (or simply state) & The state of an infinitesimal part (i.e. particle) of the system. \\ \hline
     \end{tabular}
 \end{center}
 The second is, when referring to a physical quantity, between the space of all possible values, a particular value or a set of possible values.
@@ -79,24 +81,22 @@ Suppose we have a physical system to study. We define the set $\mathbbm{C}$ of a
 \end{defn}
 
 \begin{assump1}\label{classical}
-The system is infinitely reducible: it can be thought as composed by two or more similar but smaller systems, each in its own configuration state, which also can be thought as composed by two or more, ad infinitum.
+The system is infinitely reducible: it can be thought as composed by two or more similar but smaller systems, each in its own configuration state, which also can be thought as composed by two or more, ad infinitum. We call \emph{particle} such an infinitesimal part.
 \end{assump1}
 
 \begin{defn}\label{classicalPhaseSpace}
-Let $\mathbbm{S}$ be the set of all possible configuration states of the infinitesimal subdivision. We call this set \emph{phase space}. We call each $\mathbbm{s} \in \mathbbm{S}$ an \emph{elemental state}, or simply \emph{state}.
+Let $\mathbbm{S}$ be the set of all possible configuration states for a particle. We call this set \emph{phase space}. We call each $\mathbbm{s} \in \mathbbm{S}$ an \emph{particle state}, or simply \emph{state}.
 \end{defn}
 
 \begin{cor}\label{classicalDistribution}
-Each classical configuration state $\mathbbm{c} \in \mathbbm{C}$ is a distribution over states: $\mathbbm{c}=\sum\limits_{\mathbbm{s} \in \mathbbm{S}} D(\mathbbm{s}) \mathbbm{s}$, where $D:\mathbbm{S}\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}$. The distribution can be visualized as a histogram over the states in phase space.
+Each classical configuration state $\mathbbm{c} \in \mathbbm{C}$ is a distribution over particle states: $\mathbbm{c}=\sum\limits_{\mathbbm{s} \in \mathbbm{S}} D(\mathbbm{s}) \mathbbm{s}$, where $D:\mathbbm{S}\rightarrow\mathbb{R}$ measures how much of the system can be found in each $\mathbbm{s}$. The distribution can be visualized as a histogram over the states in phase space.
 \end{cor}
 
-Under the classical assumption, we can then limit ourselves to the study of the infinitesimal elements, their states and their properties without loss of generality. To help identify states, we introduce the following concepts.
+Under the classical assumption, we can then limit ourselves to study the particles of the system, their states and their properties without loss of generality. To help identify states, we introduce the following concepts.
 
 \begin{defn}\label{label}
-We call a \emph{label} a set of states $i\subset\mathbbm{S}$; a \emph{set of labels} a collection of disjoint labels $I | \forall i_1,i_2\in I, i_1\bigcap i_2 = \emptyset$; a \emph{state variable} a set of labels $X$ that covers all of phase space: $\bigcup\limits_{i \in X}i=\mathbbm{S}$. Therefore a state belongs to one and only one label of a state variable.
+We call a \emph{label} a set of states $i\subset\mathbbm{S}$; a \emph{set of labels} a collection of disjoint labels $I | \forall i_1,i_2\in I, i_1\bigcap i_2 = \emptyset$; a \emph{state variable} a set of labels $\mathbbm{I}$ that covers all of phase space: $\bigcup\limits_{i \in \mathbbm{I}}i=\mathbbm{S}$. Therefore a state belongs to one and only one label of a state variable.
 \end{defn}
-
-TODO: NOTATION maybe $X$ should be $\mathcal{I}$?
 
 \begin{defn}\label{labelsCombine}
 Let $I_1$ and $I_2$ be two sets of labels. We can define the \emph{combined set}, $\langle I_1, I_2 \rangle$, whose labels consist of all the non-empty intersections of one label of $I_1$ and one of $I_2$. If all intersections are non-empty, $I_1$ and $I_2$ are said to be \emph{independent}, and we have $n(\langle I_1, I_2 \rangle)=n(I_1)n(I_2)$ where $n: I \rightarrow \mathbbm{R}$ gives the number of labels of each set.
@@ -128,10 +128,10 @@ Bijective maps preserve the number of labels as they provide one-to-one associat
 
 The above definitions readily apply for labels identified by integers.\footnote{For each label $i$ there is one and only one integer $z$.} Let $z \in \mathbbm{Z}$, we have $\mathbbm{c}=\sum\limits_{z \in \mathbbm{Z}} D(z) \mathbbm{s}(z)$ and the deterministic map becomes $f:\mathbbm{Z} \leftrightarrow \mathbbm{Z}$. For the continuous case, one may simply expect to replace $z \in \mathbbm{Z}$ with $r \in \mathbbm{R}$, but this does not work. In the continuous limit, we would have $\mathbbm{c}=\int\limits_{r \in \mathbbm{R}} \rho(r) dr \mathbbm{s}(r)$, where $\rho(r) = D(r) / dr$. The continuous distribution $\rho$ is a density, defined over interval $dr$. That is: it's really $\rho(r, dr(r))$, function of both the center and the width of the interval. A bijective map on just $r$ is not sufficient, $dr$ must be mapped as well. On one side we claim the state fully identified by $r$, on the other $dr$ (an different label) is required for the density and the bijective map. We can't have it both ways.
  
-In the continuous case, then, the appropriate label corresponds to a cell over $\mathbbm{R}$, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. An cell corresponds to $\mathbbm{R}^2$: the center and the width. With this in mind, we have the following definitions.
+In the continuous case, then, the appropriate label corresponds to a cell over $\mathbbm{R}$, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. An cell corresponds to $\mathbbm{R}^2$: the center and the width.\footnote{In other words: the particles of the system are not point-like, but infinitesimal cell-like. Not only this leads to a more direct understanding of phase-space, it is also more consistent with general relativity (the mass is spread across a small region, not forming a singularity) and quantum mechanics (position is really the central value of a small distribution).} With this in mind, we have the following definitions.
 
 \begin{defn}\label{sdof}
-A \emph{degree of freedom} is a state variable identified by an infinitesimal cell of $\mathbbm{R}$.\footnote{For each label $i$ there is one and only infinitesimal cell.}
+A \emph{degree of freedom} is a state variable identified by an infinitesimal cell of a manifold $\mathbbm{Q}$.\footnote{For each label $i$ there is one and only infinitesimal cell.}
 \end{defn}
 
 \begin{defn}\label{sdof}
@@ -139,14 +139,14 @@ We define the \emph{generalized coordinate} $q$ as the center of each cell. We d
 \end{defn}
 
 \begin{cor}\label{continuousLabels}
-Each degree of freedom is identified by the pair of labels $\langle q,k \rangle \in QT^*$. $k\,dq$ is invariant under coordinate changes, $dq\wedge dk$ is invariant and $k$ is contravariant.
+Each degree of freedom is identified by the pair of labels $\langle q,k \rangle \in \mathbf{T}^*\mathbbm{Q}$. $k\,dq$ is invariant under coordinate changes, $dq\wedge dk$ is invariant and $k$ is contravariant.
 \end{cor}
 
-Let's start with the discrete case. Let $Q$ be a finite region of $\mathbbm{R}$. Divide the region in $N$ equal intervals of center $q$ and length $\Delta q$.\footnote{The definition could be mathematically more general. We use equally spaced intervals as it makes the derivation less cumbersome.} Let $K$ be a finite region of $\mathbbm{R}$. Divide the region in $M$ equal intervals of center $k$ and length $\Delta k$. Let $I$ be the label set identified by the cells in $Q$ with center $q(i)$ and width $k(i) \Delta q$. The configuration state will be given by $\mathbbm{c}=\sum\limits_{i \in \mathbbm{I}} \rho(q(i), k(i)) \Delta q \Delta k \mathbbm{s}(q(i), k(i))$, where $\rho(q(i), k(i)) = D(q(i), k(i)) / (\Delta q \Delta k)$.
+Let's start with the discrete case. Let $Q$ be a finite region of $\mathbbm{Q}$. Divide the region in $N$ equal intervals of center $q$ and length $\Delta q$.\footnote{The definition could be mathematically more general. We use equally spaced intervals as it makes the derivation less cumbersome.} Let $K$ be a finite region of $\mathbbm{R}$. Divide the region in $M$ equal intervals of center $k$ and length $\Delta k$. Let $I$ be the label set identified by the cells in $Q$ with center $q(i)$ and width $k(i) \Delta q$. The configuration state will be given by $\mathbbm{c}=\sum\limits_{i \in \mathbbm{I}} \rho(q(i), k(i)) \Delta q \Delta k \mathbbm{s}(q(i), k(i))$, where $\rho(q(i), k(i)) = D(q(i), k(i)) / (\Delta q \Delta k)$.
 
-As we increase $N$ and $M$, the cardinality of the label set $I$ increases, $\Delta q$ and $\Delta k$ decrease and so does the width of the cells. Our definitions, though, do not change: for each $\langle q,k \rangle$ we have one and only one state. In the limit, we will cover every possible center $q$ and evert possible cell number $k$. Our configuration state becomes $\mathbbm{c}=\int\limits_{q \in Q \; k\in K} \rho(q, k) dq \wedge dk \mathbbm{s}(q(i), k(i))$. We can then arbitrarily increase the size of $Q$, and note that none of the definition change.
+As we increase $N$ and $M$, the cardinality of the label set $I$ increases, $\Delta q$ and $\Delta k$ decrease and so does the width of the cells. Our definitions, though, do not change: for each $\langle q,k \rangle$ we have one and only one state. In the limit, we will cover every possible center $q$ and evert possible cell number $k$. Our configuration state becomes $\mathbbm{c}=\int\limits_{q \in Q \; k\in K} \rho(q, k) dq \wedge dk \mathbbm{s}(q(i), k(i))$. We can repeat the process increasing or changing the region covered by $Q$ and $K$, until we cover all of $\mathbbm{Q}$ and $\mathbbm{R}$.
 
-If we apply a coordinate change $q'=q'(q)$, we change the labels but the state must remain the same, defined at the same point with the same width. $k' dq'$ must be then equal to $k dq$; $k'= k dq / dq'$ is contravariant, $dq' \wedge dk'= dq'/dq dq \wedge dk dq/dq' = dq \wedge dk$ is invariant. This means that $\rho$ is also invariant, which makes sense: the density depends only on the state (the cell), and not the coordinate chosen to represent them. As $k$ is contravariant, in the limit $K$ becomes the cotangent space of $Q$.
+If we apply a coordinate change $q'=q'(q)$, we change the labels but the state must remain the same, defined at the same point with the same width. $k' dq'$ must be then equal to $k dq$; $k'= k dq / dq'$ is contravariant, $dq' \wedge dk'= dq'/dq dq \wedge dk dq/dq' = dq \wedge dk$ is invariant. This means that $\rho$ is also invariant, which makes sense: the density depends only on the state (the cell), and not the coordinate chosen to represent them. As $k$ is contravariant, in the limit $K$ becomes the cotangent space of $Q$. Phase space is the cotangent bundle $\mathbf{T}^*\mathbbm{Q}$.
 
 \begin{prop}\label{continuousLabels}
 The cardinality of a label set $I$, subset of a degree of freedom, is given by $n(I)=\int \omega$, where $\omega = \hbar \, dq \wedge dk$ and $\hbar$ is a constant that defines the unit of state cardinality.
@@ -167,17 +167,16 @@ We define the \emph{conjugate momentum} as $p=\hbar k$.
 As $\hbar dq \wedge dk$ is truly fundamental, it is customary to use $dq \wedge (\hbar dk) = dq \wedge dp$. This way the area formed by generalized coordinate and conjugate momentum corresponds to the cardinality of states defined on such area. 
 
 \begin{cor}\label{continuousConjugateRelationships}
-Each degree of freedom is identified by the pair of labels $\langle q,p \rangle \in QT^*$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant. The configuration state over a degree of freedom is $\mathbbm{c}=\int \rho(q,p) dq \wedge dp \mathbbm{s}_{qp}$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
+Each degree of freedom is identified by the pair of labels $\langle q,p \rangle \in \mathbf{T}^*\mathbbm{Q}$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant. The configuration state over a degree of freedom is $\mathbbm{c}=\int \rho(q,p) dq \wedge dp \mathbbm{s}_{qp}$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
 \end{cor}
 
 This restates all the previous findings in terms of conjugate momentum.
 
-In the language of differential geometry, we recognise phase space as $Q$ extended by its cotangent space $T^*$, the function $\rho$, the one-form $\theta_0$ and the two-form $\omega$. They are truly fundamental objects as they are intimately linked to the way states are defined ($\rho$ is the distribution, $\theta_0 / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels) and they don't depend on coordinate choice.
-
+In the language of differential geometry, we recognise phase space as the cotangent bundle $\mathbf{T}^*\mathbbm{Q}$, the function $\rho$, the one-form $\theta_0$ and the two-form $\omega$. They are truly fundamental objects as they are intimately linked to the way states are defined ($\rho$ is the distribution, $\theta_0 / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels) and they don't depend on coordinate choice.
 
 \section{Single degree of freedom}
 
-We can now derive the equation of motions for the state variables under deterministic and reversible evolution.
+Now that we have properly defined continuous labels and the cardinality of their sets, we will extend bijective maps for the continuous case. As these must preserve the cardinality of label sets, they are constrained in their form, which coincides with Hamilton's equation. In this section we'll study a single degree of freedom, then extend in the next two section to multiple degrees of freedom and to the time dependent case.
 
 \begin{defn}\label{canonical}
 We define \emph{canonical transformation} a bijective map on one (or more) degree of freedoms.
@@ -187,7 +186,7 @@ We define \emph{canonical transformation} a bijective map on one (or more) degre
 A canonical transformation must be continuous and preserve $\omega$.
 \end{prop}
 
-A bijective map conserves the cardinality of labels, see \ref{labelsCount}, therefore $\omega$ must be conserved. The map must be continuous in q, or it would split some cells into two parts: a cell would not be mapped to one and only one other cell, the mapping would not be bijective. The reverse mapping must be continuous in q as well, or the inverse would not map to one and only one cell.
+A bijective map conserves the cardinality of labels, see \ref{labelsCount}, therefore $\omega$ must be conserved. The map must be continuous in q: suppose it isn't, it would split some cells into two parts, a cell would not be mapped to one and only one other cell, the mapping would not be bijective. The reverse mapping must be continuous in q as well, or the inverse would not map to one and only one cell.
 \begin{align*}
 dq' &= \frac{\partial q'}{\partial q} dq + \frac{\partial q'}{\partial p} dp \\
 dq &= \frac{\partial q}{\partial q'} dq' + \frac{\partial q}{\partial p'} dp'
