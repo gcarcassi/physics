@@ -16,7 +16,7 @@
 \newtheorem{defn}[thm]{Definition}
 \newtheorem*{assump1}{Infinite reducibility (or classical) assumption}
 \newtheorem*{assump2}{Determinism and Reversibility (or Hamiltonian) assumption}
-\newtheorem*{assump3}{Kinematic equivalence (or Lagrangian) assumption}
+\newtheorem*{assump3}{Kinematic equivalence assumption}
 
 \begin{document}
 
@@ -47,7 +47,7 @@ We'll first mathematically define states and the labels we use to identify them 
 
 We introduce the deterministic and reversible evolution assumption (or Hamiltonian assumption): to each state corresponds one and only one future (or past) state. The cardinality of a set of states is therefore conserved under evolution. This allows us to define a metric $\omega$ on phase space, and the conservation of that metric leads to the Hamiltonian framework. That is: we can derive the Hamiltonian framework on its own merit and show that it is equivalent to deterministic and reversible motion.
 
-We introduce the assumption of kinematic equivalence (or Lagrangian assumption): studying trajectories is equivalent to studying states. We show that there must be link between the space-time metric $g$ and the phase-space metric $\omega$, as both quantities must be conserved by passive coordinate transformations. That link constrains the space-time metric to be locally Minkowskian. A transformation between state variable $(q, p)$ and kinematic variables $(x, \dot{x})$.  To be invertible, the relationship between velocity and conjugate momentum has to be monotonic, leading to a concave Hamiltonian which allows a Legendre transformation leading to the Lagrangian. We can constrain the Hamiltonian further, and show that the most general equation of motion under the three condition is the one of a geodesic modified by the force given by a vector potential, such as the one of a relativistic charged particle, and a scalar potential, such as the one of newtonian gravitation.
+We introduce the assumption of kinematic equivalence: studying trajectories is equivalent to studying states. We show that there must be link between the space-time metric $g$ and the phase-space metric $\omega$, as both quantities must be conserved by passive coordinate transformations. That link constrains the space-time metric to be locally Minkowskian. A transformation between state variable $(q, p)$ and kinematic variables $(x, \dot{x})$.  To be invertible, the relationship between velocity and conjugate momentum has to be monotonic, leading to a concave Hamiltonian which allows a Legendre transformation leading to the Lagrangian. We can constrain the Hamiltonian further, and show that the most general equation of motion under the three condition is the one of a geodesic modified by the force given by a vector potential, such as the one of a relativistic charged particle, and a scalar potential, such as the one of newtonian gravitation.
 
 
 \section{States, Labels and Maps}
@@ -134,7 +134,7 @@ Bijective maps preserve the number of labels as they provide one-to-one associat
 We now focus on labels that can be identified by numbers, where we have a bijective map between the label and a number in a set. The above definitions readily apply for labels identified by integers. Let $z \in \mathbbm{Z}$, we have $\mathbbm{c}=\sum\limits_{z \in \mathbbm{Z}} D(z) \mathbbm{s}(z)$ and the deterministic map becomes $f:\mathbbm{Z} \leftrightarrow \mathbbm{Z}$.
 
 For the continuous case, one may simply expect to replace $z \in \mathbbm{Z}$ with $r \in \mathbbm{R}$, but this does not work. In the continuous limit, we would have $\mathbbm{c}=\int\limits_{r \in \mathbbm{R}} \rho(r) dr \mathbbm{s}(r)$, where $\rho(r) = D(r) / dr$. The continuous distribution $\rho$ is a density, defined over interval $dr$. That is: it's really $\rho(r, dr(r))$, function of both the center and the width of the interval. A bijective map on just $r$ is not sufficient, $dr$ must be mapped as well. On one side we claim the state fully identified by $r$, on the other $dr$ (a different label) is required for the density and the bijective map. We can't have it both ways.
- 
+
 In the continuous case, then, the appropriate label corresponds to a cell, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. An cell of $\mathbbm{R}$ corresponds to $\mathbbm{R}^2$: the center and the width.\footnote{In other words: the particles of the system are not point-like, but infinitesimal cell-like. Not only this leads to a more direct understanding of phase-space, it is also more consistent with general relativity (the mass is spread across a small region, not forming a singularity) and quantum mechanics (position is really the central value of a small distribution).} With this in mind, we have the following definitions.
 
 \begin{defn}\label{sdof}
@@ -374,10 +374,10 @@ Given all possible space-time trajectory $x^\alpha(s)$ and all possible phase sp
 If studying the motion and state evolution are equivalent, then we must be able to go back and forth between the two pictures. Without losing generality, we can chose $x^\alpha=f(q^i,t)$ to be a function of only $q^i$ and $t$.
 
 \begin{prop}\label{locallyMinkowski}
-Space-time is locally Minkowskian Rimmanian manifold. That is, there exists a metric $g_ij$ that at any point can be expressed, with a suitable choice of coordinate, as $dx^\alpha g_{\alpha \beta}|_P dx^\beta=dx^\alpha\eta_{\alpha \beta}dx^\beta=(dx^i)^2 - (dx^0)^2=(dx^i)^2 - c^2dt^2$, where $c=n(dq)/n(dt)$ is the ration between the density of states in space and time.
+Space-time is locally Minkowskian Rimmanian manifold. That is, there exists a metric $g$ that at any point can be expressed, with a suitable choice of coordinate, as $dx^\alpha g_{\alpha \beta}(P) dx^\beta=dx^\alpha\eta_{\alpha \beta}dx^\beta=(dx^i)^2 - (dx^0)^2=(dx^i)^2 - c^2dt^2$, where $c=n(dq)/n(dt)$ is the ratio between the density of states in space and time.
 \end{prop}
 
-As states are defined on intervals, a metric $g$ must be defined on $Q$. Such a metric must be consistent with $\omega$, as both must be invariant under coordinate transformations. The idea is that each $(dx^\alpha)^2$ can be made to both represent a length square in space-time and an area in phase space, linking the two metrics. For each spatial d.o.f. fix $dp_i=\lambda dq^i$, we have $dq^i \wedge dp_i = \lambda (dx^i)^2$ where $\lambda$ converts from units of length squared to cardinality of labels. For the temporal d.o.f fix $dE = \lambda c^2 dt$, we have $dt \wedge dE = \lambda c^2 dt^2$. That is: the area in time squared is converted to an area in length squared that have the same density of states (as per definition of $c$) and then to cardinality of labels. The phase space invariant is $\omega = \lambda [(dq^i)^2 - c^2 dt^2]$.
+As states are defined on intervals, a metric $g$ must be defined on $\mathcal{M}$. Such a metric must be consistent with $\omega$, as both must be invariant under coordinate transformations. The idea is that each $(dx^\alpha)^2$ can be made to both represent a length square in space-time and an area in phase space, linking the two metrics. For each spatial d.o.f. fix $dp_i=\lambda dq^i$, we have $dq^i \wedge dp_i = \lambda (dx^i)^2$ where $\lambda$ converts from length squared to the label cardinality contained in the area. For the temporal d.o.f fix $dE = \lambda c^2 dt$, we have $dt \wedge dE = \lambda c^2 dt^2$. That is: the area in time squared is converted to an area in length squared that have the same density of states (as per definition of $c$) and then to label cardinality. The phase space invariant is $\omega = \lambda [(dq^i)^2 - c^2 dt^2]$.
 
 Assume the choice of coordinates $x^\alpha$ locally diagonalizes $g(x^\alpha)$, each diagonal element being either $\pm 1$ (such coordinate system always exists). Set $x^i=q^i$ and $x^0=ct$. We have $\omega = \lambda ((dx^i)^2 - (dx^0)^2)$ and $dx^\alpha g_{\alpha \beta} dx^\beta=dx^\alpha g_{\alpha \alpha}dx^\alpha$. Both are invariant under coordinate transformation for any $dx^\alpha$. This can only be if $g_{ii}(x^\alpha)=1$ and $g_{00}(x^\alpha)=-1$.
 
@@ -396,10 +396,14 @@ Consider a movement $ds$ along any trajectory. This will go through $n(dt)$ labe
 Let $u^\alpha = d_s x^\alpha$ be the four-velocity, where the parametrization $s$ is chosen, by convention, to be proper time. The position $x^\alpha$ and velocity $u^\alpha$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
 \end{prop}
 
-The equation of motion \ref{tdofHam} can be at most second order in $q^i$, they can at most be second order in $x^\alpha=\{ct, q^i\}$ so only position and velocity can be candidates for the initial conditions. Fixing time, phase space is $\mathbbm{R}^{2n}$, too big to be covered by position only, but just right to be covered by both.
+As the equation of motion \ref{tdofHam} can be at most second order in $\{t, q^i\}$, they can at most be second order in $x^\alpha=\{ct, q^i\}$ so only position and velocity can be candidates for the initial conditions. Fixing time, phase space is $\mathbbm{R}^{2n}$, too big to be covered by position only, but just right to be covered by both.
+
+\begin{defn}\label{inertialMass}
+Let $dp_\alpha$ an infinitesimal interval of conjugate momentum and $d(g_{\alpha \beta}u^\beta)$ an infinitesimal interval of the covariant components of the four velocity. The ratio $m=n(dp_\alpha)/n(d(g_{\alpha \beta}u^\beta))$ between their relative label cardinality is called \emph{inertial mass}.
+\end{defn}
 
 \begin{prop}\label{kineticMomentum}
-Let $x^\alpha=\{ct, q^i\}$ and $p_\alpha=\{-E/c, p_i\}$. Then $p_\alpha= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)$, where $m=n(dp_\alpha)/n(d(g_{\alpha \beta}u^\beta))$ is the ration between the density of states in conjugate momentum and in contravariant velocity, and is called \emph{inertial mass}.
+Let $x^\alpha=\{ct, q^i\}$ and $p_\alpha=\{-E/c, p_i\}$. Then $p_\alpha= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)$, where $\hat{p}_\alpha : \mathcal{M} \rightarrow \mathbbm{R}$ is a function defined on the extended configuration manifold.
 \end{prop}
 
 For \ref{kinematicAssumption} and \ref{kineticMomentum}, there must exist $p_\alpha=p_\alpha(x^\beta , u^\gamma)$. We express it in terms of $u_\alpha\equiv g_{\alpha \beta} u^\beta$. We have:
@@ -409,7 +413,7 @@ For \ref{kinematicAssumption} and \ref{kineticMomentum}, there must exist $p_\al
 &=dx^\alpha \wedge \frac{\partial p_\alpha}{\partial u_\beta}du_\beta + dx^\alpha \wedge \frac{\partial p_\alpha}{\partial x^\gamma}dx^\gamma \\
 &=\frac{\partial p_\alpha}{\partial u_\beta}du_\beta dx^\alpha \\
 \end{align*}
-Consider the expression $m du_\alpha dx^\alpha$: this gives us the density of labels in position and velocity converted to the conjugate variables. In other world, we should have $\omega=m du_\alpha dx^\alpha$. This means:
+Consider the expression $m du_\alpha dx^\alpha$: this gives us the density of labels in position and velocity converted to the conjugate variables. That is: $\omega=m du_\alpha dx^\alpha$. Combining the two:
 \begin{align*}
 \frac{\partial p_\alpha}{\partial u_\beta} &= m \delta^\beta_\alpha \\
 p_\alpha &= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)
@@ -419,7 +423,7 @@ where $\hat{p}$ is an arbitrary function.
 To convince ourselves that $m$ is indeed the inertial mass, consider applying a force. We are changing the state through the velocity, meaning changing the conjugate momentum. The higher the mass, the more states we'll have to go through to reach the same velocity. The higher the mass, the more change is required, the more force needs to be applied.
 
 \begin{prop}\label{kineticHamiltonian}
-The extended Hamiltonian is $\mathcal{H}=\frac{1}{2m}(p_\alpha-\hat{p}_\alpha(x))g^{\alpha\beta}(p_\beta-\hat{p}_\beta(x))+\hat{\mathcal{H}}(x)$
+The extended Hamiltonian is $\mathcal{H}=\frac{1}{2m}(p_\alpha-\hat{p}_\alpha(x))g^{\alpha\beta}(p_\beta-\hat{p}_\beta(x))+\hat{\mathcal{H}}(x)$, where $\hat{\mathcal{H}}_\alpha : \mathcal{M} \rightarrow \mathbbm{R}$ is a function defined on the extended configuration manifold.
 \end{prop}
 We have:
 \begin{align*}
@@ -429,8 +433,10 @@ We have:
 \end{align*}
 Integrating we have the expression for the Hamiltonian, where $\hat{\mathcal{H}}$ is an arbitrary function.
 
-\begin{prop}\label{kineticLaw}
-Let $\hat{p}_\alpha = q A_\alpha$, $F_{\alpha \beta} \equiv \partial_\alpha A_\beta - \partial_\beta A_\alpha$ and $\hat{H} = 0$, the equations of motion are $m \nabla_s u^\alpha = g^{\alpha\beta} F_{\beta \gamma} q u^\gamma$.
+Now that we have found the general form of the Hamiltonian, we show that this is compatible with the established fundamental classical theories.
+
+\begin{prop}\label{relativisticEM}
+Let $\hat{p}_\alpha = q A_\alpha$, $F_{\alpha \beta} \equiv \partial_\alpha A_\beta - \partial_\beta A_\alpha$ and $\hat{H} = 0$, the equations of motion are $m \nabla_u u^\alpha = g^{\alpha\beta} F_{\beta \gamma} q u^\gamma$. These are the relativistic equations for a charged particle.
 \end{prop}
 
 We first derive the following relationship for later use:
@@ -484,7 +490,19 @@ m \nabla_{u} u^\alpha &= g^{\alpha\beta} (\partial_\beta A_\gamma - \partial_\ga
 &= g^{\alpha\beta} F_{\beta \gamma} q u^\gamma\\
 \end{align*}
 
-This is the relativistic equation for a charged particle.
+This is indeed compatible with general relativity and classical electro-magnetism.
+
+\begin{prop}\label{newtonianGravitation}
+Assume $\mathcal{M}$ flat and time independent motion, the Hamiltonian simplifies to $H=\frac{1}{2m}(p_i-\hat{p}_\alpha(x))^2)+\hat{H}(x)$. Let $\hat{p}_i = 0$ and $\hat{H} = mV$, the equations of motion are $m d_t v^i = - m \partial_i V$, where $v^i=dx^1/dt$. These are equations for a particle under a Netwonian gravitational potential.
+\end{prop}
+
+Given flat space-time and time independent motion, we can use $t$ as a parameter for the motion in $\mathbbm{Q}$. Repeating \ref{kineticMomentum} and \ref{initialConditions} for the non-relativistic case leads to the above Hamiltonian. Similar to \ref{relativisticEM}, use \ref{mdofHam} with the newly found Hamiltonian and find the equation of motion.
+
+\begin{defn}\label{lagrangian}
+Let $\mathcal{H}$ be an extended hamiltonian defined on $\mathbf{T}^*\mathcal{M}$. Under \ref{kinematicAssumption}, we can define the Legendre transform $\mathcal{L}=u^\alpha p_\alpha - \mathcal{H}$ which we call \emph{extended Lagrangian}. For the time invariant case, we define the \emph{Lagrangian} $L=u^\alpha p_\alpha - H$.
+\end{defn}
+
+The Legendre transform can be defined only if $\mathcal{H}$ is convex in $p_\alpha$. The Hamiltonian found at \ref{kineticHamiltonian} is convex, so the Lagrangian can always be defined. While the kinetic equivalence assumption is sufficient, it's not necessary. What is necessary is \ref{initialConditions}: as long as position and velocity are enough to determine the state, $u^\alpha=f(q^\alpha, p_\alpha)$ must be monotonic in $p_\alpha$, which means $\mathcal{H}$ is convex in $p_\alpha$. What happens in that case is that the space-time trajectories may become more or less dense, and $n(du_\alpha)$ will be a function of $x^\alpha$ as well. So while Hamiltonian mechanics coincides with deterministic and reversible evolution, Lagrangian mechanics coincides with initial conditions given by position and velocity.
 
 \section{Lagrangian}
 
