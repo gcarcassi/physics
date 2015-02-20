@@ -15,7 +15,7 @@
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem*{assump1}{Infinite reducibility (or classical) assumption}
-\newtheorem*{assump2}{Determinism and Reversibility (or Hamiltonian) assumption}
+\newtheorem*{assump2}{Determinism and Reversibility assumption}
 \newtheorem*{assump3}{Kinematic equivalence assumption}
 
 \begin{document}
@@ -27,7 +27,7 @@
 \date{June 16, 2014}
 
 \begin{abstract}
-We show that classical mechanics, including Hamiltonian, Lagrangian, non-relativistic Newtonian gravitation and relativistic electromagnetism, can be derived from three fundamental assumptions: infinite reducibility, deterministic and reversible evolution, and kinematic equivalence. The core idea is that deterministic and reversible systems preserve the cardinality of a set of states, which puts considerable constraints on the equations of motion. Many familiar fundamental concepts and constants (such as mass, the speed of light, the Plank constant, the vector potential) are introduced and defined in a novel way, thus providing different insight into them. The derivation strives to use definition and mathematical concepts that would allow a future extension to quantum mechanics.\end{abstract}
+We show that classical mechanics, including Hamiltonian, Lagrangian, non-relativistic Newtonian gravitation and relativistic electromagnetism, can be derived from three fundamental assumptions: infinite reducibility, deterministic and reversible evolution, and kinematic equivalence. The core idea is that deterministic and reversible systems preserve the cardinality of a set of states, which puts considerable constraints on the equations of motion. This perspective links different concepts from different branches of math and physics (cardinality of a set, cotangent bundle for phase space, locally Minkowskian space-time manifold, inertial mass) providing new insights. The derivation strives to use definition and mathematical concepts that would allow a future extension to quantum mechanics.\end{abstract}
 \maketitle
 
 \section{Introduction}
@@ -35,9 +35,9 @@ We show that classical mechanics, including Hamiltonian, Lagrangian, non-relativ
 
 Classical mechanics is usually founded on Newton's laws. These, though, are insufficient to derive the Lagrangian and Hamiltonian formalism, and usually other ad-hoc assumptions (e.g. conservative forces) are introduced. Special relativity is based on two principles (invariance of the speed of light and the principle of relativity), which lead to the Minkowskian nature of space-time but not to the equation of motion, which are a consistent reformulation of the non-relativistic ones. What we'll do in this work is re-organize all the known elements and equations in a more consistent and comprehensive way, leading to better insight on why the fundamental concepts and laws are what they are. The derivation will also include classical analogues of strictly quantum concepts to facilitate a future extension to quantum mechanics.
 
-We will use concepts from different disciplines, such as set theory, differential geometry, relativity, Hamiltonian and Lagrangian mechanics. This means we will find an interesting connection between them, but one may require familiarity with their basics to appreciate it. We'll keep names and notation as consistent as possible to current use, but this may lead to some non sequitur as it will not be immediately clear why the different definition will be at the end equivalent to the standard one. This is still preferable than introducing a whole new set of names one has to become familiar.
+We will use concepts from different disciplines, such as set theory, differential geometry, relativity, Hamiltonian and Lagrangian mechanics, and will find interesting connections between them. We'll keep names and notation as consistent as possible to current use across the different disciplines, but this may lead to some non sequitur as it will not be immediately clear why the different definition will be at the end equivalent to the standard one. This is still preferable than introducing a whole new set of names one has to become familiar.
 
-While we try to keep a precise language, no mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. The novel, and surprising, result is how so much can be derived from so little.
+No mathematical breakthrough should be expected: the goal, after all, is to derive the \emph{known} framework from a set of \emph{simple} definitions in the most \emph{obvious} way possible. No proof is longer than a couple of paragraphs, so the word \emph{theorem} is avoided in favor of \emph{proposition} and \emph{corollary}. The novel, and surprising, result is how so much can be derived from so little.
 
 \section{Outline}
 
@@ -45,9 +45,9 @@ We give here a brief a general conceptual overview, hoping it will help guide th
 
 We'll first mathematically define states and the labels we use to identify them (e.g. position, momentum, temperature, pressure). We introduce the infinite reducibility assumption (or classical assumption): each state is divisible into the states of its parts. It is then sufficient to describe the evolution of infinitesimal parts (i.e. particles) within their state space (i.e. phase space).
 
-We introduce the deterministic and reversible evolution assumption (or Hamiltonian assumption): to each state corresponds one and only one future (or past) state. The cardinality of a set of states is therefore conserved under evolution. This allows us to define a metric $\omega$ on phase space, and the conservation of that metric leads to the Hamiltonian framework. That is: we can derive the Hamiltonian framework on its own merit and show that it is equivalent to deterministic and reversible motion.
+We introduce the deterministic and reversible evolution assumption: to each state corresponds one and only one future (or past) state. The cardinality of a set of states is therefore conserved under evolution. This allows us to define a metric $\omega$ on phase space, and the conservation of that metric leads to the Hamiltonian framework. That is: we can derive the Hamiltonian framework on its own merit and show that it is equivalent to deterministic and reversible motion.
 
-We introduce the assumption of kinematic equivalence: studying trajectories is equivalent to studying states. We show that there must be link between the space-time metric $g$ and the phase-space metric $\omega$, as both quantities must be conserved by passive coordinate transformations. That link constrains the space-time metric to be locally Minkowskian. A transformation between state variable $(q, p)$ and kinematic variables $(x, \dot{x})$.  To be invertible, the relationship between velocity and conjugate momentum has to be monotonic, leading to a concave Hamiltonian which allows a Legendre transformation leading to the Lagrangian. We can constrain the Hamiltonian further, and show that the most general equation of motion under the three condition is the one of a geodesic modified by the force given by a vector potential, such as the one of a relativistic charged particle, and a scalar potential, such as the one of newtonian gravitation.
+We introduce the assumption of kinematic equivalence: studying trajectories is equivalent to studying states. We show that there must be link between the space-time metric $g$ and the phase-space metric $\omega$, as both quantities must be conserved under passive coordinate transformations. That link constrains the space-time metric to be locally Minkowskian. A transformation between state variables $(q, p)$ and kinematic variables $(x, \dot{x})$ must exist.  To be invertible, the relationship between velocity and conjugate momentum has to be monotonic, leading to a concave Hamiltonian which allows a Legendre transformation leading to the Lagrangian. We can constrain the Hamiltonian further, and show that the most general equation of motion under the three assumptions is the one of a geodesic modified by the force given by a vector potential (such as the one of a relativistic charged particle) and a scalar potential (such as the one of newtonian gravitation).
 
 
 \section{States, Labels and Maps}
@@ -60,9 +60,9 @@ This and the next section are dedicated to properly define states. In particular
     Particle state (or simply state) & The state of an infinitesimal part (i.e. particle) of the system. \\ \hline
     \end{tabular}
 \end{center}
-When talking about particles of a system we must always remember that they are the result of a limit. Therefore we will start with discrete definitions and do the limit, and see how some properties will extend from discrete case to continuous.
+When talking about particles of a system we must always remember that they are the result of a limit. Therefore we will start with discrete definitions, and see how some properties will extend from discrete case to continuous.
 
-The second is, when referring to a physical quantity, between the space of all possible values, a particular value or a set of possible values.
+The second distinctions is, when referring to a physical quantity, between the space of all possible values, a particular value or a set of possible values.
 \begin{center}
     \begin{tabular}{ | p{2.5cm} | p{5.5cm} | }
     \hline
@@ -72,10 +72,8 @@ The second is, when referring to a physical quantity, between the space of all p
     \hline
     \end{tabular}
 \end{center}
-We will use set theory to define labels (e.g. "position = $5m$" will correspond to the set of all states located at the given position).
-These are practically the only new terms introduced by this work, but they are fundamental as most of the later derivation will be based on \emph{counting the labels} (i.e. counting the possible values of a physical quantity) and making sure that such number is conserved (i.e. the number of cases is the same).
 
-This section will mathematically define the above concepts, limited to discrete state variables, and derive some basic properties that hold after applying bijective maps.
+We will first define discrete labels using set theory and in the next section generalize to the continuous case using differential geometry. These new terms are fundamental as most of the later derivation will be based on \emph{counting the labels} (i.e. counting the possible values of a physical quantity) and making sure that such number is conserved (i.e. the number of cases is the same).
 
 \begin{defn}\label{statedef}
 Fix a physical system to study. We define the set $\mathbbm{C}$ of all physically distinguishable configurations for that system. Each element $\mathbbm{c}$ we call \emph{configuration state}.
@@ -124,18 +122,18 @@ The evolution of a classical configuration state $\mathbbm{c}=\sum D(\mathbbm{s}
 Mathematically, assuming determinism and reversibility means studying bijective maps. The evolution of a distribution simply moves the elements around: the bars of the histogram move place, but keep the same height.
 
 \begin{cor}\label{labelsCount}
-Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels. Given a state variable $\mathbbm{I}$, the image $f(\mathbbm{I})$ is also a state variable. Given two independent sets of labels $I_1$ and $I_2$, the images $f(I_1)$ and $f(I_2)$ are also independent. Therefore $n(f(\langle I_1, I_2 \rangle))=n(f(I_1))n(f(I_2))=n(I_1)n(I_2)=n(\langle I_1, I_2 \rangle)$
+Given a label $i$, the image $f(i)$ is also a label containing the same number of states. Given a set of labels $I$, the image $f(I)$ is also a set of labels containing the same number of labels $n(I) = n(f(I))$. Given a state variable $\mathbbm{I}$, the image $f(\mathbbm{I})$ is also a state variable. Given two independent sets of labels $I_1$ and $I_2$, the images $f(I_1)$ and $f(I_2)$ are also independent. Therefore $n(f(\langle I_1, I_2 \rangle))=n(f(I_1))n(f(I_2))=n(I_1)n(I_2)=n(\langle I_1, I_2 \rangle)$
 \end{cor}
 
 Bijective maps preserve the number of labels as they provide one-to-one association between future and past. And they do so for each independent set of labels. These simple results using discrete labels, properly generalized to the continuous case, will give us Hamiltonian flow.
 
 \section{Numeric labels}
 
-We now focus on labels that can be identified by numbers, where we have a bijective map between the label and a number in a set. The above definitions readily apply for labels identified by integers. Let $z \in \mathbbm{Z}$, we have $\mathbbm{c}=\sum\limits_{z \in \mathbbm{Z}} D(z) \mathbbm{s}(z)$ and the deterministic map becomes $f:\mathbbm{Z} \leftrightarrow \mathbbm{Z}$.
+We now focus on labels that can be identified by numbers, where we have a bijective map between the label and a number in a set. The definitions in the previous section readily apply for labels identified by integers. Let $z \in \mathbbm{Z}$, we have $\mathbbm{c}=\sum\limits_{z \in \mathbbm{Z}} D(z) \mathbbm{s}(z)$ and the deterministic map becomes $f:\mathbbm{Z} \leftrightarrow \mathbbm{Z}$.
 
 For the continuous case, one may simply expect to replace $z \in \mathbbm{Z}$ with $r \in \mathbbm{R}$, but this does not work. In the continuous limit, we would have $\mathbbm{c}=\int\limits_{r \in \mathbbm{R}} \rho(r) dr \mathbbm{s}(r)$, where $\rho(r) = D(r) / dr$. The continuous distribution $\rho$ is a density, defined over interval $dr$. That is: it's really $\rho(r, dr(r))$, function of both the center and the width of the interval. A bijective map on just $r$ is not sufficient, $dr$ must be mapped as well. On one side we claim the state fully identified by $r$, on the other $dr$ (a different label) is required for the density and the bijective map. We can't have it both ways.
 
-In the continuous case, then, the appropriate label corresponds to a cell, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. An cell of $\mathbbm{R}$ corresponds to $\mathbbm{R}^2$: the center and the width.\footnote{In other words: the particles of the system are not point-like, but infinitesimal cell-like. Not only this leads to a more direct understanding of phase-space, it is also more consistent with general relativity (the mass is spread across a small region, not forming a singularity) and quantum mechanics (position is really the central value of a small distribution).} With this in mind, we have the following definitions.
+In the continuous case, then, the appropriate label corresponds to a cell, not a point. This also makes physical sense, as we never deal with points per se, but widths that can be made arbitrarily small. A cell of $\mathbbm{R}$ corresponds to $\mathbbm{R}^2$: a center and a width.\footnote{In other words: the particles of the system are not point-like, but infinitesimal cell-like. Not only this leads to a more direct understanding of phase-space, it is also more consistent with general relativity (the mass is spread across a small region, not forming a singularity) and quantum mechanics (position is really the central value of a small distribution).} With this in mind, we have the following definitions.
 
 \begin{defn}\label{sdof}
 A \emph{degree of freedom} is a state variable identified by an infinitesimal cell of a one dimensional manifold $\mathbbm{Q}$.\footnote{For each label $i$ there is one and only infinitesimal cell.}
@@ -146,7 +144,7 @@ We define the \emph{generalized coordinate} $q$ as the center of each cell. We d
 \end{defn}
 
 \begin{cor}\label{continuousLabels}
-Each degree of freedom is identified by the pair of labels $\langle q,k \rangle \in \mathbf{T}^*\mathbbm{Q}$. $k\,dq$ is invariant under coordinate changes, $dq\wedge dk$ is invariant and $k$ is contravariant.
+Each degree of freedom is identified by the pair of labels $\langle q,k \rangle \in \mathbf{T}^*\mathbbm{Q}$. Under coordinate changes, $k\,dq$ and $dq\wedge dk$ are invariant and $k$ is contravariant.
 \end{cor}
 
 Let's start with the discrete case. Let $Q$ be a finite region of $\mathbbm{Q}$. Divide the region in $N$ equal intervals of center $q$ and length $\Delta q$.\footnote{The definition could be mathematically more general. We use equally spaced intervals as it makes the derivation less cumbersome.} Let $K$ be a finite region of $\mathbbm{R}$. Divide the region in $M$ equal intervals of center $k$ and length $\Delta k$. Let $I$ be the label set identified by the cells in $Q$ with center $q(i)$ and width $k(i) \Delta q$. The configuration state will be given by $\mathbbm{c}=\sum\limits_{i \in I} \rho(q(i), k(i)) \Delta q \Delta k \, \mathbbm{s}(q(i), k(i))$, where $\rho(q(i), k(i)) = D(q(i), k(i)) / (\Delta q \Delta k)$.
@@ -165,7 +163,7 @@ As we deal with continuous labels, a label set is uncountable: given any range $
 \frac{n(I)}{n(I_0)} = \frac{\delta q \delta k / \Delta q \Delta k}{\delta q_0 \delta k_0 / \Delta q \Delta k} = \frac{\delta q \delta k}{\delta q_0 \delta k_0}
 \end{align*}
 
-That is: while the cardinality of each set diverges, the ratio between the two remains finite.\footnote{Such treatment is exactly equivalent to what one does in information theory to extend Shannon's entropy to the continuous case.} For continuous state variables we can define the relative cardinality as the ratio of a label set and our reference set $I_0$. That is $n(I)=\hbar \delta q \delta k$ where $\hbar$ is chosen such that $n(I_0)=\hbar \delta q_0 \delta k_0=1$.\footnote{The choice of angular momentum for $\hbar$ derives from the relationship between $p$ and $dq/dt$, which will be derived later. The value for $\hbar$ in classical mechanics is arbitrary: we have no physical reason to choose a reference label set over another. In quantum mechanics, instead, we will have a preference: the set that corresponds to a single quantized system. We use this arbitrariness to set $\hbar$ to the value to the known constant.} In general, the label set is not rectangular in $\langle q,k \rangle$ and we have $n(I)=\int \hbar dq \wedge dk$
+That is: while the cardinality of each set diverges, the ratio between the two remains finite.\footnote{Such treatment is exactly equivalent to what one does in information theory to extend Shannon's entropy to the continuous case. There is a link between label cardinality and informational entropy, whichwe do not explore here for brevity.} For continuous state variables we can define the relative cardinality as the ratio of a label set and our reference set $I_0$. That is $n(I)=\hbar \delta q \delta k$ where $\hbar$ is chosen such that $n(I_0)=\hbar \delta q_0 \delta k_0=1$.\footnote{The choice of angular momentum for $\hbar$ derives from the relationship between $p$ and $dq/dt$, which will be derived later. The value for $\hbar$ in classical mechanics is arbitrary: we have no physical reason to choose a reference label set over another. In quantum mechanics, instead, we will have a preference: the set that corresponds to a single quantized system. We use this arbitrariness to set $\hbar$ to the value to the known constant.} In general, the label set is not rectangular in $\langle q,k \rangle$ and we have $n(I)=\int \hbar dq \wedge dk$
 
 \begin{defn}\label{conjugateMomentum}
 We define the \emph{conjugate momentum} as $p=\hbar k$.
@@ -174,7 +172,7 @@ We define the \emph{conjugate momentum} as $p=\hbar k$.
 As $\hbar dq \wedge dk$ is truly fundamental, it is customary to group $\hbar$ with $k$: $dq \wedge (\hbar dk) = dq \wedge dp$. This way the area formed by generalized coordinate and conjugate momentum corresponds to the cardinality of states defined on such area.
 
 \begin{cor}\label{continuousConjugateRelationships}
-Each degree of freedom is identified by the pair of labels $\langle q,p \rangle \in \mathbf{T}^*\mathbbm{Q}$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant. The configuration state over a degree of freedom is $\mathbbm{c}=\int \rho(q,p) dq \wedge dp \mathbbm{s}_{qp}$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
+Each degree of freedom is identified by the pair of labels $\langle q,p \rangle \in \mathbf{T}^*\mathbbm{Q}$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant. The configuration state over a degree of freedom is $\mathbbm{c}=\int \rho(q,p) dq \wedge dp \, \mathbbm{s}_{qp}$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
 \end{cor}
 
 This restates all the previous findings in terms of conjugate momentum.
@@ -186,7 +184,7 @@ In the language of differential geometry, we recognise phase space as the cotang
 Now that we have properly defined continuous labels and the relative cardinality of their sets, we will extend bijective maps to the continuous case. As these must preserve the cardinality of label sets, they are constrained in their form. The use of a bijective map for infinitesimal time evolution will lead us to Hamilton's equation. In this section we'll study a single degree of freedom, then extend in the next two section to multiple degrees of freedom and to the time dependent case.
 
 \begin{defn}\label{canonical}
-We define \emph{canonical transformation} a bijective map on one (or more) degree of freedom.
+We call \emph{canonical transformation} a bijective map on $\mathbf{T}^*\mathbbm{Q}$.
 \end{defn}
 
 \begin{prop}\label{continuousMapping}
@@ -201,7 +199,7 @@ dq &= \frac{\partial q}{\partial q'} dq' + \frac{\partial q}{\partial p'} dp'
 We can re-express $dp'$ in terms of $dq$ and $dp$, as the conservation of $\omega$ means the map is non-degenerate. All partial derivatives are well defined, and therefore the mapping is continuous in p as well.
 
 \begin{cor}\label{sdofInvariant}
-Let $v$ and $w$ be two vectors defined on the tangent space of the phase space for one degree of freedom. Let
+Let $v$ and $w$ be two vectors defined on the tangent space of $\mathbf{T}^*\mathbbm{Q}$ for one degree of freedom. Let
 \begin{align*}
 \omega_{a, b} = \left[
   \begin{array}{cc}
@@ -244,10 +242,10 @@ d_{t}p &= - \partial_{q} H
 
 Simply expand \ref{genAntisim} with the metric defined in \ref{sdofInvariant}. We recognize Hamilton's equations for one degree of freedom\cite{classical_dynamics}.
 
-\section{Multiple degrees of freedom}
+\section{Multiple independent degrees of freedom}
 
 \begin{prop}\label{mdofInvariant}
-Let $v$ and $w$ be two vectors defined on the tangent space of the phase space for two independent degrees of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv \{q^i, p_i\}$. Let
+Let $v$ and $w$ be two vectors defined on the tangent space of the phase space $\mathbf{T}^*\mathbbm{Q}$ for two independent degrees of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv \{q^i, p_i\}$. Let
 \begin{align*}
 \omega_{\alpha, \beta} =  \left[
   \begin{array}{cc}
@@ -306,7 +304,7 @@ We call \emph{standard states} those connected by a trajectory where $d_{s}t>0$.
 Since $t(s)$ is strictly monotonic, $d_{s}t$ along a trajectory cannot change sign, so we have the division between standard and anti-states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.\footnote{This represents a classical analogue for quantum anti-particle states.}
 
 \begin{prop}\label{tdofInvariant}
-Let $v$ and $w$ be two vectors defined on the tangent space of the manifold identified by the temporal degree of freedom and one standard degree of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv\{t, q, E, p\}$. Let
+Let $\mathcal{M}\equiv\mathbbm{T}\times\mathbbm{Q}$ the configuration manifold extended by time. Let $v$ and $w$ be two vectors defined on the tangent space of extended phase space $\mathbf{T}^*\mathcal{M}\equiv\mathbf{T}^*\mathbbm{T}\times\mathbf{T}^*\mathbbm{Q}$ for the temporal degree of freedom and one standard degree of freedom. Let $a$ and $b$ be indexes for the state variables $\xi^a\equiv\{t, q, E, p\}$. Let
 \begin{align*}
 \omega_{a, b} =  \left[
   \begin{array}{cc}
@@ -361,23 +359,25 @@ The evolution is constrained by $\mathcal{H}=k$.
 Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $2N + 1$ components, the state variables plus time.
 
 \section{Kinematics}
-So far we talked about states without reference to what they physically represent.
+It's now time to turn our attention to the configuration manifold $mathbbm{Q}$, as what we are really interested in studying is the motion of bodies in physical space. As the trajectories go through time as well, we will directly study the time dependent case on the extended configuration manifold $mathcal{M}$.
+
+We will introduce another assumption: that the trajectories are enough to fully describe the system. We can expect this to hold true if the system is elemental (it has no internal structure) and is sufficiently isolated. At that point, if the motion is the result of a deterministic and reversible process, no two trajectories can be attributed to the same state as there is nothing else that could affect them.
 
 \begin{assump3}\label{kinematicAssumption}
 The study of the trajectory (kinematic) of a body is equivalent to study its state (dynamic) under deterministic and reversible evolution.
 \end{assump3}
 
 \begin{cor}\label{}
-Given all possible space-time trajectory $x^\alpha(s)$ and all possible phase space trajectory $\xi^a(s)$, there exist a bijective function $f: x^\alpha(s) \leftrightarrow \xi^a(s)$ that links each space-time trajectory with one and only one phase space trajectory.
+Given all possible trajectories $x^\alpha(s)$ in the extended configuration manifold $\mathcal{M}$ and all possible trajectory $\xi^a(s)$ in the extended phase space $\mathbf{T}^*\mathcal{M}$, there exist a bijective function $f: x^\alpha(s) \leftrightarrow \xi^a(s)$ that links each space-time trajectory with one and only one phase space trajectory.
 \end{cor}
 
 If studying the motion and state evolution are equivalent, then we must be able to go back and forth between the two pictures. Without losing generality, we can chose $x^\alpha=f(q^i,t)$ to be a function of only $q^i$ and $t$.
 
 \begin{prop}\label{locallyMinkowski}
-Space-time is locally Minkowskian Rimmanian manifold. That is, there exists a metric $g$ that at any point can be expressed, with a suitable choice of coordinate, as $dx^\alpha g_{\alpha \beta}(P) dx^\beta=dx^\alpha\eta_{\alpha \beta}dx^\beta=(dx^i)^2 - (dx^0)^2=(dx^i)^2 - c^2dt^2$, where $c=n(dq)/n(dt)$ is the ratio between the density of states in space and time.
+The space-time extended configuration manifold $\mathcal{M}$ is a locally Minkowskian Riemannian manifold. That is, there exists a metric $g$ that at any point can be expressed, with a suitable choice of coordinate, as $dx^\alpha g_{\alpha \beta}(P) dx^\beta=dx^\alpha\eta_{\alpha \beta}dx^\beta=(dx^i)^2 - (dx^0)^2=(dx^i)^2 - c^2dt^2$, where $c=n(dq)/n(dt)$ is the ratio between the density of states in space and time.
 \end{prop}
 
-As states are defined on intervals, a metric $g$ must be defined on $\mathcal{M}$. Such a metric must be consistent with $\omega$, as both must be invariant under coordinate transformations. The idea is that each $(dx^\alpha)^2$ can be made to both represent a length square in space-time and an area in phase space, linking the two metrics. For each spatial d.o.f. fix $dp_i=\lambda dq^i$, we have $dq^i \wedge dp_i = \lambda (dx^i)^2$ where $\lambda$ converts from length squared to the label cardinality contained in the area. For the temporal d.o.f fix $dE = \lambda c^2 dt$, we have $dt \wedge dE = \lambda c^2 dt^2$. That is: the area in time squared is converted to an area in length squared that have the same density of states (as per definition of $c$) and then to label cardinality. The phase space invariant is $\omega = \lambda [(dq^i)^2 - c^2 dt^2]$.
+As states are defined on intervals, a metric $g$ must be defined on $\mathcal{M}$. Such a metric must be consistent with $\omega$ as defined on $\mathbf{T}^*\mathcal{M}$, as both must be invariant under coordinate transformations. The idea is that each $(dx^\alpha)^2$ can be made to both represent a length square in space-time and an area in phase space, linking the two metrics. For each spatial d.o.f. fix $dp_i=\lambda dq^i$, we have $dq^i \wedge dp_i = \lambda (dq^i)^2$ where $\lambda$ converts from length squared to the label cardinality contained in the area. For the temporal d.o.f fix $dE = \lambda c^2 dt$, we have $dt \wedge dE = \lambda c^2 dt^2$. That is: the area in time squared is converted to an area in length squared that have the same density of states (as per definition of $c$) and then to label cardinality. The phase space invariant is $\omega = \lambda [(dq^i)^2 - c^2 dt^2]$.
 
 Assume the choice of coordinates $x^\alpha$ locally diagonalizes $g(x^\alpha)$, each diagonal element being either $\pm 1$ (such coordinate system always exists). Set $x^i=q^i$ and $x^0=ct$. We have $\omega = \lambda ((dx^i)^2 - (dx^0)^2)$ and $dx^\alpha g_{\alpha \beta} dx^\beta=dx^\alpha g_{\alpha \alpha}dx^\alpha$. Both are invariant under coordinate transformation for any $dx^\alpha$. This can only be if $g_{ii}(x^\alpha)=1$ and $g_{00}(x^\alpha)=-1$.
 
@@ -393,7 +393,7 @@ Consider a movement $ds$ along any trajectory. This will go through $n(dt)$ labe
 \end{align*}
 
 \begin{prop}\label{initialConditions}
-Let $u^\alpha = d_s x^\alpha$ be the four-velocity, where the parametrization $s$ is chosen, by convention, to be proper time. The position $x^\alpha$ and velocity $u^\alpha$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
+Let $x^\alpha={ct, q^i}$ and $u^\alpha = d_s x^\alpha$ be the four-velocity, where the parametrization $s$ is chosen, by convention, to be proper time. The position $x^\alpha$ and velocity $u^\alpha$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
 \end{prop}
 
 As the equation of motion \ref{tdofHam} can be at most second order in $\{t, q^i\}$, they can at most be second order in $x^\alpha=\{ct, q^i\}$ so only position and velocity can be candidates for the initial conditions. Fixing time, phase space is $\mathbbm{R}^{2n}$, too big to be covered by position only, but just right to be covered by both.
@@ -406,14 +406,14 @@ Let $dp_\alpha$ an infinitesimal interval of conjugate momentum and $d(g_{\alpha
 Let $x^\alpha=\{ct, q^i\}$ and $p_\alpha=\{-E/c, p_i\}$. Then $p_\alpha= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)$, where $\hat{p}_\alpha : \mathcal{M} \rightarrow \mathbbm{R}$ is a function defined on the extended configuration manifold.
 \end{prop}
 
-For \ref{kinematicAssumption} and \ref{kineticMomentum}, there must exist $p_\alpha=p_\alpha(x^\beta , u^\gamma)$. We express it in terms of $u_\alpha\equiv g_{\alpha \beta} u^\beta$. We have:
+Given \ref{initialConditions}, there must exist $p_\alpha=p_\alpha(x^\beta , u^\gamma)$. We express it in terms of $u_\alpha\equiv g_{\alpha \beta} u^\beta$. We have:
 \begin{align*}
 \omega &= q^i\wedge p_i - ct \wedge E/c \\
 &=x^\alpha \wedge p_\alpha \\
 &=dx^\alpha \wedge \frac{\partial p_\alpha}{\partial u_\beta}du_\beta + dx^\alpha \wedge \frac{\partial p_\alpha}{\partial x^\gamma}dx^\gamma \\
 &=\frac{\partial p_\alpha}{\partial u_\beta}du_\beta dx^\alpha \\
 \end{align*}
-Consider the expression $m du_\alpha dx^\alpha$: this gives us the density of labels in position and velocity converted to the conjugate variables. That is: $\omega=m du_\alpha dx^\alpha$. Combining the two:
+Consider the expression $m du_\alpha dx^\alpha$: this invariant gives us the density of labels in position and velocity converted to the conjugate variables. That is: $\omega=m du_\alpha dx^\alpha$. Combining the two:
 \begin{align*}
 \frac{\partial p_\alpha}{\partial u_\beta} &= m \delta^\beta_\alpha \\
 p_\alpha &= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)
@@ -499,16 +499,30 @@ Assume $\mathcal{M}$ flat and time independent motion, the Hamiltonian simplifie
 Given flat space-time and time independent motion, we can use $t$ as a parameter for the motion in $\mathbbm{Q}$. Repeating \ref{kineticMomentum} and \ref{initialConditions} for the non-relativistic case leads to the above Hamiltonian. Similar to \ref{relativisticEM}, use \ref{mdofHam} with the newly found Hamiltonian and find the equation of motion.
 
 \begin{defn}\label{lagrangian}
-Let $\mathcal{H}$ be an extended hamiltonian defined on $\mathbf{T}^*\mathcal{M}$. Under \ref{kinematicAssumption}, we can define the Legendre transform $\mathcal{L}=u^\alpha p_\alpha - \mathcal{H}$ which we call \emph{extended Lagrangian}. For the time invariant case, we define the \emph{Lagrangian} $L=u^\alpha p_\alpha - H$.
+Let $\mathcal{H}$ be an extended hamiltonian defined on $\mathbf{T}^*\mathcal{M}$. Under the kinetic assumption, we can define the Legendre transform $\mathcal{L}=u^\alpha p_\alpha - \mathcal{H}$ which we call \emph{extended Lagrangian}. For the time invariant case, we define the \emph{Lagrangian} $L=u^\alpha p_\alpha - H$.
 \end{defn}
 
-The Legendre transform can be defined only if $\mathcal{H}$ is convex in $p_\alpha$. The Hamiltonian found at \ref{kineticHamiltonian} is convex, so the Lagrangian can always be defined. While the kinetic equivalence assumption is sufficient, it's not necessary. What is necessary is \ref{initialConditions}: as long as position and velocity are enough to determine the state, $u^\alpha=f(q^\alpha, p_\alpha)$ must be monotonic in $p_\alpha$, which means $\mathcal{H}$ is convex in $p_\alpha$. What happens in that case is that the space-time trajectories may become more or less dense, and $n(du_\alpha)$ will be a function of $x^\alpha$ as well. So while Hamiltonian mechanics coincides with deterministic and reversible evolution, Lagrangian mechanics coincides with initial conditions given by position and velocity.
-
-\section{Lagrangian}
-
-From Hamiltonian conservation to Lagrangian. p monotonic means convex Hamiltonian: can use Legendre transform.
+The Legendre transform can be defined only if $\mathcal{H}$ is convex in $p_\alpha$. The Hamiltonian found at \ref{kineticHamiltonian} is convex, so the Lagrangian can always be defined. While the kinetic equivalence assumption is sufficient, it's not necessary. What is necessary is \ref{initialConditions}: as long as position and velocity are enough to determine the state, $u^\alpha=f(q^\alpha, p_\alpha)$ must be monotonic in $p_\alpha$, which means $\mathcal{H}$ is convex in $p_\alpha$. What happens in that case is that the space-time trajectories may become more or less dense, $du_\alpha$ and $dx^\alpha$ would not be enough to define the label cardinality and therefore the state density $\rho$. In short: deterministic and reversible evolution gives us Hamiltonian mechanics, position and velocity as initial conditions Lagrangian mechanics, and the kinetic assumption (which links the differentials of state variables and initial conditions) gives us the narrowed Hamiltonian form.
 
 \section{Conclusion}
+
+As we have touched many areas, we could only scratch the surface. There are many more details that can be expanded upon. Yet, the intent is just to give the overall picture, which could be summarized in the following points.
+
+\begin{itemize}
+  \item Classical states are those that describe every infinitesimal part.
+  \item Classical particles are infinitesimal cells. Phase space is the cotangent bundle $\mathbf{T}^*\mathbbm{Q}$ because that's the space of infinitesimal cells.
+  \item Hamiltonian mechanics coincides with deterministic and reversible evolution.
+  \item Hamiltonian flow is the conservation of number of labels for each independent degree of freedom.
+  \item The conservation of number of states is what ultimately gives space-time its locally Minkowskian nature.
+  \item Lagrangian mechanics coincides with position and velocity being necessary and sufficient initial conditions.
+  \item The motion of an isolated elementary system, for which the kinetic assumption is valid, is restricted to a Hamiltonian that can describe fundamental classical forces.
+\end{itemize}
+
+This helps clarify and understand much of the classical framework in a more cohesive way. The notion of cardinality of labels and states is what's at the heart.
+
+While this is limited to classical particle mechanics, it should be obvious how, at least in principle, this work could be extended. For field theories, the \emph{kinematic assumption} should be substituted by a \emph{kinematic field assumption}: what we are studying are not trajectories $x^\alpha(s)$ but fields $\psi(x^\alpha)$. The field values at each point become a set of independent state variables, where their conjugates $\pi(x^\alpha)$ will be linked to $d_s\psi(x^\alpha)$. For quantum mechanics, the \emph{infinite reducibility assumption} has to leave way to an \emph{irreducibility assumption}: the state of parts of a quantum system cannot be known. The configuration state as a whole undergoes deterministic and reversible evolution, while the motion of its parts does not: it is non deterministic.
+
+The hope is that, by continuing in this approach, we can shed more light on why the laws of physics are what they are; and show that they are not arbitrary rules, but necessary given few simple assumptions.
 
 \begin{thebibliography}{0}
 
