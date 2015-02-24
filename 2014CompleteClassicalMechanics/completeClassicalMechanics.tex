@@ -183,7 +183,7 @@ In the language of differential geometry, we recognise phase space as the cotang
 Now that we have properly defined continuous labels and the relative cardinality of their sets, we will extend bijective maps to the continuous case. As these must preserve the cardinality of label sets, they are constrained in their form. The use of a bijective map for infinitesimal time evolution will lead us to Hamilton's equation. In this section we'll study a single degree of freedom, then extend in the next two section to multiple degrees of freedom and to the time dependent case.
 
 \begin{defn}\label{canonical}
-We call \emph{canonical transformation} a bijective map on $\mathbf{T}^*\mathbbm{Q}$.
+We call \emph{canonical transformation} the continuous limit of a bijective map, as defined by \ref{detrevMap}, on $\mathbf{T}^*\mathbbm{Q}$.
 \end{defn}
 
 \begin{prop}\label{continuousMapping}
@@ -349,7 +349,7 @@ d_{s}p_i &= - \partial_{q^i} \mathcal{H}
 
 Take the metric from \ref{tdofInvariant}, add multiple independent d.o.f as in \ref{mdofInvariant}, use \ref{genAntisim} with the parameter $s$ instead of $t$ and generator $\mathcal{H}$ instead of $H$.
 
-If we set\footnote{We avoided using $p^{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p^{n+1}=-e$, we recognise Hamilton equations in the extended phase space\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge,Lanczos}.
+If we set\footnote{We avoided using $p_{n+1}$ as it hides the minus sign from the metric, making it seem that the temporal d.o.f is just another independent d.o.f.} $q^{n+1}=t$ and $p_{n+1}=-E$, we recognise Hamilton equations in the extended phase space\footnote{As in Struckmeier\cite{Struckmeier}, $d_{s}t$ need not be unitary.}\cite{Synge,Lanczos}.
 
 \begin{prop}\label{tdofConstrain}
 The evolution is constrained by $\mathcal{H}=k$.
@@ -358,7 +358,7 @@ The evolution is constrained by $\mathcal{H}=k$.
 Since $\mathcal{H}$ is constant through the evolution, it can serve both as the generating function and as the evolution constraint. By convention, we can set $\mathcal{H}=0$ without loss of generality as changing $\mathcal{H}$ by a constant does not change the equation of motion. This reduces extended phase space to $2N + 1$ components, the state variables plus time.
 
 \section{Kinematics}
-In the previous section we made no constraint on what our state variables $q^i$ actually represent. In this section we turn our attention to the study of the motion of a body. In particular, we will introduce another assumption: that the trajectories are enough to fully describe the system. We can expect this to hold true if the system is elemental (it has no relevant internal structure) and is sufficiently isolated. At that point, if the motion is the result of a deterministic and reversible process, no two trajectories can be attributed to the same state as there is nothing else that could affect them. As position and time will be state variables, the space-time manifold will coincide with $\mathcal{M}$ and the extended phase space with $\mathbf{T}^*\mathcal{M}$.
+In the previous section we made no constraint on what our state variables $q^i$ actually represent. In this section we turn our attention to the study of the motion of a body. In particular, we will introduce another assumption: that the trajectories are enough to fully describe the system. We can expect this to hold true if the system is elementary (it has no relevant internal structure) and is sufficiently isolated. At that point, if the motion is the result of a deterministic and reversible process, no two trajectories can be attributed to the same state as there is nothing else that could affect them. As position and time will be state variables, the space-time manifold will coincide with $\mathcal{M}$ and the extended phase space with $\mathbf{T}^*\mathcal{M}$.
 
 \begin{assump3}\label{kinematicAssumption}
 The study of the trajectory (kinematic) of a body is equivalent to study its state (dynamic) under deterministic and reversible evolution.
@@ -390,10 +390,10 @@ Consider a movement $ds$ along any trajectory. This will go through $n(dt)$ labe
 \end{align*}
 
 \begin{prop}\label{initialConditions}
-Let $x^\alpha={ct, q^i}$ and $u^\alpha = d_s x^\alpha$ be the four-velocity, where the parametrization $s$ is chosen, by convention, to be proper time. The position $x^\alpha$ and velocity $u^\alpha$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
+Let $x^\alpha=\{ct, q^i\}$ and $u^\alpha = d_s x^\alpha$ be the four-velocity, where the parametrization $s$ is chosen, by convention, to be proper time. The position $x^\alpha$ and velocity $u^\alpha$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
 \end{prop}
 
-As the equation of motion \ref{tdofHam} can be at most second order in $\{t, q^i\}$, they can at most be second order in $x^\alpha=\{ct, q^i\}$ so only position and velocity can be candidates for the initial conditions. Fixing time, phase space is $\mathbbm{R}^{2n}$, too big to be covered by position only, but just right to be covered by both.
+As the equation of motion \ref{tdofHam} can be at most second order in $\{t, q^i\}$, they can at most be second order in $x^\alpha=\{ct, q^i\}$ so only position and velocity can be candidates for the initial conditions. Fixing time, phase space has $2N$ components, too big to be covered by position only, but just right to be covered by both.
 
 \begin{defn}\label{inertialMass}
 Let $dp_\alpha$ an infinitesimal interval of conjugate momentum and $du_\alpha\equiv d(g_{\alpha \beta}u^\beta)$ an infinitesimal interval of the covariant components of the four velocity. The ratio $m=n(dp_\alpha)/n(du_\alpha)$ between their relative label cardinality is called \emph{inertial mass}.
