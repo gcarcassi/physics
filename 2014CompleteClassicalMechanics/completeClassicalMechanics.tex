@@ -174,9 +174,26 @@ As $\hbar dq \wedge dk$ is truly fundamental, it is customary to group $\hbar$ w
 Each degree of freedom is identified by the pair of labels $\langle q,p \rangle \in \mathbf{T}^*\mathbbm{Q}$. $\theta_0 = p dq$ and $\omega = dq \wedge dp$ are invariant, $p$ is contravariant. The configuration state is $\mathbbm{c}=\int \rho(q,p) dq \wedge dp \, \mathbbm{s}(q, p)$, where $\rho(q,p)\equiv D(q,p) / \omega$ is the distribution density for each label.
 \end{cor}
 
-This restates all the previous findings in terms of conjugate momentum.
+This restates all the previous findings in terms of conjugate momentum. In the language of differential geometry, we recognise phase space as the cotangent bundle $\mathbf{T}^*\mathbbm{Q}$, the function $\rho$, the one-form $\theta_0$ and the two-form $\omega$. They are truly fundamental objects as they are intimately linked to the way states are defined ($\rho$ is the distribution, $\theta_0 / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels) and they don't depend on coordinate choice.
 
-In the language of differential geometry, we recognise phase space as the cotangent bundle $\mathbf{T}^*\mathbbm{Q}$, the function $\rho$, the one-form $\theta_0$ and the two-form $\omega$. They are truly fundamental objects as they are intimately linked to the way states are defined ($\rho$ is the distribution, $\theta_0 / \hbar$ is the cell width) and counted ($\omega$ is the cardinality of the labels) and they don't depend on coordinate choice.
+As we'll need to work with different physical units, which may change $q$ or $p$ independently, it is useful to introduce the following notation and concepts.
+
+\begin{defn}\label{differentialCardinality}
+Let $dq$ be a finite contiguous range for a continuous state variable, we define $n_q(dq)$ as the cardinality of the set $I_{dq}$ that comprise all the labels in the range. For contravariant (conjugate) variables, we reverse the indexes in the notation: $n^p(dp)$.
+\end{defn}
+
+\begin{cor}\label{linearCardinality}
+Given $dq = a dq^a + b da^b$, then $n_q(dq) = a n_q(dq^a) + b n_q(da^b)$. That is, the relative cardinality is a linear operator.
+\end{cor}
+
+The linearity should be obvious: as we combine or increase the range, we combine and increase the number of possible labels.\footnote{Since the relative cardinality is linear, invariant under coordinate transformation and conserved by deterministic and reversible motion, it should come to no surprise that linearity will play a significant role. This is true for both classical (e.g. forces combine linearly) and quantum (e.g. linear inner product) concepts that are tightly linked to this fundamental operator.}
+
+\begin{defn}\label{cardinalityConversionConstant}
+Let $q^a$ and $q^b$ be two continuous state variables measured in different units, and $n_a(dq^a)$ and $n_b(dq^b)$ the relative cardinality defined on intervals of the respective units. We define the \emph{cardinality conversion constant} $\mathfrak{C}^b_a$ that converts a range of $q^a$ to a range of $q^b$ with the same cardinality. That is: $dq^b = \mathfrak{C}^b_a dq^a$ and $n_b(dq^b)=n_a(dq^a)$. For contravariant (conjugate) variables, we reverse the indexes in the notation: $dp_b = \mathfrak{C}^a_b dp_a$.
+\end{defn}
+
+As the relative cardinality $n_q(dq)$ is invariant, the function $n_q$ cannot be since $dq$ is covariant. This means that, when changing units, we have to be careful.\footnote{This is only a problem when considering the number of labels of a single state variable $n_q(dq)$, instead of a whole degree of freedom $n_{\langle q, p \rangle}(\langle dq, dp \rangle)$: $\langle dq, dp \rangle$ is invariant and so is $n_{\langle q, p \rangle}$.}
+Fortunately, since the $n_q$ is linear, we can always find a coefficient that allows us to convert. For example: $\hbar \equiv \mathfrak{C}^k_p$ is the cardinality conversion constant between cell number and conjugate moment. In the future, we will have to convert intervals of time into space, or intervals of velocity into conjugate momentum, so the idea of cardinality conversion constants will reappear.
 
 \section{Single degree of freedom}
 
@@ -370,8 +387,12 @@ Fix a system under deterministic and reversible evolution. Given all its possibl
 
 If studying the motion and state evolution are equivalent, then we must be able to go back and forth between the two pictures. Without losing generality, we can chose $x^\alpha=f(q^i,t)$ to be a linear function of only $q^i$ and $t$.
 
+\begin{defn}\label{invariantSpeed}
+Let $x$ be a space variable and $t$ the time variable. We define the \emph{invariant speed} as the cardinality conversion constant $c \equiv \mathfrak{C}^x_t$ between $x$ and $t$. That is, if $dx=cdt$ then $n_x(dx)=n_t(dt)$.
+\end{defn}
+
 \begin{prop}\label{locallyMinkowski}
-The space-time manifold $\mathcal{M}$ is a locally Minkowskian Riemannian manifold. That is, there exists a metric $g$ that at any point can be expressed, with a suitable choice of coordinate, as $g=dx^\alpha g_{\alpha \beta}(P) dx^\beta=dx^\alpha\eta_{\alpha \beta}dx^\beta=(dx^i)^2 - (dx^0)^2=(dx^i)^2 - c^2dt^2$, where $c=n(dq)/n(dt)$ is the ratio between the density of states in space and time.
+The space-time manifold $\mathcal{M}$ is a locally Minkowskian Riemannian manifold. That is, there exists a metric $g$ that at any point can be expressed, with a suitable choice of coordinate, as $g=dx^\alpha g_{\alpha \beta}(P) dx^\beta=dx^\alpha\eta_{\alpha \beta}dx^\beta=(dx^i)^2 - (dx^0)^2=(dx^i)^2 - c^2dt^2$.
 \end{prop}
 
 As states are defined on intervals, a metric $g$ must be defined on $\mathcal{M}$. Such a metric must be consistent with $\omega$ as defined on $\mathbf{T}^*\mathcal{M}$, as both must be invariant under coordinate transformations. The idea is that each $(dx^\alpha)^2$ can be made to both represent a length square in space-time and an area in phase space, linking the two metrics. For each spatial d.o.f. fix $dp_i=\lambda dq^i$, we have $dq^i \wedge dp_i = \lambda (dq^i)^2$ where $\lambda$ converts from length squared to the label cardinality contained in the area. For the temporal d.o.f fix $dE = \lambda c^2 dt$, we have $dt \wedge dE = \lambda c^2 dt^2$. That is: the area in time squared is converted to an area in length squared that have the same density of states (as per definition of $c$) and then to label cardinality. The phase space invariant is $\omega = \lambda [(dq^i)^2 - c^2 dt^2]$.
@@ -380,14 +401,17 @@ Assume the choice of coordinates $x^\alpha$ locally diagonalizes $g(x^\alpha)$, 
 
 It is fitting that deterministic and reversible evolution requires space-time to be locally Minkowskian, as this clearly defines past and future events. To make us understand better the role of $c$, as we defined it, we prove the following.
 
-\begin{prop}\label{locallyMinkowski}
-The speed of a body cannot exceed $c$ under the kinematic equivalence assumption.
+\begin{prop}\label{speedLimit}
+The speed of a body cannot exceed the invariant speed $c$ under the kinematic equivalence assumption.
 \end{prop}
 
-Consider a movement $ds$ along any trajectory. This will go through $n(dt)$ labels in time and $n(dq)$ labels in space. As the motion is continuous, the number of labels in space cannot exceed the number of labels in time, we can't skip them, therefore $n(dq)\leq c n(dt)$. So we have:
+Consider a movement $ds$ along any trajectory. This will go through $n_t(dt)$ labels in time and $n_x(dx)$ labels in space. As the motion is continuous, the number of labels in space cannot exceed the number of labels in time, we can't skip them:
 \begin{align*}
-\frac{n(dq)}{n(dt)}= \frac{dq}{dt} \leq c \\
+\frac{n_x(dx)}{n_t(dt)} &= \frac{n_x(dx)}{n_x(c dt)} = \frac{dx}{c dt} \leq 1 \\
+\frac{dx}{dt} & \leq c \\
 \end{align*}
+
+Thus we find that $c$ is the well known relativistic constant.\footnote{Deterministic and reversible motion at speeds greater than $c$ (i.e. tachyon) is not allowed. Non-deterministic and non-reversible motion motion at speeds greater than $c$ (i.e. correlations at a distant) is allowed.}
 
 \begin{prop}\label{initialConditions}
 Let $x^\alpha=\{ct, q^i\}$ and $u^\alpha = d_s x^\alpha$ be the four-velocity, where the parametrization $s$ is chosen, by convention, to be proper time. The position $x^\alpha$ and velocity $u^\alpha$ are necessary and sufficient initial conditions to determine the state of the system and its whole trajectory.
@@ -397,6 +421,10 @@ As the equation of motion \ref{tdofHam} can be at most second order in $\{t, q^i
 
 \begin{defn}\label{inertialMass}
 Let $dp_\alpha$ an infinitesimal interval of conjugate momentum and $du_\alpha\equiv d(g_{\alpha \beta}u^\beta)$ an infinitesimal interval of the covariant components of the four velocity. The ratio $m=n(dp_\alpha)/n(du_\alpha)$ between their relative label cardinality is called \emph{inertial mass}.
+\end{defn}
+
+\begin{defn}\label{invariantSpeed}
+Let $p_\alpha$ be a component of conjugate momentum and $u_\alpha \equiv g_{\alpha \beta}u^\beta$ be a contravariant component of the four velocity. We define the \emph{inertial mass} as the cardinality conversion constant $m \equiv \mathfrak{C}^p_u$ between $p$ and $tu$. That is, if $dp=mdu$ then $n^p(dp)=n^u(du)$.
 \end{defn}
 
 \begin{prop}\label{kineticMomentum}
@@ -511,6 +539,7 @@ While there are many more details that we could have expanded up, as we have tou
   \item Hamiltonian mechanics coincides with deterministic and reversible evolution.
   \item Hamiltonian flow is the conservation of number of labels for each independent degree of freedom.
   \item Deterministic and reversible evolution is what ultimately gives space-time its locally Minkowskian nature.
+  \item $\hbar$, $c$ and $m$ can be seen as conversion constants that preserve cardinality
   \item Lagrangian mechanics coincides with position and velocity being necessary and sufficient initial conditions.
   \item The motion of an isolated elementary system, for which the kinetic assumption is valid, is restricted to a Hamiltonian that can describe fundamental classical forces.
 \end{itemize}
