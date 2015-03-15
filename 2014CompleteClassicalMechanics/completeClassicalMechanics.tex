@@ -227,7 +227,7 @@ Let $v$ and $w$ be two vectors defined on the tangent space of the phase space $
 then $v'^{a} \omega_{ab} w'^{b}=v^{a} \omega_{ab} w^{b}$ under a canonical transformation, where $a$ and $b$ represent components along coordinates $\xi^{a} \equiv \{q,p\}$.
 \end{cor}
 
-Here we are simply expressing $\omega$, $v$ and $w$ with their respective components and underlining the fact that $\omega$ defines the metric conserved under canonical transformations.
+Here we are simply expressing $\omega$, $v$ and $w$ in terms of their respective components and underlining the fact that $\omega$ defines the metric conserved under canonical transformations.
 
 \begin{lem}\label{genAntisim}
 Let $v$ and $w$ be two vectors. Let $v^{a} \omega_{ab} w^{b}$ be an antisymmetric product conserved under a continuous transformation parameterized by $t$. We can then define a function $H$ such that given $S^{a} \equiv d_{t}\xi^{a}$ and $S_{b} \equiv S^{a} \omega_{ab}$, we have $S_{a} = \partial_{a}H$.
@@ -420,7 +420,7 @@ Let $x^\alpha=\{ct, q^i\}$ and $u^\alpha = d_s x^\alpha$ be the four-velocity, w
 As the equations of motion \ref{tdofHam} can be at most second order in $\{t, q^i\}$, they can at most be second order in $x^\alpha=\{ct, q^i\}$ so only position and velocity can be candidates for the initial conditions. Fixing time, phase space has $2N$ components, too big to be covered by position only, but just right to be covered by both.
 
 \begin{defn}\label{inertialMass}
-Let $p_\alpha$ be a component of conjugate momentum and $u_\alpha \equiv g_{\alpha \beta}u^\beta$ be a contravariant component of the four velocity. We define the \emph{inertial mass} as the cardinality conversion constant $m \equiv \mathfrak{C}^p_u$ between $p$ and $u$. That is, if $dp_\alpha=mdu_\alpha$ then $n^p(dp_\alpha)=n^u(du_\alpha)$.\footnote{Note that \ref{kinematicAssumption} rules out massless particles: they can have the same position/velocity with different momentum, therefore the same trajectory for different states. When generalizing to field theory, the derivative of the position will be replaced by the derivative of the field (i.e. its oscillation in space-time), which holds for massive and massless fields.}
+Let $p_\alpha$ be a component of conjugate momentum and $u_\alpha \equiv g_{\alpha \beta}u^\beta$ be a contravariant component of the four velocity. We define the \emph{inertial mass} as the cardinality conversion constant $m \equiv \mathfrak{C}^p_u$ between $p$ and $u$. That is, if $dp_\alpha=mdu_\alpha$ then $n^p(dp_\alpha)=n^u(du_\alpha)$.\footnote{Note that the kinematic assumption rules out massless particles: they can have the same position and velocity with different momentum, therefore the same trajectory for different states. When generalizing to field theory, the derivative of the position will be replaced by the derivative of the field (i.e. its oscillation in space-time), which holds for massive and massless fields.}
 \end{defn}
 
 \begin{prop}\label{kineticMomentum}
@@ -437,9 +437,9 @@ Given \ref{initialConditions}, there must exist $p_\alpha=p_\alpha(x^\beta , u^\
 Consider the expression $m du_\alpha dx^\alpha$: this invariant gives us the density of labels in position and velocity converted to the conjugate variables. That is: $\omega=m du_\alpha dx^\alpha$. Combining the two:
 \begin{align*}
 \frac{\partial p_\alpha}{\partial u_\beta} &= m \delta^\beta_\alpha \\
-p_\alpha &= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x^\gamma)
+p_\alpha &= m g_{\alpha \beta}u^\beta + \hat{p}_\alpha(x)
 \end{align*}
-where $\hat{p}$ is an arbitrary function.\footnote{The conjugate momentum $p$ and the kinetic momentum $mu$ are therefore different in general: only their differentials are linked. Moreover: $p$ is unique only once $\hat{p}$ is fixed, but $\hat{p}$ is arbitrary. Given that only $u$ is linked to the trajectory, any transformation in $\{p, \hat{p} \}$ that does not change $u$ describes the same motion. We call \emph{gauge transformation} such transformation that redefines conjugate momentum while keeping kinetic momentum unvaried.}
+where $\hat{p}$ is an arbitrary function.\footnote{The conjugate momentum $p$ and the kinetic momentum $mu$ are therefore different in general: they are linked only through their differentials. Moreover, $p$ is unique only once $\hat{p}$ is fixed, but $\hat{p}$ is arbitrary. Given that $u$ determines the trajectory, any transformation in $\{p, \hat{p} \}$ that does not change $u$ describes the same motion. We call \emph{gauge transformation} such a transformation that redefines conjugate momentum while keeping kinetic momentum unvaried. This is the particle mechanics equivalent of gauge transformations in field theory.}
 
 To convince ourselves that $m$ is indeed the inertial mass, consider applying a force. We are changing the state through the velocity, meaning changing the conjugate momentum. The higher the mass, the more states we'll have to go through to reach the same velocity. The higher the mass, the more change is required, the more force needs to be applied.
 
@@ -547,17 +547,21 @@ While this is limited to classical particle mechanics, it should be obvious how,
 
 The hope is that, by continuing in this approach, we can shed more light on why the laws of physics are what they are; and show that they are not arbitrary rules, but necessary given few simple assumptions.
 
+\section{Acknowledgements}
+
+It is my pleasure to thank Christine A. Aidala, Lydia Bieri, Robert Geroch and Steven J. Miller for helpful discussions and support.
+
 \begin{thebibliography}{0}
 
-\bibitem{Shannon} Shannon, C. E.: ``A mathematical theory of communications'', The Bell System Technical Journal, Vol. 27, pp. 379–423, 623–656, (1948)
-\bibitem{Jaynes} Jaynes, E. T.: ``Information theory and statistical mechanics'', (1963)
-\bibitem{classical_dynamics} J. V. Jose', E. J. Saletan: ``Classical Dynamics'', Cambridge University Press, (1998)
-\bibitem{Gromov} Gromov, M. L.: ``Pseudo holomorphic curves in symplectic manifolds''. Inventiones Mathematicae 82: 307–347, (1985)
-\bibitem{deGosson} de Gosson, M. A.: ``The symplectic camel and the uncertainty principle: the tip of an iceberg?'', Foundation of Physics 39, pp. 194–214, (2009)
-\bibitem{Stewart} Stewart, I.: ``The symplectic camel'', Nature 329(6134), 17–18 (1987)
-\bibitem{Lanczos} Lanczos, C.: ``The variational principles of mechanics'', University of Toronto Press (1949)
-\bibitem{Synge} Synge, J. L.: Encyclopedia of Physics Vol 3/1, Springer (1960)
-\bibitem{Struckmeier} Struckmeier, J.: ``Hamiltonian dynamics on the symplectic extended phase space for autonomous and non-autonomous systems'', J. Phys. A: Math. Gen 38, 1257-1278, (2005)
+\bibitem{Shannon} Shannon, C. E., ``A mathematical theory of communication'', The Bell System Technical Journal, Vol. 27, pp. 379--423, 623--656, (1948).
+\bibitem{Jaynes} Jaynes, E. T., ``Information theory and statistical mechanics'', Statistical Physics 3, pp. 181--218, (1963).
+\bibitem{classical_dynamics} J. V. Jos\'{e}, E. J. Saletan, ``Classical Dynamics'', Cambridge University Press, (1998).
+\bibitem{Gromov} Gromov, M. L., ``Pseudo holomorphic curves in symplectic manifolds'', Inventiones Mathematicae 82, pp. 307--347, (1985).
+\bibitem{deGosson} de Gosson, M. A., ``The symplectic camel and the uncertainty principle: the tip of an iceberg?'', Foundations of Physics 39, pp. 194--214, (2009).
+\bibitem{Stewart} Stewart, I., ``The symplectic camel'', Nature 329, pp. 17--18, (1987).
+\bibitem{Lanczos} Lanczos, C., ``The variational principles of mechanics'', University of Toronto Press, (1949).
+\bibitem{Synge} Synge, J. L., ``Classical dynamics'', Encyclopedia of Physics Vol 3/1, Springer (1960).
+\bibitem{Struckmeier} Struckmeier, J., ``Hamiltonian dynamics on the symplectic extended phase space for autonomous and non-autonomous systems'', J. Phys. A: Math. Gen. 38, pp. 1257--1278, (2005).
 
 \end{thebibliography}
 
