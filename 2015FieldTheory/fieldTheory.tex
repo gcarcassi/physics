@@ -1,0 +1,137 @@
+\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{assump1}{Classical assumption}
+\newtheorem*{assump2}{Determinism and Reversibility assumption}
+
+\begin{document}
+
+\section{Notes for classical Field Theory}
+
+Use roman letters for phase space indexes. Use greek letters for space-time indexes.
+
+Particle mechanics:
+\begin{align*}
+&\xi^a\equiv\{t, q^i, E, p_i\} \\
+&\xi^a(s)\\
+&\omega \equiv  dq^i \wedge dp_i - dt \wedge dE \\
+&\omega_{ab} =  \left[
+  \begin{array}{cc}
+    0 & 1 \\
+    -1 & 0 \\
+  \end{array}
+\right] \otimes \left[
+  \begin{array}{cccc}
+    -1 & 0 & 0 & 0\\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+  \end{array}
+\right] \\
+&\mathcal{H}\equiv\mathcal{H}(\xi^a) \\
+&\mathcal{H} = 0 \\
+&d_s \mathcal{H} = 0 \\
+&S^a=d_s\xi^a \\
+&S_a = \partial_a\mathcal{H} \\
+&S_b = S^a \omega_{a, b} \\
+&d_{s}t = - \partial_{E} \mathcal{H} \\
+&d_{s}E = \partial_{t} \mathcal{H} \\
+&d_{s}q^i = \partial_{p_i} \mathcal{H} \\
+&d_{s}p_i = - \partial_{q^i} \mathcal{H} \\
+\end{align*}
+
+Textbook time-based field theory.
+\begin{align*}
+&x^\alpha\equiv\{ct, x^i\} \\
+&\phi\equiv\phi(x^\alpha) \\
+&\pi\equiv\pi(x^\alpha) \\
+&\mathcal{H}\equiv\mathcal{H}(\pi, \phi, \partial_i\phi, x^a) \\
+&H\equiv \int \mathcal{H} d^3x \\
+&\partial_{t}\phi = \partial_{\pi} \mathcal{H} \\
+&\partial_{t}\pi = - \partial_{\phi} \mathcal{H} + \partial_i \partial_{\partial_i\phi} \mathcal{H} \\
+&\partial_{t}\phi = \delta_{\pi} H \\
+&\partial_{t}\pi = - \delta_{\phi} H \\
+\end{align*}
+
+Covariant field theory.
+\begin{align*}
+&x^\alpha\equiv\{ct, x^i\} \\
+&\phi\equiv\phi(x^\alpha) \\
+&\pi^\alpha\equiv\pi^\alpha(x^\beta) \\
+&\mathcal{H}\equiv\mathcal{H}(\pi^\alpha, \phi, x^a) \\
+&\partial_{\alpha}\phi = \partial_{\pi^\alpha} \mathcal{H} \\
+&\partial_{\alpha}\pi^\alpha = - \partial_{\phi} \mathcal{H} \\
+\end{align*}
+
+What I need ($s$ is parameter of the evolution, $s_\perp^i$ are defined on surfaces of equal $s$, and therefore are locally perpendicular):
+\begin{align*}
+&x^\alpha\equiv\{ct, x^i\} \\
+&s\equiv s(x^a) \\
+&\partial_ts \neq 0 \\
+&\partial_\alpha s \partial^\alpha s = -1 \\
+&\phi\equiv\phi(s, s_\perp^i) \\
+&\pi\equiv\pi(s, s_\perp^i) \\
+&\omega \equiv \int \delta\phi \wedge \delta\pi ds_\perp^i \\
+&\mathcal{H}\equiv\mathcal{H}(\pi, \phi, s_{\perp}^i) \\
+&\partial_s\mathcal{H}=0 \\
+&\partial_s\phi = \partial_{\pi} \mathcal{H} \\
+&\partial_s\pi = - \partial_{\phi} \mathcal{H} \\
+\end{align*}
+
+Possible link to covariant field theory:
+\begin{align*}
+&\pi\partial_s\phi = \pi\partial_s x^\alpha \partial_\alpha \phi \\
+&\pi^\alpha = \pi\partial_s x^\alpha \\
+&\mathcal{H} = \pi\partial_s\phi - \mathcal{L} \\
+&= \pi^\alpha \partial_\alpha \phi - \mathcal{L} \\
+&\omega = \int \delta\phi \wedge \delta\pi \partial_s x^\alpha n_\alpha d\Sigma \\
+&= \int \delta\phi \wedge \delta\pi^\alpha n_\alpha d\Sigma \\
+\end{align*}
+
+\begin{align*}
+&\partial_\alpha\pi^\alpha = \partial_\alpha \pi \partial_s x^\alpha + \pi\partial_\alpha \partial_s x^\alpha \\
+&\partial_\alpha \partial_s x^\alpha = \partial_s \partial_\alpha x^\alpha = \partial_s \delta_\alpha^\alpha = 0 \\
+&\partial_\alpha\pi^\alpha = \partial_\alpha \pi \partial_s x^\alpha = \partial_s\pi = - \partial_{\phi} \mathcal{H} \\
+&\partial_\alpha\phi  = \partial_s \phi / \partial_s x^\alpha = \partial_\pi \mathcal{H} / \partial_s x^\alpha =
+\partial_{\pi \partial_s x^\alpha} \mathcal{H} = \partial_{\pi^\alpha} \mathcal{H} \\
+\end{align*}
+
+Link between energy-momentum (generator of space-time translation) and Hamiltonian (generator for evolution along s):
+\begin{align*}
+&T_\alpha^\mu=\delta_\alpha^\mu \mathcal{H} + \pi^\mu \partial_\alpha \phi - \delta_\alpha^\mu \pi^\beta \partial_\beta \phi \\
+&T_\alpha^\mu \partial_s x^\alpha = \delta_\alpha^\mu \mathcal{H} \partial_s x^\alpha + \pi \partial_s x^\mu \partial_\alpha \phi \partial_s x^\alpha - \delta_\alpha^\mu \pi \partial_s x^\beta \partial_\beta \phi \partial_s x^\alpha \\
+&T_\alpha^\mu \partial_s x^\alpha = \mathcal{H} \partial_s x^\mu + \pi \partial_s x^\mu \partial_s \phi - \pi \partial_s \phi \partial_s x^\mu \\
+&T_\alpha^\mu \partial_s x^\alpha ds = \mathcal{H} \partial_s x^\mu ds \\
+\end{align*}
+
+
+Is this true (all taken at equal $s_\perp^i$):
+\begin{align*}
+&1 = \partial_s s  = \partial_\alpha s \partial_s x^\alpha \\
+&-1 = \partial_\alpha s \partial^\alpha s \\
+&\partial^\alpha s = -\partial_s x^\alpha \\
+\end{align*}
+
+If so:
+\begin{align*}
+&\pi^\alpha = -\pi\partial^\alpha s \\
+\end{align*}
+$\pi^\alpha$ points in the direction of max $s$ increase, and it's modulus is $\pi$. It's divergence is the change of $\pi$ along $s$. Which we can use to translate the equations of motion. Note that all derivatives of $\mathcal{H}$ are taken at $x^\alpha$ constant (we are changing the value of the field, not the position).
+
+
+
+
+\end{document}
