@@ -64,6 +64,8 @@
 \section{Inner product}
 
 \begin{tikzpicture}[scale=1]
+    
+    
     \tikzstyle{help line}=[semithick,color=gray]
     \tikzstyle{vector}=[-Stealth,semithick,color=black]
     \tikzstyle{guideline}=[semithick,color=gray]
@@ -81,11 +83,35 @@
 	\draw[style=vector] (0,0) -- (1.5,3);
 	\draw[style=guideline] (0,0) -- node[style=guideline text left] {$b_2$} (0,3);
 	\draw[style=guideline] (0,3) -- node[style=guideline text up] {$a_2$} (1.5,3);
+
+%    \draw (0,0) -- (1,0) arc(0:30:3mm);
+%    \draw (15:2mm) node {$\alpha$};
+\coordinate [label=left:$A$] (A) at (0,0);
+\coordinate [label=right:$B$] (B) at (1.5,3);
+
+%\draw[red,line width=1mm] let \p1 = ($(B)-(A)$) in (A) -- ++(45:({veclen(\x1,\y1)}););
+%\draw (A) -- (B);
+\draw let \p1 = (0,0),    % Center
+          \p2 = (4,1),    % First vector
+          \p3 = (1.5,3),  % Second vector
+          \n1 = {0.2},    % Position of arc on first vector
+          \p4 = ($(\p1)!\n1!(\p2)$),    % Point where the arc starts
+          \n2 = {atan2(\y2,\x2)},       % First angle
+          \n3 = {atan2(\y3,\x3)},       % Second angle
+          \n4 = {veclen(\y4,\x4)},       % Arc radius
+          \n5 = {\n2 + (\n3 - \n2) / 2},       % Mid angle
+          \n6 = {\n4 + 7}       % Label radius
+           in (\p4) -- ++(\p1) arc   (\n2:\n3:\n4) node at(\n5:\n6) {$\theta$} ;
+
 \end{tikzpicture}
 
 \begin{align*}
 \overline{c_2} c_1 &= (a_2 - b_2 i) (a_1 + b_1 i) \\
 &= a_1 a_2 + b_1 b_2 + \frac {a_1 b_2 - a_2 b_1}{i} \\
+&= r_2 e^{-i\theta_2} r_1 e^{i\theta_1} \\
+&= r_1 r_2 e^{-i\theta} \\
+&= r_1 r_2 cos(\theta) + \frac {r_1 r_2 sin(\theta)}{i} \\
+&= c_1 \cdot c_2 + \frac {c_1 \wedge c_2}{i} \\
 \end{align*}
 
 \section{Imaginary part}
@@ -99,11 +125,11 @@
     \tikzstyle{guideline text right}=[black,right=1pt]
     \tikzstyle{guideline text up}=[black,above=2pt]
     \tikzstyle{guideline text left}=[black,left=1pt]
-    
+
 	\coordinate (a_1) at (5,0);
 	\coordinate (b_1) at (0,1);
 	\coordinate (v_1) at ($(a_1)+(b_1)$);
-    
+
 	\coordinate (a_2) at (1.5,0);
 	\coordinate (b_2) at (0,4);
 	\coordinate (v_2) at ($(a_2)+(b_2)$);
@@ -139,13 +165,13 @@
 	\draw[style=guideline] ($(a_1)+(a_2)$) -- node[style=guideline text right] {$b_1$} ($(v_1)+(a_2)$);
 	\draw[style=guideline] ($(v_1)+(a_2)$) -- node[style=guideline text right] {$b_2$} ($(v_1)+(v_2)$);
 	\draw[style=guideline] (a_1) -- (v_1);
-    
+
     % Draw a1 + b1 i
 	\draw[style=vector] (0,0) -- node[style=guideline text up] {$c_1$} (v_1);
 	\draw[style=vector] (0,0) -- node[style=guideline text right] {$c_2$} (v_2);
 	\draw[style=parallel] (v_1) -- ($(v_1)+(v_2)$);
 	\draw[style=parallel] (v_2) -- ($(v_1)+(v_2)$);
-	\draw[align=center] ($0.5*(v_1)+0.5*(v_2)$) node {$a_1 b_2 - a_2 b_1$};
+	\draw[align=center] ($0.5*(v_1)+0.5*(v_2)$) node {$a_1 b_2 - a_2 b_1$ \\ $c_1 \wedge c_2$};
 
 
 \end{tikzpicture}
