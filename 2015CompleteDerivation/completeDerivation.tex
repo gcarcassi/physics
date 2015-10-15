@@ -48,15 +48,37 @@ The work is organized into:
 \end{description}
 This should allow you, the reader, to focus on the parts you are most interested in and skim the rest. The philosophically inclined may focus on the assumptions, their rationale and the definitions. The mathematically inclined may focus on the definitions, the propositions and their proofs. The scientist on the assumptions, the definitions and their justifications, and the propositions.
 
+\section{Outline}
+
+Deterministic/reversible assumption. Describe fundamental model of physics. System is always interacting with environment, both deterministically and non-deterministically. Deterministic means only depends on the state of the system. Set of states needs to be invariant under non-deterministic interaction: the non-deterministic interaction affects what are the states of the system. Deterministic/reversible evolution is necessary to even be able to talk about a system (trivial deterministic process).
+
+Define: set of states, deterministic evolution as permutation, labels/state variables, cardinality of state variable, state id function (=1 for a particular state). Can we do for continuous variables as well? Can we find divergence free evolution for det/rev and independent variables?
+
+Infinite reducibility assumption. Decomposable systems. Rule of composition. Inverse and null state to study changes. Set of transformations to increase and decrease the quantity in each state. Define magnitude of the system (probably needed to guarantee things converge in math?).
+
+Define: set of states as a vector space, inner product.
+
+Continuous quantities. Need for densities to be a function of the state (not state variable). Defined on infinitesimal interval. Define: degree of freedom, state cardinality, metric (T*Q).
+
 \section{New}
 
 %TODO: it would be nice to have "examples" always refer to the same cases, and that they pertain to different type of physics. E.g. trajectory, gravity, thermodynamics, fluid dynamics, biology, electromagnetism...
 
-We start by fixing a physical system we want to study, that is something we can interact with and perform measurements on (e.g. a cat, a planet, water). We set what particular aspect we want to study (e.g. the trajectory when falling, the motion around a star, its flow in a pipe). We call state a particular configuration in time of the portion under study. We call internal dynamics the remainder of the system.
+We start by fixing a \emph{physical system} we want to study, that is something we can interact with and perform measurements on (e.g. a cat, a planet, water). We call \emph{environment} everything else. We set what particular aspect we want to study (e.g. the trajectory when falling, the motion around a star, its flow in a pipe). We call \emph{state} a particular configuration in time of the portion under study. Since the state does not, in general, exhaust the description of the system, a part remains \emph{unstated}, and as such we'll call it, for lack of a better word. With this in mind, we introduce the following assumption:
 
 \begin{assump2}
-The physical system undergoes deterministic (future state identified by the present state) and reversible (past state identified by the present state) evolution.
+The state of the physical system under study undergoes deterministic and reversible evolution.
 \end{assump2}
+
+By deterministic (and reversible) we mean that future (and past) states are uniquely identified by the present state. We can then think of the state of the system as the part that interacts deterministically and reversibly with the environment (and itself) while the unstated part as interacting non-deterministically with the environment (and itself). We call this setup the \emph{fundamental model of physics}, as it is the simplest model that still captures the crucial aspects of studying and writing laws for a physical system.
+
+Much of the focus later will be given to the state under deterministic and reversible evolution. However, the non-deterministic part plays a fundamental part as well. In fact: it is this part of the evolution that determines what states are available and their description. Suppose we study the motion of a small particle, its state under gravitational and inertial forces will be properly described by the position and momentum of the center of mass. Suppose we study the same small particle as suspended in a fluid, as it undergoes Brownian motion: its state will be a probability distribution for position and momentum of the center of mass. Gravitational and inertial forces have not changed, yet the set of states have. The issue is that the set of states has to invariant under the non-deterministic evolution as well. That is: if we apply the non-deterministic evolution to any state, we still need to end up in one of the possible states. If the Brownian motion is strong enough, the state gets knocked out of the set of states determined by a simple position/momentum pair.
+ 
+A similar more drastic effect: consider a book and its motion under gravitation and inertial forces, its state being the position and momentum of the center of mass. As we increase the temperature of the air around the book, its motion is unaffected until, at some point, the book burns. Clearly, the non-deterministic evolution has brought one of the states outside the set.
+
+As we have seen, sometimes the state is identified by a distribution (either statistical or actual). Even in this case, the state can be deterministic and reversible. That is: given the distribution at one time we can determine the distribution at future times. The shape and the parameters of the distribution can be deterministic, even if the individual trajectories are not (those fall within the unstated part). In fact: we cannot assume trajectory and states are defined at all for the unstated part. Consider a muon and its decay products: it is clear that the three outgoing particles have a state and trajectory of their own, it is clear that the mass and energy they have came from the muon, yet we cannot assign some internal state or trajectory for those parts of mass and energy before the muon decayed. What happens in the muon stays in the muon, so to speak.
+
+Now that we have clarified what we mean by deterministic and reversible evolution (even on a statistical ensemble), and how also the non-deterministic part is key to define states (as the set as a whole needs to be invariant under it), we can ask ourselves: when is this assumption valid?
 
 \textbf{Rationale}. While the choice of the object of our study (i.e. the system and the aspect we are interested in) is arbitrary, this assumption is at the heart of being able to write physics laws, to define physical states and to physically study a system. If we are to study a physical system through reliable experimentation and observation, we need deterministic and reversible processes to manipulate its state. We can provide different arguments that point in the same direction.
 
