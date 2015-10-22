@@ -18,6 +18,10 @@
 \newtheorem*{assump2}{Determinism and Reversibility assumption}
 \newtheorem*{assump3}{Kinematic equivalence assumption}
 
+\newenvironment{rationale}{\textbf{Rationale}.}{$\Box$}
+\newenvironment{justification}{\textbf{Justification}.}{$\Box$}
+\renewenvironment{proof}{\textbf{Proof}.}{$\Box$}
+
 \begin{document}
 
 \title{From physical principles to ???}
@@ -81,7 +85,8 @@ As we have seen, sometimes the state is identified by a distribution (either sta
 
 Now that we have clarified what we mean by deterministic and reversible evolution (even on a statistical ensemble), and how also the non-deterministic part is key to define states (as the set as a whole needs to be invariant under it), we can ask ourselves: when is this assumption valid?
 
-\textbf{Rationale}. The claim is that deterministic and reversible evolution is necessary to be able to study a physical system. That is: the only part of a system that can be studied through reliable and reproducible experimentation or observation is the part that undergoes deterministic and reversible evolution. We can provide different arguments that point in the same direction.
+\begin{rationale}
+The claim is that deterministic and reversible evolution is necessary to be able to study a physical system. That is: the only part of a system that can be studied through reliable and reproducible experimentation or observation is the part that undergoes deterministic and reversible evolution. We can provide different arguments that point in the same direction.
 
 First, to be able to identify the system, we must first be able to tell it apart from the environment. Intuitively, we can distinguish between two chairs because we can move the first to another room and sit on it without having touched the second. We can manipulate the state of the first system without affecting the second, and vice-versa. So, to tell a system apart from its environment, there has to to be a certain amount of isolation between the two: if I affect its state, the state of the other systems is not affected and vice-versa. This means that the system future and past states are only determined by its own state and the state undergoes deterministic and reversible evolution.
 
@@ -94,6 +99,7 @@ This link between state definition and deterministic processes should not be too
 So, if it seems we need to require deterministic and reversible motion, why we call this an assumption? First of all, because it's an idealization: it can never be completely achieved in practice. A system can be prepared or measured up to a certain level of precision. Perfect isolation of a system is impossible both practically (e.g. black-body radiation, gravity, ...) and conceptually (e.g. if the system is perfectly isolated, we cannot interact with it: how can it studied through experimentation?). It's a simplifying assumption that can only be taken if the environment and the internal dynamics of the system interact in such a way that they affect and are little affected by the aspect we are studying. As we saw before, for example, assuming that the states consists of the position and momentum of the center of mass means assuming that the Brownian motion of the body is negligible.
 
 The second reason is that technically the assumption comes first. If we start looking for a law, we are implicitly assuming that there exists one to be found. The opposite assumption, there is no law to be found, can't really be experimentally proven exhaustively (i.e. you can only show that you have not found it among a certain class). Very often the hard part in science is finding for what system and in what conditions such assumption hold. Finding the law after that is a much simpler endeavour, and is something that is routinely done by students in their intro labs.
+\end{rationale}
 
 We are now ready to capture the elements of our discussion and their properties through mathematical definitions.
 
@@ -101,7 +107,9 @@ We are now ready to capture the elements of our discussion and their properties 
 Fix a physical system for study. There exists a set $\mathfrak{S}$, which we call \emph{state space}, consisting of all the physically distinguishable configurations $\mathfrak{s}$, which we call \emph{states}. There exists a bijective map $f_{\Delta t}:\mathfrak{S} \leftrightarrow \mathfrak{S}$, which we call \emph{time evolution operator}, that links initial and final states.
 \end{defn}
 
-\textbf{Justification}. The collection of all possible states from a set. The deterministic and reversible evolution maps one element in the set to one and only one element of the set.$\Box$
+\begin{justification}
+The collection of all possible states from a set. The deterministic and reversible evolution maps one element in the set to one and only one element of the set.
+\end{justification}
 
 In practice, we use physical quantities to identify states. For example, the state for an ideal gas is given by pressure, volume and temperature. To clarify whether we are referring to a particular value of such quantity, or the quantity itself, we introduce the following terminology:
 \begin{center}
@@ -118,7 +126,9 @@ In practice, we use physical quantities to identify states. For example, the sta
 Let $\mathbbm{I}$ be a set. Let $f_\mathbbm{I} : \mathfrak{S} \rightarrow \mathbbm{I}$ be a function that maps each state to an element of the set. We call the pair $(\mathbbm{I}, f_\mathbbm{I})$ a \emph{state variable}. We call the pair $(i, f_\mathbbm{I}^{-1}(i))$ a \emph{label}, where $i \in \mathbbm{I}$ and $f_\mathbbm{I}^{-1}(i) = \{\mathfrak{s} \in \mathfrak{S} | f_\mathbbm{I}(\mathfrak{s}) = i\}$ is the reverse image of $i$. We call the pair $(I, f_\mathbbm{I}^{-1}(I))$ a \emph{label range}, where $I \subset \mathbbm{I}$.
 \end{defn}
 
-\textbf{Justification}. A state variable associates each state to one of its values. A label, one of the possible values, can also be thought as representing all states that are identified by its value. A label range, a set of possible values, can also be thought as representing all states that are identified by those values. Abusing the notation, $\mathbbm{I}$ will represent both the set of possible values and the function, and $i$ both the possible value and the set of states.$\Box$
+\begin{justification}
+A state variable associates each state to one of its values. A label, one of the possible values, can also be thought as representing all states that are identified by its value. A label range, a set of possible values, can also be thought as representing all states that are identified by those values. Abusing the notation, $\mathbbm{I}$ will represent both the set of possible values and the function, and $i$ both the possible value and the set of states.
+\end{justification}
 
 TODO: labels/state variables, cardinality of state variable, state id function (=1 for a particular state). Can we do for continuous variables as well? Can we find divergence free evolution for det/rev and independent variables?
 
@@ -130,27 +140,31 @@ We know introduce the idea that a system is decomposable, that is it is made of 
 The system is infinitely reducible: it can be thought of as composed of two or more similar but smaller systems, each in its own configuration state, which in turn can be thought of as composed of two or more, ad infinitum. We call \emph{particle} such an infinitesimal part.
 \end{assump1}
 
-\textbf{Rationale}. This makes a clear demarcation of what a classical object is (and conversely what a quantum object is not): it is something that can be fully described up to its infinitesimal constituents. This is clearly a \emph{simplifying} assumption, and it is instructive to understand when and why it cannot be used.
+\begin{rationale}
+This makes a clear demarcation of what a classical object is (and conversely what a quantum object is not): it is something that can be fully described up to its infinitesimal constituents. This is clearly a \emph{simplifying} assumption, and it is instructive to understand when and why it cannot be used.
 
 The first problem is methodological. As we saw before, we need access to a deterministic and reversible process to be able to study a system and define a state. For two balls, we can imagine studying pieces of the balls in isolation, and then describe the collision between the two by describing what happens at each piece. The classical assumption holds. For an electron and a photon, we cannot take pieces of the electron or the photon, study them in isolation and then describe how each part moves during Compton scattering. The classical assumption does not hold: we do not have suitable physical processes at our disposal.
 
 The second problem is more conceptual. As we saw before, a system cannot be fully isolated from the environment. The smaller the part we study, the more it will be susceptible to fluctuations from the environment, the less we can justify the deterministic assumption, the less we are in a position to define its state. While the overall position of a ball can be considered fairly unaffected by its surrounding, the position of each small piece is going to be constantly affected by air and light scattering on its surface.
+\end{rationale}
 
 TODO: 
 
 We are now ready to capture the elements of our discussion and their properties through mathematical definitions.
 
 \begin{defn}\label{vector space}
-The state space $\mathfrak{C}$ for a infinitesimally reducible system is a vector space. Such vector is free, and admits a basis $\mathfrak{S}$ that represent the state space for the infinitesimal parts.
+The state space $\mathfrak{C}$ for a infinitesimally reducible system is a vector space. It admits a basis $\mathfrak{S}$ that represents the state space for the infinitesimal parts.
 \end{defn}
 
-\textbf{Justification}. We first claim that the state space $\mathfrak{C}$ is an additive monoid: there exist a law of composition $+ : \mathfrak{C} \times \mathfrak{C} \rightarrow \mathfrak{C}$ that takes two states and returns one that is the physical composition of the two. The domain and codomain match because the system is homogeneous. The law is commutative $\mathfrak{c}_1 +\mathfrak{c}_2 = \mathfrak{c}_2+\mathfrak{c}_1$ and associative $(\mathfrak{c}_1 + \mathfrak{c}_2) + \mathfrak{c}_3 = \mathfrak{c}_1 + (\mathfrak{c}_2 + \mathfrak{c}_3)$, as it does not matter in what order we compose the parts. There exist a zero element $\mathfrak{c} + 0 = \mathfrak{c}$ and it represent the state with no system.
+\begin{justification}
+We first claim that the state space $\mathfrak{C}$ is an additive monoid: there exist a law of composition $+ : \mathfrak{C} \times \mathfrak{C} \rightarrow \mathfrak{C}$ that takes two states and returns one that is the physical composition of the two. The domain and codomain match because the system is homogeneous. The law is commutative $\mathfrak{c}_1 +\mathfrak{c}_2 = \mathfrak{c}_2+\mathfrak{c}_1$ and associative $(\mathfrak{c}_1 + \mathfrak{c}_2) + \mathfrak{c}_3 = \mathfrak{c}_1 + (\mathfrak{c}_2 + \mathfrak{c}_3)$, as it does not matter in what order we compose the parts. There exist a zero element $\mathfrak{c} + 0 = \mathfrak{c}$ and it represent the state with no system.
 
 We then claim it is an additive group. As we want to describe changes during the evolution, i.e. $\Delta \mathfrak{c}$, we introduce an inverse $\mathfrak{c}_2$ for each element $\mathfrak{c}_1$ such that $\mathfrak{c}_1 + \mathfrak{c}_2 = 0$. Such inverse may not represent a true physical state, yet we'll still call $\mathfrak{C}$ the state space committing an abuse of terminology. Having an inverse, $\mathfrak{C}$ is an additive (i.e. abelian) group.
 
 We now consider the set of transformations $A$ that increase or decrease the size of the system by a constant. This forms a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} that is isomorphic to $\mathbbm{R}$. In fact, let $a: \mathbbm{R} \rightarrow A$ be a mapping between a number and the transformation that increases or decreases the size of the system by that number; define on $A$ an addition $+: A \times A \rightarrow A$ and a multiplication $*: A \times A \rightarrow A$ such that $a(x) + a(y) = a(x+y)$ and $a(x) * a(y) = a(x*y)$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $A$ is a field, as its sum and multiplication have all properties of $\mathbbm{R}$ which is a field. $a$ is an homomorphism by definition and is invertible by the very definition of $A$, each element fully identified by its constant. Therefore $A$ and $\mathbbm{R}$ are isomorphic.
 
 We now claim that the state space $\mathfrak{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathfrak{C}$ can be extended with the operations defined by $A$, as each element $a \in A$ is a map $a : \mathfrak{C} \rightarrow \mathfrak{C}$. The map has the following properties: $(a_1 + a_2) \mathfrak{c} = a_1 \mathfrak{c} + a_2 \mathfrak{c}$, increasing the size of the system by the sum of two constant is the same as combining the separate increases, and $a (\mathfrak{c}_1 + \mathfrak{c}_2) = a \mathfrak{c}_1 + a \mathfrak{c}_2$, increasing the size of the total system is the same as the combination of the increased parts. $\mathfrak{C}$ is a module over $A$, which is a field and isomorphic to $\mathbbm{R}$. We can then think of $\mathfrak{C}$ as a vector space over $\mathbbm{R}$.
+\end{justification}
 
 
 \begin{thebibliography}{0}
