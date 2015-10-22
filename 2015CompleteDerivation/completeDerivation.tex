@@ -7,20 +7,16 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
+\newtheorem{assump}{Assumption}
+\renewcommand*{\theassump}{\Roman{assump}}
+\newtheorem{prop}{Proposition}[section]
 
 \theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition}
-\newtheorem*{assump1}{Infinite reducibility (or classical) assumption}
-\newtheorem*{assump2}{Determinism and Reversibility assumption}
-\newtheorem*{assump3}{Kinematic equivalence assumption}
+\newtheorem{defn}[prop]{Definition}
 
-\newenvironment{rationale}{\textbf{Rationale}.}{$\Box$}
-\newenvironment{justification}{\textbf{Justification}.}{$\Box$}
-\renewenvironment{proof}{\textbf{Proof}.}{$\Box$}
+\newenvironment{rationale}{\emph{Rationale}.}{$\Box$}
+\newenvironment{justification}{\emph{Justification}.}{$\Box$}
+\renewenvironment{proof}{\emph{Proof}.}{$\Box$}
 
 \begin{document}
 
@@ -71,9 +67,9 @@ This should allow you, the reader, to focus on the parts you are most interested
 
 We start by fixing a \emph{physical system} we want to study, that is something we can interact with and perform measurements on (e.g. a cat, a planet, water). We call \emph{environment} everything else. We set what particular aspect we want to study (e.g. the trajectory when falling, the motion around a star, its flow in a pipe). We call \emph{state} a particular configuration in time of the portion under study. Since the state does not, in general, exhaust the description of the system, a part remains \emph{unstated}, and as such we'll call it, for lack of a better word. With this in mind, we introduce the following:
 
-\begin{assump2}
+\begin{assump}[Determinism and reversability]
 The state of the physical system under study undergoes deterministic and reversible evolution.
-\end{assump2}
+\end{assump}
 
 By deterministic (and reversible) we mean that future (and past) states are uniquely identified by the present state. We can then think of the state of the system as the part that interacts deterministically and reversibly with the environment (and itself) while the unstated part as interacting non-deterministically with the environment (and itself). We call this setup the \emph{fundamental model of physics}, as it is the simplest model that still captures the crucial aspects of studying and writing laws for a physical system.
 
@@ -136,9 +132,9 @@ TODO: labels/state variables, cardinality of state variable, state id function (
 
 We know introduce the idea that a system is decomposable, that is it is made of smaller parts, and we characterize the relationship between the whole and the parts with the following assumption:
 
-\begin{assump1}\label{classical}
+\begin{assump}[Infinite reducibility or Classical]\label{classical}
 The system is infinitely reducible: it can be thought of as composed of two or more similar but smaller systems, each in its own configuration state, which in turn can be thought of as composed of two or more, ad infinitum. We call \emph{particle} such an infinitesimal part.
-\end{assump1}
+\end{assump}
 
 \begin{rationale}
 This makes a clear demarcation of what a classical object is (and conversely what a quantum object is not): it is something that can be fully described up to its infinitesimal constituents. This is clearly a \emph{simplifying} assumption, and it is instructive to understand when and why it cannot be used.
