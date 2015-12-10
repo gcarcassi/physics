@@ -130,6 +130,37 @@ TODO: labels/state variables, cardinality of state variable, state id function (
 
 \section{Composite systems and reducibility}
 
+Given that scientific reductionism (i.e. the idea of reducing physical systems and interactions to the sum of their constituent parts in order to make them easier to study) is at the heart of fundamental physics, we should explore how to characterize a system in terms of its components. In general, this is quite a complicated thing to do, that requires intimate knowledge of the system at hand. We will study an idealized limit case: one where the components are homogeneous and infinitesimal. What we'll find is that under the assumption that the system is reducible (i.e. its state is equivalent to the state of the parts) and that each part undergoes deterministic and reversible evolution, the motion is suitably described by the standard framework of classical Hamiltonian particle mechanics.
+
+\subsection{Composite systems}
+As mentioned before, we will limit ourselves to the case where our system is homogeneous: all parts can be characterized in the same way, they are under the same external and internal forces, the set of states they can occupy is the same. For a non-homogeneous system, we would divide it in homogeneous components and consider the state of all of them. Ultimately, what homogenous means depends on context (e.g. air can be thought as homogeneous if the mixture of gasses does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is conserved by time evolution.
+
+\begin{defn}\label{reducible_state_space}
+The state space $\mathfrak{C}$ for a homogeneous decomposable system is an additive abelian (i.e. commutative) group.
+\end{defn}
+
+\begin{justification}
+We first claim that the state space $\mathfrak{C}$ is an additive monoid: there exist a law of composition $+ : \mathfrak{C} \times \mathfrak{C} \rightarrow \mathfrak{C}$ that takes two states and returns one that is the physical composition of the two. The domain and codomain match because the system is homogeneous. The law is commutative $\mathfrak{c}_1 +\mathfrak{c}_2 = \mathfrak{c}_2+\mathfrak{c}_1$ and associative $(\mathfrak{c}_1 + \mathfrak{c}_2) + \mathfrak{c}_3 = \mathfrak{c}_1 + (\mathfrak{c}_2 + \mathfrak{c}_3)$, as it does not matter in what order we compose the parts. There exist a zero element $\mathfrak{c} + 0 = \mathfrak{c}$ and it represent the state with no system.
+
+We then claim it is an additive group. As we want to describe changes during the evolution, i.e. $\Delta \mathfrak{c}$, we introduce an inverse $\mathfrak{c}_2$ for each element $\mathfrak{c}_1$ such that $\mathfrak{c}_1 + \mathfrak{c}_2 = 0$. Such inverse may not represent a true physical state, yet we'll still call $\mathfrak{C}$ the state space committing an abuse of terminology. Having an inverse, $\mathfrak{C}$ is an additive (i.e. abelian) group.
+\end{justification}
+
+\subsection{Classical composite systems}
+We also want to be able to express the state of the composite system in terms of the state of the parts. For example, we'll want to relate the state variables of the composite system to the state variables of the parts. This in general will depend on how much the state of the composite system "knows" about its part. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. We need to characterize the system further.
+
+We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system is equivalent to the 
+
+We also need to be able to characterize the composite state in terms of the 
+
+% Infinitesimally decomposable and reducible
+% We have structure for pieces (their state space). We can use labels to identify pieces. We just need to consider state transformations that do not change the state variable of the pieces and are independent of state variable of the pieces. Increase number of pieces is the only thing.
+% State space is vector space over R
+
+% Det/rev for infinitesimal part
+% Inconsistent: 1. X=AxB A'=F(A) B'=F(B) Isolated sub-systems. Does not work for measuring. 2. A'=F(A) B'=F(A,B) Ideal non-interfering measurement: deterministic but not reversible. 3. A'=F(A,B) B'=F(A,B) X det/rev whole, but A not deterministic itself. But if you consider X a sub-system of X and something else, you can make the same argument. Whole universe deterministic, but none of its parts. 4. A=As x Au ; B=Bs x Bu ; As' = F(As) Au=F(X) Bu=F(X) Bs = F(As, Au) ; more realistic picture. Still non-reversible (if As' = F(As), then nothing else can be F(As) and have bijective map).
+
+% Continuous state variable: Q is measured at constant t
+
 We now introduce the idea that a system is decomposable, that is it is made of smaller parts. To simplify our discussion, we will always assume that our system is homogeneous: all parts can be characterized in the same way, that they are under the same external and internal forces, that the set of states they can occupy is the same. For a non-homogeneous system, we would divide it in homogeneous components and consider the state of all of them. Ultimately, what homogenous means depends on context (e.g. air can be thought as homogeneous if the mixture of gasses does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is conserved by time evolution.
 
 We further characterize the relationship between the whole and the parts with the following assumption:
@@ -157,14 +188,15 @@ The state space $\mathfrak{C}$ for a infinitesimally reducible system is a vecto
 \end{defn}
 
 \begin{justification}
-We first claim that the state space $\mathfrak{C}$ is an additive monoid: there exist a law of composition $+ : \mathfrak{C} \times \mathfrak{C} \rightarrow \mathfrak{C}$ that takes two states and returns one that is the physical composition of the two. The domain and codomain match because the system is homogeneous. The law is commutative $\mathfrak{c}_1 +\mathfrak{c}_2 = \mathfrak{c}_2+\mathfrak{c}_1$ and associative $(\mathfrak{c}_1 + \mathfrak{c}_2) + \mathfrak{c}_3 = \mathfrak{c}_1 + (\mathfrak{c}_2 + \mathfrak{c}_3)$, as it does not matter in what order we compose the parts. There exist a zero element $\mathfrak{c} + 0 = \mathfrak{c}$ and it represent the state with no system.
-
-We then claim it is an additive group. As we want to describe changes during the evolution, i.e. $\Delta \mathfrak{c}$, we introduce an inverse $\mathfrak{c}_2$ for each element $\mathfrak{c}_1$ such that $\mathfrak{c}_1 + \mathfrak{c}_2 = 0$. Such inverse may not represent a true physical state, yet we'll still call $\mathfrak{C}$ the state space committing an abuse of terminology. Having an inverse, $\mathfrak{C}$ is an additive (i.e. abelian) group.
+Since the system is decomposable, the state space is an abelian group.
 
 We now consider the set of transformations $A$ that increase or decrease the size of the system by a constant. This forms a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} that is isomorphic to $\mathbbm{R}$. In fact, let $a: \mathbbm{R} \rightarrow A$ be a mapping between a number and the transformation that increases or decreases the size of the system by that number; define on $A$ an addition $+: A \times A \rightarrow A$ and a multiplication $*: A \times A \rightarrow A$ such that $a(x) + a(y) = a(x+y)$ and $a(x) * a(y) = a(x*y)$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $A$ is a field, as its sum and multiplication have all properties of $\mathbbm{R}$ which is a field. $a$ is an homomorphism by definition and is invertible by the very definition of $A$, each element fully identified by its constant. Therefore $A$ and $\mathbbm{R}$ are isomorphic.
 
 We now claim that the state space $\mathfrak{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathfrak{C}$ can be extended with the operations defined by $A$, as each element $a \in A$ is a map $a : \mathfrak{C} \rightarrow \mathfrak{C}$. The map has the following properties: $(a_1 + a_2) \mathfrak{c} = a_1 \mathfrak{c} + a_2 \mathfrak{c}$, increasing the size of the system by the sum of two constant is the same as combining the separate increases, and $a (\mathfrak{c}_1 + \mathfrak{c}_2) = a \mathfrak{c}_1 + a \mathfrak{c}_2$, increasing the size of the total system is the same as the combination of the increased parts. $\mathfrak{C}$ is a module over $A$, which is a field and isomorphic to $\mathbbm{R}$. We can then think of $\mathfrak{C}$ as a vector space over $\mathbbm{R}$.
 \end{justification}
+
+\section{Quantum systems}
+%Note on composite systems and distinguishability. When putting together two classical system, just sum distributions. When putting together quantum system we have to clarify: combine to create one quantum system (sum in vector space) or two separate quantum system (symmetrized tensor product). In classical mechanics, 2a + 2b = (a+b) + (a+b). In quantum note |a> x |b> = |a>|b> + |b>|a> but (|a> + |b>) x (|a> + |b>) = |a>|a> + ... That is two quantum states in two different states is not the same as two quantum states spread equally over those two states. In classical they are.)
 
 
 \begin{thebibliography}{0}
