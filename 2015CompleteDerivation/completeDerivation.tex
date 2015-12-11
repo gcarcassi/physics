@@ -148,9 +148,24 @@ We then claim it is an additive group. As we want to describe changes during the
 \subsection{Classical composite systems}
 We also want to be able to express the state of the composite system in terms of the state of the parts. For example, we'll want to relate the state variables of the composite system to the state variables of the parts. This in general will depend on how much the state of the composite system "knows" about its part. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. We need to characterize the system further.
 
-We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system is equivalent to the 
+We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system is equivalent to the sum of the states of the parts. Given the state space $\mathfrak{S}$ for the parts, the state $\mathfrak{c}$ of the composite system is going to be the sum of all particle states, weighted by the amount of particles that are in that space. Since the system is infinitesimally reducible, such amount, no matter the units we choose, will be a real number. In other words: the classical state is a real valued distribution over $\mathfrak{S}$. The state space $\mathfrak{C}$ of the composite system is a real vector space.
 
-We also need to be able to characterize the composite state in terms of the 
+A different way to think about it, one that we can later generalize to irreducible (i.e. quantum) systems is the following. First we consider all that the composite system can tell us about each part. In the classical case, everything: its full state $\mathfrak{s}$. This part can be described by an appropriate set of state variables. Any transformation that changes such information can be described by how the state variables are affected. There remains the set of transformations that leave unchanged what the composite system can tell about each part. In the classical case, since the everything about each part is in the state of the composite system, the only transformation left is the increasing or decreasing the amount of particles by a scalar multiple.
+
+\begin{defn}\label{vector space}
+The state space $\mathfrak{C}$ for a classical (i.e. infinitesimally reducible) system is a vector space over $\mathbbm{R}$. It admits a basis isomorphic to the state space $\mathfrak{S}$ of its particles (i.e. infinitesimal parts).
+\end{defn}
+
+\begin{justification}
+Since the system is decomposable, the state space is an abelian group.
+
+We now consider the set of transformations $A$ that increase or decrease the amount of parts of the system by a constant. We claim $A$ is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $a: \mathbbm{R} \rightarrow A$ the mapping between a number and the transformation that increases or decreases the size of the system by that number; define on $A$ an addition $+: A \times A \rightarrow A$ and a multiplication $*: A \times A \rightarrow A$ such that $a(x) + a(y) = a(x+y)$ and $a(x) * a(y) = a(x*y)$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $a$ is an isomorphism between $A$ and $\mathbbm{R}$. $A$ is isomorphic to $\mathbbm{R}$ as a field.
+
+We now claim that the state space $\mathfrak{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathfrak{C}$ can be extended with the operations defined by $A$, as each element $a \in A$ is a map $a : \mathfrak{C} \rightarrow \mathfrak{C}$. The map has the following properties: $(a_1 + a_2) \mathfrak{c} = a_1 \mathfrak{c} + a_2 \mathfrak{c}$, increasing the size of the system by the sum of two constant is the same as combining the separate increases, and $a (\mathfrak{c}_1 + \mathfrak{c}_2) = a \mathfrak{c}_1 + a \mathfrak{c}_2$, increasing the size of the total system is the same as the combination of the increased parts. $\mathfrak{C}$ is a module over $A$, which is a field and isomorphic to $\mathbbm{R}$.
+
+Consider now the injection map $e: \mathfrak{S} \hookrightarrow \mathfrak{C}$ that for each particle state returns a composite state constituted only by a fixed amount of particles are in such state. The image of such injection is a basis for $\mathfrak{C}$. We first claim that all elements are linearly independent. Consider $\sum a_i e(\mathfrak{s}_i)$, with $a_i \in \mathbbm{R}$ and $\mathfrak{s}_i \in \mathfrak{S}$. This corresponds to a physical state with $a_i$ particles in state $\mathfrak{s}_i$. This is equal to the empty state if and only if $a_i=0 \forall i$. This is true even if $\mathfrak{S}$ is infinite dimensional. We now claim they span. Consider $\mathfrak{c} + \sum a_i e(\mathfrak{s}_i)$. This can always be made equal to the empty state by setting $a_i$ to be the opposite of the amount of particles of $\mathfrak{c}$ that are in state $\mathfrak{s}_i$.
+\end{justification}
+
 
 % Infinitesimally decomposable and reducible
 % We have structure for pieces (their state space). We can use labels to identify pieces. We just need to consider state transformations that do not change the state variable of the pieces and are independent of state variable of the pieces. Increase number of pieces is the only thing.
@@ -183,17 +198,6 @@ While ultimately flawed, the classical assumption can be considered valid for a 
 
 We are now ready to capture the elements of our discussion and their properties through mathematical definitions.
 
-\begin{defn}\label{vector space}
-The state space $\mathfrak{C}$ for a infinitesimally reducible system is a vector space. It admits a basis $\mathfrak{S}$ that represents the state space for the infinitesimal parts.
-\end{defn}
-
-\begin{justification}
-Since the system is decomposable, the state space is an abelian group.
-
-We now consider the set of transformations $A$ that increase or decrease the size of the system by a constant. This forms a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} that is isomorphic to $\mathbbm{R}$. In fact, let $a: \mathbbm{R} \rightarrow A$ be a mapping between a number and the transformation that increases or decreases the size of the system by that number; define on $A$ an addition $+: A \times A \rightarrow A$ and a multiplication $*: A \times A \rightarrow A$ such that $a(x) + a(y) = a(x+y)$ and $a(x) * a(y) = a(x*y)$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $A$ is a field, as its sum and multiplication have all properties of $\mathbbm{R}$ which is a field. $a$ is an homomorphism by definition and is invertible by the very definition of $A$, each element fully identified by its constant. Therefore $A$ and $\mathbbm{R}$ are isomorphic.
-
-We now claim that the state space $\mathfrak{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathfrak{C}$ can be extended with the operations defined by $A$, as each element $a \in A$ is a map $a : \mathfrak{C} \rightarrow \mathfrak{C}$. The map has the following properties: $(a_1 + a_2) \mathfrak{c} = a_1 \mathfrak{c} + a_2 \mathfrak{c}$, increasing the size of the system by the sum of two constant is the same as combining the separate increases, and $a (\mathfrak{c}_1 + \mathfrak{c}_2) = a \mathfrak{c}_1 + a \mathfrak{c}_2$, increasing the size of the total system is the same as the combination of the increased parts. $\mathfrak{C}$ is a module over $A$, which is a field and isomorphic to $\mathbbm{R}$. We can then think of $\mathfrak{C}$ as a vector space over $\mathbbm{R}$.
-\end{justification}
 
 \section{Quantum systems}
 %Note on composite systems and distinguishability. When putting together two classical system, just sum distributions. When putting together quantum system we have to clarify: combine to create one quantum system (sum in vector space) or two separate quantum system (symmetrized tensor product). In classical mechanics, 2a + 2b = (a+b) + (a+b). In quantum note |a> x |b> = |a>|b> + |b>|a> but (|a> + |b>) x (|a> + |b>) = |a>|a> + ... That is two quantum states in two different states is not the same as two quantum states spread equally over those two states. In classical they are.)
