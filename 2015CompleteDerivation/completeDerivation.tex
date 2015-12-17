@@ -101,30 +101,40 @@ The second reason is that technically the assumption comes first. If we start lo
 We are now ready to capture the elements of our discussion and their properties through mathematical definitions.
 
 \begin{defn}\label{statedef}
-Fix a physical system for study. There exists a set $\mathfrak{S}$, which we call \emph{state space}, consisting of all the physically distinguishable configurations $\mathfrak{s}$, which we call \emph{states}. There exists a bijective map $f_{\Delta t}:\mathfrak{S} \leftrightarrow \mathfrak{S}$, which we call \emph{time evolution operator}, that links initial and final states.
+The state space $\mathcal{S}$ of a physical system is a set.
 \end{defn}
 
 \begin{justification}
-The collection of all possible states form a set. The deterministic and reversible evolution maps one element in the set to one and only one element of the set.
+The collection of all possible states forms a set.
 \end{justification}
 
-In practice, we use physical quantities to identify states. For example, the state for an ideal gas is given by pressure, volume and temperature. To clarify whether we are referring to a particular value of such quantity, or the quantity itself, we introduce the following terminology:
-\begin{center}
-    \begin{tabular}{ | p{2.5cm} | p{5.5cm} | }
-    \hline
-    State variable & A quantity (discrete or continuous) that must be specified to identify a state (e.g. position). \\ \hline
-    Label & A particular value for a state variable (e.g. position = $5m$). \\ \hline
-    Label range & A set of possible values for a state variable (e.g. position = $[4.5m, 5.5m]$). \\
-    \hline
-    \end{tabular}
-\end{center}
-
-\begin{defn}\label{label}
-Let $\mathbbm{I}$ be a set. Let $f_\mathbbm{I} : \mathfrak{S} \rightarrow \mathbbm{I}$ be a function that maps each state to an element of the set. We call the pair $(\mathbbm{I}, f_\mathbbm{I})$ a \emph{state variable}. We call the pair $(i, f_\mathbbm{I}^{-1}(i))$ a \emph{label}, where $i \in \mathbbm{I}$ and $f_\mathbbm{I}^{-1}(i) = \{\mathfrak{s} \in \mathfrak{S} | f_\mathbbm{I}(\mathfrak{s}) = i\}$ is the inverse image of $i$. We call the pair $(I, f_\mathbbm{I}^{-1}(I))$ a \emph{label range}, where $I \subset \mathbbm{I}$.
+\begin{defn}\label{detrevmap}
+A deterministic and reversible evolution is a bijective map $f_{\Delta t}:\mathcal{S} \leftrightarrow \mathcal{S}$ on the state space.
 \end{defn}
 
 \begin{justification}
-A state variable associates each state to one of its values. A label, one of the possible values, can also be thought as representing all states that are identified by its value. A label range, a set of possible values, can also be thought as representing all states that are identified by those values. Abusing the notation, $\mathbbm{I}$ will represent both the set of possible values and the function, and $i$ both the possible value and the set of states.
+The system is deterministic: there exists a map $f:\mathcal{S} \rightarrow \mathcal{S}$ that returns the final state given the initial state. The system is reversible: there exists a map $g:\mathcal{S} \rightarrow \mathcal{S}$ that returns the initial state given the final state. $g \circ f = id$ as mapping forward and then backward must return the original element.
+\end{justification}
+
+%In practice, we use physical quantities to identify states. For example, the state for an ideal gas is given by pressure, volume and temperature. To clarify whether we are referring to a particular value of such quantity, or the quantity itself, we introduce the following terminology:
+%\begin{center}
+%    \begin{tabular}{ | p{2.5cm} | p{5.5cm} | }
+%    \hline
+%    State variable & A quantity (discrete or continuous) that must be specified to identify a state (e.g. position). \\ \hline
+%    Label & A particular value for a state variable (e.g. position = $5m$). \\ \hline
+%    Label range & A set of possible values for a state variable (e.g. position = $[4.5m, 5.5m]$). \\
+%    \hline
+%    \end{tabular}
+%\end{center}
+
+\begin{defn}\label{label}
+Let $\mathbbm{I}$ be a set. We call $q : \mathcal{S} \rightarrow \mathbbm{I}$ a \emph{state variable} and a \emph{possible value} (or \emph{possibility}) of $q$ an element $i \in \mathbbm{I}$. Also $\mathcal{s}_1 \neq \mathcal{s}_2 \Leftrightarrow \exists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1)\neq q(\mathcal{s}_2) \forall \mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$.
+\end{defn}
+
+\begin{justification}
+Consider a physical process that can distinguish between different initial conditions. Let $\mathbbm{I}$ be the set of all possible outcomes. To each possible state $\mathcal{s}$ will correspond one and only one outcome. Let $q : \mathcal{S} \rightarrow \mathbbm{I}$ be the map between state and outcome. Such object is physically well defined.
+
+Let $\mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$. Suppose $\mathcal{s}_1 \neq \mathcal{s}_2$. $\mathcal{s}_1$ and $\mathcal{s}_2$ are physically distinguishable. There exists a physical process with different outcomes. Let $q : \mathcal{S} \rightarrow \mathbbm{I}$ be the state variable associated to that process. Then $q(\mathcal{s}_1)\neq q(\mathcal{s}_2)$. Now suppose $\nexists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1) \neq q(\mathcal{s}_2)$. Then no process can distinguish between the two, they are physically indistinguishable therefore $\mathcal{s}_1 = \mathcal{s}_2$.
 \end{justification}
 
 TODO: labels/state variables, cardinality of state variable, state id function (=1 for a particular state). Can we do for continuous variables as well? Can we find divergence free evolution for det/rev and independent variables?
@@ -134,7 +144,7 @@ TODO: labels/state variables, cardinality of state variable, state id function (
 Given that scientific reductionism (i.e. the idea of reducing physical systems and interactions to the sum of their constituent parts in order to make them easier to study) is at the heart of fundamental physics, we should explore how to characterize a system in terms of its components. In general, this is quite a complicated thing to do, that requires intimate knowledge of the system at hand. So we simplify our problem and study an idealized case: one where the components are homogeneous and infinitesimal. What we'll find is that under the additional assumption that the system is reducible (i.e. its state is equivalent to the state of the parts) and that each part undergoes deterministic and reversible evolution, the motion is suitably described by the standard framework of classical Hamiltonian particle mechanics.
 
 \subsection{Composite systems}
-As mentioned before, we will limit ourselves to the case where our system is homogeneous: the parts are indistinguishable, the set of states they can occupy is the same, they are under the same external and internal forces. For a non-homogeneous system, we would divide it in homogeneous components and consider the state of all of them. What homogenous means depends on context (e.g. air can be thought as homogeneous if the mixture of gasses does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is conserved by time evolution. Nonetheless, we can claim the following:
+As mentioned before, we will limit ourselves to the case where our system is homogeneous: the parts are indistinguishable, the set of states they can occupy is the same, they are under the same external and internal forces. For a non-homogeneous system, we would divide it in homogeneous components and consider the state of all of them. What homogenous means depends on context (e.g. air can be thought as homogeneous if the mixture of gasses does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is conserved by time evolution. Nonetheless, we can generally claim the following:
 
 \begin{defn}\label{reducible_state_space}
 The state space $\mathcal{C}$ for a homogeneous decomposable system is an additive abelian (i.e. commutative) group.
@@ -155,7 +165,7 @@ Consider the following expression:
 \begin{align*}
 \mathcal{c} = \sum\limits_{i \in \mathbbm{I}} a_i \mathcal{e}(i)
 \end{align*}
-$\mathbbm{I}$ is best description of an infinitesimal part that a composite system can give. $\mathcal{e}(i)$ represents a composite system made of a unit amount of particles, all prepared in the state determined by $i$. $a_i$ represents a transformation that changes the whole state, without affecting the value $i$ for any infinitesimal part. For a classical system, $i$ represents the full information about the infinitesimal part, and therefore includes the value of all state variables; the only transformation left is increasing/decreasing the amount of particles by a scalar multiple. For a different system, where $i$ does not represent the full state of the parts, $\mathcal{e}(i)$ will be an ensemble and $a_i$ will include internal transformations. This is intuitively how we decouple the composite state into the part $i$ that describes the infinitesimal parts, and the part $a_i$ that describes the rest. Giving a full description of the state space of a decomposable system means fully characterizing these components. And we can see how this fits for the classical case as well: the state variables gives us the description for an infinitesimal part, but the amount of particles for each state is a description of the composite state.
+$\mathbbm{I}$ is a state variable representing the best description of an infinitesimal part that a composite system can give. $\mathcal{e}(i)$ represents a composite system made of a unit amount of particles, all prepared in the state determined by $i$. $a_i$ represents a transformation that changes the whole state, without affecting the value $i$ for any infinitesimal part. For a classical system, $i$ represents the full information about the infinitesimal part, and therefore includes the value of all state variables; the only transformation left is increasing/decreasing the amount of particles by a scalar multiple. For a different system, where $i$ does not represent the full state of the parts, $\mathcal{e}(i)$ will be an ensemble and $a_i$ also represents an internal transformation of such ensable. This is intuitively how we decouple the composite state into the part $i$ that describes the infinitesimal parts, and the part $a_i$ that describes the rest. Giving a full description of the state space of a decomposable system means fully characterizing these components: the state variable $\mathbbm{I}$ and the set of transformations $A$. And we can see how this fits for the classical case as well: the state variables gives us the description for an infinitesimal part, but the amount of particles for each state is a description of the composite state.
 
 \begin{defn}\label{classical_vector space}
 The state space $\mathcal{C}$ for a homogeneous classical (i.e. infinitesimally reducible) system is a vector space over $\mathbbm{R}$. It admits a basis isomorphic to the state space $\mathcal{S}$ of its particles (i.e. infinitesimal parts).
@@ -164,11 +174,11 @@ The state space $\mathcal{C}$ for a homogeneous classical (i.e. infinitesimally 
 \begin{justification}
 The state space is an abelian group as the system is homogeneous and decomposable and \ref{reducible_state_space}.
 
-We now consider the set of transformations $A$ that increase or decrease the amount of parts of the system by a constant. We claim $A$ is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $a: \mathbbm{R} \rightarrow A$ the mapping between a number and the transformation that increases or decreases the size of the system by that number. This transformation exists: the system is infinitesimally decomposable and the amount can be changed continuously. Define on $A$ an addition $+: A \times A \rightarrow A$ and a multiplication $*: A \times A \rightarrow A$ such that $a(x) + a(y) = a(x+y)$ and $a(x) * a(y) = a(x*y)$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $a$ is an isomorphism between $A$ and $\mathbbm{R}$. $A$ is isomorphic to $\mathbbm{R}$ as a field.
+We now consider the set of transformations $A$ that increase or decrease the amount of parts of the system by a constant. We claim $A$ is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $a: \mathbbm{R} \rightarrow A$ the mapping between a number and the transformation that increases or decreases the size of the system by that number. This transformation exists: the system is infinitesimally decomposable and the amount can be changed continuously. Define on $A$ an addition $+: A \times A \rightarrow A$ and a multiplication $*: A \times A \rightarrow A$ such that $a(x) + a(y) = a(x+y)$ and $a(x) * a(y) = a(x*y)$, $x,y \in \mathbbm{R}$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $a$ is an isomorphism between $A$ and $\mathbbm{R}$ as fields.
 
 We now claim that the state space $\mathcal{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathcal{C}$ can be extended with the operations defined by $A$, as each element $a \in A$ is a map $a : \mathcal{C} \rightarrow \mathcal{C}$. The map has the following properties: $(a_1 + a_2) \mathcal{c} = a_1 \mathcal{c} + a_2 \mathcal{c}$, increasing the size of the system by the sum of two constant is the same as combining the separate increases, and $a (\mathcal{c}_1 + \mathcal{c}_2) = a \mathcal{c}_1 + a \mathcal{c}_2$, increasing the size of the total system is the same as the combination of the increased parts. $\mathcal{C}$ is a module over $A$, which is a field and isomorphic to $\mathbbm{R}$.
 
-Consider now the injection map $\mathcal{e}: \mathcal{S} \hookrightarrow \mathcal{C}$ that for each particle state returns a composite state constituted only by a predetermined amount of particles in such state. The image of such injection is a basis for $\mathcal{C}$. We first claim that all elements are linearly independent. Consider $\sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, with $a_i \in \mathbbm{R}$ and . This corresponds to a physical state with $a_i$ particles in each state $\mathcal{s}_i$. This is equal to the empty state if and only if $a_i=0 \forall i$. This holds even if $\mathcal{S}$ is not finite. We now claim they span. Consider $\mathcal{c} + \sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This can always be made equal to the empty state by setting $a_i$ to be the opposite of the amount of particles of $\mathcal{c}$ that are in state $\mathcal{s}_i$.
+Consider now the injection map $\mathcal{e}: \mathcal{S} \hookrightarrow \mathcal{C}$ that for each particle state returns a composite state constituted only by a predetermined amount of particles in such state. The image of such injection is a basis for $\mathcal{C}$. We first claim that all elements are linearly independent. Consider $\sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This corresponds to a physical state with $a_i$ particles in each state $\mathcal{s}_i$. This is equal to the empty state if and only if $a_i=0 \forall i$. This holds even if $\mathcal{S}$ is not finite. We now claim they span. Consider $\mathcal{c} + \sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This can always be made equal to the empty state by setting $a_i$ to be the opposite of the amount of particles of $\mathcal{c}$ that are in state $\mathcal{s}_i$.
 \end{justification}
 
 \subsection{Classical assumption}
