@@ -62,13 +62,29 @@ The work is organized into:
 \end{description}
 This should allow you, the reader, to focus on the parts you are most interested in and skim the rest. The philosophically inclined may focus on the assumptions, their rationale and the definitions. The mathematically inclined may focus on the definitions, the propositions and their proofs. The scientist on the assumptions, the definitions and their justifications, and the propositions.
 
+\section{Style objective}
+
+The writing style should have the following goals:
+\begin{description}
+  \item[Skip math] one should be able to skip the mathematical definitions/propositions and still get a coherent narrative.
+  \item[Well-defined physical objects] each mathematical objects need to be physically well-defined. It must shown to exist and be unique.
+\end{description}
+Non-goals:
+\begin{description}
+  \item[Can't skip physics in justifications] justifications of mathematical definitions will inherently be rooted in the preceding physics discussion.
+\end{description}
+Notation:
+\begin{description}
+  \item[state variable and space] state space (cont/discr), state variable (cont/discr), possibility (cont/discr), range of possibility (cont/discr), set of possibilities (cont/discr)
+\end{description}
+
 \section{Determinism and reversibility}
 
 %TODO: it would be nice to have "examples" always refer to the same cases, and that they pertain to different type of physics. E.g. trajectory, gravity, thermodynamics, fluid dynamics, biology, electromagnetism...
 
 We start by fixing a \emph{physical system} we want to study, that is something we can interact with and perform measurements on (e.g. a cat, a planet, water). We call \emph{environment} everything else. We set what particular aspect we want to study (e.g. the trajectory when falling, the motion around a star, its flow in a pipe). We call \emph{state} a particular configuration in time of the portion under study. Since the state does not, in general, exhaust the description of the system, a part remains \emph{unstated}, and as such we'll call it, for lack of a better word. With this in mind, we introduce the following:
 
-\begin{assump}[Determinism and reversability]
+\begin{assump}[Determinism and reversibility]
 The state of the physical system under study undergoes deterministic and reversible evolution.
 \end{assump}
 
@@ -127,7 +143,7 @@ The system is deterministic: there exists a map $f:\mathcal{S} \rightarrow \math
 %    \end{tabular}
 %\end{center}
 
-\begin{defn}\label{label}
+\begin{defn}\label{state_variable}
 Let $\mathbbm{I}$ be a set. We call $q : \mathcal{S} \rightarrow \mathbbm{I}$ a \emph{state variable} and a \emph{possible value} (or \emph{possibility}) of $q$ an element $i \in \mathbbm{I}$. Also $\mathcal{s}_1 \neq \mathcal{s}_2 \Leftrightarrow \exists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1)\neq q(\mathcal{s}_2) \forall \mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$.
 \end{defn}
 
@@ -137,14 +153,39 @@ Consider a physical process that can distinguish between different initial condi
 Let $\mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$. Suppose $\mathcal{s}_1 \neq \mathcal{s}_2$. $\mathcal{s}_1$ and $\mathcal{s}_2$ are physically distinguishable. There exists a physical process with different outcomes. Let $q : \mathcal{S} \rightarrow \mathbbm{I}$ be the state variable associated to that process. Then $q(\mathcal{s}_1)\neq q(\mathcal{s}_2)$. Now suppose $\nexists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1) \neq q(\mathcal{s}_2)$. Then no process can distinguish between the two, they are physically indistinguishable therefore $\mathcal{s}_1 = \mathcal{s}_2$.
 \end{justification}
 
+\begin{defn}\label{independent_state_variables}
+Let $q_1 : \mathcal{S} \rightarrow \mathbbm{I}_1$ and $q_2 : \mathcal{S} \rightarrow \mathbbm{I}_2$ be two state variables. They are said \emph{independent} if $q_1^{-1}(i_1)\cap q_2^{-1}(i_2) \neq 0 \forall i_1 \in \mathbbm{I}_1, i_2 \in \mathbbm{I}_2$.
+\end{defn}
+
+\begin{justification}
+If $q_1$ are $q_2$ independent state variables we can modify a state such that only one variable is affected. TODO finish
+\end{justification}
+
+\begin{prop}\label{discrete_state_space}
+The space state $\mathcal{S}$ for a system fully identified by a set of $n$ independent discrete state variables $q^i : \mathcal{S} \rightarrow \mathbbm{I}^i$ is isomorphic to $\prod\limits_{i=1}^n\mathbbm{I}^i$. Let $I^i \subseteq \mathbbm{I}^i$ be finite sets of possibilities for each variable. $\#(\bigcap\limits_{i=1}^{n}{q^i}^{-1}(I^i))=\prod\limits_{i=1}^{n}\#(I^i)$.
+\end{prop}
+
+\begin{proof}
+TODO
+\end{proof}
+
+\begin{defn}\label{continuous_state_space}
+The space state $\mathcal{Q}$ for a system fully identified by a set of $n$ independent continuous state variables is a manifold of dimension $n$.
+\end{defn}
+
+\begin{justification}
+TODO: set of state variables locally define a chart; inherit topology from charts (small change in state makes small change in state variable, makes small changes in outcomes?)
+\end{justification}
+
+
 TODO: labels/state variables, cardinality of state variable, state id function (=1 for a particular state). Can we do for continuous variables as well? Can we find divergence free evolution for det/rev and independent variables?
 
 \section{Composite systems and reducibility}
 
 Given that scientific reductionism (i.e. the idea of reducing physical systems and interactions to the sum of their constituent parts in order to make them easier to study) is at the heart of fundamental physics, we should explore how to characterize a system in terms of its components. In general, this is quite a complicated thing to do, that requires intimate knowledge of the system at hand. So we simplify our problem and study an idealized case: one where the components are homogeneous and infinitesimal. What we'll find is that under the additional assumption that the system is reducible (i.e. its state is equivalent to the state of the parts) and that each part undergoes deterministic and reversible evolution, the motion is suitably described by the standard framework of classical Hamiltonian particle mechanics.
 
-\subsection{Composite systems}
-As mentioned before, we will limit ourselves to the case where our system is homogeneous: the parts are indistinguishable, the set of states they can occupy is the same, they are under the same external and internal forces. For a non-homogeneous system, we would divide it in homogeneous components and consider the state of all of them. What homogenous means depends on context (e.g. air can be thought as homogeneous if the mixture of gasses does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is conserved by time evolution. Nonetheless, we can generally claim the following:
+\subsection{Homogeneous systems}
+As mentioned before, we will limit ourselves to the case where our system is homogeneous: the parts are indistinguishable, the set of states they can occupy is the same, they are under the same external and internal forces.\footnote{Non-homogeneous systems can in principle be decomposed in homogeneous components. Therefore their study can be reduced to the study of homogeneous systems.} What homogenous means depends on context (e.g. air can be thought as homogeneous if the mixture of gasses does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is conserved by time evolution. Nonetheless, the state space of such system is richer in the sense that it comes equipped with the notion of composition and its rules. These are suitable captured mathematically by an additive abelian group.
 
 \begin{defn}\label{reducible_state_space}
 The state space $\mathcal{C}$ for a homogeneous decomposable system is an additive abelian (i.e. commutative) group.
@@ -153,19 +194,19 @@ The state space $\mathcal{C}$ for a homogeneous decomposable system is an additi
 \begin{justification}
 We claim $\mathcal{C}$ is an additive monoid. There exist a law of composition $+ : \mathcal{C} \times \mathcal{C} \rightarrow \mathcal{C}$ that takes two states and returns one that is the physical composition of the two. The domain and codomain match because the system is homogeneous. The law is commutative $\mathcal{c}_1 +\mathcal{c}_2 = \mathcal{c}_2+\mathcal{c}_1$ and associative $(\mathcal{c}_1 + \mathcal{c}_2) + \mathcal{c}_3 = \mathcal{c}_1 + (\mathcal{c}_2 + \mathcal{c}_3)$, as it does not matter in what order we physically compose the parts. There exist a unique zero element $\mathcal{c} + 0 = \mathcal{c}$ and it represent the physically empty state (i.e. no system).
 
-We claim $\mathcal{C}$ is an additive group. As we want to describe changes during the evolution (i.e. $\hat{\mathcal{c}} = \mathcal{c} +\Delta \mathcal{c}$) we introduce an inverse $\mathcal{c}_2$ for each element $\mathcal{c}_1$ such that $\mathcal{c}_1 + \mathcal{c}_2 = 0$. The inverse may not represent a proper physical state, yet we'll still call $\mathcal{C}$ the state space committing an abuse of terminology. The inverse $- : \mathcal{C} \rightarrow \mathcal{C}$ is physically unique and well defined.
+We claim $\mathcal{C}$ is an additive group. As we want to describe changes during the evolution (i.e. $\hat{\mathcal{c}} = \mathcal{c} +\Delta \mathcal{c}$) we introduce an inverse $- : \mathcal{C} \rightarrow \mathcal{C}$ such that $\mathcal{c} + ( - \mathcal{c}) = 0 \forall \mathcal{c} \in \mathcal{C}$. Such inverse may introduce objects that do not properly represent a physical state, but a state change. A change of a physically distinguishable object is itself physically distinguishable therefore is physically well defined. We'll still call $\mathcal{C}$ the state space committing an abuse of terminology.
 \end{justification}
 
-\subsection{Classical composite systems}
-We also want to be able to express the state of the composite system in terms of the state of the parts. For example, we'll want to relate the state variables of the composite system to the state variables of the parts. This in general will depend on how much the state of the composite system "knows" about its parts. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. Therefore we need to characterize the system further.
+\subsection{Classical homogeneous systems}
+We also want to be able to express the state of the composite system in terms of the state of the parts. For example, given the state of a fluid we'll want to know how its parts are distributed. This in general will depend on how much the state of the composite system "knows" about its parts. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. Therefore we need to characterize the system further.
 
-We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system is equivalent to the sum of the states of the parts. Given the state space $\mathcal{S}$ for the parts, giving a composite state $\mathcal{c}$ is equivalent to give the amount of particles that are present in each state. Since the system is infinitesimally reducible, such amount can be increased or decreased infinitesimally and will be a real number. In other words: the classical state is a real valued distribution over $\mathcal{S}$. This intuitive picture is unfortunately not suitable to be generalized to different contexts, so we develop another.
+We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system is equivalent to the sum of the states of the parts. Given the state space $\mathcal{S}$ for the parts, identifying a composite state $\mathcal{c}$ is equivalent to quantify the amount of particles that are present in each state. Since the system is infinitesimally reducible, such amount can be increased or decreased infinitesimally and will be a real number. In other words: the classical state is a real valued distribution over $\mathcal{S}$. This intuitive picture is unfortunately not suitable to be generalized to different contexts, so we develop another.
 
 Consider the following expression:
 \begin{align*}
 \mathcal{c} = \sum\limits_{i \in \mathbbm{I}} a_i \mathcal{e}(i)
 \end{align*}
-$\mathbbm{I}$ is a state variable representing the best description of an infinitesimal part that a composite system can give. $\mathcal{e}(i)$ represents a composite system made of a unit amount of particles, all prepared in the state determined by $i$. $a_i$ represents a transformation that changes the whole state, without affecting the value $i$ for any infinitesimal part. For a classical system, $i$ represents the full information about the infinitesimal part, and therefore includes the value of all state variables; the only transformation left is increasing/decreasing the amount of particles by a scalar multiple. For a different system, where $i$ does not represent the full state of the parts, $\mathcal{e}(i)$ will be an ensemble and $a_i$ also represents an internal transformation of such ensable. This is intuitively how we decouple the composite state into the part $i$ that describes the infinitesimal parts, and the part $a_i$ that describes the rest. Giving a full description of the state space of a decomposable system means fully characterizing these components: the state variable $\mathbbm{I}$ and the set of transformations $A$. And we can see how this fits for the classical case as well: the state variables gives us the description for an infinitesimal part, but the amount of particles for each state is a description of the composite state.
+$\mathbbm{I}$ represents all the possible values of a state variable representing the best description of an infinitesimal part that a composite system can give. $\mathcal{e}(i)$ represents a composite system made of a unit amount of particles, all prepared in the state determined by $i$. $a_i$ represents a transformation that changes the whole state, without affecting the value $i$ for any infinitesimal part. For a classical system, $i$ represents the full information about the infinitesimal part, and therefore includes the value of all state variables; the only transformation left is increasing/decreasing the amount of particles by a scalar multiple. For a different system, where $i$ does not represent the full state of the parts, $\mathcal{e}(i)$ will be an ensemble and $a_i$ also represents an internal transformation of such ensable. This is intuitively how we decouple the composite state into the part $i$ that describes the infinitesimal parts, and the part $a_i$ that describes how the parts are composed. Giving a full description of the state space of a decomposable system means fully characterizing these components: the state variable $\mathbbm{I}$ and the set of transformations $A$. In the classical case $\mathcal{e}(i)$ form a basis of a real vector space, where $i$ is the set of state variable to identify the state of an an infinitesimal part, and $a_i$ a real valued coefficient that represents the amount of particles in each state, which describes how the parts are combined.
 
 \begin{defn}\label{classical_vector space}
 The state space $\mathcal{C}$ for a homogeneous classical (i.e. infinitesimally reducible) system is a vector space over $\mathbbm{R}$. It admits a basis isomorphic to the state space $\mathcal{S}$ of its particles (i.e. infinitesimal parts).
@@ -176,12 +217,12 @@ The state space is an abelian group as the system is homogeneous and decomposabl
 
 We now consider the set of transformations $A$ that increase or decrease the amount of parts of the system by a constant. We claim $A$ is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $a: \mathbbm{R} \rightarrow A$ the mapping between a number and the transformation that increases or decreases the size of the system by that number. This transformation exists: the system is infinitesimally decomposable and the amount can be changed continuously. Define on $A$ an addition $+: A \times A \rightarrow A$ and a multiplication $*: A \times A \rightarrow A$ such that $a(x) + a(y) = a(x+y)$ and $a(x) * a(y) = a(x*y)$, $x,y \in \mathbbm{R}$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $a$ is an isomorphism between $A$ and $\mathbbm{R}$ as fields.
 
-We now claim that the state space $\mathcal{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathcal{C}$ can be extended with the operations defined by $A$, as each element $a \in A$ is a map $a : \mathcal{C} \rightarrow \mathcal{C}$. The map has the following properties: $(a_1 + a_2) \mathcal{c} = a_1 \mathcal{c} + a_2 \mathcal{c}$, increasing the size of the system by the sum of two constant is the same as combining the separate increases, and $a (\mathcal{c}_1 + \mathcal{c}_2) = a \mathcal{c}_1 + a \mathcal{c}_2$, increasing the size of the total system is the same as the combination of the increased parts. $\mathcal{C}$ is a module over $A$, which is a field and isomorphic to $\mathbbm{R}$.
+We now claim that the state space $\mathcal{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathcal{C}$ can be extended with the operations defined by $A$, as each element $a \in A$ is a map $a : \mathcal{C} \rightarrow \mathcal{C}$. The map has the following properties: $(a_1 + a_2) \mathcal{c} = a_1 \mathcal{c} + a_2 \mathcal{c}$, increasing the size of the system by the sum of two constant is the same as combining the separate increases, and $a (\mathcal{c}_1 + \mathcal{c}_2) = a \mathcal{c}_1 + a \mathcal{c}_2$, increasing the size of the total system is the same as the combination of the increased parts. $\mathcal{C}$ is a vector space over $A$, which is a field and isomorphic to $\mathbbm{R}$.
 
 Consider now the injection map $\mathcal{e}: \mathcal{S} \hookrightarrow \mathcal{C}$ that for each particle state returns a composite state constituted only by a predetermined amount of particles in such state. The image of such injection is a basis for $\mathcal{C}$. We first claim that all elements are linearly independent. Consider $\sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This corresponds to a physical state with $a_i$ particles in each state $\mathcal{s}_i$. This is equal to the empty state if and only if $a_i=0 \forall i$. This holds even if $\mathcal{S}$ is not finite. We now claim they span. Consider $\mathcal{c} + \sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This can always be made equal to the empty state by setting $a_i$ to be the opposite of the amount of particles of $\mathcal{c}$ that are in state $\mathcal{s}_i$.
 \end{justification}
 
-\subsection{Classical assumption}
+\subsection{Classical hamiltonian assumption}
 
 
 % Det/rev for infinitesimal part
@@ -191,8 +232,8 @@ Consider now the injection map $\mathcal{e}: \mathcal{S} \hookrightarrow \mathca
 
 We further characterize the relationship between the whole and the parts with the following assumption:
 
-\begin{assump}[Infinite reducibility or Classical]\label{classical}
-The system is infinitely reducible: it can be thought of as composed of two or more similar but smaller systems, each in its own state, which in turn can be thought of as composed of two or more, ad infinitum. We call \emph{particle} such an infinitesimal part. We call \emph{classical} a system for which such an assumption is valid.
+\begin{assump}[Classical hamiltonian assumption]\label{classical}
+The evolution of the classical homogeneous system under study is deterministic, reversible and reducible.
 \end{assump}
 
 In other words: if we know the state and the evolution for the whole system, we also know the evolution for all its parts; if we know the state and evolution for all the parts, we know the state and the evolution for the whole system. By smaller we do not mean spatial extent, but of smaller amount (e.g. less mass): even at the same spatial location we can imagine that there are infinitely many components (e.g. the mass, as a number, is continuously divisible(.
