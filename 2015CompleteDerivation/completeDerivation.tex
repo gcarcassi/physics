@@ -82,7 +82,9 @@ Notation:
 
 \section{On studying a physical system}
 
-%TODO: it would be nice to have "examples" always refer to the same cases, and that they pertain to different type of physics. E.g. trajectory, gravity, thermodynamics, fluid dynamics, biology, electromagnetism...
+% Status: Conceptual work done. Text ready for review.
+
+%TODO: incorporate feedback from Dave. Determinism definition as "relative" to choice of state and external processes may need to be reinforced (the single sentence pointing that out is read, forgotten, and then confusion later follows). May want to completely avoid QM at this point. See if can mention without raising further distracting questions.
 
 We start by fixing a \emph{physical system}, meaning something we can interact with and perform measurements on (e.g. a planet, a fluid, ...). We call \emph{environment} everything else. We set what particular aspect we want to study (e.g. the motion around a star, the flow in a pipe, ...). We call \emph{state} a physically distinguishable configuration of the aspect under study at a particular time (e.g. position/momentum of center of mass, velocity field, ...). Since the state does not, in general, exhaust the description of the system, a part remains \emph{unstated}, and as such we'll call it, for lack of a better word (e.g. the chemical composition, the motion of each of its molecules, ...). Note that the environment plays an essential role here as it's what allows us to define two states as physically distinguishable: we can find an external process (i.e. part of the environment) whose outcome changes depending on the different state. As such processes are what we can use to perform measurements, we consider the experimental apparatus (and us performing measurements) independent of the system, part of the environment.\footnote{This is true even in the case of general relativity, where we can imagine multiple researchers on small spaceships collecting data without greatly influencing the motion of stars and planets. The case where the physical system is the whole universe and there is no environment presents practical problems  and conceptual challenges that the current physical theories do not seem to be equipped to address, and therefore will be absent from our discussion. For example, what physical device can we use to store and process the state of the whole universe to make predictions and compare? How do we define physically distinguishable? Do the physical laws determine which measurements we are going to make and does that limit what is actually distinguishable?}
  
@@ -122,6 +124,12 @@ Yet, this is a fundamental assumption in the sense that it is needed. If a parti
 
 \section{States}
 
+% Status: concepts still need to be finished. Started to work on linking topology to physically distinguishable states.
+
+%Open questions: smoothness (obviously required to define densities later, is it required in general? What does it means that physical processes/measurements don't give a smooth topology?)
+
+%Things to add: discrete sets evolved continuous = identity map. Subdivide finite interval, same permutation at each time step, exclude odd perms, third-odd perms, ...
+
 Before we are able to define how states should be captured mathematically, we need to better specify what we mean by physically distinguishable. Therefore we need to characterise what we mean by measurement, particularly because it has become such an overloaded term.
 
 Consider the motion of a cannonball under inertial and gravitational forces. Light will be scattering off of it; as it lands the ground will be deformed and its temperature will rise. Those external physical process, which happen no matter what we do, can be used to distinguish the motion of the cannonball as their outcome are correlated. Therefore we can learn the position by looking at the reflected light, and learn the final kinetic momentum by looking at the deformation of the ground. In principle, any external process that has a correlation with the states under study can be used to perform a measurement, and any measurement is based on such a process. That is: for us a measurement is simply a physical process that we can use to distinguish states. There is no particular role played by the observer, except maybe create the device and forcing the system under study to interact with it.
@@ -139,7 +147,7 @@ The state space $\mathcal{S}$ of a physical system is a Hausdorff and second cou
 \end{defn}
 
 \begin{justification}
-The collection of all possible states forms a set as we can physically distinguish between them.
+TODO: all possible states form a set. All possible set of states associated with the outcome of the process form a topology. Verify requirements on entire set, empty set, intersections and unions. Distinguishability of two elements in terms of process outcome leads to Hausdorff. Processes have countable possible outcome means base for topology must be countable, or we would have elements that are not distinguishable, therefore second countability.
 \end{justification}
 
 \begin{defn}\label{detrevmap}
