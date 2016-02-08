@@ -130,7 +130,7 @@ Yet, this is a fundamental assumption in the sense that it is needed. If a parti
 
 %Things to add: discrete sets evolved continuous = identity map. Subdivide finite interval, same permutation at each time step, exclude odd perms, third-odd perms, ...
 
-Before we are able to define how states should be captured mathematically, we need to better specify what we mean by physically distinguishable. Therefore we need to characterise what we mean by measurement, particularly because it has become such an overloaded term.
+Before we are able to define how states should be captured mathematically, we need to better specify what we mean by physically distinguishable. Therefore we need to characterize what we mean by measurement, particularly because it has become such an overloaded term.
 
 Consider the motion of a cannonball under inertial and gravitational forces. Light will be scattering off of it; as it lands the ground will be deformed and its temperature will rise. Those external physical process, which happen no matter what we do, can be used to distinguish the motion of the cannonball as their outcome are correlated. Therefore we can learn the position by looking at the reflected light, and learn the final kinetic momentum by looking at the deformation of the ground. In principle, any external process that has a correlation with the states under study can be used to perform a measurement, and any measurement is based on such a process. That is: for us a measurement is simply a physical process that we can use to distinguish states. There is no particular role played by the observer, except maybe create the device and forcing the system under study to interact with it.
 
@@ -157,17 +157,6 @@ A deterministic and reversible evolution is a bijective map $f_{\Delta t}:\mathc
 \begin{justification}
 The system is deterministic: there exists a map $f:\mathcal{S} \rightarrow \mathcal{S}$ that returns the final state given the initial state. The system is reversible: there exists a map $g:\mathcal{S} \rightarrow \mathcal{S}$ that returns the initial state given the final state. $g \circ f = id$ as mapping forward and then backward must return the original element.
 \end{justification}
-
-%In practice, we use physical quantities to identify states. For example, the state for an ideal gas is given by pressure, volume and temperature. To clarify whether we are referring to a particular value of such quantity, or the quantity itself, we introduce the following terminology:
-%\begin{center}
-%    \begin{tabular}{ | p{2.5cm} | p{5.5cm} | }
-%    \hline
-%    State variable & A quantity (discrete or continuous) that must be specified to identify a state (e.g. position). \\ \hline
-%    Label & A particular value for a state variable (e.g. position = $5m$). \\ \hline
-%    Label range & A set of possible values for a state variable (e.g. position = $[4.5m, 5.5m]$). \\
-%    \hline
-%    \end{tabular}
-%\end{center}
 
 To identify and name states, we will typically use a set of quantities, typically numbers. For example, the orbital of an electron in a hydrogen item is identified by the quantum numbers $n$, $l$, $m$ and $s$. We call each of these quantities \emph{state variable} and \emph{state vector} a set of state variables that can identify one and only one state. We avoid the term coordinates, even though that's what they mathematically are, as it will create confusion with space coordinates. We also avoid the term observable or measurable, as not all state variables map directly to the outcome of an experiment (e.g. conjugate momentum as it is not gauge invariant). It's clear, though, that even in those cases there must exist, at least in principle, a way to distinguish between the possible values of the state variable (e.g once we fix the vector potential, conjugate momentum can be measured via the kinetic momentum). Therefore we can assume that all state variables are in the end physically distinguishable, yet we do not assume all state variables have equal standing in physical meaning. Conversely, some measurable quantities are not directly state variables: they may not be defined, as states are, at constant time (e.g. velocity) or may depend on the process at hand (e.g. acceleration). Yet, once a process is fully defined (e.g. a Hamiltonian is given), we may have a relationship between those observables and state variables. The purpose of state variables is just to label states, which are physically distinguishable and defined at a particular time. Therefore the state variable will be physically distinguishable and defined at constant time. But there is nothing telling us that they must be directly physically meaningful or that their relationship to measurable quantities is the same if we change physical processes.
 
@@ -238,6 +227,10 @@ We have seen that physical systems undergoing deterministic and reversible evolu
 
 \section{Composite systems and reducibility}
 
+%Status: conceptual work is done, need to write down
+
+%TODO: need more examples within explanation to make more intuitive
+
 Given that scientific reductionism (i.e. the idea of reducing physical systems and interactions to the sum of their constituent parts in order to make them easier to study) is at the heart of fundamental physics, we should explore how to characterize a system in terms of its components. In general, this is quite a complicated thing to do, that requires intimate knowledge of the system at hand. So we simplify our problem and study an idealized case: one where the components are homogeneous and infinitesimal. What we'll find is that under the additional assumption that the system is reducible (i.e. its state is equivalent to the state of the parts) and that each part undergoes deterministic and reversible evolution, the motion is suitably described by the standard framework of classical Hamiltonian particle mechanics.
 
 \subsection{Homogeneous systems}
@@ -257,6 +250,8 @@ We claim $\mathcal{C}$ is an additive group. As we want to describe changes duri
 We also want to be able to express the state of the composite system in terms of the state of the parts. For example, given the state of a fluid we'll want to know how its parts are distributed. This in general will depend on how much the state of the composite system "knows" about its parts. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. Therefore we need to characterize the system further.
 
 We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system is equivalent to the sum of the states of the parts. Given the state space $\mathcal{S}$ for the parts, identifying a composite state $\mathcal{c}$ is equivalent to quantify the amount of particles that are present in each state. Since the system is infinitesimally reducible, such amount can be increased or decreased infinitesimally and will be a real number. In other words: the classical state is a real valued distribution over $\mathcal{S}$. This intuitive picture is unfortunately not suitable to be generalized to different contexts, so we develop another.
+
+%TODO: move second picture to QM
 
 Consider the following expression:
 \begin{align*}
