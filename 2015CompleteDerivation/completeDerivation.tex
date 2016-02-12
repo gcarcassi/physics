@@ -144,7 +144,7 @@ We have a physical process that provides an outcome. This process has a set of p
 
 We can also combines two outcome of two different processes. For example, if one tells us spin is $+1/2$ and another that position is $4.13 \pm 0.05$ cm, then we can say the state has both. That is, the state is inside both of the sets of states associated with the two outcomes: the intersection of two sets associated with an outcome is also a set associated with an outcome. We can make similar arguments about the union as we can always reduce the precision by combining different outcome of the same process.
 
-This model maps very naturally to a topological space. The states are the elements of a set and the physical outcome provides a topology on that set. The fact that two elements of the set can be distinguished requires the space to be Hausdorff. The fact that the potential outcome of a process are countable requires the space to be second countable.
+This model maps very naturally to a topological space. The states are elements of a set and the physical outcome provides a topology on that set. The fact that two elements of the set can be distinguished requires the space to be Hausdorff. The fact that the potential outcome of a process are countable requires the space to be second countable.
 
 \begin{defn}\label{statedef}
 The state space $\mathcal{S}$ of a physical system is a Hausdorff and second countable topological space.
@@ -279,34 +279,80 @@ We now claim that the state space $\mathcal{C}$ is a vector space over $\mathbbm
 Consider now the injection map $\mathcal{e}: \mathcal{S} \hookrightarrow \mathcal{C}$ that for each particle state returns a composite state constituted only by a predetermined amount of particles in such state. The image of such injection is a basis for $\mathcal{C}$. We first claim that all elements are linearly independent. Consider $\sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This corresponds to a physical state with $a_i$ particles in each state $\mathcal{s}_i$. This is equal to the empty state if and only if $a_i=0 \forall i$. This holds even if $\mathcal{S}$ is not finite. We now claim they span. Consider $\mathcal{c} + \sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This can always be made equal to the empty state by setting $a_i$ to be the opposite of the amount of particles of $\mathcal{c}$ that are in state $\mathcal{s}_i$.
 \end{justification}
 
+Show countable basis. $\mathcal{c}= \sum\limits_{\mathcal{s} \in \mathcal{S}} a(\mathcal{s}) \mathcal{e}(\mathcal{s})=\sum\limits_{q \in \mathbbm{Q}} a(q) \mathcal{e}(q)$
+
+% Continuous state variable: Q is measured at constant t
+
+Uncountable basis does not work. $\mathcal{c}= \int\limits_{q \in \mathbbm{Q}} \rho(q) \mathcal{e}(q)dq$ but $\rho(q')=|\partial _{q}q'|\rho(q)\neq\rho(q)$
+
+% TODO: need to understand a valid notation for composite state as infinite sum. The densities is the coefficient, the basis are are states, what is the differential?
+
+Find smallest object that can have an invariant density. $\mathcal{c}= \int\limits_{T^*\mathbbm{Q}} \rho(q,k) \mathcal{e}(q,k)dq\wedge dk$
+
+\begin{defn}\label{classical_phase_space}
+The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a cotangent bundle $T^*\mathbbm{Q}$.
+\end{defn}
+
+\begin{justification}
+	TODO
+\end{justification}
+
+Density allows to count particle states. Example: two uniform distribution for the same amount of particles.
+
+Area in each d.o.f. is number of possibilities. Total number of states is product of number of possibilities for independent d.o.f. Independent d.o.f. are orthogonal. Leads to omega metric. As in discrete case, conserved during evolution.
+
+Also: we can search for omega looking from constraints. Must be linear. Must be skew-symmetric (applied to the same vector twice must be zero). Must be invariant by coord transformation. 
+
+\begin{defn}\label{symplectic_manifold}
+	The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a symplectic manifold with metric $\omega$, the canonical two-form.
+\end{defn}
+
+\begin{justification}
+	TODO
+\end{justification}
+
 \subsection{Classical hamiltonian assumption}
-
-
 
 % Det/rev for infinitesimal part
 % Inconsistent: 1. X=AxB A'=F(A) B'=F(B) Isolated sub-systems. Does not work for measuring. 2. A'=F(A) B'=F(A,B) Ideal non-interfering measurement: deterministic but not reversible. 3. A'=F(A,B) B'=F(A,B) X det/rev whole, but A not deterministic itself. But if you consider X a sub-system of X and something else, you can make the same argument. Whole universe deterministic, but none of its parts. 4. A=As x Au ; B=Bs x Bu ; As' = F(As) Au=F(X) Bu=F(X) Bs = F(As, Au) ; more realistic picture. Still non-reversible (if As' = F(As), then nothing else can be F(As) and have bijective map).
 
-% Continuous state variable: Q is measured at constant t
-
 We further characterize the relationship between the whole and the parts with the following assumption:
 
 \begin{assump}[Classical hamiltonian assumption]\label{classical}
-The evolution of the classical homogeneous system under study is deterministic, reversible and reducible.
+	The evolution of the classical homogeneous system under study is deterministic, reversible and reducible.
 \end{assump}
 
 In other words: if we know the state and the evolution for the whole system, we also know the evolution for all its parts; if we know the state and evolution for all the parts, we know the state and the evolution for the whole system. By smaller we do not mean spatial extent, but of smaller amount (e.g. less mass): even at the same spatial location we can imagine that there are infinitely many components (e.g. the mass, as a number, is continuously divisible(.
 
 \begin{rationale}
-This is clearly a \emph{simplifying} assumption, and it is instructive to understand when it breaks down.
-
-The first problem is methodological. As we saw before, we need access to a deterministic and reversible process to be able to study a system and define a state. For two balls, we can imagine to isolate some pieces (small enough to be considered infinitesimal in respect to the ball but big enough to contain enough molecules to be considered homogenous) and then describe the collision between the two by describing what happens at each piece. The classical assumption holds. For an electron and a photon, we cannot take pieces of the electron or the photon, study them in isolation and then describe how each part moves during Compton scattering. The classical assumption does not hold: we do not have suitable physical processes at our disposal.
-
-The second problem is more conceptual. As we saw before, a system cannot be fully isolated from the environment. A certain amount of unstated part needs to remain so that the state of the system can be insulated from the external non-deterministic interaction. In practice, the state of each piece of our material is still given by the average of a collection of a large amount of molecules, their respective motion depending not just on the state of the system but on the external environment.  The classical assumption can therefore hold only if we assume that the description of each pieces is, again, not complete. Assuming it at a fundamental level would mean that the motion of each and every molecule of the system is only influenced by the state of the system, no external factor counts. As such, it would be a contradiction with it being a physical system: one we can study experimentally.
-
-While ultimately flawed, the classical assumption can be considered valid for a great number of macroscopic system, and that is why is very useful. One should be cautioned, though, that nowhere in the assumption the spatial extent of the system is mentioned. We may as well have a macroscopic system where a clear independent state cannot be assigned to each part, and the assumption would not hold.
+	This is clearly a \emph{simplifying} assumption, and it is instructive to understand when it breaks down.
+	
+	The first problem is methodological. As we saw before, we need access to a deterministic and reversible process to be able to study a system and define a state. For two balls, we can imagine to isolate some pieces (small enough to be considered infinitesimal in respect to the ball but big enough to contain enough molecules to be considered homogenous) and then describe the collision between the two by describing what happens at each piece. The classical assumption holds. For an electron and a photon, we cannot take pieces of the electron or the photon, study them in isolation and then describe how each part moves during Compton scattering. The classical assumption does not hold: we do not have suitable physical processes at our disposal.
+	
+	The second problem is more conceptual. As we saw before, a system cannot be fully isolated from the environment. A certain amount of unstated part needs to remain so that the state of the system can be insulated from the external non-deterministic interaction. In practice, the state of each piece of our material is still given by the average of a collection of a large amount of molecules, their respective motion depending not just on the state of the system but on the external environment.  The classical assumption can therefore hold only if we assume that the description of each pieces is, again, not complete. Assuming it at a fundamental level would mean that the motion of each and every molecule of the system is only influenced by the state of the system, no external factor counts. As such, it would be a contradiction with it being a physical system: one we can study experimentally.
+	
+	While ultimately flawed, the classical assumption can be considered valid for a great number of macroscopic system, and that is why is very useful. One should be cautioned, though, that nowhere in the assumption the spatial extent of the system is mentioned. We may as well have a macroscopic system where a clear independent state cannot be assigned to each part, and the assumption would not hold.
 \end{rationale}
 
 We are now ready to capture the elements of our discussion and their properties through mathematical definitions.
+
+
+\begin{defn}\label{canonical_transformation}
+	A deterministic and reversible process is a diffeomorphism that preserves $\omega$, that is a canonical transformation.
+\end{defn}
+
+\begin{justification}
+	TODO
+\end{justification}
+
+\begin{defn}\label{hamiltonian}
+	A continuous deterministic and reversible process admits a potential $H$, and the laws of evolution are of the form (Hamilton equations).
+\end{defn}
+
+\begin{justification}
+	TODO
+\end{justification}
+
 
 
 \section{Quantum systems}
