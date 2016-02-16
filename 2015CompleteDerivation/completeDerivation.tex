@@ -154,15 +154,21 @@ TODO: all possible states form a set. All possible set of states associated with
 
 With our state space defined, deterministic and reversible evolution corresponds to a bijective map between initial and final states.
 
+TODO: det/rev map from manifold to manifold. Must be physically distinguishable. Can't be the whole class of functions: refining domain does not refine codomain. (mathematically, cardinality greater than continuoum, i.e. not second countable) We need that arbitrarily refining domain refines the codomain. Equivalent to continuous function(?). OR Measurement/process outcomes from initial states corresponds to outcomes on final states. That is: we map open sets to open sets.
+
 \begin{defn}\label{detrevmap}
-A deterministic and reversible evolution is a bijective map $f_{\Delta t}:\mathcal{S} \leftrightarrow \mathcal{S}$ on the state space.
+A deterministic and reversible evolution is a self-homeomorphism on the state space $\mathcal{S}$.
 \end{defn}
 
 \begin{justification}
 The system is deterministic: there exists a map $f:\mathcal{S} \rightarrow \mathcal{S}$ that returns the final state given the initial state. The system is reversible: there exists a map $g:\mathcal{S} \rightarrow \mathcal{S}$ that returns the initial state given the final state. $g \circ f = id$ as mapping forward and then backward must return the original element.
+
+TODO: show it maps open sets to open sets.
 \end{justification}
 
 To identify and name states we will use a set of quantities, typically numbers. For example, the orbital of an electron in a hydrogen item is identified by the quantum numbers $n$, $l$, $m$ and $s$. We call each of these quantities \emph{state variable} and \emph{state vector} a set of state variables that can identify one and only one state. We avoid the term coordinates, even though that's what they mathematically are, as it will create confusion with space coordinates. We also avoid the term observable or measurable, as not all state variables map directly to the outcome of an experiment (e.g. conjugate momentum as it is not gauge invariant). It's clear, though, that even in those cases there must exist, at least in principle, a way to distinguish between the possible values of the state variable (e.g once we fix the vector potential, conjugate momentum can be measured via the kinetic momentum). Therefore we can assume that all state variables are in the end physically distinguishable, yet we do not assume all state variables have equal standing in physical meaning. Conversely, some measurable quantities are not directly state variables: they may not be defined, as states are, at constant time (e.g. velocity) or may depend on the process at hand (e.g. acceleration). Yet, once a process is fully defined (e.g. a Hamiltonian is given), we may have a relationship between those observables and state variables. The purpose of state variables is just to label states, which are physically distinguishable and defined at a particular time. Therefore the state variable will be physically distinguishable and defined at constant time. But there is nothing telling us that they must be directly physically meaningful or that their relationship to measurable quantities is the same if we change physical processes.
+
+TODO: maybe best to define state vector directly, and state variables as part of state vector? Define discrete state variable when co-domain is integers and define continuous state variable when co-domain is real? Can we prove a state vector always exists, of real variables? For discrete topology, we should always be able to do it. In general, state vector defines charts, so we should not have a single chart for the whole state space. What does it mean physically? Does it matter?
 
 \begin{defn}\label{state_variable}
 Let $\mathbbm{I}$ be a set. We call $q : \mathcal{S} \rightarrow \mathbbm{I}$ a \emph{state variable} and a \emph{possible value} (or \emph{possibility}) of $q$ an element $i \in \mathbbm{I}$. Also $\mathcal{s}_1 \neq \mathcal{s}_2 \Leftrightarrow \exists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1)\neq q(\mathcal{s}_2) \forall \mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$.
@@ -189,13 +195,13 @@ Evolved state variables are useful to write equations of motions, study how phys
 \end{align*}
 Intuitively, the transported variables change in the oppose way as the evolution, so that the value of the variables remain the same.\footnote{One should not confuse evolved/transported state variable with active/passive transformations or with Schroedinger/Heisenberg pictures. In those cases, the choice is whether to change the state or the coordinates/observables. In our case, the state is always changing. The choice is whether to change the state variables or their value.}
 
-\begin{prop}\label{evolved variable}
-TODO: Define and prove existence
-\end{prop}
+\begin{defn}\label{evolved_transported_variable}
+TODO: Define evolved and transported variables in terms of pushback/pushforward
+\end{defn}
 
-\begin{prop}\label{transported variable}
-TODO: Define and prove existence
-\end{prop}
+\begin{justification}
+TODO: prove existence
+\end{justification}
 
 When assembling multiple state variables into a state vector, it is important to understand how they relate to each other. Consider the orbital of an electron in a hydrogen item, which is identified by the quantum numbers $n$, $l$, $m$ and $s$. For each combination of $n$, $l$ and $m$, the spin $s$ can have two values. The choice of spin is independent from the rest. The choice of $l$, though, depends on the choice of $n$: for $n=1$ only $l=s$ is available; for $n=2$ we can choose $l=s$ or $l=p$. The choices are not independent. That is: two or more variables are independent if there always exists a state for any possible combination, if the total number of states is the cartesian product of the possibilities of each variable.
 
@@ -218,6 +224,8 @@ The space state $\mathcal{S}$ for a system fully identified by a set of $n$ inde
 \begin{proof}
 TODO
 \end{proof}
+
+TODO: in continuous, not necessarily the Cartesian product. But we can always create a chart with state variables. State space is a manifold of dimension n. In principle, we could say more. For example, a deterministic/reversible map would not map a set to its subset or superset. We could define a metric, this would give us an ergotic system. Not going to do that.
 
 \begin{defn}\label{continuous_state_space}
 The space state $\mathcal{Q}$ for a system fully identified by a set of $n$ independent continuous state variables is a manifold of dimension $n$.
