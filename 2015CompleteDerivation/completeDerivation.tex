@@ -180,6 +180,8 @@ Consider a physical process that can distinguish between different initial condi
 Let $\mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$. Suppose $\mathcal{s}_1 \neq \mathcal{s}_2$. $\mathcal{s}_1$ and $\mathcal{s}_2$ are physically distinguishable. There exists a physical process with different outcomes. Let $q : \mathcal{S} \rightarrow \mathbbm{I}$ be the state variable associated to that process. Then $q(\mathcal{s}_1)\neq q(\mathcal{s}_2)$. Now suppose $\nexists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1) \neq q(\mathcal{s}_2)$. Then no process can distinguish between the two, they are physically indistinguishable therefore $\mathcal{s}_1 = \mathcal{s}_2$.
 \end{justification}
 
+TODO: Still not clear what's the best way to introduce things. We do want to show that state variable are maps from states to "labels". We want to call discrete variables those that map to integer and continuous variables those that map to real numbers. Then we want to concentrate on state space that can be described by a finite number of either discrete variables or continuous variables. State vector may not be valid in general: e.g. we can't assume we have a single chart for the whole space. 
+
 \begin{prop}\label{state_vector}
 TODO: State vector always exists
 \end{prop}
@@ -258,6 +260,8 @@ We claim $\mathcal{C}$ is an additive monoid. There exist a law of composition $
 We claim $\mathcal{C}$ is an additive group. As we want to describe changes during the evolution (i.e. $\hat{\mathcal{c}} = \mathcal{c} +\Delta \mathcal{c}$) we introduce an inverse $- : \mathcal{C} \rightarrow \mathcal{C}$ such that $\mathcal{c} + ( - \mathcal{c}) = 0 \forall \mathcal{c} \in \mathcal{C}$. Such inverse may introduce objects that do not properly represent a physical state, but a state change. A change of a physically distinguishable object is itself physically distinguishable therefore is physically well defined. We'll still call $\mathcal{C}$ the state space committing an abuse of terminology.
 \end{justification}
 
+TODO: should we note already that the state space is a Lie group?
+
 \subsection{Classical homogeneous systems}
 We also want to be able to express the state of the composite system in terms of the state of the parts. For example, given the state of a fluid we'll want to know how its parts are distributed. This in general will depend on how much the state of the composite system "knows" about its parts. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. Therefore we need to characterize the system further.
 
@@ -285,15 +289,25 @@ We now claim that the state space $\mathcal{C}$ is a vector space over $\mathbbm
 Consider now the injection map $\mathcal{e}: \mathcal{S} \hookrightarrow \mathcal{C}$ that for each particle state returns a composite state constituted only by a predetermined amount of particles in such state. The image of such injection is a basis for $\mathcal{C}$. We first claim that all elements are linearly independent. Consider $\sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This corresponds to a physical state with $a_i$ particles in each state $\mathcal{s}_i$. This is equal to the empty state if and only if $a_i=0 \forall i$. This holds even if $\mathcal{S}$ is not finite. We now claim they span. Consider $\mathcal{c} + \sum\limits_{\mathcal{s}_i \in \mathcal{S}} a_i \mathcal{e}(\mathcal{s}_i)$, $a_i \in \mathbbm{R}$. This can always be made equal to the empty state by setting $a_i$ to be the opposite of the amount of particles of $\mathcal{c}$ that are in state $\mathcal{s}_i$.
 \end{justification}
 
+Need to define inner product. Introduce $Q:\mathcal{C} \to \mathbbm{R}$ amount of "stuff" of the system. $Q:\mathcal{S}\times\mathcal{C} \to \mathbbm{R}$ amount of stuff of the composite system in that particular state. We can use those those to construct inner product, and to show that states are bounded, but: norm induced by the inner product is not physical.
+
+\begin{defn}\label{classical_inner_product}
+	TODO: there exist an inner product.
+\end{defn}
+
+\begin{justification}
+	TODO
+\end{justification}
+
 Show countable basis. $\mathcal{c}= \sum\limits_{\mathcal{s} \in \mathcal{S}} a(\mathcal{s}) \mathcal{e}(\mathcal{s})=\sum\limits_{q \in \mathbbm{Q}} a(q) \mathcal{e}(q)$
 
 % Continuous state variable: Q is measured at constant t
 
 Uncountable basis does not work. $\mathcal{c}= \int\limits_{q \in \mathbbm{Q}} \rho(q) \mathcal{e}(q)dq$ but $\rho(q')=|\partial _{q}q'|\rho(q)\neq\rho(q)$
 
-% TODO: need to understand a valid notation for composite state as infinite sum. The densities is the coefficient, the basis are are states, what is the differential?
+TODO: need to understand a valid notation for composite state as infinite sum. The densities is the coefficient, the basis are are states, what is the differential?
 
-Find smallest object that can have an invariant density. $\mathcal{c}= \int\limits_{T^*\mathbbm{Q}} \rho(q,k) \mathcal{e}(q,k)dq\wedge dk$
+Find smallest object that can have an invariant density (inner product). $\mathcal{c}= \int\limits_{T^*\mathbbm{Q}} \rho(q,k) \mathcal{e}(q,k)dq\wedge dk$
 
 \begin{defn}\label{classical_phase_space}
 The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a cotangent bundle $T^*\mathbbm{Q}$.
@@ -302,6 +316,8 @@ The state space $\mathcal{S}$ for the particles of a homogeneous classical  syst
 \begin{justification}
 	TODO
 \end{justification}
+
+TODO: generalization of inner product gives us $\int \rho_1(q, p) \rho_2(q, p) dq\wedge wp$. Space of continuous functions is not a complete metric space. Extend to square integrable. Get a Hilbert space. But topology is not a second countable: more than aleph 1. No physical justification, in fact we introduce unphysical functions (i.e. 0 rational, 1 irrational). Discontinuous functions not physical states: they are not distinguishable.
 
 Density allows to count particle states. Example: two uniform distribution for the same amount of particles.
 
