@@ -174,19 +174,50 @@ We claim $f$ is an open map. Let $U \subseteq \mathcal{S}$ represent an outcome 
 
 \subsection{Labeling states}
 
-To identify and name states we will use a set of quantities, typically numbers. For example, the orbital of an electron in a hydrogen item is identified by the quantum numbers $n$, $l$, $m$ and $s$. We call each of these quantities \emph{state variable} and \emph{state vector} a set of state variables that can identify one and only one state. We avoid the term coordinates, even though that's what they mathematically are, as it will create confusion with space coordinates. We also avoid the term observable or measurable, as not all state variables map directly to the outcome of an experiment (e.g. conjugate momentum as it is not gauge invariant). It's clear, though, that even in those cases there must exist, at least in principle, a way to distinguish between the possible values of the state variable (e.g once we fix the vector potential, conjugate momentum can be measured via the kinetic momentum). Therefore we can assume that all state variables are in the end physically distinguishable, yet we do not assume all state variables have equal standing in physical meaning. Conversely, some measurable quantities are not directly state variables: they may not be defined, as states are, at constant time (e.g. velocity) or may depend on the process at hand (e.g. acceleration). Yet, once a process is fully defined (e.g. a Hamiltonian is given), we may have a relationship between those observables and state variables. The purpose of state variables is just to label states, which are physically distinguishable and defined at a particular time. Therefore the state variable will be physically distinguishable and defined at constant time. But there is nothing telling us that they must be directly physically meaningful or that their relationship to measurable quantities is the same if we change physical processes.
+To identify and name states we will use a set of quantities, typically numbers. For example, the orbital of an electron in a hydrogen item is identified by the quantum numbers $n$, $l$, $m$ and $s$. We call each of these quantities \emph{state variables} and \emph{state vector} a set of state variables that can identify one and only one state. We call a \emph{possibility} a possible value that can be taken by a state variable. We call a state variable \emph{discrete} or \emph{continuous} if the possibilities are integer or real numbers respectively.
 
-TODO: maybe best to define state vector directly, and state variables as part of state vector? Define discrete state variable when co-domain is integers and define continuous state variable when co-domain is real? Can we prove a state vector always exists, of real variables? For discrete topology, we should always be able to do it. In general, state vector defines charts, so we should not have a single chart for the whole state space. What does it mean physically? Does it matter?
+We purposely use the term state variables instead of coordinates (even though that's what they are mathematically) as it will create confusion with space-time coordinates. We also avoid the term observable or measurable, as not all state variables may be directly physically meaningful (e.g. conjugate momentum in a gauge theory). The only requirements for state variables is that they identify states. This means the possible values for state variables are physically distinguishable and are defined at equal time (since states are defined and mapped at a particular time). \footnote{This is the main reason that a quantity like velocity is not a suitable state variable, as it is  defined over an interval of time. Therefore velocity is always physically meaningful but is not a state variable in general, while conjugate momentum is always a state variable but is physically meaningful in general. As we'll see later, only once a link is established between them they can both be physically meaningful state variables.}
 
 \begin{defn}\label{state_variable}
-Let $\mathbbm{I}$ be a set. We call $q : \mathcal{S} \rightarrow \mathbbm{I}$ a \emph{state variable} and a \emph{possible value} (or \emph{possibility}) of $q$ an element $i \in \mathbbm{I}$. Also $\mathcal{s}_1 \neq \mathcal{s}_2 \Leftrightarrow \exists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1)\neq q(\mathcal{s}_2) \forall \mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$.
+	A \emph{state variable} is a homeomphism $q : U \rightarrow \mathbbm{L}$ where $U \subseteq \mathcal{S}$ and $\mathbbm{L}$ is the topological space for the possible values. If $\mathbbm{L}\cong \mathbbm{Z}$ the variable is said \emph{discrete}. If $\mathbbm{L}\cong \mathbbm{R}$ the variable is said \emph{continuous}.
+	%We also have $\mathcal{s}_1 \neq \mathcal{s}_2 \Leftrightarrow \exists q : U \rightarrow \mathbbm{L} | q(\mathcal{s}_1)\neq q(\mathcal{s}_2) \forall \mathcal{s}_1, \mathcal{s}_2 \in U$.
 \end{defn}
 
 \begin{justification}
-Consider a physical process that can distinguish between different initial conditions. Let $\mathbbm{I}$ be the set of all possible outcomes. To each possible state $\mathcal{s}$ will correspond one and only one outcome. Let $q : \mathcal{S} \rightarrow \mathbbm{I}$ be the map between state and outcome. Such object is physically well defined.
+	We claim $\mathbbm{L}$ is a topological space. The collection of all possible values form a set. Such set is physically distinguishable. The physical outcomes induce a Hausdorff and second countable topology, as for \ref{statedef}.
+	
+	We claim $q$ is a homeomorphism. Elements of $\mathcal{S}$ and $\mathbbm{L}$ are both physically distinguishable therefore a map between them is well defined. Let $V \subseteq U$ the set of states associated with a physical outcome. $V$ is an open set in the state topology. Given the map $q$ an outcome on states can be used to distinguish possibilities of the state variables. The same outcome is associated with $g(V)$. $g(V)$ is an open set in the topology of possible values.
 
-Let $\mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$. Suppose $\mathcal{s}_1 \neq \mathcal{s}_2$. $\mathcal{s}_1$ and $\mathcal{s}_2$ are physically distinguishable. There exists a physical process with different outcomes. Let $q : \mathcal{S} \rightarrow \mathbbm{I}$ be the state variable associated to that process. Then $q(\mathcal{s}_1)\neq q(\mathcal{s}_2)$. Now suppose $\nexists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1) \neq q(\mathcal{s}_2)$. Then no process can distinguish between the two, they are physically indistinguishable therefore $\mathcal{s}_1 = \mathcal{s}_2$.
+	%Let $\mathcal{s}_1, \mathcal{s}_2 \in \mathcal{S}$. Suppose $\mathcal{s}_1 \neq \mathcal{s}_2$. $\mathcal{s}_1$ and $\mathcal{s}_2$ are physically distinguishable. There exists a physical process with different outcomes. Let $q : \mathcal{S} \rightarrow \mathbbm{I}$ be the state variable associated to that process. Then $q(\mathcal{s}_1)\neq q(\mathcal{s}_2)$. Now suppose $\nexists q : \mathcal{S} \rightarrow \mathbbm{I} | q(\mathcal{s}_1) \neq q(\mathcal{s}_2)$. Then no process can distinguish between the two, they are physically indistinguishable therefore $\mathcal{s}_1 = \mathcal{s}_2$.
 \end{justification}
+
+When assembling multiple state variables into a state vector, it is important to understand how they relate to each other. Consider the orbital of an electron in a hydrogen item, which is identified by the quantum numbers $n$, $l$, $m$ and $s$. For each combination of $n$, $l$ and $m$, the spin $s$ can have two values. The choice of spin is independent from the rest. The choice of $l$, though, depends on the choice of $n$: for $n=1$ only $l=s$ is available; for $n=2$ we can choose $l=s$ or $l=p$. The choices are not independent. That is: two or more variables are independent if there always exists a state for any possible combination, if the total number of states is the cartesian product of the possibilities of each variable.
+
+\begin{defn}\label{independent_state_variables}
+	Two state variables $q_1 : U \rightarrow \mathbbm{L}_1$ and $q_2 : U \rightarrow \mathbbm{L}_2$ are said \emph{independent} if $\exists \mathcal{s} | q_1(\mathcal{s})=l_1, q_2(\mathcal{s})=l_2 \forall l_1 \in q_1(U), l_2 \in q_2(U)$.
+\end{defn}
+
+\begin{justification}
+	TODO What is there to justify?
+\end{justification}
+
+In general, the entire state space may not be identified by a predetermined set of independent state variables. Consider the state of a pool table, determined by the number of balls together with position and momentum of the center of mass: the number of state variables is not fixed as it depends on the number of balls. But deterministic and reversible evolution cannot take us from a different number of continuous independent state variables (i.e. there is no homeomorphism between $\mathbbm{R}^n$ and $\mathbbm{R}^m$). That is the number of balls cannot change under deterministic and reversible evolution. Therefore we can restrict ourselves to the case where the number of continuous independent state variables is constant without loss of generality. This means that, at least locally, the state space is always homeomorphic to $\mathbbm{R}^n$, and is therefore a manifold.
+
+The discrete variable do not present such problems, as any number of them can be flattened out in a single one (i.e. $\mathbbm{Z}^n$ is homeomorphic to $\mathbbm{Z}$). They will determine the number of connected components of the manifold. Once we introduce a continuous parameter for time evolution, though, these also become irrelevant as continuous time evolution cannot move states across disconnected components.
+
+\begin{defn}\label{continuous_state_space}
+	The space state $\mathcal{Q}$ for a system fully identified by a set of $n$ independent continuous state variables is a manifold of dimension $n$.
+\end{defn}
+
+\begin{justification}
+	TODO: set of state variables locally define a chart, isomorphic to $\mathbbm{R}$.
+\end{justification}
+
+
+
+
+TODO: maybe best to define state vector directly, and state variables as part of state vector? Define discrete state variable when co-domain is integers and define continuous state variable when co-domain is real? Can we prove a state vector always exists, of real variables? For discrete topology, we should always be able to do it. In general, state vector defines charts, so we should not have a single chart for the whole state space. What does it mean physically? Does it matter?
+
 
 TODO: Still not clear what's the best way to introduce things. We do want to show that state variable are maps from states to "labels". We want to call discrete variables those that map to integer and continuous variables those that map to real numbers. Then we want to concentrate on state space that can be described by a finite number of either discrete variables or continuous variables. State vector may not be valid in general: e.g. we can't assume we have a single chart for the whole space. 
 
@@ -213,19 +244,11 @@ TODO: Define evolved and transported variables in terms of pushback/pushforward
 TODO: prove existence
 \end{justification}
 
-When assembling multiple state variables into a state vector, it is important to understand how they relate to each other. Consider the orbital of an electron in a hydrogen item, which is identified by the quantum numbers $n$, $l$, $m$ and $s$. For each combination of $n$, $l$ and $m$, the spin $s$ can have two values. The choice of spin is independent from the rest. The choice of $l$, though, depends on the choice of $n$: for $n=1$ only $l=s$ is available; for $n=2$ we can choose $l=s$ or $l=p$. The choices are not independent. That is: two or more variables are independent if there always exists a state for any possible combination, if the total number of states is the cartesian product of the possibilities of each variable.
 
 For discrete state variables, the total number of states is the product of the possibilities of each independent state variable. That is: if $\Delta q^1$ and $\Delta q^2$ are range of possibilities for two independent variables, the total number of possibilities $\#(\Delta q^1) \#(\Delta q^2)$. These relationships are maintained during evolution by the transported variables. Since the value remains unchanged, the range of possibilities for each value remain the same: $\#(\Delta \hat{q}^i) = \#(\Delta q^i)$. The variables remain independent as well, all possible combination remain, and we have: $\#(\Delta \hat{q}^1) \#(\Delta \hat{q}^2) = \#(\Delta q^1) \#(\Delta q^2)$. These relationship will later be extended in the continuous case to independent degrees of freedom for a Hamiltonian system, and will justify the symplectic form. Though this can't be done in general and requires further assumptions.
 
 In the case of continuous state, if each state can be identified by n independent state variables then, at least locally, we can chart the state space on $\mathcal{R}$: the state space is a manifold. Studying in general how ranges of possibilities evolve, though, becomes problematic. Time evolution will map points, while range of continuous possibilities will be length. We would need a metric, invariant during the evolution, telling us how ranges of possibilities map from one variable to another, possibly describing different physical quantities. We will not study this case, but we do note that, if such a metric exist, it depends on the system and on the choice of state variables.
 
-\begin{defn}\label{independent_state_variables}
-Let $q_1 : \mathcal{S} \rightarrow \mathbbm{I}_1$ and $q_2 : \mathcal{S} \rightarrow \mathbbm{I}_2$ be two state variables. They are said \emph{independent} if $q_1^{-1}(i_1)\cap q_2^{-1}(i_2) \neq 0 \forall i_1 \in \mathbbm{I}_1, i_2 \in \mathbbm{I}_2$.
-\end{defn}
-
-\begin{justification}
-If $q_1$ are $q_2$ independent state variables we can modify a state such that only one variable is affected. TODO finish
-\end{justification}
 
 \begin{prop}\label{discrete_state_space}
 The space state $\mathcal{S}$ for a system fully identified by a set of $n$ independent discrete state variables $q^i : \mathcal{S} \rightarrow \mathbbm{I}^i$ is isomorphic to $\prod\limits_{i=1}^n\mathbbm{I}^i$. Let $I^i \subseteq \mathbbm{I}^i$ be finite sets of possibilities for each variable. $\#(\bigcap\limits_{i=1}^{n}{q^i}^{-1}(I^i))=\prod\limits_{i=1}^{n}\#(I^i)$.
@@ -236,14 +259,6 @@ TODO
 \end{proof}
 
 TODO: in continuous, not necessarily the Cartesian product. But we can always create a chart with state variables. State space is a manifold of dimension n. In principle, we could say more. For example, a deterministic/reversible map would not map a set to its subset or superset. We could define a metric, this would give us an ergotic system. Not going to do that.
-
-\begin{defn}\label{continuous_state_space}
-The space state $\mathcal{Q}$ for a system fully identified by a set of $n$ independent continuous state variables is a manifold of dimension $n$.
-\end{defn}
-
-\begin{justification}
-TODO: set of state variables locally define a chart, isomorphic to $\mathbbm{R}$.
-\end{justification}
 
 We have seen that physical systems undergoing deterministic and reversible evolution are properly described by a dynamical system. Systems described by a discrete set of states have nice properties for counting possibilities of independent variables, which are maintained during the evolution. System described by a continuous set of states, instead, do not posses in general such properties.
 
