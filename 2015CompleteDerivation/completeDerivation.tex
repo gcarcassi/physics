@@ -236,15 +236,16 @@ When assembling multiple state variables into a state vector, it is important to
 
 In general, the entire state space may not be identified by a predetermined set of independent state variables. Consider the state of a pool table, determined by the number of balls together with position and momentum of the center of mass: the number of state variables is not fixed as it depends on the number of balls. But deterministic and reversible evolution cannot take us from a different number of continuous independent state variables (i.e. there is no homeomorphism between $\mathbbm{R}^n$ and $\mathbbm{R}^m$). That is the number of balls cannot change under deterministic and reversible evolution. Therefore we can restrict ourselves to the case where the number of continuous independent state variables is constant without loss of generality. This means that, at least locally, the state space is always homeomorphic to $\mathbbm{R}^n$, and is therefore a manifold.
 
-The discrete variable do not present such problems, as any number of them can be flattened out in a single one (i.e. $\mathbbm{Z}^n$ is homeomorphic to $\mathbbm{Z}$). They will determine the number of connected components of the manifold. Once we introduce a continuous parameter for time evolution, though, these also become irrelevant as continuous time evolution cannot move states across disconnected components.
+The discrete variable do not present such problems, as any number of them can be flattened out in a single one (i.e. $\mathbbm{Z}^n$ is homeomorphic to $\mathbbm{Z}$). They will determine the number of connected components of the manifold. Once we introduce a continuous parameter for time evolution, though, these also become irrelevant as continuous time evolution requires continuous trajectories that cannot move states across disconnected components. This justifies the special interest in path connected manifolds, as these where trajectories for deterministic and reversible continuous evolution live.
 
-\begin{defn}\label{continuous_state_space}
-	The space state $\mathcal{Q}$ for a system fully identified by a set of $n$ independent continuous state variables is a manifold of dimension $n$.
-\end{defn}
+\begin{prop}\label{continuous_state_space}
+	Let $\mathcal{s} \in \mathcal{S}$ a state within a state space. The set of states $\mathcal{S}'\subseteq\mathcal{S}$ potentially reachable from $\mathcal{s}$ by deterministic and reversible continuous evolution is a path connected manifold of dimension equal to the number of independent continuous state variables necessary to identify it.
+\end{prop}
 
-\begin{justification}
-	TODO: set of state variables locally define a chart, isomorphic to $\mathbbm{R}$.
-\end{justification}
+\begin{proof}
+	We claim $\mathcal{S}'$ is a manifold. Let $\mathcal{s} \in \mathcal{S}$. Let $n$ be the number of independent continuous variables needed to identify $\mathcal{s}$. There exists a neighborhood $U$ around $\mathcal{s}$ where we have $(q_1,...,q_n):U\rightarrow \mathbbm{R}^n$. This map is a bijection as $s$ is identified by those variables. $\mathcal{S}$ is homeomorphic to $\mathbbm{R}^n$ around  $\mathcal{s}$. Let $\mathcal{S}'$ be the set of all states potentially reachable by deterministic and reversible evolution from $\mathcal{s}$. Deterministic and reversible evolution is a homeomorphism between initial and final states. $\forall \hat{\mathcal{s}} \in \mathcal{S}'$ the evolution of $U$ will contain $\mathcal{s}$ and will be isomorphic to $\mathbbm{R}^n$. $\mathcal{S}'$ equipped with the subspace topology is a Hausdorff, second countable topological space everywhere homeomorphic to $\mathbbm{R}^n$. $\mathcal{S}'$ is a manifold of dimension $n$.
+	TODO: proof path-connectedness
+\end{proof}
 
 
 
