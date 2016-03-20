@@ -178,7 +178,7 @@ Note that the arguments that lead to the topological space had nothing to do wit
 	Same justification as in \ref{statedef} with "state" replaced by "element" of the set $\mathcal{S}$.
 \end{justification}
 
-With our state space defined, deterministic and reversible evolution corresponds to a bijective map between initial and final states. Moreover, a physical process that can distinguish initial states is also a physical process that can distinguish final states. That is: the topology is mapped and preserved by the deterministic and reversible evolution (i.e. initial and final states are equally distinguishable). The evolution is then a self-homeomorphism on the state space.
+With our state space defined, deterministic and reversible evolution corresponds to a bijective map between initial and final states. Moreover, a physical process that can distinguish final states is also a physical process that can distinguish initial states. That is: the topology is mapped and preserved by the deterministic and reversible evolution (i.e. initial and final states are equally distinguishable). The evolution is then a self-homeomorphism on the state space.
 
 \begin{defn}\label{detrevmap}
 A deterministic and reversible evolution map is a self-homeomorphism on the state space $f:\mathcal{S} \rightarrow \mathcal{S}$.
@@ -187,21 +187,24 @@ A deterministic and reversible evolution map is a self-homeomorphism on the stat
 \begin{justification}
 We claim that $f$ exists. The system is deterministic: given an initial state $\mathcal{s} \in \mathcal{S}$ there exists a well defined final state $f(\mathcal{s})=\hat{\mathcal{s}} \in \mathcal{S}$.
 
+We claim $f$ is continuous. Let $U \subseteq \mathcal{S}$ represent an outcome of a process $P$ on the final states. $U$ is an open set in the (final) state space topology by definition. Consider the process $P_0$ that evolves the initial states and then distinguishes the final state with $P$. $P_0$ is a process that distinguishes initial states. The set of initial states compatible with $U$ are $f^{-1}(U)$. $f^{-1}(U)$ is an open set in the (initial) state space topology by definition. $f$ is a continuous map.
+
 We claim that $f$ is a bijection. The system is reversible: there exists a map $g:\mathcal{S} \rightarrow \mathcal{S}$ that returns the initial state given the final state. $g \circ f = f \circ g = id$ as mapping forward and then backward or backwards and then forward must return the original element. $f$ admits $g$ as an inverse. $f$ is a bijection
 
-We claim $f$ is an open map. Let $U \subseteq \mathcal{S}$ represent an outcome of a process. $U$ is an open set in the state space topology by definition. Given the deterministic and reversible evolution $f$, an outcome on the initial states can be used to distinguish final states. The same outcome associated with $U$ as initial states will also be associated with $f(U)$ as final states. $f(U)$ is associated with an outcome. $f(U)$ is an open set in the state space topology by definition.
+We claim that $f$ is a self-homeomorphism as it is a continuous bijection.
 \end{justification}
 
-Again, we note that the arguments that lead to an open map had nothing to do with states per se, just that the relationship is between physically distinguishable objects. We can then generalize the above justification.
+Again, we note that the arguments that lead to the existence of a continuous map had nothing to do with states per se, just that the relationship is between physically distinguishable objects. We can then generalize the above justification.
 
 \begin{defn}\label{openmap}
-	A map $f:\mathcal{S_1} \rightarrow \mathcal{S_2}$ between two sets of physically distinguishable elements $\mathcal{S_1}$ and $\mathcal{S_2}$ is an open map.
+	A map $f:\mathcal{S_1} \rightarrow \mathcal{S_2}$ between two sets of physically distinguishable elements $\mathcal{S_1}$ and $\mathcal{S_2}$ is a continuous map.
 \end{defn}
 
 \begin{justification}
-	Same justification as in \ref{detrevmap} with "initial states" and "final states" replaced by "elements" of $\mathcal{S_1}$ and $\mathcal{S_2}$ respectively.
+	Same justification for existence and continuity as in \ref{detrevmap} with "initial states" and "final states" replaced by "elements" of $\mathcal{S_1}$ and $\mathcal{S_2}$ respectively.
 \end{justification}
 
+The generality of this result explains why in physics one always assumes functions to be well behaved. This is not a matter of practical convenience or usefulness, but it's because continuous functions represent actual physically distinguishable objects.
 
 %TODO: do continuous function form a manifold Hausdorf and second countable?
 
