@@ -283,7 +283,7 @@ Given that scientific reductionism (i.e. the idea of reducing physical systems a
 \subsection{Homogeneous decomposable systems}
 The notion that a system is decomposable means the states is equipped with a rule of composition that allows to write $\mathcal{c}=\mathcal{c}_1+\mathcal{c}_2$: the composite system is the sum of its part. For example, the state of a ball is equal to the state of its left and right parts.
 
-The notion that the system is homogeneous means that the states of the composite and of the parts are not unrelated: they are made of the same material.\footnote{Whether a system is homogeneous depends on context (e.g. air can be thought as homogeneous if the mixture of gases does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is maintained by by time evolution.} In fact, the state space $\mathcal{C}$ of all systems composed of such material will the state of the system as well as the states of all its part (i.e $\mathcal{c}, \mathcal{c}_1, \mathcal{c}_2 \in \mathcal{C}$). Since combining any two systems made of a homogeneous material will always give us a system made of the same homogeneous material (e.g. combining elements made of water gives us another element made of water), the state space $\mathcal{C}$ is closed under composition.
+The notion that the system is homogeneous means that the states of the composite and of the parts are not unrelated: they are made of the same material.\footnote{Whether a system is homogeneous depends on context (e.g. air can be thought as homogeneous if the mixture of gases does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is maintained by time evolution.} In fact, the state space $\mathcal{C}$ of all systems composed of such material will include the state of the system as well as the states of all its part (i.e $\mathcal{c}, \mathcal{c}_1, \mathcal{c}_2 \in \mathcal{C}$). Since combining any two systems made of a homogeneous material will always give us a system made of the same homogeneous material (e.g. combining elements made of water gives us another element made of water), the state space $\mathcal{C}$ is closed under composition.
 
 As we study the system under evolution, we'll also want to study state changes. For example, if a stable mixture of gas expands, we'll want to know the difference between the initial and final distributions. That is: $\Delta\mathcal{c}=\hat{\mathcal{c}}-\mathcal{c}$. Note that such state difference may not describe a physical state: it may remove some material from one location to add it somewhere else. Yet, these state changes are still physically distinguishable objects that provide a configuration for the same homogeneous material, therefore we extend the state space $\mathcal{C}$ to include state differences. All combined, this gives us the structure of an abelian group.
 
@@ -298,71 +298,49 @@ We claim $\mathcal{C}$ is an additive group. As we want to describe changes duri
 \end{justification}
 
 \subsection{Classical homogeneous systems}
-We also want to be able to express the state of the composite system in terms of the state of the parts. For example, given the state of a fluid we'll want to know how its parts are distributed. This in general will depend on how much the state of the composite system "knows" about its parts. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. Therefore we need to characterize the system further.
+We also want to be able to express the state of the composite system in terms of the state of the parts. For example, given the state of a fluid we'll want to know how the material is distributed in space. This in general will depend on how much the state of the composite system "knows" about its parts. For example, the position and orientation of an ideal rigid body is enough to define where all its constituents are, while the volume/pressure/temperature of an ideal gas is not enough to determine the position and momentum of all its molecules. Therefore we need to characterize the system further.
 
-We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system is equivalent to the sum of the states of the parts. Given the state space $\mathcal{S}$ for the infinitesimal parts, a composite state $\mathcal{c}$ will tell us the amount of material for each possible particle state. That is, each state is fully identified by a function $a: \mathcal{S} \to \mathbbm{R}$ that returns the amount of material in the composite state $\mathcal{c}$ that is prepared in state $\mathcal{s}$. For example, given a certain configuration of gas, we can tell the amount that is at a specific point in space with a specific value of momentum. The notion that the parts are infinitesimal requires the co-domain of $a$ to be continuous, as opposed to discrete. The state space $\mathcal{S}$, instead, can be finite. For example, for a system composed of different tanks connected by pipes, the state of the composite system could be the overall distribution of water among the tanks. The amount in each tank is continuous (as we assume the water to be infinitesimally divisible) yet there are only a finite number of tanks the water can be placed into.
+We will call a classical system one that is infinitesimally reducible. That is: it is made of arbitrarily small parts, which we call particles, and the state of the whole system coincides with the sum of the states of the parts. Given the state space $\mathcal{S}$ for the infinitesimal parts, a composite state $\mathcal{c}$ will tell us the amount of material for each possible particle state. That is, each state is fully identified by a function $\rho: \mathcal{S} \to \mathbbm{R}$ that returns the amount of material in the composite state $\mathcal{c}$ that is prepared in the particle state $\mathcal{s}$. For example, given a certain configuration of gas, we can tell the amount of material that is at a specific point in space with a specific value of momentum.
 
-As we combine the state of finite parts, we sum the distributions over particle states $a(\mathcal{s})=a_1(\mathcal{s})+a_2(\mathcal{s})$: the amount of material in the composite state is the sum of the amount of material of the parts. This gives us the structure of a real vector space.
+The notion that the parts are infinitesimal requires the co-domain of $\rho$ to be continuous, as opposed to discrete. The state space $\mathcal{S}$, instead, can be finite. For example, for a system composed of different tanks connected by pipes, the state of the composite system could be the overall distribution of water among the tanks. The amount in each tank is continuous (as we assume the water to be infinitesimally divisible) yet there are only a finite number of tanks the water can be placed into. As it links two physically distinguishable objects, $\rho$ is a continuous functions for reasoned discussed before.
+
+As we combine the state of finite parts, we sum the distributions over particle states $\rho(\mathcal{s})=\rho_1(\mathcal{s})+\rho_2(\mathcal{s})$: the amount of material in the composite state is the sum of the amount of material of the parts. We can also increase or decrease the amount of material by a constant factor $\rho_1(\mathcal{s})=a\rho_2(\mathcal{s})$. This gives us the structure of a real vector space that is isomorphic to the space of continuous functions.
 
 \begin{defn}\label{classical_vector space}
-The state space $\mathcal{C}$ for a homogeneous classical (i.e. infinitesimally reducible) material is a vector space over $\mathbbm{R}$. It admits a basis isomorphic to the state space $\mathcal{S}$ of its particles (i.e. infinitesimal parts).
+The state space $\mathcal{C}$ for a homogeneous classical (i.e. infinitesimally reducible) material is a vector space over $\mathbbm{R}$ isomorphic to a subspace of $C(\mathcal{S}) = \{\rho:\mathcal{S} \rightarrow \mathbbm{R} | \rho$ is continuous $\}$, where $\mathcal{S}$ is the state space of an infinitesimal amount of material.
 \end{defn}
 
 \begin{justification}
-The state space is an abelian group as the material is homogeneous and decomposable and \ref{reducible_state_space}.
+We claim $\mathcal{C}$ is an abelian group. $\mathcal{C}$ is a decomposable homogeneous system. $\mathcal{C}$ is an abelian group  by \ref{reducible_state_space}.
 
-We now consider the set of transformations $T$ that increase or decrease the amount of material in the system by a constant. We claim $T$ is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics sense (a physical quantity with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $\tau: \mathbbm{R} \rightarrow T$ the mapping between a number and the transformation that increases or decreases the amount of material by that number. This transformation exists: the system is infinitesimally decomposable and the amount can be changed continuously. Define on $T$ an addition $+: T \times T \rightarrow T$ and a multiplication $*: T \times T \rightarrow T$ such that $\tau(a) + \tau(b) = \tau(a+b)$ and $\tau(a) * \tau(b) = \tau(a*b)$, $a,b \in \mathbbm{R}$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $\tau$ is an isomorphism between $T$ and $\mathbbm{R}$ as fields.
+Consider the set of transformations $T$ that increase or decrease the amount of material in the system by a constant. We claim $T$ is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics or differential geometry sense (a physical quantity/tensor with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $\tau: \mathbbm{R} \rightarrow T$ the mapping between a number and the transformation that increases or decreases the amount of material by that number. This transformation exists: the system is infinitesimally decomposable and the amount can be changed continuously. Define on $T$ an addition $+: T \times T \rightarrow T$ and a multiplication $*: T \times T \rightarrow T$ such that $\tau(a) + \tau(b) = \tau(a+b)$ and $\tau(a) * \tau(b) = \tau(a*b)$, $a,b \in \mathbbm{R}$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $\tau$ is an isomorphism between $T$ and $\mathbbm{R}$ as fields.
 
-We now claim that the state space $\mathcal{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathcal{C}$ can be extended with the operations defined by $T$, as each element $\tau \in T$ is a map $\tau : \mathcal{C} \rightarrow \mathcal{C}$. The map has the following properties: $(\tau_1 + \tau_2) \mathcal{c} = \tau_1 \mathcal{c} + \tau_2 \mathcal{c}$, increasing the amount of material by the sum of two constant is the same as combining the separate increases, and $\tau (\mathcal{c}_1 + \mathcal{c}_2) = \tau \mathcal{c}_1 + a \mathcal{c}_2$, increasing the amount of the total system is the same as the combination of the increased parts. $\mathcal{C}$ is a module over $T$, which is a field and isomorphic to $\mathbbm{R}$. $\mathcal{C}$ is (isomorphic to) a real vector space.
+We claim $\mathcal{C}$ is a vector space over $\mathbbm{R}$. The abelian group $\mathcal{C}$ can be extended with the operations defined by $T$, as each element $\tau \in T$ is a map $\tau : \mathcal{C} \rightarrow \mathcal{C}$. The map has the following properties: $(\tau_1 + \tau_2) \mathcal{c} = \tau_1 \mathcal{c} + \tau_2 \mathcal{c}$, increasing the amount of material by the sum of two constant is the same as combining the separate increases, and $\tau (\mathcal{c}_1 + \mathcal{c}_2) = \tau \mathcal{c}_1 + \tau \mathcal{c}_2$, increasing the amount of the total system is the same as the combination of the increased parts. $\mathcal{C}$ is a module over $T$, which is a field and isomorphic to $\mathbbm{R}$. $\mathcal{C}$ is (isomorphic to) a real vector space.
 
-Consider now the injection map $\mathcal{e}: \mathcal{S} \hookrightarrow \mathcal{C}$ that for each particle state returns a composite state constituted only by a predetermined unit amount of material in such state. The image of such injection is a basis for $\mathcal{C}$. We first claim that all elements are linearly independent. Consider $\sum\limits_{\mathcal{s} \in \mathcal{S}} \tau(a(\mathcal{s})) \mathcal{e}(\mathcal{s})$, $a: \mathcal{S} \to \mathbbm{R}$. This corresponds to a physical state with $a(\mathcal{s})$ material in each state $\mathcal{s}$. This is equal to the empty state if and only if $a(\mathcal{s})=0 \forall \mathcal{s} \in \mathcal{S}$. We now claim they span. Consider $\mathcal{c} + \sum\limits_{\mathcal{s} \in \mathcal{S}} \tau(a(\mathcal{s})) \mathcal{e}(\mathcal{s})$. This can always be made equal to the empty state by setting $a(\mathcal{s})$ to be the opposite of the amount of material of $\mathcal{c}$ found in state $\mathcal{s}$. Both arguments hold even if $\mathcal{S}$ is an infinite or uncountable set, as they hold for each finite subset of $\mathcal{S}$ independently and therefore $\mathcal{C}=\prod\limits_{\mathcal{s} \in \mathcal{S}} span({\mathcal{e}(\mathcal{s})})$.
+We claim $\mathcal{C}$ is isomorphic to a subspace of $C(\mathcal{S})$ as a vector space over $\mathbbm{R}$. Let $\rho:\mathcal{S} \rightarrow \mathbbm{R}$ be a map returning the amount of material for each state $\mathcal{s} \in \mathcal{S}$. $\rho \in C(\mathcal{S})$ by \ref{continuous_map}. Let $G \subset C(\mathcal{S})$ be the functions that correspond to physically meaningful configurations. To each $\mathcal{c} \in \mathcal{C}$ corresponds one and only one $\rho_\mathcal{c} \in G$ as the system is infinitesimally reducible. Let $\mathcal{c}=\mathcal{c}_1+\mathcal{c}_2$, then $\rho_\mathcal{c}=\rho_{\mathcal{c}_1}+\rho_{\mathcal{c}_2}$ as the amount of material of the composition of two states is the sum of the individual amounts. Let $\mathcal{c}_1=\tau(a)\mathcal{c}_2$, then $\rho_{\mathcal{c}_1}=a\rho_{\mathcal{c}_2}$ as $\tau(a)$ increases the amount of material by the factor $a$. $\mathcal{C}\cong G$ as vector spaces. $G$ is a subspace of $C(\mathcal{S})$.
+
 \end{justification}
 
-Need to define inner product. Introduce $Q:\mathcal{C} \to \mathbbm{R}$ amount of "stuff" of the system. $Q:\mathcal{S}\times\mathcal{C} \to \mathbbm{R}$ amount of stuff of the composite system in that particular state. We can use those those to construct inner product, and to show that states are bounded, but: norm induced by the inner product is not physical.
+Note that the isomorphism is to a subspace of continuous functions as we may have to exclude, for example, those that are not bounded or those that do not vanish at infinity. These may, in some cases, not represent physically meaningful system.
 
-\begin{defn}\label{classical_inner_product}
-	TODO: there exist an inner product.
-\end{defn}
+\subsection{Coordinate invariant densities}
 
-\begin{justification}
-	TODO
-\end{justification}
+Math: need linear functional from $\rho$ to total amount of material. For Riesz representation theorem, there can be only one. Density must be invariant under coordinate transformation. Density live on $T^*\mathbbm{Q}$. Must be able to define marginal distributions on submanifold. Metric is two form. Metric must be form invariant under coord transformation. Metric is canonical two form.
 
-Show countable basis. $\mathcal{c}= \sum\limits_{\mathcal{s} \in \mathcal{S}} a(\mathcal{s}) \mathcal{e}(\mathcal{s})=\sum\limits_{q \in \mathbbm{Q}} a(q) \mathcal{e}(q)$
+Physics, 1D, show that densities do not work on Q. Show they work on T*Q. Define degree of freedom. Independent degree of freedom are orthogonal. Area in each d.o.f. is number of possibilities. Total number of states is product of number of possibilities for independent d.o.f. Independent d.o.f. are orthogonal. Leads to omega metric. Density allows to count particle states. Example: two uniform distribution for the same amount of particles. 
 
-% Continuous state variable: Q is measured at constant t
-
-Uncountable basis does not work. $\mathcal{c}= \int\limits_{q \in \mathbbm{Q}} \rho(q) \mathcal{e}(q)dq$ but $\rho(q')=|\partial _{q}q'|\rho(q)\neq\rho(q)$
-
-TODO: need to understand a valid notation for composite state as infinite sum. The densities is the coefficient, the basis are are states, what is the differential?
-
-Find smallest object that can have an invariant density (inner product). $\mathcal{c}= \int\limits_{T^*\mathbbm{Q}} \rho(q,k) \mathcal{e}(q,k)dq\wedge dk$
+Also: we can search for omega looking from constraints. Must be linear. Must be skew-symmetric (applied to the same vector twice must be zero). Must be invariant by coord transformation.
 
 \begin{defn}\label{classical_phase_space}
-The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a cotangent bundle $T^*\mathbbm{Q}$.
+The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a cotangent bundle $T^*\mathbbm{Q}$ with symplectic metric $\omega$.
 \end{defn}
 
 \begin{justification}
 	TODO
 \end{justification}
 
-TODO: generalization of inner product gives us $\int \rho_1(q, p) \rho_2(q, p) dq\wedge wp$. Space of continuous functions is not a complete metric space. Extend to square integrable. Get a Hilbert space. But topology is not a second countable: more than aleph 1. No physical justification, in fact we introduce unphysical functions (i.e. 0 rational, 1 irrational). Discontinuous functions not physical states: they are not distinguishable.
 
-Density allows to count particle states. Example: two uniform distribution for the same amount of particles.
-
-Area in each d.o.f. is number of possibilities. Total number of states is product of number of possibilities for independent d.o.f. Independent d.o.f. are orthogonal. Leads to omega metric. As in discrete case, conserved during evolution.
-
-Also: we can search for omega looking from constraints. Must be linear. Must be skew-symmetric (applied to the same vector twice must be zero). Must be invariant by coord transformation. 
-
-\begin{defn}\label{symplectic_manifold}
-	The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a symplectic manifold with metric $\omega$, the canonical two-form.
-\end{defn}
-
-\begin{justification}
-	TODO
-\end{justification}
-
-\subsection{Classical hamiltonian assumption}
+\subsection{Classical Hamiltonian assumption}
 
 % Det/rev for infinitesimal part
 % Inconsistent: 1. X=AxB A'=F(A) B'=F(B) Isolated sub-systems. Does not work for measuring. 2. A'=F(A) B'=F(A,B) Ideal non-interfering measurement: deterministic but not reversible. 3. A'=F(A,B) B'=F(A,B) X det/rev whole, but A not deterministic itself. But if you consider X a sub-system of X and something else, you can make the same argument. Whole universe deterministic, but none of its parts. 4. A=As x Au ; B=Bs x Bu ; As' = F(As) Au=F(X) Bu=F(X) Bs = F(As, Au) ; more realistic picture. Still non-reversible (if As' = F(As), then nothing else can be F(As) and have bijective map).
