@@ -321,23 +321,68 @@ We claim $\mathcal{C}$ is isomorphic to a subspace of $C(\mathcal{S})$ as a vect
 
 \end{justification}
 
-Note that the isomorphism is to a subspace of continuous functions as we may have to exclude, for example, those that are not bounded or those that do not vanish at infinity. These may, in some cases, not represent physically meaningful system.
+Note that not all continuous functions correspond to physically meaningful states: we must make sure they describe a finite amount of material.
 
 \subsection{Coordinate invariant densities}
 
-Math: need linear functional from $\rho$ to total amount of material. For Riesz representation theorem, there can be only one. Density must be invariant under coordinate transformation. Density live on $T^*\mathbbm{Q}$. Must be able to define marginal distributions on submanifold. Metric is two form. Metric must be form invariant under coord transformation. Metric is canonical two form.
+For each classical composite state will also tell us the total amount of material, once we fixed unit (e.g. mole, kg, ...). That is, there will be a functional $\Lambda : \mathcal{C} \rightarrow \mathbbm{R}$ that tells us how much gas we have for a particular gas configuration. As we combine parts, the total amount of material will be the sum of their parts. As we increase or decrease by a constant factor the amount of material will increase or decrease by the same factor. That is: $\Lambda(a_1 \mathcal{c}_1 + a_2 \mathcal{c}_2) = a_1 \Lambda(\mathcal{c}_1) + a_2 \Lambda(\mathcal{c}_2)$. For a proper state, one that is not the difference of two states, we will expect a positive amount of material. So, if a density $\rho(\mathcal{S})$ is positive everywhere, then the total amount is also positive. This makes $\Lambda$ a positive linear functional.
 
-Physics, 1D, show that densities do not work on Q. Show they work on T*Q. Define degree of freedom. Independent degree of freedom are orthogonal. Area in each d.o.f. is number of possibilities. Total number of states is product of number of possibilities for independent d.o.f. Independent d.o.f. are orthogonal. Leads to omega metric. Density allows to count particle states. Example: two uniform distribution for the same amount of particles. 
+Being able to tell the total amount is not enough. Experimentally, what we do is measure the amount of material for a region of phase space. For example, the amount of gas within a particular region of space for a particular range of momentum. In general, given an outcome of our physical process (i.e. an open set in the topology for $\mathcal{S}$), each composite state should tell us the amount of material associated with it (i.e. contained in the open set of states). For each $U \subseteq \mathcal{S}$ we'll have a positive linear functional $\Lambda_U : \mathcal{C} \rightarrow \mathbbm{R}$ whose value is always bounded.
 
 Also: we can search for omega looking from constraints. Must be linear. Must be skew-symmetric (applied to the same vector twice must be zero). Must be invariant by coord transformation.
 
-\begin{defn}\label{classical_phase_space}
-The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a cotangent bundle $T^*\mathbbm{Q}$ with symplectic metric $\omega$.
+In mathematical terms, we can use the Riesz representation theorem for linear functionals to give $\mathcal{S}$ the structure of a measure space, with a suitable Borel $\sigma$-algebra and measure $\mu$.
+
+\begin{defn}\label{integration}
+	The state space $\mathcal{S}$ for the particles of a homogeneous classical material is endowed with a measure $\mu$. The state space $\mathcal{C}$ is isomorphic to the space of continuous functions that are integrable over any subset of $\mathcal{S}$. That is: $\mathcal{C} \cong C(\mathcal{S}) \cap  L^1_{ew}(\mathcal{S}, \mu)$ where $L^1_{ew}(\mathcal{S}, \mu) = \{ \rho : \mathcal{S} \rightarrow \mathbbm{R} \; | \; |\int_{U} \rho d\mu| < \infty \; \forall U \subseteq \mathcal{S}\}$.
 \end{defn}
 
 \begin{justification}
 	TODO
 \end{justification}
+
+Before we can properly identify $d\mu$, it turns out that we need to better characterize $\mathcal{S}$.
+
+On a state space with discrete topology and a single state variable we simply have $\Lambda_U (\mathcal{c}) : \sum \limits_{q=a}^b D(q)$. For one dimensional continuous states, we would simply expect $\Lambda_U (\mathcal{c}) : \int_a^b \rho (q) dq$. By a simple change of state variable, we see that this does not work: $\rho(q')= \rho(q) dq/dq'$. This would make $\rho$ not a function of just the state $\mathcal{s}$, but also of the state variables we are using. This is inconsistent with our previous definition. Moreover if the transformation is not differential, the density is not even well-defined. This tells us that $\mathcal{S}$ cannot be any manifold: it has to be one that allows coordinate independent densities.
+
+To do that $\mathcal{S}$ has to be, first of all, a differentiable manifold. This way, at least, the densities is well defined for all state variables.
+
+If $\rho$ is to remain unchanged when one state variable changes, then one or more other state variables have to change as well so that the Jacobian of the transformation is unitary. This means that we cannot change physical units to all the variables as we please: they are part of a unit system. For example, changing units of position will also change units of momentum. Let $\mathcal{Q}$ be the manifold charted by a the minimum set of state variables that define such system of units. An element of $\mathcal{S}$ will be a geometrical object in such space. As these are states for infinitesimal parts, it will be a local object in $\mathcal{Q}$. As we saw before, it cannot be a point as the density $\rho(q')= \rho(q) dq/dq'$ is not invariant. It cannot be a vector $v(q) e_q$, as the density $\rho(q', v')= \rho(q, v) (dq/dq')^2$ is not invariant. A covector $k(q) dq$ is fine as $\rho(q', k')= \rho(q, k) (dq/dq') (dq'/dq) = \rho(q, k)$. In other words: a covector is the simplest local geometrical object that allows coordinate independent densities. We can identify $\mathcal{S}$ as the cotangent bundle $T^*\mathcal{Q}$, the space of all possible covectors.
+
+If $\mathcal{Q}$ is one dimensional, then the state is fully identified by a pair $(q, k)$. $d\mu$ is proportional to $dq \wedge dk$. We set $d\mu = \hbar dq \wedge dk$, where $\hbar$ is the proportionality constant that will depend on the unit chosen to count the possibilities of the pair $(q, k)$. The cardinality for states in a finite (i.e. compact) region $U \subseteq \mathcal{S}$ will be given by $\int_U \hbar dq \wedge dk$.
+
+If $\mathcal{Q}$ is $n$-dimensional, $d\mu$ is proportional to $dq^n \wedge dk_n$. But it's not just the volume that is preserved as we change state variables. Each pair $(q^i, k_i)$ represents an independent set of state variables, with the cardinality of possibilities given by $\hbar dq^i \wedge dk_i$. We call such a pair a degree of freedom. As they are independent the total number of states is the product of the possibilities of each d.o.f.: $\hbar^n dq^n \wedge dk_n = \prod \limits_{i=1}^n \hbar dq^i \wedge dk_i$. This is equivalent to saying that independent d.o.f. are orthogonal surfaces in $\mathcal{S}$.
+
+The cardinality of possibilities for each d.o.f. (i.e. the wedge product within d.o.f) and the orthogonality of different d.o.f. (i.e. the scalar product across d.o.f.) must be the same regardless of the choice of state variables. We can express both requirements mathematically in a compact way. We first define conjugate momentum as $p_i=\hbar k_i$ and unified state variables as $\xi^a\equiv \{q^i, p_i\}$. Then we consider the canonical two-form $\omega$ given by the following components:
+\begin{align*}
+\omega_{ab} =  \left[
+\begin{array}{cc}
+0 & 1 \\
+-1 & 0 \\
+\end{array}
+\right] \otimes I_n =
+\left[
+\begin{array}{cc}
+0 & I_n \\
+-I_n & 0 \\
+\end{array}
+\right] \\
+\end{align*}
+It returns the wedge product within a d.o.f. and the scalar product across. Requiring the invariance of this metric under state variables assures us the cardinalities of states and possibilities is well defined.
+
+The state space $\mathcal{S}$ is the symplectic manifold $(T^*\mathcal{Q}, \omega)$. This is the simplest manifold that allows us to define coordinate invariant densities. The metric allows us to measure the cardinality of possibilities within and across independent d.o.f.
+
+\begin{defn}\label{classical_phase_space}
+The state space $\mathcal{S}$ for the particles of a homogeneous classical  system is a symplectic manifold form by a cotangent bundle $T^*\mathcal{Q}$ equipped with the canonical two-form $\omega$.
+\end{defn}
+
+\begin{justification}
+	TODO: we can search for omega looking from constraints. Must be linear. Must be skew-symmetric (applied to the same vector twice must be zero). Must be invariant by coord transformation.
+\end{justification}
+
+We should note that we are starting to be in a position similar to the one discussed in \ref{discrete_state_metric} for discrete states. We have both a topological space and a metric that allows to count states and possibilities. The only thing we started from was the idea of an infinitesimally reducible system. That lead to a state space $\mathcal{S}$ for the infinitesimal parts, on which we must be able to define state variable independent distributions. Which in turn gave us degrees of freedom made by pair of conjugate variables and the symplectic metric typical of classical phase space.
+
+Before discussing time evolution, we should investigate what assuming our state is infinitesimally reducible means in terms of the fundamental model discussed in Assumption \ref{detrevass}.
 
 
 \subsection{Classical Hamiltonian assumption}
