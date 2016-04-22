@@ -382,48 +382,19 @@ The state space $\mathcal{S}$ for the particles of a homogeneous classical  syst
 
 We should note that we are starting to be in a position similar to the one discussed in \ref{discrete_state_metric} for discrete states. We have both a topological space and a metric that allows us to count states and possibilities. We recovered the metric starting from the idea of an infinitesimally reducible system. That led to a state space $\mathcal{S}$ for the infinitesimal parts, on which we must be able to define state-variable-independent distributions, which in turn gave us degrees of freedom made by pairs of conjugate variables and the symplectic metric typical of classical phase space. In short: being able to measure the amount of material is what allows us to measure the cardinality of states.
 
-Before discussing time evolution, we should investigate what assuming our state is infinitesimally reducible means in terms of the fundamental model discussed in Assumption \ref{detrevass}.
-
 
 \subsection{Classical Hamiltonian assumption}
 
-% Det/rev for infinitesimal part
-% Inconsistent: 1. X=AxB A'=F(A) B'=F(B) Isolated sub-systems. Does not work for measuring. 2. A'=F(A) B'=F(A,B) Ideal non-interfering measurement: deterministic but not reversible. 3. A'=F(A,B) B'=F(A,B) X det/rev whole, but A not deterministic itself. But if you consider X a sub-system of X and something else, you can make the same argument. Whole universe deterministic, but none of its parts. 4. A=As x Au ; B=Bs x Bu ; As' = F(As) Au=F(X) Bu=F(X) Bs = F(As, Au) ; more realistic picture. Still non-reversible (if As' = F(As), then nothing else can be F(As) and have bijective map).
-
-We further characterize the relationship between the whole and the parts with the following assumption:
+Now that we have fully characterized what we mean by a classical system, we can now stipulate the following:
 
 \begin{assump}[Classical Hamiltonian assumption]\label{classical}
 	The system under study is composed of an infinitesimally reducible homogeneous material and each part undergoes deterministic and reversible evolution.
 \end{assump}
 
-In other words: if we know the state and the evolution for the whole system, we also know the evolution for all its parts; if we know the state and evolution for all the parts, we know the state and the evolution for the whole system. By smaller we do not mean spatial extent, but of smaller amount (e.g. less mass): even at the same spatial location we can imagine that there are infinitely many components (e.g. the mass, as a number, is continuously divisible(.
-
 \begin{rationale}
+	The idea is that time evolution specifies a map for the state space $\mathcal{S}$ of the infinitesimal parts. And knowing how the parts evolve, we also know how to evolve the whole, that elements in $\mathcal{C}$.
 	
-	% 1. We need a process that can interact with parts
-	% 2. State cannot be full description. Cannot stop interacting with the rest of the universe, we need unstated part to keep interacting (no measurement)
-	% 3. Complete isolation means no single universe. Cannot have meaningful determinism at different level of scale.
-	% 4. Evolution that exchange information means systems cannot always be isolated
-	% 5. It's an approximation. But the approximation breaks down the more the assumption is taken literally. The two cases that can make the assumption hold break down in the case of infinitesimal pieces. The set of states of the described object is "big" compared to the set of states of the probe. If both infinitesimal homogeneous pieces, that cannot hold. The laws are not symmetric so that the probe is more affecte by the system under sudy. If both infinitesimal homogeneous pieces, the law is symmetric.
-	% 6. A detrev system can't tell time.
-	
-	% x = v_0 t + x_0 
-	% v = v_0
-	
-	% Problems. Due to parts that are independent
-	%           Due to parts that are infinitesimal
-	%           Due to everything is state
-	
-	% 1. Need a process for parts, not always have it. (1)
-	% 2. Isolation (and detrev) becomes untenable as parts are infinitesimal (5)
-	% 3. If it were tenable, we would have separate universes (2,3,4)
-	%    Detrev individual parts are not part of same universe (3)
-	%    If parts interact deterministically, still no good: can (2) decompose locally in d.o.f. And infinitesimal parts are local
-	%    Completely detrev system cannot be interacted with
-	% => Tension between two desires: system is isolated so that we can define independent state, system is not isolated so that we can interact with it.
-	% 4. A system that is detrev at all levels cannot tell time (6)
-	
-	This is clearly a \emph{simplifying} assumption, and it is instructive to understand when it breaks down.
+	Consistently with what we said in Assumption \ref{detrevass}, if we defined a state for the infinitesimal parts, then one such deterministic and reversible evolution should exist. Yet, the idea that we can assign states to infinitesimal parts should be considered only a \emph{simplifying} assumption, and it is instructive to understand when it breaks down.
 	
 	The first problem is methodological. To be able to talk about the state of a part we need a physical process that is able to distinguish them. For a pool ball we can imagine marking one spot with a different color. This allows us to track it as the ball moves or collides with other balls. For an electron, instead, we do not have a way to mark a piece. In fact when two electron scatter we can't even tell which is which, let alone what part went where. The classical assumption does not hold because we do not have suitable physical processes at our disposal.
 	
