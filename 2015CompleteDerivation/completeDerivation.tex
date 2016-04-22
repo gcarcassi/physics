@@ -399,13 +399,49 @@ We further characterize the relationship between the whole and the parts with th
 In other words: if we know the state and the evolution for the whole system, we also know the evolution for all its parts; if we know the state and evolution for all the parts, we know the state and the evolution for the whole system. By smaller we do not mean spatial extent, but of smaller amount (e.g. less mass): even at the same spatial location we can imagine that there are infinitely many components (e.g. the mass, as a number, is continuously divisible(.
 
 \begin{rationale}
+	
+	% 1. We need a process that can interact with parts
+	% 2. State cannot be full description. Cannot stop interacting with the rest of the universe, we need unstated part to keep interacting (no measurement)
+	% 3. Complete isolation means no single universe. Cannot have meaningful determinism at different level of scale.
+	% 4. Evolution that exchange information means systems cannot always be isolated
+	% 5. It's an approximation. But the approximation breaks down the more the assumption is taken literally. The two cases that can make the assumption hold break down in the case of infinitesimal pieces. The set of states of the described object is "big" compared to the set of states of the probe. If both infinitesimal homogeneous pieces, that cannot hold. The laws are not symmetric so that the probe is more affecte by the system under sudy. If both infinitesimal homogeneous pieces, the law is symmetric.
+	% 6. A detrev system can't tell time.
+	
+	% x = v_0 t + x_0 
+	% v = v_0
+	
+	% Problems. Due to parts that are independent
+	%           Due to parts that are infinitesimal
+	%           Due to everything is state
+	
+	% 1. Need a process for parts, not always have it. (1)
+	% 2. Isolation (and detrev) becomes untenable as parts are infinitesimal (5)
+	% 3. If it were tenable, we would have separate universes (2,3,4)
+	%    Detrev individual parts are not part of same universe (3)
+	%    If parts interact deterministically, still no good: can (2) decompose locally in d.o.f. And infinitesimal parts are local
+	%    Completely detrev system cannot be interacted with
+	% => Tension between two desires: system is isolated so that we can define independent state, system is not isolated so that we can interact with it.
+	% 4. A system that is detrev at all levels cannot tell time (6)
+	
 	This is clearly a \emph{simplifying} assumption, and it is instructive to understand when it breaks down.
 	
-	The first problem is methodological. As we saw before, we need access to a deterministic and reversible process to be able to study a system and define a state. For two balls, we can imagine to isolate some pieces (small enough to be considered infinitesimal in respect to the ball but big enough to contain enough molecules to be considered homogenous) and then describe the collision between the two by describing what happens at each piece. The classical assumption holds. For an electron and a photon, we cannot take pieces of the electron or the photon, study them in isolation and then describe how each part moves during Compton scattering. The classical assumption does not hold: we do not have suitable physical processes at our disposal.
+	The first problem is methodological. To be able to talk about the state of a part we need a physical process that is able to distinguish them. For a pool ball we can imagine marking one spot with a different color. This allows us to track it as the ball moves or collides with other balls. For an electron, instead, we do not have a way to mark a piece. In fact when two electron scatter we can't even tell which is which, let alone what part went where. The classical assumption does not hold because we do not have suitable physical processes at our disposal.
 	
-	The second problem is more conceptual. As we saw before, a system cannot be fully isolated from the environment. A certain amount of unstated part needs to remain so that the state of the system can be insulated from the external non-deterministic interaction. In practice, the state of each piece of our material is still given by the average of a collection of a large amount of molecules, their respective motion depending not just on the state of the system but on the external environment.  The classical assumption can therefore hold only if we assume that the description of each pieces is, again, not complete. Assuming it at a fundamental level would mean that the motion of each and every molecule of the system is only influenced by the state of the system, no external factor counts. As such, it would be a contradiction with it being a physical system: one we can study experimentally.
+	The second, more conceptual, problem is that the idealization that allow us to hold Assumption \ref{detrevass} break down for infinitesimal parts. One case where a system is sufficiently isolated to define a state is when it is "big enough". For example, the cannonball is big compared to the photons that scatter on its surface. Clearly this breaks down for infinitesimal parts: as we keep dividing the material, we will find an amount that will be affected by the interaction with the environment, and that is not going to be sufficiently isolated. The other case where Assumption \ref{detrevass} holds is where the interaction is not symmetrical. For example, the electric charge of the system under study are much larger than the charges in the environment. Therefore the electromagnetic field generated can be considered sufficiently isolated. This also breaks down: as the parts are homogeneous they have will have the same charge density and the interaction needs to be symmetrical.
 	
-	While ultimately flawed, the classical assumption can be considered valid for a great number of macroscopic system, and that is why is very useful. One should be cautioned, though, that nowhere in the assumption the spatial extent of the system is mentioned. We may as well have a macroscopic system where a clear independent state cannot be assigned to each part, and the assumption would not hold.
+	In other words: the definition of a state requires some kind of asymmetry between system under study and environment. If we say that the system is really just infinitesimal and homogeneous pieces, then the claim to that asymmetry is lost. Therefore our justification for holding the assumption is that the pieces are small compared to some scale but large compared to another. For example, water is a homogeneous material if we consider it made up of parts sufficiently small for the scale of the problem at hand but big enough to contain a large number of molecules.
+
+	Other conceptual problems stem from two competing requirements. One one side we want the system under study to be isolated so that we can define independent states. On the other side we do not want the system isolated so that we can define physical process on it. For example, if we were to take the state of an infinitesimal part to really be its full description, with no unstated part, then each piece would evolve independently, oblivious to the other parts. Each part would essentially live in its own separate universe.
+	
+	If we assume the whole is deterministic and reversible but each part is not, then their evolution can depend on the states of the other parts. But this does not solve the problem. Let's ignore the question of how we were able to define the states of the parts. Let's also ignore that the type of forces one would use (i.e. the ones with scalar and vector potentials) are precisely the ones we derive by assuming the pieces are not interacting with each other. We simply need to note that we can always locally separate the evolution into independent degrees of freedom. For example, the position and momentum of two particle may effect each other during the evolution, but the average and difference in position and momentum may evolve independently.\footnote{Note that any Hamiltonian is locally isomorphic to a free particle (citation needed)} We can always find such local decomposition, and the easiest way too see that is in terms of the transported variables: they retain the original value, they clearly evolve independently. And since the pieces are infinitesimal, a local decomposition is all that is needed. While such description may be cumbersome to achieve in practice, conceptually is still possible, so one still ends up with a set of degrees of freedom that evolve independently, oblivious to each other.
+	
+	The same type of problem arises on the whole system when we consider its interaction to our probe or other parts of the environment. Say $a \in A$ is the state of our system and $b \in B$ the state of our probe, $\hat{a}=f(a)$ because the system is deterministic, $\hat{b}=g(a,b)$ because the probe needs to be affected by the system, then $(a, b) \mapsto (\hat{a}, \hat{b})$ is not a reversible map. In other words: we can't expect to have deterministic and reversible evolution at all levels of decomposable systems where the parts interact in any physically meaningful way.
+	
+	One final conceptual problem is with time itself: a deterministic and reversible system cannot tell time. If it did, we would be able to find a quantity that changes through time but is invariant under state variable changes. The problem is that deterministic and reversible time evolution is equivalent to a state variable change. So, all quantities that are invariant under state variable changes are also invariant under time evolution.
+	
+	While ultimately flawed, the classical assumption can be considered valid for a great number of macroscopic system, and that is why is very useful. Understanding its shortcoming will help us later to see how the quantum assumption solves, at least partially, some of these issues.
+	
+	As a final note: we caution in automatically assuming that the classical assumption is valid for macroscopic systems. Nowhere in the assumption the spatial extent of the system is mentioned. It is conceptually possible to have a macroscopic system where a clear independent state cannot be assigned to each part, and the assumption would not hold.
 \end{rationale}
 
 We are now ready to capture the elements of our discussion and their properties through mathematical definitions.
