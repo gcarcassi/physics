@@ -418,29 +418,58 @@ Now that we have fully characterized what we mean by a classical system, we can 
 
 \subsection{Hamiltonian mechanics}
 
+We are finally ready to write the equations of motions. As per \ref{detrevmap} our evolution is at least a self-homeomorphism $f:\mathcal{S} \leftrightarrow \mathcal{S}$. But this is not enough.
 
-We are now ready to capture the elements of our discussion and their properties through mathematical definitions.
+The evolution must map the distribution point-wise so that the value associated at the initial state is the same as the value. All of the system that starts in $\mathcal{s}$ has to end up in $\hat{\mathcal{s}}$. In math terms $\rho_{\hat{\mathcal{c}}} (\hat{\mathcal{s}}) = \rho_\mathcal{c}(\mathcal{s})$.
 
+In the same way, if $U \in \mathcal{S}$ is a set of initial particle state and $\Lambda_U(\mathcal{c})$ is the amount of material associated to that set, then we expect it to be equal to the amount of material $\Lambda_{\hat{U}}(\hat{\mathcal{c}})$ associated with the set of final states $\hat{U} \in \mathcal{S}$.
+
+But probably the best way to look at it is that initial and final set of states have to contain the same cardinality of states and possibilities, which where defined by our metric $\omega$. Therefore the area in each degree of freedom, which represents the number of possibilities in said d.o.f., needs to be mapped to an equal area in the transported d.o.f. (i.e. the d.o.f. defined by the transported state variables). Independent d.o.f. must remain independent, and therefore transported orthogonal d.o.f. remain orthogonal. This means that the product of possibilities of independent d.o.f. is also conserved. These statements are the physical justification of the Gromov's non-squeezing theorem and Liouville's theorem. And they give intuitive insight on the geometry of Hamiltonian systems.
+
+Mathematically, under the classical Hamilotnian assumption,  deterministic and reversible evolution is an self-isometry. That is, it does not just preserve the topology but also the metric.
 
 \begin{defn}\label{canonical_transformation}
-	A deterministic and reversible process is a diffeomorphism that preserves $\omega$, that is a canonical transformation.
+	A deterministic and reversible evolution map for a homogeneous classical material is a canonical transformation and self-isometry, $\mathcal{T}_{\Delta t}:(T^*\mathcal{Q}, \omega) \rightarrow (T^*\mathcal{Q}, \omega)$.
 \end{defn}
 
 \begin{justification}
-	TODO
+	We claim $\mathcal{T}_{\Delta t}$ is a self-homeomorphism. $\mathcal{T}_{\Delta t}$ is a deterministic and reversible evolution map and \ref{detrevmap}.
+	We claim $\mathcal{T}_{\Delta t}$ is an self-isometry on $(T^*\mathcal{Q}, \omega)$. The Jacobian for $\mathcal{T}_{\Delta t}$ has to exist and be different from zero in order for the distribution on final states to be defined. $\mathcal{T}_{\Delta t}$ is a diffeomorphism.  $\omega$ is the metric for the cardinality of possibilities. A deterministic and reversible process conserves the number of states and possibilities. $\omega$ is invariant under a deterministic and reversible evolution map.
 \end{justification}
 
-\begin{defn}\label{hamiltonian}
-	A continuous deterministic and reversible process admits a potential $H$, and the laws of evolution are of the form (Hamilton equations).
-\end{defn}
+In the special case of continuous time evolution we can prove the following:
 
-\begin{justification}
-	TODO
-\end{justification}
+\begin{prop}\label{hamiltonian}
+	A continuous deterministic and reversible process for a homogeneous classical material admits a Hamiltonian $H: T^*\mathcal{Q} \rightarrow \mathbbm{R}$ that allows to write the laws of evolution as
+\begin{align*}
+d_{t}q^i &= \partial_{p_i} H \\
+d_{t}p_i &= - \partial_{q^i} H
+\end{align*}
+\end{prop}
+
+\begin{proof}
+We claim the vector field $S \in T\mathcal{Q}$ for the infinitesimal displacement $S = d\mathcal{s}/dt$ admits a potential $H$ such that, in component notation, $S^{a} \omega_{ab} = \partial_{b}H$. Let $v, w \in T_P\mathcal{Q}$ be two vectors defined at a point $P \in \mathcal{Q}$. Let $v^a, w^b$ their components in terms of unified state variables. Let $v', w' \in T_{\hat{P}}\mathcal{Q}$ the vector transported by the evolution map. For \ref{canonical_transformation} we have $v^{a} \omega_{ab} w^{b} = v'^{a} \omega_{ab} w'^{b}$. The evolution is a diffeomorphism, so we have $\xi(t+dt)^a = \xi^a + S^a dt$. The vector components change according to $v'^a = \partial_b \xi(t+dt)^a v^b = (\delta^a_b + \partial_b S^a dt) v^b$. We have:
+\begin{align*}
+v^{a} \omega_{ab} w^{b} &= v'^{a} \omega_{ab} w'^{b}  \\
+&= (v^{a} + \partial_{c} S^{a} v^{c} dt) \omega_{ab} ( w^{b} + \partial_{d} S^{b} w^{d} dt) \\
+&= v^{a} \omega_{ab} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{ab} w^{b} \\
+&+ v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
+\end{align*}
+We define $S_{b} \equiv S^{a} \omega_{ab}$. The metric is invariant iff $v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$. The relationship must true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
+
+We claim the state variables evolve according to Hamilton's equations. $S^{a} \omega_{ab} = d_t\xi^a \omega_{ab} = \partial_{b}H$. For $b=\{1,...,n\}$ we have $d_tp_i (-1) = \partial_{q_i} H$. For $a=\{n+1,...,2n\}$ we have $d_tq^i (+1) = \partial_{p_i} H$.
+\end{proof}
+
+We recognize the familiar set of Hamilton's equations. They are the set of equation to describe the deterministic and reversible motion of the infinitesimal parts of an infinitesimally reducible homogeneous material. The challenge in their derivation mainly lies in the necessary use of different branches of mathematics (e.g. topology, measure theory, differential geometry, symplectic geometry). The conceptual meaning, on the other hand, is hopefully straight forward.
 
 
+
+\section{Time dependent evolution}
+
+\section{Kinematic equivalence}
 
 \section{Quantum systems}
+
 %Note on composite systems and distinguishability. When putting together two classical system, just sum distributions. When putting together quantum system we have to clarify: combine to create one quantum system (sum in vector space) or two separate quantum system (symmetrized tensor product). In classical mechanics, 2a + 2b = (a+b) + (a+b). In quantum note |a> x |b> = |a>|b> + |b>|a> but (|a> + |b>) x (|a> + |b>) = |a>|a> + ... That is two quantum states in two different states is not the same as two quantum states spread equally over those two states. In classical they are.)
 
 % Muon example. Consider a muon and its decay into an electron and two neutrinos: it is clear that the three outgoing particles have a state and trajectory of their own, it is clear that the resulting total mass and energy came from the muon. Yet, before the decay, we cannot ascribe an internal independent state and evolution to each part. The state of a muon is not some combination of the state of an electron and two neutrinos. That is: the unstated part is not just microstates.
