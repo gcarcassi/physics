@@ -469,6 +469,43 @@ Note that we could have taken different approaches. For example, we could have a
 
 \section{Time dependent evolution}
 
+We now generalize our discussion to include time dependent dynamics. This is needed when the evolution map itself changes in time or when a change of state variable is time dependent (e.g. changing to a moving frame).
+
+To do this we will extend phase space to include the temporal degree of freedom. We'll find that the dynamics is described by the relativistic Hamiltonian mechanics. We'll also find that particle states divide into standard and anti-states depending whether time is aligned or anti-aligned with the affine parameter.
+
+\subsection{Time changes}
+
+The discussion so far has been limited to the case where both the set of states and the evolution map are defined at equal time and never change throughout the evolution. This is too restrictive as there are very reasonable situation in which this does not hold.
+
+The first obvious case is that is that the map may be time dependent. Note that this does not affect our definition of determinism and reversibility: we still can tell final state from initial state and vice-versa. We just need to specify the time as well. At this point we have no way to do that. For example, the Hamiltonian $H: T^*\mathcal{Q} \rightarrow \mathbbm{R}$ is just a function of the state.
+
+The second case is when we perform a transformation for the time parameter $t'=t'(t)$. The equations of motion transform and we have $d_{t}t' d_{t'}q^i = \partial_{p_i} H$. As both $q^i$ and $H$ are independent of time, they cannot be redefined to include $d_{t}t'$. Physically the transformation is introducing fictitious forces that are not conservative, so they cannot be expressed by a Hamiltonian. But this means that we have an ill defined mathematical framework as the notion of deterministic and reversibility is not defined in a way that is independent of time transformations. We need a framework that is capable of handling the fictitious forces as well.
+
+The third case is when we perform a state variable transformation $q'=q'(q,t)$ that is time dependent (e.g. $x'=x+vt$). Our composite state distribution $\rho(q)$ becomes $\rho(q',t)$: it is no longer defined at equal time. This means that both our measure $\mu$ and our metric $d\mu$ need to be modified.
+
+The point is that we can't simply stick time in the Hamiltonian and expect everything to works out. But we can't ignore the problem either as the three cases outlined are pretty useful situation to study. So we need to go back to our definitions and amend them properly.
+
+\subsection{Extended phase space}
+
+% Extend Q to include time -> M. Extended phase space is a hypersurface T*M.
+
+% Call s (affine parameter) the parameter of the evolution. Distribution defined on a n-dimensional surface in T*M. Density does not change under time transformation. Use t'=t + \Delta t(q^i, p_i) so that t' is constant. Now we are at equal t': the metric is \Sigma dq^i \wedge dp_i. Metric is the projection on the space orthogonal to t and E. That is \Sigma dq^i \wedge dp_i - dt \wege dE.
+
+
+% definition, simplectic metric on phase space
+
+% justification. Need to be able to define integration for everywhere and space and on compact time. Metric exists. Must be a two-form. Two-form is skewsymmetric. All skew symmetric forms are decomposable in hyperplanes. T*Q is a subspace of T*M. Only one hyperplane left. Metric must be \Sigma dq^i \wedge dp_i \pm dt \wedge dE. Can't be positive, as ()t, E) is not an independent d.o.f.
+
+\subsection{Relativistic Hamiltonian mechanics}
+
+% find equation of motion
+
+% find constraint
+
+\subsection{anti-states}
+
+% relationship between s and t must be monotonic. Hamiltonian partitions extended phase space. Distribution must be always zero at the boundary.
+
 \section{Kinematic equivalence}
 
 \section{Quantum systems}
