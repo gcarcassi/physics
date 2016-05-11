@@ -554,6 +554,22 @@ TODO
 
 In this section we include mathematical demonstration in support of the physical arguments of the paper.
 
+\begin{thrm}[Extended Riesz theorem]\label{extended_riesz_theorem}
+	Let $(S, \tau)$ a locally compact Hausdorff space. Let $\Lambda = \{\Lambda_U : C(S) \rightarrow \mathbbm{R}\}_{U \subseteq S}$ a family of positive linear functionals such that $\forall U \subseteq S \; \Lambda_U = \Lambda_{\mathrm{int}(U)}$ and $\Lambda_{U_1} + \Lambda_{U_2} = \Lambda_{U_1 \cup U_2} + \Lambda_{U_1 \cap U_2} \; \forall U_1, U_2 \subseteq S$. Then there exists a unique Borel measure $\mu$ such that $\Lambda_U (\rho) = \int_{U} \rho d\mu \; \forall \rho \in C(S)$.
+\end{thrm}
+
+\begin{proof}
+	We claim that at each $s \in S$ there exists a compact neighborhood $U \subseteq S$ endowed with a Borel measure $\mu_U$ such that $\Lambda_U (\rho) = \int_U \rho d \mu_U \; \forall \rho \in C(S)$. $S$ is locally compact. $\forall s \in S \; \exists U \subseteq S$ such that $U$ is compact. $U$ with the subspace topology is a compact Hausdorff topological space on which is defined a positive linear functional $\Lambda_U : C(S) \rightarrow \mathbbm{R}$. For the Riesz representation theorem for linear functionals, there exists a unique Borel measure $\mu_U$ such that $\Lambda_U (\mathcal{c}) = \int_U \rho d \mu_U \; \forall \rho \in C(S)$.
+	
+	We claim that $S$ is endowed with a unique Borel measure $\mu$ such that $\Lambda_U (\rho) = \int_U \rho d \mu$. Let $U \subseteq V \subseteq \mathcal{S}$ two compact subsets. Let $\rho \in C(S)$. $\Lambda_V (\rho) = \int_V \rho d \mu_V = \int_U \rho d \mu_V + \int_{V\backslash U} \rho d \mu_V$. Also $\Lambda_V (\rho) = \Lambda_U (\rho) + \Lambda_{V\backslash U} (\rho) = \int_U \rho d \mu_U + \int_{V \backslash U} \rho d \mu_{\overline{V \backslash U}} $. Therefore $\int_{U} \rho_{\mathcal{c}} d \mu_U = \int_{U} \rho_{\mathcal{c}} d \mu_V$. $d\mu$ is unique and does not depend on the choice of neighborhood. $S$ is locally compact. It admits a cover $\{U_\alpha\}_{\alpha \in A}$ where each $U_\alpha$ is compact.
+	\begin{align*}
+	\Lambda_{\mathcal{S}}(\mathcal{c}) &= \sum \limits_{\alpha \in A} \Lambda_{U_\alpha}(\mathcal{c}) - \sum \limits_{\alpha \in A} \sum \limits_{\beta \in A}^{\beta \neq\alpha} \Lambda_{U_\alpha \cap U_\beta}(\mathcal{c}) \\
+	&= \sum \limits_{\alpha \in A} \int_{U_\alpha} \rho_{\mathcal{c}} d\mu - \sum \limits_{\alpha \in A} \sum \limits_{\beta \in A}^{\beta \neq\alpha} \int_{U_\alpha \cap U_\beta}(\mathcal{c}) \rho_{\mathcal{c}} d\mu \\
+	&= \int_{\mathcal{S}} \rho_{\mathcal{c}} d\mu
+	\end{align*}
+	The measure is unique on the whole space.
+\end{proof}
+
 \begin{thrm}\label{everywhere_integrable_is_lebesgue_integrable}
 	Let $\mathcal{L}(S,\mu) \equiv \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; |\int_{U} \rho d\mu| < \infty \; \forall U \subseteq S\}$. $\mathcal{L}(S,\mu)=L^1(S,\mu)$ where $L^1(S,\mu) = \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; \int_{S} |\rho| d\mu < \infty \}$
 \end{thrm}
@@ -565,12 +581,6 @@ In this section we include mathematical demonstration in support of the physical
 	
 	We claim $L^1(S,\mu) = \mathcal{L}(S,\mu)$. $\mathcal{L}(S,\mu) \supseteq L^1(S,\mu)$ and $L^1(S,\mu) \supseteq \mathcal{L}(S,\mu)$.	
 \end{proof}
-
-\begin{thrm}[Modified Riesz theorem]\label{modified_riesz_theorem}
-	Let $\mathcal{L}(S,\mu) \equiv \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; |\int_{U} \rho d\mu| < \infty \; \forall U \subseteq S\}$. $\mathcal{L}(S,\mu)=L^1(S,\mu)$ where $L^1(S,\mu) = \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; \int_{S} |\rho| d\mu < \infty \}$
-\end{thrm}
-
-
 
 \begin{thebibliography}{0}
 
