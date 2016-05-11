@@ -11,6 +11,7 @@
 \newtheorem{assump}{Assumption}
 \renewcommand*{\theassump}{\Roman{assump}}
 \newtheorem{prop}{Proposition}[section]
+\newtheorem{thrm}{Theorem}[section]
 
 \theoremstyle{definition}
 \newtheorem{defn}[prop]{Definition}
@@ -344,10 +345,18 @@ This intuitive picture is formalized mathematically by the Riesz representation 
 	
 	We claim that at each $\mathcal{s} \in \mathcal{S}$ there exists a neighborhood $U \subseteq \mathcal{S}$ endowed with a Borel measure $\mu_U$ such that $\Lambda_U (\mathcal{c}) = \int_U \rho_{\mathcal{c}} d \mu_U$. Each $\mathcal{s} \in \mathcal{S}$ is identified by a finite number of independent state variables. $\mathcal{S}$ is a manifold. $\mathcal{S}$ is locally compact. At each point there exists a compact neighborhood $U$. $U$ with the subspace topology is a compact Hausdorff topological space on which is defined a positive linear functional $\Lambda_U$ on the linear vector space $\mathcal{C}$ isomorphic to the space of continuous real valued functions defined on $U$. For the Riesz representation theorem for linear functionals, there exists a unique Borel measure $\mu_U$ such that $\Lambda_U (\mathcal{c}) = \int_U \rho_{\mathcal{c}} d \mu_U$. As $\rho_{\mathcal{c}}$ is continuous $\int_{U} \rho_{\mathcal{c}} d \mu_U = \int_{\mathrm{int}(U)} \rho_{\mathcal{c}} d \mu_U$ which is consistent with $\Lambda_U = \Lambda_{\mathrm{int}(U)}$.
 	
-	We claim that $\mathcal{S}$ is endowed with a unique Borel measure $\mu$ such that $\Lambda_U (\mathcal{c}) = \int_U \rho_{\mathcal{c}} d \mu$. Let $U \subseteq V \subseteq \mathcal{S}$ two compact subsets. We have $\Lambda_V (\mathcal{c}) = \int_V \rho_{\mathcal{c}} d \mu_V = \int_U \rho_{\mathcal{c}} d \mu_V + \int_{V\backslash U} \rho_{\mathcal{c}} d \mu_V$. We also have $\Lambda_V (\mathcal{c}) = \Lambda_U (\mathcal{c}) + \Lambda_{V\backslash U} (\mathcal{c}) = \int_U \rho_{\mathcal{c}} d \mu_U + \int_{V \backslash U} \rho_{\mathcal{c}} d \mu_{\overline{V \backslash U}} $. As the two have to be equal for all $U, V, \rho_{\mathcal{c}}$, we must have $\int_{U} \rho_{\mathcal{c}} d \mu_U = \int_{U} \rho_{\mathcal{c}} d \mu_V$. Therefore $d\mu$ is unique and does not depend on the choice of neighborhood. As $\mathcal{S}$ is locally compact, we can find a cover of compact sets. $\Lambda_{\mathcal{S}}(\mathcal{c})$ will be the sum of contributions of the elements of the cover and their intersections. As $\Lambda_U$ is always finite, $\Lambda_{\mathcal{S}}$ is a finite sum of finite contributions. Therefore we have  $\Lambda_{\mathcal{S}} (\mathcal{c}) = \int_{\mathcal{S}} \rho_{\mathcal{c}} d \mu$. The measure is unique on the whole space.
+	We claim that $\mathcal{S}$ is endowed with a unique Borel measure $\mu$ such that $\Lambda_U (\mathcal{c}) = \int_U \rho_{\mathcal{c}} d \mu$. Let $U \subseteq V \subseteq \mathcal{S}$ two compact subsets. We have $\Lambda_V (\mathcal{c}) = \int_V \rho_{\mathcal{c}} d \mu_V = \int_U \rho_{\mathcal{c}} d \mu_V + \int_{V\backslash U} \rho_{\mathcal{c}} d \mu_V$. We also have $\Lambda_V (\mathcal{c}) = \Lambda_U (\mathcal{c}) + \Lambda_{V\backslash U} (\mathcal{c}) = \int_U \rho_{\mathcal{c}} d \mu_U + \int_{V \backslash U} \rho_{\mathcal{c}} d \mu_{\overline{V \backslash U}} $. As the two have to be equal for all $U, V, \rho_{\mathcal{c}}$, we must have $\int_{U} \rho_{\mathcal{c}} d \mu_U = \int_{U} \rho_{\mathcal{c}} d \mu_V$. Therefore $d\mu$ is unique and does not depend on the choice of neighborhood. Let $\{U_\alpha\}_{\alpha \in A}$ a cover of $\mathcal{S}$ where each $U_\alpha$ is compact. This is possible as $\mathcal{S}$ is locally compact. We have
+\begin{align*}
+	\Lambda_{\mathcal{S}}(\mathcal{c}) &= \sum \limits_{\alpha \in A} \Lambda_{U_\alpha}(\mathcal{c}) - \sum \limits_{\alpha \in A} \sum \limits_{\beta \in A}^{\beta \neq\alpha} \Lambda_{U_\alpha \cap U_\beta}(\mathcal{c}) \\
+	&= \sum \limits_{\alpha \in A} \int_{U_\alpha} \rho_{\mathcal{c}} d\mu - \sum \limits_{\alpha \in A} \sum \limits_{\beta \in A}^{\beta \neq\alpha} \int_{U_\alpha \cap U_\beta}(\mathcal{c}) \rho_{\mathcal{c}} d\mu \\
+	 &= \int_{\mathcal{S}} \rho_{\mathcal{c}} d\mu
+\end{align*}
+	as $\Lambda_U$ is always finite. The measure is unique on the whole space.
 	
 	We claim $\mathcal{C} \cong C(\mathcal{S}) \cap  L^1_{ew}(\mathcal{S}, \mu)$ where $L^1_{ew}(\mathcal{S}, \mu) = \{ \rho : \mathcal{S} \rightarrow \mathbbm{R} \; | \;\; |\int_{U} \rho d\mu| < \infty \; \forall U \subseteq \mathcal{S}\}$. As per \ref{classical_vector space} $\mathcal{C}$, is isomorphic to a subspace $G \subseteq C(\mathcal{S})$ as a vector space over $\mathbbm{R}$. As $|\Lambda_{U}(\mathcal{c})| < \infty \; \forall \mathcal{c} \in \mathcal{C} \; \forall U \subseteq \mathcal{S}$, then $G \subseteq L^1_{ew}(\mathcal{S}, \mu)$. $G \subseteq C(\mathcal{S}) \cap  L^1_{ew}(\mathcal{S}, \mu)$. Let $\rho_\mathcal{c}$ be the distribution associated with the state $\mathcal{c}$. Let $\rho \in C(\mathcal{S}) \cap  L^1_{ew}(\mathcal{S}, \mu)$ be a continuous function everywhere integral. If $\rho_\mathcal{c} \neq \rho$ then $\exists U \in \mathcal{S} | \int_{U} \rho_\mathcal{c} d \mu \neq \int_{U} \rho d \mu$. There exist an outcome in $\mathcal{S}$ that can physically distinguish the two distributions. There must be a state $\mathcal{c}_1 \in \mathcal{C} \; | \; \varrho_(\mathcal{c}_1)=\rho$. $\varrho : \mathcal{C} \rightarrow C(\mathcal{S}) \cap  L^1_{ew}(\mathcal{S}, \mu)$ is surjective. $\varrho$ is an isomorphism between $\mathcal{C}$ and $C(\mathcal{S}) \cap  L^1_{ew}(\mathcal{S}, \mu)$ as vector spaces.
 \end{justification}
+
+As we identified $C(\mathcal{S}) \cap  L^1_{ew}(\mathcal{S}, \mu)$ as the set of distributions that are physically meaningful, it's useful to show how commonly used functions spaces do not fit the bill. We do this briefly by finding counterexample. The set of continuous functions $C(\mathcal{S})$ would include functions that diverge at infinity. The set of continuous functions with compact support $C_C(\mathcal{S})$ would exclude Gaussians. The set of continuous functions that vanish at infinity $C_0(\mathcal{S})$ includes function whose integral is infinite. Schwartz space $S(\mathcal{S})$ requires functions to be infinitely smooth and we do not see a physical requirement for that. 
 
 Before we can properly identify $d\mu$, it turns out that we need to better characterize $\mathcal{S}$.
 
@@ -497,6 +506,8 @@ The point is that we can't simply stick time in the Hamiltonian and expect every
 
 \subsection{Extended phase space}
 
+TODO
+
 % Extend Q to include time -> M. Extended phase space is a hypersurface T*M.
 
 % Call s (affine parameter) the parameter of the evolution. Distribution defined on a n-dimensional surface in T*M. Density does not change under time transformation. Use t'=t + \Delta t(q^i, p_i) so that t' is constant. Now we are at equal t': the metric is \Sigma dq^i \wedge dp_i. Metric is the projection on the space orthogonal to t and E. That is \Sigma dq^i \wedge dp_i - dt \wege dE.
@@ -508,6 +519,8 @@ The point is that we can't simply stick time in the Hamiltonian and expect every
 
 \subsection{Relativistic Hamiltonian mechanics}
 
+TODO
+
 % find equation of motion
 
 % find constraint
@@ -517,8 +530,11 @@ The point is that we can't simply stick time in the Hamiltonian and expect every
 % relationship between s and t must be monotonic. Hamiltonian partitions extended phase space. Distribution must be always zero at the boundary.
 
 \section{Kinematic equivalence}
+TODO
 
 \section{Quantum systems}
+
+TODO
 
 %Note on composite systems and distinguishability. When putting together two classical system, just sum distributions. When putting together quantum system we have to clarify: combine to create one quantum system (sum in vector space) or two separate quantum system (symmetrized tensor product). In classical mechanics, 2a + 2b = (a+b) + (a+b). In quantum note |a> x |b> = |a>|b> + |b>|a> but (|a> + |b>) x (|a> + |b>) = |a>|a> + ... That is two quantum states in two different states is not the same as two quantum states spread equally over those two states. In classical they are.)
 
@@ -533,6 +549,27 @@ The point is that we can't simply stick time in the Hamiltonian and expect every
 %\mathcal{c} = \sum\limits_{i \in \mathbbm{I}} a_i %\mathcal{e}(i)
 %\end{align*}
 %$\mathbbm{I}$ represents all the possible values of a state variable representing the best description of an infinitesimal part that a composite system can give. $\mathcal{e}(i)$ represents a composite system made of a unit amount of particles, all prepared in the state determined by $i$. $a_i$ represents a transformation that changes the whole state, without affecting the value $i$ for any infinitesimal part. For a classical system, $i$ represents the full information about the infinitesimal part, and therefore includes the value of all state variables (i.e. the state vector); the only transformation left is increasing/decreasing the amount of particles by a scalar multiple. For a different system, where $i$ does not represent the full state of the parts, $\mathcal{e}(i)$ will be an ensemble and $a_i$ also represents an internal transformation of such ensemble. This is intuitively how we decouple the composite state into the part $i$ that describes the infinitesimal parts, and the part $a_i$ that describes how the parts are composed. Giving a full description of the state space of a decomposable system means fully characterizing these components: the state variable $\mathbbm{I}$ and the set of transformations $A$. In the classical case $\mathcal{e}(i)$ form a basis of a real vector space, where $i$ is the state vector for an infinitesimal part, and $a_i$ a real valued coefficient that represents the amount of particles in each state, which describes how the parts are combined.
+
+\section{Appendix: mathematical support}
+
+In this section we include mathematical demonstration in support of the physical arguments of the paper.
+
+\begin{thrm}\label{everywhere_integrable_is_lebesgue_integrable}
+	Let $\mathcal{L}(S,\mu) \equiv \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; |\int_{U} \rho d\mu| < \infty \; \forall U \subseteq S\}$. $\mathcal{L}(S,\mu)=L^1(S,\mu)$ where $L^1(S,\mu) = \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; \int_{S} |\rho| d\mu < \infty \}$
+\end{thrm}
+
+\begin{proof}
+	We claim $\mathcal{L}(S,\mu) \supseteq L^1(S,\mu)$. Let $\rho \in L^1(S,\mu)$. Let $U \subseteq S$. $\lVert \rho \rVert_U \equiv \int_{U} |\rho| d\mu < \int_{\mathcal{S}} |\rho| d\mu < \infty$. $\lVert \rho \rVert_U = \lVert \rho^+ \rVert_U + \lVert \rho^- \rVert_U$. $\lVert \rho^+ \rVert_U < \infty$ and $\lVert \rho^- \rVert_U < \infty$. $|\int_{U} \rho d\mu| = |\int_{U} \rho^+ d\mu - \int_{U} \rho^- d\mu| = |\int_{U} \rho^+ d\mu| - |\int_{U} \rho^- d\mu| = \lVert \rho^+ \rVert_U - \lVert \rho^- \rVert_U < \infty$. $\rho \in\mathcal{L}(S,\mu)$.
+	
+	We claim $L^1(S,\mu) \supseteq \mathcal{L}(S,\mu)$.  Let $\rho \in \mathcal{L}(S,\mu)$. Let $S^+ \equiv  \{ s \in S \; | \; \rho(s) > 0\}$. Let $S^- \equiv  \{ s \in S \; | \; \rho(s) < 0\}$. $|\int_{S^+} \rho d\mu| = |\int_{S} \rho^+ d\mu| = \lVert \rho^+ \rVert < \infty$ and $|\int_{S^-} \rho d\mu| = |\int_{S} \rho^- d\mu| = \lVert \rho^- \rVert < \infty$. $\lVert \rho \rVert = \lVert \rho^+ \rVert_U + \lVert \rho^- \rVert_U < \infty$. $\rho \in L^1(S,\mu)$.
+	
+	We claim $L^1(S,\mu) = \mathcal{L}(S,\mu)$. $\mathcal{L}(S,\mu) \supseteq L^1(S,\mu)$ and $L^1(S,\mu) \supseteq \mathcal{L}(S,\mu)$.	
+\end{proof}
+
+\begin{thrm}[Modified Riesz theorem]\label{modified_riesz_theorem}
+	Let $\mathcal{L}(S,\mu) \equiv \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; |\int_{U} \rho d\mu| < \infty \; \forall U \subseteq S\}$. $\mathcal{L}(S,\mu)=L^1(S,\mu)$ where $L^1(S,\mu) = \{ \rho : S \rightarrow \mathbbm{R} \; | \;\; \int_{S} |\rho| d\mu < \infty \}$
+\end{thrm}
+
 
 
 \begin{thebibliography}{0}
