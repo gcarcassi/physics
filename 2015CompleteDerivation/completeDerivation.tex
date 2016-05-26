@@ -345,7 +345,7 @@ On a state space with discrete topology and a single state variable we simply ha
 
 For the Jacobian to exist the transformation between state variables has to be differentiable. Therefore a manifold that guarantees densities to be well defined is one that guarantees that state variable transformations are differentiable: a differentiable manifold. $\mathcal{S}$ has a differentiable structure in the sense that the distributions are only defined on a set of set state variables that are linked by differential transformations. In the same way that discontinuous changes of state variable can be detected because they are incompatible with the topology, non differential changes of state variable can be detected because they are incompatible with state-variable-independent densities.
 
-If $\rho_\mathcal{c}$ is to remain unchanged and the Jacobian to be unitary we cannot simply change one state variable as we please. If we change one at least another has to change in some coordinated way such that the Jacobian of the total transformation is unitary. This means that we cannot change physical units of all the variables as we please: they are part of a unit system. For example, changing units of position will also change units of momentum. Let $\mathcal{Q}$ be the manifold charted by the minimum set of state variables that define such system of units. An element of $\mathcal{S}$ will be a geometrical object in such space. For example, it will be a point, a distance, two points, the ratio between two distances, the inverse of a distance: something that is expressible in the unit defined. As particle states represent configurations of infinitesimal parts, they will be local objects, defined around a point in $\mathcal{Q}$. As we saw before, they cannot be points themselves as the density $\rho(q')_\mathcal{c}= \rho(q)_\mathcal{c} dq/dq'$ is not invariant. They cannot be a vectors $v(q) e_q$, as the density $\rho_\mathcal{c}(q', v')= \rho(q, v)_\mathcal{c} (dq/dq')^2$ is not invariant. They can, however, be covectors $k(q) dq$ as $\rho_\mathcal{c}(q', k')= \rho_\mathcal{c}(q, k) (dq/dq') (dq'/dq) = \rho_\mathcal{c}(q, k)$. In other words: a covector is the simplest local geometrical object that allows coordinate independent densities. We can identify $\mathcal{S}$ as the cotangent bundle $T^*\mathcal{Q}$, the space of all possible covectors.
+If $\rho_\mathcal{c}$ is to remain unchanged and the Jacobian to be unitary we cannot simply change one state variable as we please. If we change one at least another has to change in some coordinated way such that the Jacobian of the total transformation is unitary. This means that we cannot change physical units of all the variables as we please: they are part of a unit system. For example, changing units of position will also change units of momentum. Let $\mathcal{Q}$ be the manifold charted by the minimum set of state variables that define such system of units. An element of $\mathcal{S}$ will be a geometrical object in such space. For example, it will be a point, a distance, two points, the ratio between two distances, the inverse of a distance: something that is expressible in the unit defined. As particle states represent configurations of infinitesimal parts, they will be local objects, defined around a point in $\mathcal{Q}$. As we saw before, they cannot be points themselves as the density $\rho(q')_\mathcal{c}= \rho(q)_\mathcal{c} dq/dq'$ is not invariant. They cannot be a vectors $v(q) e_q$, as the density $\rho_\mathcal{c}(q', v')= \rho(q, v)_\mathcal{c} (dq/dq')^2$ is not invariant. They can, however, be covectors $k(q) dq$ as $\rho_\mathcal{c}(q', k')= \rho_\mathcal{c}(q, k) (dq/dq') (dq'/dq) = \rho_\mathcal{c}(q, k)$.\footnote{The components $k$ are the classical analogue of the wave numbers.} In other words: a covector is the simplest local geometrical object that allows coordinate independent densities. We can identify $\mathcal{S}$ as the cotangent bundle $T^*\mathcal{Q}$, the space of all possible covectors.
 
 If $\mathcal{Q}$ is one dimensional, then the state is fully identified by a pair $(q, k)$. These variables are independent, so the total number of possibilities in a small region of $\mathcal{S}$ is proportional to $dq \wedge dk$. That is if we double the range of $dq$ or $dk$ then the number of possibilities doubles. We set $d\mu = \hbar dq \wedge dk$, where $\hbar$ is the proportionality constant that will depend on the unit chosen to count the possibilities of the pair $(q, k)$. That is, a unitary range of possibilities for $q$ and $k$ will give us $\hbar$ possibilities.\footnote{The actual value and physical dimensions of $\hbar$ are determined by the system of units, and should not be taken to describe some intrinsic physical property. Only dimensionless relationships to other physical constants, such as the fine structure constant $\alpha = e^2/\hbar c$, can possess that trait. That is why one can choose "natural units" for which $\hbar=1$. In SI units the relationship $\hbar dk = dp = m du$ between kinetic and conjugate momentum, derived later, sets the relationship between units.} The cardinality for states in a finite (i.e. compact) region $U \subseteq \mathcal{S}$ will be given by $\int_U \hbar dq \wedge dk$.
 
@@ -455,14 +455,7 @@ d_{t}p_i &= - \partial_{q^i} H
 \end{prop}
 
 \begin{justification}
-We claim the vector field $S \in T\mathcal{Q}$ for the infinitesimal displacement $S = d\mathcal{s}/dt$ admits a potential $H$ such that, in component notation, $S^{a} \omega_{ab} = \partial_{b}H$. Let $v, w \in T_P\mathcal{Q}$ be two vectors defined at a point $P \in \mathcal{Q}$. Let $v^a, w^b$ their components in terms of unified state variables. Let $v', w' \in T_{\hat{P}}\mathcal{Q}$ the vector transported by the evolution map. For \ref{canonical_transformation} we have $v^{a} \omega_{ab} w^{b} = v'^{a} \omega_{ab} w'^{b}$. The evolution is a diffeomorphism, so we have $\xi(t+dt)^a = \xi^a + S^a dt$. The vector components change according to $v'^a = \partial_b \xi(t+dt)^a v^b = (\delta^a_b + \partial_b S^a dt) v^b$. We have:
-\begin{align*}
-v^{a} \omega_{ab} w^{b} &= v'^{a} \omega_{ab} w'^{b}  \\
-&= (v^{a} + \partial_{c} S^{a} v^{c} dt) \omega_{ab} ( w^{b} + \partial_{d} S^{b} w^{d} dt) \\
-&= v^{a} \omega_{ab} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{ab} w^{b} \\
-&+ v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
-\end{align*}
-We define $S_{b} \equiv S^{a} \omega_{ab}$. The metric is invariant iff $v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$. The relationship must true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
+We claim the vector field $S \in T\mathcal{S}$ for the infinitesimal displacement $S^a = d\xi^a/dt$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$. The state space $\mathcal{S}$ of a classical homogeneous material is a symplectic manifold by \ref{classical_phase_space}. The map for infinitesimal time evolution $\mathcal{T}_{dt}$ is an infinitesimal self-symplectomorphism by \ref{canonical_transformation}. By \ref{symplectomorphism_generator} the infinitesimal displacement $S$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$
 
 We claim the state variables evolve according to Hamilton's equations. $S^{a} \omega_{ab} = d_t\xi^a \omega_{ab} = \partial_{b}H$. For $b=\{1,...,n\}$ we have $d_tp_i (-1) = \partial_{q_i} H$. For $a=\{n+1,...,2n\}$ we have $d_tq^i (+1) = \partial_{p_i} H$.
 \end{justification}
@@ -477,7 +470,7 @@ Note that we could have taken different approaches. For example, we could have a
 
 We now generalize our discussion to include time dependent dynamics. This is needed when the evolution map itself changes in time or when a change of state variable is time dependent (e.g. changing to a moving frame).
 
-To do this we will extend phase space to include the temporal degree of freedom. We'll find that the dynamics is described by the relativistic Hamiltonian mechanics. We'll also find that particle states divide into standard and anti-states depending whether time is aligned or anti-aligned with the affine parameter.
+To do this we will extend phase space to include the temporal degree of freedom. We'll find that the dynamics is described by relativistic Hamiltonian mechanics in the extended phase space. We'll also find that particle states divide into standard and anti-states depending whether time is aligned or anti-aligned with the affine parameter. Note that no extra assumption is needed, which makes relativistic mechanics not some additional characterization but simply the correct way to describe time dependent motion of invariant density distributions.
 
 \subsection{Time changes}
 
@@ -489,24 +482,95 @@ The second case is when we perform a transformation for the time parameter $t'=t
 
 The third case is when we perform a state variable transformation $q'=q'(q,t)$ that is time dependent (e.g. $x'=x+vt$). Our composite state distribution $\rho(q)$ becomes $\rho(q',t)$: it is no longer defined at equal time. This means that both our measure $\mu$ and our metric $d\mu$ need to be modified.
 
-The point is that we can't simply stick time in the Hamiltonian and expect everything to works out. But we can't ignore the problem either as the three cases outlined are pretty useful situation to study. So we need to go back to our definitions and amend them properly.
+In all three cases we can't simply stick time in the Hamiltonian and expect everything to works out. But we also can't ignore the problem either as the three cases outlined are pretty common situations to study. So we need to go back to our definitions and amend them properly.
 
 \subsection{Extended phase space}
 
+Our goal is to describe maps that take a state at a particular time and transport it to another state at another time. Therefore we want to extend the domain and co-domain of the evolution map to be the space of all particle states at all times.
+
+The first thing to do is to extend our $n$-dimensional $\mathcal{Q}$, the manifold that defines our units, to include the time variable $t$. We call $\mathcal{M}$ such extended space which is a manifold of dimension $n+1$: state variables and time variable are independent (i.e. any combination of state and time is valid). A time variable is not simply another state variables: they don't identify extra states and it's only on the former that we have defined deterministic and reversible evolution. When changing variables, we still need to make sure that deterministic and reversible motion can be defined on the new time variable. Transformations like $t'=x \; x'=t$ (exchanging time with another state variable) or $t'=\sqrt{t^2 + q^2} \; x'=\tan^{-1}(t/x)$ (polar coordinates between time and state variable) clearly do not guarantee deterministic and reversible motion over the new time variable. The change of time variable must preserve the ordering therefore the transformation has to be strictly monotonic. In this sense, the time variable is special.
+
+As before, we are interested in invariant densities which are defined on co-vectors. The time variable $t$ will have a conjugate quantity $E\equiv\hbar\bar{\omega}$.\footnote{$\bar{\omega}$ is the classical analogue of the wave frequency. We use $\bar{\omega}$ to distinguish from the phase-space metric $\omega$.} We call the combination of $(t, E)$ the temporal degree of freedom. As time is special, so is the temporal degree of freedom, which is treated differently when defining distribution $\rho_\mathcal{c}$ and therefore by the measure $\mu$ and the metric $\omega$.
+
+The first thing to note is that $E$ cannot be an independent variable. It cannot add any states, as those are defined by $T^*\mathcal{Q}$ only, and cannot add any time instants, as those are defined by $t$ alone. Therefore there must exist a constraint such that, locally, $E=E(t,q^i,p_i)$. The set of all states at all time is a sub-manifold of $T^*\mathcal{M}$ of dimension $2n+1$.
+
+A composite state $\mathcal{c}$ and its distribution $\rho_\mathcal{c}$ is no longer defined at an instant of an absolute time parameter as now we are free to mix mix $t$ and $q$'s. Yet, there must be at least one time variable so that the distribution is at equal time defined over a suitable $T^*\mathcal{Q} \subset T^*\mathcal{M}$. That is, there must be at least one set of variables for which we are able to define states and their evolution. Therefore our distributions $\rho_\mathcal{c}$ are defined on $2n$-dimensional sub-manifolds of $T^*\mathcal{M}$. In other words: densities are not densities over the time variable.
+
+Yet, as we can mix time and state variables, the volume of integration is not simply $dq^n \wedge dp_n$ as it is not invariant. Consider a change of variable $q'=q+vt$: the same surface may have projections of different sizes on $(q, p)$ than $(q', p')$. It would seem, then, that the measure for our states is different depending on the choice of variable, which cannot be.
+
+We can understand the geometry of $T^*\mathcal{M}$ in the following way. As we have seen, the temporal degree of freedom $(t, E)$ and the other d.o.f. $(q^i, p_i)$ are not independent. So they are not orthogonal in the extended phase space. States are defined on the plane where $\langle q, p \rangle$ (maximally) change: this is not the plane of constant $\langle t, E \rangle$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $\langle q, p \rangle$ where $dt \wedge dE$ is defined. It is on that plane we can properly count states and define our metric.
+
+We have a right triangle-like relationship between the plane where the metric is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
+\begin{align*}
+m.d.o.f \;\;\; &dq^1 \wedge dp_1 + dq^2 \wedge dp_2 = \omega \\
+t.d.o.f \;\;\; &dt \wedge dE + \omega = dq \wedge dp \\
+\end{align*}
+But in the previous case, the right angle was between the two independent d.o.f.. In this case, the right angle is between the metric and the plane of constant $(q, p)$ where $dt \wedge dE$ is defined. We rewrite it as $dq \wedge dp - dt \wedge dE = \omega$. This corresponds to the Minkowski product across d.o.f. and the vector product within. In terms of unified state variables $\xi^a\equiv \{t, q^i, E, p_i\}$ we have:
+
+\begin{align*}
+\omega_{ab} =  \left[
+\begin{array}{cc}
+0 & 1 \\
+-1 & 0 \\
+\end{array}
+\right] \otimes \left[
+\begin{array}{cc}
+-1 & 0 \\
+0 & I_n \\
+\end{array}
+\right] =
+\left[
+\begin{array}{cccc}
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & I_n \\
+1 & 0 & 0 & 0 \\
+0 & -I_n & 0& 0 \\
+\end{array}
+\right] \\
+\end{align*}
+
+The metric $\omega$ is still the canonical two form expressed with the mathematically non-canonical, but physically meaningful, variable $E$. This allows us to better understand its physical meaning. The metric allows to count the possibilities of within a degree of freedom adjusting the metric on $T^*\mathcal{Q}$ to avoid the counting problems introduced by time variable changes.
+
+The metric actually fixes two other problems. The first is: how do we distinguish temporal from standard d.o.f.? Given a two-dimensional surface $U \subset T^*\mathcal{M}$, how can we tell if it should be charted by a $(t,E)$ or whether we can define a distribution on it? Consider $\int_U \omega$. The result will be positive if the integration is over a standard degree of freedom, and it will be negative if the integration is over the temporal degree of freedom. If the contribution in any subregion of $U$ is positive, then the whole $U$ is always oriented along a standard degree of freedom.
+
+The second problem is: how do we prevent changes in time variable that disturb determinism and reversibility? The invariance of $\omega$ already guarantees that. As we saw before the vector product is conserved within a degree of freedom is equivalent to saying that changing variables conserves the possibilities within a d.o.f. In fact, the flow of an infinitesimal transformation that preserve the vector product an a surface is a divergence free field. The conservation of the Minkowsky product across the temporal and standard d.o.f. means that changing variables does not introduce rotation between time and state variables. In face, the flow of an infinitesimal transformation that preserve the Minkowsky product on a surface is a curl free field.
+
+We can capture the above discussion by stating that the extended state space is an hypersurface of the symplectic manifold $(T^*\mathcal{M}, \omega)$, where $\omega \equiv \sum dq^i \wedge dp_i - dt \wedge dE$. This is the simplest manifold that allows us to define time-and-state-variable-invariant densities. The metric allows us to measure the cardinality of possibilities. 
+
+\begin{prop}\label{classical_extended_phase_space}
+	The extended state space, the set of states at all possible times, for the particles of a homogeneous classical material is an hyper-surface of the symplectic manifold formed by a cotangent bundle $T^*\mathcal{M}$ equipped with the canonical two-form $\omega = \sum dq^i \wedge dp_i - dt \wedge dE$.
+\end{prop}
+
+\begin{justification}
 TODO
-
-% Extend Q to include time -> M. Extended phase space is a hypersurface T*M.
-
-% Call s (affine parameter) the parameter of the evolution. Distribution defined on a n-dimensional surface in T*M. Density does not change under time transformation. Use t'=t + \Delta t(q^i, p_i) so that t' is constant. Now we are at equal t': the metric is \Sigma dq^i \wedge dp_i. Metric is the projection on the space orthogonal to t and E. That is \Sigma dq^i \wedge dp_i - dt \wege dE.
-
-
-% definition, simplectic metric on phase space
-
 % justification. Need to be able to define integration for everywhere and space and on compact time. Metric exists. Must be a two-form. Two-form is skewsymmetric. All skew symmetric forms are decomposable in hyperplanes. T*Q is a subspace of T*M. Only one hyperplane left. Metric must be \Sigma dq^i \wedge dp_i \pm dt \wedge dE. Can't be positive, as ()t, E) is not an independent d.o.f.
+\end{justification}
+
 
 \subsection{Relativistic Hamiltonian mechanics}
 
-TODO
+As we are using time as a variable to identify state, we will no longer it as the parameter for the evolution. The trajectory of a particle in the extended phase space will be given by the evolved variables $\xi^a(s)$ in terms of a parameter $s$. As before, deterministc and reversible evolution will preserve the metric as the number of possibilities on each independent d.o.f. will be conserved. Mathematically,  deterministic and reversible evolution is a self-symplectomorphism.
+
+\begin{prop}\label{relativistic_canonical_transformation}
+	A time-dependent deterministic and reversible evolution map for a homogeneous classical material is self-symplectomorphism on the extended phase space. That is: $\mathcal{T}_{\Delta s}: T^*\mathcal{M} \rightarrow T^*\mathcal{M}$ and $\mathcal{T}_{\Delta s}^*\omega = \omega$ where $\mathcal{T}_{\Delta s}^*$ is the pullback of $\mathcal{T}_{\Delta s}$.
+\end{prop}
+
+\begin{justification}
+	TODO
+\end{justification}
+
+
+Part of the trajectory describe the evolution of the time variable $t(s)$. Since the evolution is deterministic and reversible, for each value of $s$ we need to have one and only one value of $t$. $t(s)$ is invertible, strictly monotonic and $d_{s}t$ along a trajectory cannot change sign.\footnote{} This means there are two classes of states: the ones where the parametrization $s$ is aligned with time $t$, which we call standard states, and the ones where the parametrization $s$ is anti-aligned with time $t$, which we call anti-states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.\footnote{This represents the classical analogue for quantum anti-particle states.}
+
+\begin{prop}\label{antistates}
+	Let $\mathcal{T}_{\Delta s}: T^*\mathcal{M} \rightarrow T^*\mathcal{M}$ the time-variant deterministic and reversible evolution map for the particles of a homogeneous classical material, where $s$ is the continuous evolution parameter. The map partitions the extended state space into standard states, those connected by a trajectory where $d_{s}t>0$, and anti-states, those connected by a trajectory where $d_{s}t<0$.
+\end{prop}
+
+\begin{justification}
+	TODO
+\end{justification}
+
+
 
 % find equation of motion
 
@@ -568,6 +632,22 @@ In this section we include mathematical demonstration in support of the physical
 	
 	We claim $L^1(S,\mu) = \mathcal{L}(S,\mu)$. $\mathcal{L}(S,\mu) \supseteq L^1(S,\mu)$ and $L^1(S,\mu) \supseteq \mathcal{L}(S,\mu)$.	
 \end{proof}
+
+\begin{prop}\label{symplectomorphism_generator}
+	Let $(M, \omega)$ a symplectic manifold. Let $f: (M, \omega) \rightarrow (M, \omega)$ an infinitesimal self-symplectomorphism. Let $S \in TM \; | \; f(\xi^a(m)) = \xi^a(m) + S^a(m)dt \; \forall m \in M$ be the infinitesimal displacement. There exist a function $H: M \rightarrow \mathbbm{R}$ such that $S^{a} \omega_{ab} = \partial_{b}H$.
+\end{prop}
+
+\begin{justification}
+	We claim the vector field $S \in T\mathcal{Q}$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$. Let $v, w \in T_m M$ be two vectors defined at a point $m \in M$. Let $v^a, w^b$ their components. Let $v'\equiv f v, w' \in T_{f(m)}M$ be the pushforward of $v, w$ by $f$. Since $f$ is a symplectomorphism we have $v^{a} \omega_{ab} w^{b} = v'^{a} \omega_{ab} w'^{b}$. The vector components change according to $v'^a = \partial_b \xi(t+dt)^a v^b = (\delta^a_b + \partial_b S^a dt) v^b$. We have:
+	\begin{align*}
+	v^{a} \omega_{ab} w^{b} &= v'^{a} \omega_{ab} w'^{b}  \\
+	&= (v^{a} + \partial_{c} S^{a} v^{c} dt) \omega_{ab} ( w^{b} + \partial_{d} S^{b} w^{d} dt) \\
+	&= v^{a} \omega_{ab} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{ab} w^{b} \\
+	&+ v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
+	\end{align*}
+	$v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$ where $S_{b} \equiv S^{a} \omega_{ab}$. The relationship must true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
+\end{justification}
+
 
 \begin{thebibliography}{0}
 
