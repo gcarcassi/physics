@@ -7,13 +7,17 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{dutchcal}
+\usepackage{braket}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
 
 \newtheorem{assump}{Assumption}
 \renewcommand*{\theassump}{\Roman{assump}}
-\newtheorem{thrm}{Theorem}[section]
+\newtheorem{thrm}[equation]{Theorem}
 
 \theoremstyle{definition}
-\newtheorem{prop}{Proposition}[section]
+\newtheorem{prop}[equation]{Proposition}
 
 \newenvironment{rationale}{\emph{Rationale}.}{\qed}
 \newenvironment{justification}{\emph{Justification}.}{\qed}
