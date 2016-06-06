@@ -452,7 +452,7 @@ Mathematically, under the classical Hamiltonian assumption,  deterministic and r
 
 If we assume continuous time evolution we have the following:
 
-\begin{prop}\label{hamiltonian}
+\begin{prop}\label{hamiltons_equations}
 	A continuous deterministic and reversible process for a homogeneous classical material admits a Hamiltonian $H: T^*\mathcal{Q} \rightarrow \mathbbm{R}$ that allows us to write the laws of evolution as
 \begin{align*}
 d_{t}q^i &= \partial_{p_i} H \\
@@ -484,7 +484,7 @@ The discussion so far has been limited to the case where both the set of states 
 
 The first obvious case is that the map may be time dependent. Note that this does not affect our definition of determinism and reversibility: we still can tell final state from initial state and vice-versa. We just need to specify the time as well. At this point we have no way to do that. For example, the Hamiltonian $H: T^*\mathcal{Q} \rightarrow \mathbbm{R}$ is just a function of the state.
 
-The second case is when we perform a transformation for the time parameter $t'=t'(t)$. The equations of motion transform and we have $d_{t}t' d_{t'}q^i = \partial_{p_i} H$. As both $q^i$ and $H$ are independent of time, they cannot be redefined to include $d_{t}t'$. Physically the transformation is introducing fictitious forces that are not conservative, so they cannot be expressed by a Hamiltonian. But this means that we have an ill defined mathematical framework as the notion of deterministic and reversibility is not defined in a way that is independent of time transformations. We need a framework that is capable of handling the fictitious forces as well.
+The second case is when we perform a transformation for the time parameter $t'=t'(t)$. The equations of motion transform and we have $d_{t}t' d_{t'}q^i = \partial_{p_i} H$. As both $q^i$ and $H$ are independent of time, they cannot be redefined to include $d_{t}t'$. Physically the transformation is introducing fictitious forces that are not conservative, so they cannot be expressed by a Hamiltonian. But this means that we have an ill defined mathematical framework as the notion of determinism and reversibility is not defined in a way that is independent of time transformations. We need a framework that is capable of handling the fictitious forces as well.
 
 The third case is when we perform a state variable transformation $q'=q'(q,t)$ that is time dependent (e.g. $q'=q+vt$). Our composite state distribution $\rho(q)$ becomes $\rho(q',t)$: it is no longer defined at equal time. This means that both our measure $\mu$ and our metric $d\mu$ need to be modified.
 
@@ -494,9 +494,9 @@ Therefore we cannot simply stick time in the Hamiltonian and expect everything t
 
 Our goal is to describe maps that take a state at a particular time and transport it to another state at another time. Therefore we want to extend the domain and co-domain of the evolution map to be the space of all particle states at all times.
 
-The first thing to do is to extend our $n$-dimensional $\mathcal{Q}$, the manifold that defines our units, to include the time variable $t$. We call $\mathcal{M}$ such extended space which is a manifold of dimension $n+1$: state variables and the time variable are independent (i.e. any combination of state and time is valid). A time variable is not simply another state variable: it doesn't identify extra states and it's the variable on which we have defined deterministic and reversible evolution. When changing variables, we still need to make sure that deterministic and reversible motion can be defined on the new time variable. Transformations like $t'=q, \; q'=t$ (exchanging time with another state variable) or $t'=\sqrt{t^2 + q^2}, \; q'=\tan^{-1}(t/q)$ (polar coordinates between time and state variable) clearly do not guarantee deterministic and reversible motion over the new time variable. The change of time variable must preserve the time ordering therefore the transformation has to be strictly monotonic. In this sense, the time variable is special.
+The first thing to do is to extend our $n$-dimensional $\mathcal{Q}$, the manifold that defines our units, to include the time variable $t$. We call $\mathcal{M}$ such extended space which is a manifold of dimension $n+1$: state variables and the time variable are independent (i.e. any combination of state and time is valid). A time variable is not simply another state variable: it doesn't identify extra states and it's the variable on which we have defined deterministic and reversible evolution. When changing variables, we still need to make sure that deterministic and reversible motion can be defined on the new time variable. Transformations like $t'=q, \; q'=t$ (exchanging time with another state variable) or $t'=\sqrt{t^2 + q^2}, \; q'=\tan^{-1}(t/q)$ (polar coordinates between time and state variable) clearly do not guarantee deterministic and reversible motion over the new time variable. The change of time variable must preserve the time ordering therefore the transformation has to be strictly monotonic between the two time variables. In this sense, the time variable is special.
 
-As before, we are interested in invariant densities which are defined on co-vectors. TODO: elaborate on covector component. The time variable $t$ will have a conjugate quantity $E\equiv\hbar\bar{\omega}$.\footnote{$\bar{\omega}$ is the classical analogue of the wave frequency. We use $\bar{\omega}$ to distinguish from the phase-space metric $\omega$.} We call the combination of $(t, E)$ the temporal degree of freedom. As time is special, so is the temporal degree of freedom, which is treated differently when defining distribution $\rho_\mathcal{c}$ and therefore by the measure $\mu$ and the metric $\omega$.
+As before, we are interested in invariant densities which are defined on co-vectors. The co-vector $k_i dq^i$ is extended with a time component $\bar{\omega} dt$.\footnote{$\bar{\omega}$ is the classical analogue of the wave frequency. We use $\bar{\omega}$ to distinguish from the phase-space metric $\omega$.} As state variable $q^i$ have a conjugate quantity $p_i\equiv \hbar k$, the time variable $t$ will have a conjugate quantity $E\equiv\hbar\bar{\omega}$. We call the combination of $(t, E)$ the temporal degree of freedom. As time is special, so is the temporal degree of freedom, which is treated differently when defining distribution $\rho_\mathcal{c}$ and therefore by the measure $\mu$ and the metric $\omega$.
 
 The first thing to note is that $E$ cannot be an independent variable. It cannot add any states, as those are defined by $T^*\mathcal{Q}$ only, and cannot add any time instants, as those are defined by $t$ alone. Therefore there must exist a constraint such that, locally, $E=E(t,q^i,p_i)$. The set of all states at all times is a sub-manifold of $T^*\mathcal{M}$ of dimension $2n+1$.
 
@@ -504,12 +504,12 @@ A composite state $\mathcal{c}$ and its distribution $\rho_\mathcal{c}$ is no lo
 
 Yet, as we can mix time and state variables, the volume of integration is not simply $dq^n \wedge dp_n$ as it is not invariant. Consider a change of variable $q'=q+vt$: the same surface may have projections of different sizes on $(q, p)$ than $(q', p')$. It would seem, then, that the measure for our states is different depending on the choice of variable, which cannot be.
 
-We can understand the geometry of $T^*\mathcal{M}$ in the following way. As we have seen, the temporal degree of freedom $(t, E)$ and the other d.o.f. $(q^i, p_i)$ are not independent. So they are not orthogonal in the extended phase space. States are defined on the plane where $( q, p )$ (maximally) change: this is not the plane of constant $( t, E )$ (they are not orthogonal) where $dq \wedge dp$ is defined, but the plane perpendicular to constant $( q, p )$ where $dt \wedge dE$ is defined. It is on that plane we can properly count states and define our metric.
+We can understand the geometry of $T^*\mathcal{M}$ in the following way. As we have seen, the temporal degree of freedom $(t, E)$ and the other d.o.f. $(q^i, p_i)$ are not independent. So they are not orthogonal in the extended phase space. States are defined on the plane where $( q, p )$ (maximally) change. This is not the plane of constant $( t, E )$ (they are not orthogonal) where the area given by $dq \wedge dp$ is defined. It is the plane perpendicular to constant $( q, p )$. And the plane of constant $( q, p )$ is where the area given by $dt \wedge dE$ is defined. That is: the plane where we can properly count states and define our metric is perpendicular to $dt \wedge dE$.
 
 We have a right triangle-like relationship between the plane where the metric is defined and its projections on the planes defined by each d.o.f., similar to the multiple d.o.f.:
 \begin{align*}
 m.d.o.f \;\;\; &dq^1 \wedge dp_1 + dq^2 \wedge dp_2 = \omega \\
-t.d.o.f \;\;\; &dt \wedge dE + \omega = dq \wedge dp \\
+t.d.o.f \;\;\; &dt \wedge dE + \omega = dq \wedge dp
 \end{align*}
 But in the previous case, the right angle was between the two independent d.o.f.. In this case, the right angle is between the metric and the plane of constant $(q, p)$ where $dt \wedge dE$ is defined. We rewrite it as $dq \wedge dp - dt \wedge dE = \omega$. This corresponds to the Minkowski product across d.o.f. and the vector product within. In terms of unified state variables $\xi^a\equiv \{t, q^i, E, p_i\}$ we have:
 
@@ -555,7 +555,7 @@ TODO
 
 \subsection{Relativistic Hamiltonian mechanics}
 
-As we are using time as a variable to identify state, we will no longer it as the parameter for the evolution. The trajectory of a particle in the extended phase space will be given by the evolved variables $\xi^a(s)$ in terms of a parameter $s$. As before, deterministc and reversible evolution will preserve the metric as the number of possibilities on each independent d.o.f. will be conserved. Mathematically,  deterministic and reversible evolution is a self-symplectomorphism.
+As we are using time as a variable to identify states, we will use a different quantity as the parameter for the evolution. The trajectory of a particle in the extended phase space will be given by the evolved variables $\xi^a(s)$ in terms of a parameter $s$. As before, deterministc and reversible evolution will preserve the metric as the number of possibilities on each independent d.o.f. will be conserved. Mathematically,  deterministic and reversible evolution is a self-symplectomorphism.
 
 \begin{prop}\label{relativistic_canonical_transformation}
 	A time-dependent deterministic and reversible evolution map for a homogeneous classical material is self-symplectomorphism on the extended phase space. That is: $\mathcal{T}_{\Delta s}: T^*\mathcal{M} \rightarrow T^*\mathcal{M}$ and $\mathcal{T}_{\Delta s}^*\omega = \omega$ where $\mathcal{T}_{\Delta s}^*$ is the pullback of $\mathcal{T}_{\Delta s}$.
@@ -565,8 +565,23 @@ As we are using time as a variable to identify state, we will no longer it as th
 	TODO
 \end{justification}
 
+If we assume continuous time evolution we have the following:
 
-Part of the trajectory describe the evolution of the time variable $t(s)$. Since the evolution is deterministic and reversible, for each value of $s$ we need to have one and only one value of $t$. $t(s)$ is invertible, strictly monotonic and $d_{s}t$ along a trajectory cannot change sign.\footnote{} This means there are two classes of states: the ones where the parametrization $s$ is aligned with time $t$, which we call standard states, and the ones where the parametrization $s$ is anti-aligned with time $t$, which we call anti-states. Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.\footnote{This represents the classical analogue for quantum anti-particle states.}
+\begin{prop}\label{relativistic_hamiltons_equations}
+	A continuous time-dependent deterministic and reversible process for a homogeneous classical material admits an extended Hamiltonian $\mathcal{H}: T^*\mathcal{M} \rightarrow \mathbbm{R}$ that allows us to write the laws of evolution as
+	\begin{align*}
+	d_{s}t &= - \partial_{E} \mathcal{H} \\
+	d_{s}E &= \partial_{t} \mathcal{H} \\
+	d_{s}q^i &= \partial_{p_i} \mathcal{H} \\
+	d_{s}p_i &= - \partial_{q^i} \mathcal{H}
+	\end{align*}
+\end{prop}
+
+\begin{justification}
+	TODO
+\end{justification}
+
+The trajectory in time $t(s)$ is of particular importance. Since the evolution is deterministic and reversible, for each value of $s$ we need to have one and only one value of $t$. $t(s)$ is invertible, strictly monotonic and $d_{s}t$ along a trajectory cannot change sign. This means there are two classes of states: the ones where the parametrization $s$ is aligned with time $t$, which we call standard states, and the ones where the parametrization $s$ is anti-aligned with time $t$, which we call anti-states. Let us call $\lambda : T^*\mathcal{M} \rightarrow \mathbbm{R}$ the function $\lambda (\xi^a) \mapsto d_s t |_{\xi^a}$ that returns the change of $t$ along $s$. $\lambda > 0$ for all standard states while $\lambda < 0$ for all anti-states.  Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.\footnote{This represents the classical analogue for quantum anti-particle states.}
 
 \begin{prop}\label{antistates}
 	Let $\mathcal{T}_{\Delta s}: T^*\mathcal{M} \rightarrow T^*\mathcal{M}$ the time-variant deterministic and reversible evolution map for the particles of a homogeneous classical material, where $s$ is the continuous evolution parameter. The map partitions the extended state space into standard states, those connected by a trajectory where $d_{s}t>0$, and anti-states, those connected by a trajectory where $d_{s}t<0$.
@@ -576,15 +591,54 @@ Part of the trajectory describe the evolution of the time variable $t(s)$. Since
 	TODO
 \end{justification}
 
+With the extended Hamiltonian we are able to write the equation of motions for any choice of time and state variables. For example: $d_t q^i = d_t s \, d_s q^i = d_s q^i / d_s t = - \partial_{p_i} \mathcal{H} / \partial_{E} \mathcal{H}$. These equations must be the same as the one given by a standard Hamiltonian in those coordinates. That is: $d_t q^i = \partial_{p_i} H = - \partial_{p_i} \mathcal{H} / \partial_{E} \mathcal{H}$. The partial derivatives of $H$ and $\mathcal{H}$ are related, and therefore the functions themselves are related. Working through the math, we find that the most general relationship is of the form: $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E - \mathcal{h}(t))$ where $\lambda = d_s t$, $\mathcal{h}(t)$ is an arbitrary function and, most importantly, $E = H(t,q^i,p_i) + \mathcal{h}(t)$.
 
+The arbitrary function $\mathcal{h}(t)$ has no physical consequence: it is just a constant added to the Hamiltonian. We can either set it to zero or simply redefine the Hamiltonian to include it. Therefore we are left with $E = H(t,q^i,p_i)$. In other words: $E$ is the value of the Hamiltonian, the energy of the system. We have found the constraint we discussed when introducing \ref{classical_extended_phase_space}.
 
-% find equation of motion
+Note that if $E = H$ then $\mathcal{H}=0$ for all states. For all states we also have $\lambda \neq 0$. Therefore $\mathcal{H}=0$ only because $E = H$. We can extend $\mathcal{H}$ on all of $T^* \mathcal{M}$ making sure that $\mathcal{H} \neq 0$ outside of the hyper-surface that contains states. This way we can directly use the constraint $\mathcal{H}=0$ to identify such hyper-surface.
 
-% find constraint
+This way $\mathcal{H}$ gives both the constraint $\mathcal{H}=0$ to identify states and the map $d_s \xi^a=\omega^{ab} \partial_b \mathcal{H}$ to identify their evolution.
 
-\subsection{anti-states}
+\begin{prop}\label{form_of_extended_hamiltonian}
+	The form of the extended Hamiltonian is $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E)$ where $H(t,q^i,p_i)$ is the standard Hamiltonian at each instant $t$, the conjugate time variable $E = H(t,q^i,p_i)$ represents the value of the Hamiltonian, and  $\lambda : T^*\mathcal{M} \rightarrow \mathbbm{R}$ where $\lambda(\xi^a) = d_s t$.
+\end{prop}
 
-% relationship between s and t must be monotonic. Hamiltonian partitions extended phase space. Distribution must be always zero at the boundary.
+\begin{justification}
+	TODO
+\end{justification}
+
+As an example, the Hamiltonian and extended Hamiltonian for a relativistic free particle the Hamiltonian are:
+\begin{equation}\label{free_hamiltonians}
+\begin{aligned}
+H &= c \sqrt{m^2 c^2 + p^i p_i} \\
+\mathcal{H} &= \frac{1}{2m} ( p^i p_i - (E/c)^2 + m^2c^2) \\
+ &= \frac{1}{2mc^2} (c \sqrt{m^2 c^2 + p^i p_i} + E) \\
+ &(c \sqrt{m^2 c^2 + p^i p_i} - E)
+\end{aligned}
+\end{equation}
+In the next section we'll derive and look more closely at the case of particles under potential forces.
+
+Now that we have characterized the motion of the particles, we should also characterize the motion of the composite state.
+
+If we have a distribution of material $\rho_\mathcal{c}(s)$ for a particular value of $s$, the first thing we know is that its support, the region where the density is non-zero, must be within the constraint $\mathcal{H} = 0$. This means $\mathcal{H} \rho_\mathcal{c}(s) = 0$ since $\mathcal{H} = 0$ where $\rho_\mathcal{c}(s) \neq 0$. If the distribution is differentiable, the evolution is given by the Poisson bracket $d_s \rho_\mathcal{c} (s) = \{ \rho_\mathcal{c}(s), \mathcal{H} \}$.
+
+We can also consider the distribution of material at all times $\rho_\mathcal{c}\equiv \int \rho_\mathcal{c}(s) ds$. The support of the distribution is also constrained so we have $\mathcal{H} \rho_\mathcal{c} = 0$. As the density is transported over each trajectory, its value does not change over $s$. Therefore, if the distribution is differentiable, we have $d_s \rho_\mathcal{c} = \{ \rho_\mathcal{c}, \mathcal{H} \} = 0$.
+
+\begin{prop}\label{relativistic_distribution_evolution}
+	Let $\rho_\mathcal{c}(s)$ the distribution of material at a particular moment in the evolution. $\mathcal{H} \rho_\mathcal{c}(s) = 0$ and $d_s \rho_\mathcal{c} (s) = \{ \rho_\mathcal{c}(s), \mathcal{H} \}$ where $\{ f, g \} \equiv \partial_a f \omega^{ab} \partial_b g$. Let $\rho_\mathcal{c}$ the distribution of material at all times. $\mathcal{H} \rho_\mathcal{c} = 0$ and $d_s \rho_\mathcal{c} = \{ \rho_\mathcal{c}, \mathcal{H} \} = 0$.
+\end{prop}
+
+\begin{justification}
+	TODO
+\end{justification}
+
+As we have derived relativistic motion in an unusual way, a few comments are in order.
+
+As mentioned at the beginning of the section, no new assumption was required. Relativistic Hamiltonian mechanics is simply the correct way of handling time dependent motion. As such, there was no mention of the speed of light $c$, $\mathcal{Q}$ being a Riemannian manifold or the metric $g$. These will be introduced in the next chapter with the kinematic equivalence assumption. In light of this, it is probably better to consider relativistic mechanics as a feature of the geometry of the extended phase space more than the geometry of space-time.
+
+We have also seen that anti-particle states, a feature generally associated with quantum field theory, is actually a feature of relativistic Hamiltonian mechanics. This is usually missed because in classical mechanics only the standard Hamiltonian is typically used. Note how the extended Hamiltonian in \ref{free_hamiltonians} is quadratic in $E$, which can have both positive and negative solutions on the constraint $\mathcal{H}=0$.
+
+Another important feature is that this formulation of relativistic Hamiltonian mechanics is formally very close to the Quantum case. Note how $\mathcal{H} \rho = 0$ and $\mathcal{H} \ket{\psi} = 0$ are formally equivalent. If we apply the extended Hamiltonian in \ref{free_hamiltonians} with the usual formal substitution, we have the Klein-Gordon equation using space-like convention rescaled by a factor for $2m$. As we'll see later, to this parallel in the mathematical formalism corresponds a parallel in the physics description.
 
 \section{Kinematic equivalence}
 TODO
