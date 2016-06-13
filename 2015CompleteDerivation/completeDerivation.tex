@@ -267,7 +267,7 @@ We'll see that very similar relationships are what define Hamiltonian and Lagran
 
 \section{Composite systems and reducibility}
 
-%Status: conceptual work is done, need to write down
+% Review started
 
 Given that scientific reductionism (i.e. the idea of reducing physical systems and interactions to the sum of their constituent parts in order to make them easier to study) is at the heart of fundamental physics, we now explore how to characterize a system in terms of its components. That is, we want to study the relationship between the state space of a composite system and the state space of its parts. In general, this is quite a complicated thing to do, which requires intimate knowledge of the system at hand. So we simplify our problem and study a system made of infinitesimal homogeneous parts. What we'll find is that under the additional assumption that the system is infinitesimally reducible (i.e. its state is equivalent to the states of its parts) and that each part undergoes deterministic and reversible evolution, the motion is suitably described by the standard framework of classical Hamiltonian mechanics.
 
@@ -562,8 +562,9 @@ As we are using time as a variable to identify states, we will use a different q
 \end{prop}
 
 \begin{justification}
-	TODO
-\end{justification}
+	We claim $\mathcal{T}_{\Delta s}$ is a self-homeomorphism on $T^*\mathcal{M}$. The extended state space for particles of a homogeneous classical material is $T^*\mathcal{M}$ by \ref{classical_extended_phase_space}. $\mathcal{T}_{\Delta s}$ is a deterministic and reversible evolution map and by \ref{detrevmap} is a self-homeomorphism.
+	
+	We claim $\mathcal{T}_{\Delta s}$ is a symplectomorphism on $(T^*\mathcal{M}, \omega)$. The distribution on final states must be defined. The Jacobian for $\mathcal{T}_{\Delta s}$ exists and is non-zero. $\mathcal{T}_{\Delta s}$ is a diffeomorphism. A deterministic and reversible process conserves the number of states and possibilities. $\omega$ is the metric for the cardinality of possibilities. $\omega$ is invariant under a deterministic and reversible evolution map. $\mathcal{T}_{\Delta s}$ is a symplectomorphism by definition.\end{justification}
 
 If we assume continuous time evolution we have the following:
 
@@ -578,7 +579,9 @@ If we assume continuous time evolution we have the following:
 \end{prop}
 
 \begin{justification}
-	TODO
+We claim the vector field $S \in T(T^*\mathcal{M})$ for the infinitesimal displacement $S^a = d\xi^a/dt$ admits a potential $\mathcal{H}$ such that $S^{a} \omega_{ab} = \partial_{b}\mathcal{H}$. The extended state space $T^*\mathcal{M}$ of a classical homogeneous material is a symplectic manifold by \ref{classical_extended_phase_space}. The map for infinitesimal time evolution $\mathcal{T}_{dt}$ is an infinitesimal self-symplectomorphism by \ref{relativistic_canonical_transformation}. By \ref{symplectomorphism_generator} the infinitesimal displacement $S$ admits a potential $\mathcal{H}$ such that $S^{a} \omega_{ab} = \partial_{b}\mathcal{H}$
+
+We claim the state variables evolve according to extended Hamilton's equations. $S^{a} \omega_{ab} = d_s\xi^a \omega_{ab} = \partial_{b}\mathcal{H}$. For $a = 0$ we have $d_s t \, (-1) = \partial_{E} \mathcal{H}$. For  $a=\{1,...,n\}$ we have $d_s q^i \, (+1) = \partial_{p^i} \mathcal{H}$. For $a=n+1$ we have $d_s E \, (+1) = \partial_{t} \mathcal{H}$. For $a=\{n+2,...,2n + 1\}$ we have $d_s p_i \, (-1) = \partial_{q^i} \mathcal{H}$.
 \end{justification}
 
 The trajectory in time $t(s)$ is of particular importance. Since the evolution is deterministic and reversible, for each value of $s$ we need to have one and only one value of $t$. $t(s)$ is invertible, strictly monotonic and $d_{s}t$ along a trajectory cannot change sign. This means there are two classes of states: the ones where the parametrization $s$ is aligned with time $t$, which we call standard states, and the ones where the parametrization $s$ is anti-aligned with time $t$, which we call anti-states. Let us call $\lambda : T^*\mathcal{M} \rightarrow \mathbbm{R}$ the function $\lambda (\xi^a) \mapsto d_s t |_{\xi^a}$ that returns the change of $t$ along $s$. $\lambda > 0$ for all standard states while $\lambda < 0$ for all anti-states.  Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.\footnote{This represents the classical analogue for quantum anti-particle states.}
@@ -588,7 +591,9 @@ The trajectory in time $t(s)$ is of particular importance. Since the evolution i
 \end{prop}
 
 \begin{justification}
-	TODO
+	We claim $t(s)$ is strictly monotonic. The motion is deterministic and reversible. At each value of $t$ there must be only one possible state: if there is more then one state the motion is non-deterministic (one state is not enough to identify them), if there is no state the motion is non-reversible (no state cannot identify a state). $t(s)$ is invertible. $t(s)$ is strictly monotonic.
+	
+	We claim $d_{s}t$ partitions the space. Let $\mathcal{s}_1, \mathcal{s}_2 \in T^*\mathcal{M}$ two physical states connected by deterministic and reversible evolution. $\mathrm{sign}(d_{s}t(\mathcal{s}_1)) = \mathrm{sign}(d_{s}t(\mathcal{s}_2))$. Let $U \equiv \{\mathcal{s} \in T^*\mathcal{M} \; | \; d_{s}t(\mathcal{s}) > 0 \}$ and $V \equiv \{\mathcal{s} \in T^*\mathcal{M} \; | \; d_{s}t(\mathcal{s}) < 0 \}$. $U \cap V = \varnothing$. Let $\gamma : [s_0, s_1] \rightarrow T^*\mathcal{M}$ the trajectory given by deterministic and reversible evolution. Either $\gamma([s_0, s_1]) \subseteq U$ or $\gamma([s_0, s_1]) \subseteq V$.
 \end{justification}
 
 With the extended Hamiltonian we are able to write the equation of motions for any choice of time and state variables. For example: $d_t q^i = d_t s \, d_s q^i = d_s q^i / d_s t = - \partial_{p_i} \mathcal{H} / \partial_{E} \mathcal{H}$. These equations must be the same as the one given by a standard Hamiltonian in those coordinates. That is: $d_t q^i = \partial_{p_i} H = - \partial_{p_i} \mathcal{H} / \partial_{E} \mathcal{H}$. The partial derivatives of $H$ and $\mathcal{H}$ are related, and therefore the functions themselves are related. Working through the math, we find that the most general relationship is of the form: $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E - \mathcal{h}(t))$ where $\lambda = d_s t$, $\mathcal{h}(t)$ is an arbitrary function and, most importantly, $E = H(t,q^i,p_i) + \mathcal{h}(t)$.
@@ -600,11 +605,15 @@ Note that if $E = H$ then $\mathcal{H}=0$ for all states. For all states we also
 This way $\mathcal{H}$ gives both the constraint $\mathcal{H}=0$ to identify states and the map $d_s \xi^a=\omega^{ab} \partial_b \mathcal{H}$ to identify their evolution.
 
 \begin{prop}\label{form_of_extended_hamiltonian}
-	The form of the extended Hamiltonian is $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E)$ where $H(t,q^i,p_i)$ is the standard Hamiltonian at each instant $t$, the conjugate time variable $E = H(t,q^i,p_i)$ represents the value of the Hamiltonian, and  $\lambda : T^*\mathcal{M} \rightarrow \mathbbm{R}$ where $\lambda(\xi^a) = d_s t$.
+	The form of the extended Hamiltonian is $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E)$ where $H(t,q^i,p_i)$ is the standard Hamiltonian at each instant $t$, the conjugate time variable $E = H(t,q^i,p_i)$ represents the value of the Hamiltonian, and  $\lambda : T^*\mathcal{M} \rightarrow \mathbbm{R}$ where $\lambda(\xi^a) = d_s t$. $\mathcal{H} = 0$ for all states at all time.
 \end{prop}
 
 \begin{justification}
-	TODO
+	We claim the form of the extended Hamiltonian is $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E)$. Let $\mathcal{H}$ the extended Hamiltonian and $H$ be Hamiltonian for a particular choice of time and state variables. We have $d_s q^i = \partial_{p_i} \mathcal{H} = d_s t \, d_t q^i = - \lambda \, \partial_{p_i} H$ where $\lambda : T^*\mathcal{M} \rightarrow \mathbbm{R} \; | \; \lambda \mapsto d_s t$. $d_s p_i = - \partial_{q^i} \mathcal{H} = d_s t \, d_t p_i = \lambda \, \partial_{q^i} H$. As $\lambda \neq 0$ for all physical states, we can set $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E + \mathcal{h}(t,E,q^i,p_i))$ without loss of generality. We have $\partial_{q^i} \lambda (H - E + \mathcal{h}) + \lambda (\partial_{q^i} H + \partial_{q^i} \mathcal{h}) = \lambda \, \partial_{q^i} H$. This holds for all choices of $t$. In particular for $t=s$, $\lambda (\partial_{q^i} H + \partial_{q^i} \mathcal{h}) = \lambda \, \partial_{q^i} H$. $\partial_{q^i} \mathcal{h} = 0$. $\mathcal{h}$ is not a function of $q^i$. Repeat the same procedure for $p_i$. $\mathcal{h}$ is not a function of $p_i$. $\lambda = d_s t = - \partial_E \mathcal{H} = - \partial_{E} \lambda (H - E + \mathcal{h}) - \lambda (-1 + \partial_{E} \mathcal{h})$. In particular for $t=s$, $\lambda = - \lambda (-1 + \partial_{E} \mathcal{h})$. $\partial_{E} \mathcal{h} = 0$. $\mathcal{h}$ is not a function of $E$. $\mathcal{h}$ is only a function of $t$. We can redefine $H = H + \mathcal{h}$ as the result is still a function of $q^i, p_i , t$ with the same equations of motion.
+	
+	We claim $E = H(t,q^i,p_i)$ for physical states. $\lambda = d_s t = - \partial_E \mathcal{H} = - \partial_{E} \lambda (H - E + \mathcal{h}) - \lambda (-1)$ for any choice of $t$. $H - E = 0$. 
+	
+	We claim $\mathcal{H} = 0$ for physical states. $\mathcal{H} = \lambda (H - E) = 0$.
 \end{justification}
 
 As an example, the Hamiltonian and extended Hamiltonian for a relativistic free particle the Hamiltonian are:
@@ -629,7 +638,14 @@ We can also consider the distribution of material at all times $\rho_\mathcal{c}
 \end{prop}
 
 \begin{justification}
-	TODO
+	We claim $\mathcal{H} \rho_\mathcal{c}(s) = 0 \; \forall \mathcal{c} \in \mathcal{C} \wedge s \in \mathbbm{R}$. Let $\rho_\mathcal{c}(s) : T^*\mathcal{M} \rightarrow \mathbbm{R}$ be the distribution associated with a composite state $\mathcal{c}$ at a given value of $s$. The distribution is defined on physical states. By \ref{form_of_extended_hamiltonian} $supp(\rho_\mathcal{c}(s)) \subseteq T^*\mathcal{M} \,\backslash\, supp(\mathcal{H})$. $supp(\mathcal{H} \rho_\mathcal{c}(s)) = supp(\mathcal{H}) \cap supp(\rho_\mathcal{c}(s)) \subseteq \varnothing$.
+	
+	We claim $d_s \rho_\mathcal{c} (s) = \{ \rho_\mathcal{c}(s), \mathcal{H} \}$. Let $\rho_\mathcal{c} (s)$ be differentiable. $d_s \rho_\mathcal{c}(s) = \partial_a \rho_\mathcal{c}(s) d_s \xi^a = \partial_a \rho_\mathcal{c}(s) \omega^{ab} \partial_b \mathcal{H} = \{ \rho_\mathcal{c}(s), \mathcal{H} \}$.
+	
+	We claim $\mathcal{H} \rho_\mathcal{c} = 0 \; \forall \mathcal{c}$. Let $\rho_\mathcal{c} : T^*\mathcal{M} \rightarrow \mathbbm{R}$ be the distribution associated with a composite state $\mathcal{c}$ at all states at all times. The distribution is defined on physical states. By \ref{form_of_extended_hamiltonian} $supp(\rho_\mathcal{c}) \subseteq T^*\mathcal{M} \,\backslash\, supp(\mathcal{H})$. $supp(\mathcal{H} \rho_\mathcal{c}) = supp(\mathcal{H}) \cap supp(\rho_\mathcal{c}) \subseteq \varnothing$.
+	
+	We claim $d_s \rho_\mathcal{c} = \{ \rho_\mathcal{c}(s), \mathcal{H} \} = 0$. Let $\rho_\mathcal{c}$ be differentiable. $d_s \rho_\mathcal{c}= \partial_a \rho_\mathcal{c} d_s \xi^a = \partial_a \rho_\mathcal{c}(s) \omega^{ab} \partial_b \mathcal{H} = \{ \rho_\mathcal{c}, \mathcal{H} \}$. Let $\gamma : \mathbbm{R} \rightarrow T^*\mathcal{M}$ a particle trajectory. Then $\rho_\mathcal{c}(\lambda(s)) = \rho_\mathcal{c}(\lambda(s + \Delta s))$. $d_s \rho_\mathcal{c} = 0$.
+	
 \end{justification}
 
 As we have derived relativistic motion in an unusual way, a few comments are in order.
