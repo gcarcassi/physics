@@ -1,0 +1,54 @@
+\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{dutchcal}
+\usepackage{braket}
+
+\newtheorem{prop}[equation]{Proposition}
+
+\begin{document}
+
+\title{Math problems}
+
+\maketitle
+
+\section{Topology for continuous functions}
+
+Let $X$ and $Y$ be two topological space. Let $C(X, Y) = \{f:X \rightarrow Y \; | \; f \text{ is continuous} \}$. Prove or disprove the following propositions.
+
+\begin{prop}
+	$C(\mathbbm{R}, \mathbbm{R})$ is a Hausdorff and second countable topological space. 
+\end{prop}
+
+\begin{prop}
+	$C(\mathbbm{R}^n, \mathbbm{R}^m)$ is a Hausdorff and second countable topological space. 
+\end{prop}
+
+\begin{prop}
+	Let $X$ be a Hausdorff and second countable manifold. $C(X, \mathbbm{R}^m)$ is a Hausdorff and second countable topological space. 
+\end{prop}
+
+\begin{prop}
+	Let $X$ and $Y$ be Hausdorff and second countable manifolds. $C(X, Y)$ is a Hausdorff and second countable topological space. 
+\end{prop}
+
+\begin{prop}
+	Let $X$ and $Y$ be Hausdorff and second countable topological spaces. $C(X, Y)$ is a Hausdorff and second countable topological space. 
+\end{prop}
+
+\section{Measure induced by group of self-homeomorphisms}
+
+Prove or disprove the following proposition.
+
+\begin{prop}
+	Let X be a Hausdorff and second countable manifold. Let $G$ be a group of self-homeomorphism under composition such that, $\forall U \subseteq X$, $g(U) \subseteq U \implies g(U) = U$ and $g(U) \supseteq U \implies g(U) = U$. There exist a measure $\mu : \mathcal{B}(X) \rightarrow \mathbbm{R}$ such that, $\forall U \subseteq X, g \in G$, $\mu(U) = \mu(g(U))$. Additionally, if $\forall x_1, x_2 \in X \; \exists g \in G \;|\; x_2=g(x_1)$ then $\mu$ is unique up to a multiplicative constant.
+\end{prop}
+
+Prove or disprove if $X$ is a Hausdorff and second countable topological space.
+
+\end{document}
