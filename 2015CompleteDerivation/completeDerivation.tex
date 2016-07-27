@@ -448,7 +448,7 @@ It should also be noted that classical particles, under this light, cannot be co
 Finally, we should note that we are in a position similar to the one discussed in \ref{discrete_state_metric} for discrete states. We have both a topological space and a measure expressible in terms of state variables that allows us to count states and possibilities. We recovered the metric starting from the idea of an infinitesimally reducible system. That led to a state space $\mathcal{S}$ for the infinitesimal parts, on which we must be able to define state-variable-independent distributions, which in turn gave us degrees of freedom made by pairs of conjugate variables and the symplectic metric typical of classical phase space. In short: being able to measure the amount of material is what allows us to measure the cardinality of states.
 
 
-\subsection{Classical Hamiltonian assumption}
+\subsection{Infinitesimal reducibility}
 
 Now that we have fully characterized what we mean by a classical material, we can stipulate the following:
 
@@ -735,8 +735,33 @@ Another important feature is that this formulation of relativistic Hamiltonian m
 
 As a final thought, we note how the physics maps less elegantly to the math in the time dependent case. The function space for $\bar{\mathcal{C}}$ is not simply the Lebesgue integrable differentiable functions, but those that are integrable on particular hyper-surfaces. The complete state space $\bar{\mathcal{S}}$ is a hyper-surface of $T^*\mathcal{M}$. The extended Hamiltonian is needed to identify that subspace. This may be a hint that a better formulation is lurking. One where we consider the particle evolutions $\bar{\mathcal{s}}$ as the primary objects, label those (instead of the states). The distribution of material would simply be a distribution over the particle evolutions, a Lebesgue integrable differentiable functions.
 
-\section{Kinematic equivalence}
-TODO
+\section{Elementary systems}
+
+Reductionism by itself would not help us describing a system if the state and the evolution of the pieces were more complicated to study. In this section we further focus our attention to those system that not only are infinitesimally reducible, but their internal dynamics can be ignored. That is, we will assume that the motion in space is necessary and sufficient to reconstruct the state and its dynamics. What we'll find is that the dynamics of each infinitesimal part follows classical Lagrangian mechanics. Furthermore, the Hamiltonian of the system is constrained to the one of a free particles under scalar and vector potential forces.
+
+\subsection{Kinematic equivalence}
+
+The link between kinematics, the study of motion through quantities like velocity and acceleration, and dynamics, the study of laws of evolution, is crucial in physics. In Newtonian physics, $\vec{F}=m\vec{a}$ provides such link. In Hamiltonian and Lagrangian mechanics, the link is implicitly given by the choice of the Hamiltonian and the Lagrangian.
+
+In this work we make the link conceptually explicit by assuming the following:
+
+\begin{assump}[Kinematic equivalence]\label{kinematic_equivalence}
+	Studying the kinematic of the system (i.e. trajectories in space) is equivalent to study the dynamics of the system (i.e. state trajectories in state space).
+\end{assump}
+
+\begin{rationale}
+	The idea is that the system internal dynamics has no affect on the motion and therefore can be disregarded. Consider the motion of our cannonball under gravitational and inertial forces: its temperature or precise chemical composition does not affect the trajectory. We can assume kinematic equivalence. Consider the motion of a helicopter under gravitational and inertial forces: the pilot and the amount of fuel in the tank do affect the trajectory. We cannot assume kinematic equivalence.
+	
+	The assumption clearly cannot be taken in general since many systems do not posses this trait. Yet, as this assumption allows to recover the standard link between kinematic and dynamical quantities, there is something fundamental about it. That is: if we assume that the system has no discernible internal dynamics, then the only dynamics that needs to be described is the one associated with its trajectory in space: kinematic equivalence holds.
+	
+	This is in fact consistent with observation, though elementary particles are quantum fields therefore some caveats are in order. Massless particles should be excluded as they cannot be localized, which makes it hard to talk about a proper trajectory. Spin is not associated to kinematic quantities: nothing is thought to be actually spinning. As such we can regard it as the internal dynamic of the system. A massive spin $0$ system is one that can be thought as localized and as having no internal structure. For such system we would expect kinematic equivalence to hold and it does: from kinematic momentum we can reconstruct conjugate momentum and vice-versa.
+	
+	Therefore, with the appropriate caveat that we are talking about a quantum particle which we haven't yet introduced, the simplest systems are the ones that just describe a trajectory in space. This raises the opposite question: why all systems have \emph{at least} to describe a trajectory in space? This seems motivated by the previous assumption of reducibility: spatial extent is the one way that all materials are reduced. Therefore all particles of all materials, regardless of whether they are elementary or not, are will include spatial degrees of freedom.
+	
+	It should be also noted that, once we reduced particles to be infinitesimal at a point, the rest of the description must be a local object invariant under coordinate transformations. This means that the remaining internal dynamics must be identified scalar, vector or tensor quantities. Spin is, in some sense, a quantized version of those.
+	
+	While we can make an argument why kinematic equivalence is important because it is valid for elementary system, we cannot actually make an argument why nature should be reducible to elementary system. While it fits our physical intuition, we have no a priori argument for it. We can imagine, in fact, that as we reduce the behavior of one material to its constituents we find the parts to possess richer and richer states. For example, most macroscopic object are neutral though the parts are charged. We could imagine that, while dividing into parts, we find more and more types of charges and forces. We do not have an argument why this cannot happen.
+\end{rationale}
 
 \section{Quantum systems}
 
