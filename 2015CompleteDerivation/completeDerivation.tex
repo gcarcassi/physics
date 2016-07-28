@@ -389,7 +389,7 @@ For each state, they represent respectively the total amount of material, the ma
 
 Now that we are guaranteed that the density is properly defined for all state variables, we have to make sure it is invariant. The distribution should only depend on the states, and not the particular choice of state variables to label them.
 
-If $\rho_\mathcal{c}$ is to remain invariant under state variable changes, not only the Jacobian has to exist but must be unitary. This means we cannot simply change one state variable as we please. If we change one at least another has to change in some coordinated way such that the Jacobian of the total transformation is unitary. This  means that we cannot change physical units of all the variables as we like: they are part of a unit system.
+If $\rho_{\mathcal{c}}$ is to remain invariant under state variable changes, not only the Jacobian has to exist but must be unitary. This means we cannot simply change one state variable as we please. If we change one at least another has to change in some coordinated way such that the Jacobian of the total transformation is unitary. This  means that we cannot change physical units of all the variables as we like: they are part of a unit system.
 
 The simplest case is when a single variable is enough to define our units, and therefore tell how all the others must change. Suppose that our state space $\mathcal{S}$ is identified by $n$ independent state variables $\{q, k^i\}$ and a change of units for the first, that is $\hat{q} = \hat{q}(q)$, determines the change for all others. The Jacobian matrix is the block matrix:
 \begin{align*}
@@ -427,7 +427,7 @@ This gives us insight on the physical meaning of the geometrical structure $T^*\
 
 We can capture the above discussion by stating that the state space $\mathcal{S}$ is the symplectic manifold $(T^*\mathcal{Q}, \omega)$, where $\mathcal{Q}$ is the manifold that defines the unit system. This is the only manifold that allows us to define state-variable-invariant densities. The metric allows us to measure the cardinality of possibilities on an arbitrary d.o.f. 
 
-\begin{prop}\label{classical_phase_space}
+\begin{prop}\label{symplectic_manifold}
 The state space $\mathcal{S}$ for the particles of a classical material is a symplectic manifold formed by a cotangent bundle $T^*\mathcal{Q}$ equipped with the canonical two-form $\omega$.
 \end{prop}
 
@@ -452,7 +452,7 @@ Finally, we should note that we are in a position similar to the one discussed i
 
 Now that we have fully characterized what we mean by a classical material, we can stipulate the following:
 
-\begin{assump}[Infinitesimal reducibility]\label{classical}
+\begin{assump}[Infinitesimal reducibility]\label{infinitesimal_reducibility}
 	The system under study is composed of an infinitesimally reducible homogeneous material and each part undergoes deterministic and reversible evolution.
 \end{assump}
 
@@ -502,7 +502,7 @@ Mathematically, under the classical Hamiltonian assumption,  deterministic and r
 \end{prop}
 
 \begin{justification}
-	We claim $\mathcal{T}_{\Delta t}$ is a self-homeomorphism on $T^*\mathcal{Q}$. The state space for the particles of a classical material is $T^*\mathcal{Q}$ by \ref{classical_phase_space}. $\mathcal{T}_{\Delta t}$ is a deterministic and reversible evolution map and by \ref{detrevmap} is a self-homeomorphism.
+	We claim $\mathcal{T}_{\Delta t}$ is a self-homeomorphism on $T^*\mathcal{Q}$. The state space for the particles of a classical material is $T^*\mathcal{Q}$ by \ref{symplectic_manifold}. $\mathcal{T}_{\Delta t}$ is a deterministic and reversible evolution map and by \ref{detrevmap} is a self-homeomorphism.
 	
 	We claim $\mathcal{T}_{\Delta t}$ is a symplectomorphism on $(T^*\mathcal{Q}, \omega)$. The distribution on final states must be defined. The Jacobian for $\mathcal{T}_{\Delta t}$ exists and is non-zero. $\mathcal{T}_{\Delta t}$ is a diffeomorphism. A deterministic and reversible process conserves the number of states and possibilities. $\omega$ is the metric for the cardinality of possibilities. $\omega$ is invariant under a deterministic and reversible evolution map. $\mathcal{T}_{\Delta t}$ is a symplectomorphism by definition.
 \end{justification}
@@ -518,7 +518,7 @@ d_{t}p_i &= - \partial_{q^i} H
 \end{prop}
 
 \begin{justification}
-We claim the vector field $S \in T\mathcal{S}$ for the infinitesimal displacement $S^a = d\xi^a/dt$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$. The state space $\mathcal{S}$ for the particles of a classical material is a symplectic manifold by \ref{classical_phase_space}. The map for infinitesimal time evolution $\mathcal{T}_{dt}$ is an infinitesimal self-symplectomorphism by \ref{canonical_transformation}. By \ref{symplectomorphism_generator} the infinitesimal displacement $S$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$
+We claim the vector field $S \in T\mathcal{S}$ for the infinitesimal displacement $S^a = d\xi^a/dt$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$. The state space $\mathcal{S}$ for the particles of a classical material is a symplectic manifold by \ref{symplectic_manifold}. The map for infinitesimal time evolution $\mathcal{T}_{dt}$ is an infinitesimal self-symplectomorphism by \ref{canonical_transformation}. By \ref{symplectomorphism_generator} the infinitesimal displacement $S$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$
 
 We claim the state variables evolve according to Hamilton's equations. $S^{a} \omega_{ab} = d_t\xi^a \omega_{ab} = \partial_{b}H$. For $b=\{1,...,n\}$ we have $d_tp_i (-1) = \partial_{q_i} H$. For $b=\{n+1,...,2n\}$ we have $d_tq^i (+1) = \partial_{p_i} H$.
 \end{justification}
@@ -553,21 +553,27 @@ The first thing to do is to amend our definition of state space to include all s
 
 We'll therefore call \emph{complete state space} of particle states the set of all configurations at all times and we'll indicate it by $\bar{\mathcal{S}}$. In that space, a state is an element $\mathcal{s} \in \bar{\mathcal{S}}$ while a time evolution is a line $\bar{\mathcal{s}} \subset \bar{\mathcal{S}}$ that passes once at all times. Specifying an evolution map means giving a set of lines such that each state is traversed once and only once. Locally, each state will be given by $(q^i, k_i, t)$ therefore $\bar{\mathcal{S}}$ is a $2n+1$ dimensional manifold. A region at equal time will be a hyper-surface $\mathcal{S}_{t=t_0}$ that includes all possible configuration at a particular time. Such hyper-surface will need to cut across all evolutions once and only once, therefore not all functions of $\bar{\mathcal{S}}$ are suitable time variables.
 
-\begin{prop}
+\begin{prop}\label{complete_particle_state_space}
 	The complete state space $\bar{\mathcal{S}}$ for the particles of a classical material is a $2n+1$ dimensional differentiable manifold. The state space $\mathcal{S}_{t=t_0}$ at a particular time is a hyper-surface of $\bar{\mathcal{S}}$.
 \end{prop}
 
 \begin{justification}
-	TODO
+	We claim $\bar{\mathcal{S}}$ is an $2n+1$ dimensional differentiable manifold. Locally $\bar{\mathcal{S}} \supseteq U \cong T^*\mathcal{Q}\times \mathbbm{R}$ as a state $\mathcal{s} \in U$ exists for each configuration and each time instant. Locally $\bar{\mathcal{S}} \supseteq U \cong\mathbbm{R}^{2n+1}$. $\bar{\mathcal{S}}$ is an $2n+1$ dimensional manifold. $T^*\mathcal{Q}$ is a differentiable manifold. Time evolution is a diffeomorphism by \ref{hamiltons_equations} therefore derivatives between state variables and time variables always exist and are invertible. $\bar{\mathcal{S}}$ is a differentiable manifold.
+	
+	We claim $\mathcal{S}_{t=t_0}$ is a hyper-surface of $\bar{\mathcal{S}}$. Let $t : \bar{\mathcal{S}} \rightarrow \mathbbm{R}$ be a time variable. $\mathcal{S}_{t=t_0} = \{ \mathcal{s} \in \bar{\mathcal{S}} \; | \; t(\mathcal{s}) = t_0 \}$ is a level set. $t$ is monotonic as it is a time variable. $t$ has no critical points. $t_0$ is a regular value. $\mathcal{S}_{t=t_0}$ is an embedded submanifold of co-dimension $1$. $\mathcal{S}_{t=t_0}$ is an hyper-surface.
 \end{justification}
 
 For the composite state we need to take a different approach. A distribution of material over states at equal time $\rho_\mathcal{c} : \mathcal{S}_{t=t_0} \rightarrow \mathbbm{R}$ will depend on the choice of time variable, therefore the complete state space will not be useful as it will not be variable independent. What we are really interested in is the \emph{evolution space} of a classical material, which we'll indicated by $\bar{\mathcal{C}}$. To each evolution $\bar{\mathcal{c}} \in \bar{\mathcal{C}}$ will correspond a distribution $\rho_{\bar{\mathcal{c}}} : \bar{\mathcal{S}} \rightarrow \mathbbm{R}$ over all particle states at all times. This distribution will be differentiable, it's differentiable over all equal time hyper-surfaces and time evolution is differentiable, but is not integrable over the complete state space $\bar{\mathcal{S}}$. Such integration will operate over time as well, giving the amount of material multiplied by time. If time is taken to be infinite the value is not finite. The distribution, instead, must be integrable over all equal time hyper-surfaces: no matter what time variable we choose, the amount of material found at a particular time has to be finite.
 
-\begin{prop}
+\begin{prop}\label{material_evolution_state_space}
 	The evolution state space $\bar{\mathcal{C}}$ for a classical material is isomorphic to the space of differentiable functions that are Lebesgue integrable on any equal time hyper-surface. That is $\bar{\mathcal{C}} \cong  C^1(\bar{\mathcal{S}})\cap L^1_t(\bar{\mathcal{S}}, \mu)$ where $L^1_t(\bar{\mathcal{S}}, \mu)=\{{\rho: \bar{\mathcal{S}} \rightarrow \mathbbm{R}} \; | \; {\int_{\mathcal{S}_{t=t_0}} |\rho| d\mu < \infty} \; \forall \, t, t_0 \}$.
 \end{prop}
 
 \begin{justification}
+	We claim $\bar{\mathcal{C}} \cong  G \subseteq C^1(\bar{\mathcal{S}})\cap L^1_t(\bar{\mathcal{S}}$. Let $\rho_{\bar{\mathcal{c}}}$ be the distribution of material associated with an evolution $\bar{\mathcal{c}} \in \bar{\mathcal{C}}$. Let $t : \bar{\mathcal{S}} \rightarrow \mathbbm{R}$ be a time variable. 
+	The restriction of $\rho_{\bar{\mathcal{c}}}$ over an arbitrary level set $\mathcal{S}_{t=t_0}$ is continuous and integrable by \ref{differentiable_manifold}. $\rho_{\bar{\mathcal{c}}} \in L^1_t(\bar{\mathcal{S}}, \mu)$ Time evolution is a diffeomorphism by \ref{hamiltons_equations}. $\rho_{\bar{\mathcal{c}}}$ is differentiable along the time variable. $\rho_{\bar{\mathcal{c}}} \in C^1(\bar{\mathcal{S}})$
+	
+	We claim $\bar{\mathcal{C}} \cong  C^1(\bar{\mathcal{S}})\cap L^1_t(\bar{\mathcal{S}}, \mu)$. As in \ref{differentiable_manifold}, if two distributions are different there exists an outcome that can tell them apart, therefore they represent two distinct physical evolutions.
 \end{justification}
 
 Before proceeding, it's useful to get a better intuition for the geometry of these space. Note that the transported state variables are perfect to label the particle state evolution evolutions $\bar{\mathcal{s}} \subset \bar{\mathcal{S}}$: as they do not change during the evolution we can take them to label not just the values at a particular time, but the evolutions themselves. The distribution is transported deterministically and reversibly over those lines, so the value of the distribution will be constant along each particle state evolution $\bar{\mathcal{s}}$. To identify the full evolution, then, we just need to specify the distribution only on a region that cuts across all particle evolution, i.e. a hyper-surface at constant time.
@@ -620,13 +626,14 @@ The second problem is: how do we prevent time variable changes that disturb dete
 
 We can capture the above discussion by stating that the complete state space $\bar{\mathcal{S}}$ is a hypersurface of the symplectic manifold $(T^*\mathcal{M}, \omega)$, where $\omega \equiv \sum dq^i \wedge dp_i - dt \wedge dE$. This is the manifold that allows us to define time-and-state-variable-invariant densities. The metric allows us to measure the cardinality of possibilities. 
 
-\begin{prop}\label{classical_extended_phase_space}
+\begin{prop}\label{relativistic_symplectic_manifold}
 	The complete state space $\hat{\mathcal{S}}$ for the particles of a classical material is a hyper-surface of the symplectic manifold formed by a cotangent bundle $T^*\mathcal{M}$ equipped with the canonical two-form $\omega = \sum dq^i \wedge dp_i - dt \wedge dE$.
 \end{prop}
 
 \begin{justification}
-TODO
-% justification. Need to be able to define integration for everywhere and space and on compact time. Metric exists. Must be a two-form. Two-form is skewsymmetric. All skew symmetric forms are decomposable in hyperplanes. T*Q is a subspace of T*M. Only one hyperplane left. Metric must be \Sigma dq^i \wedge dp_i \pm dt \wedge dE. Can't be positive, as ()t, E) is not an independent d.o.f.
+	We claim the space of physical objects that allows a time-state-invariant-variable densities is a symplectic manifold $(T^*\mathcal{M}, \omega)$ where $\omega = \sum dq^i \wedge dp_i - dt \wedge dE$. Let $\mathcal{M}$ be the manifold that defines the unit system including time. Locally $\mathcal{M} \cong \mathcal{Q} \times \mathbbm{R}$ as time and state variables are independent quantities. As in \ref{symplectic_manifold}, invariant densities are defined on the symplectic manifold $(T^*\mathcal{M}, \omega)$. Let $\bar{\omega}$ be the co-vector component associated with $t$. Let $E=\hbar \bar{\omega}$. Let $\omega$ be the metric. The terms across different d.o.f. must be zero as they are not invariant under unit transformations. $\omega=\sum dq^i \wedge dp_i \pm dt \wedge dE$. The $+$ case is excluded as the temporal degree is not an independent d.o.f.: $\omega = \sum dq^i \wedge dp_i - dt \wedge dE$.
+	
+	We claim $\hat{\mathcal{S}}$ is a hyper-surface of $(T^*\mathcal{M}, \omega)$. $\hat{\mathcal{S}} \subseteq (T^*\mathcal{M}, \omega)$ as states are physical objects that allow time-state-invariant-variable densities. Consider the map $f : T^*\mathcal{M} \rightarrow \hat{\mathcal{S}} \; | \; (q^i, p_i, t, E) \mapsto (q^i, p_i, t)$. $f$ is an open map. The topology of $\hat{\mathcal{S}}$ is the subspace topology. Let $\rho : T^*\mathcal{M} \rightarrow \mathbbm{R}$ be an invariant density. $\rho$ is differentiable by \ref{differentiable_manifold}. It's restriction on $\hat{\mathcal{S}}$ is also an invariant distribution and therefore differentiable. The inclusion map $\hat{\mathcal{S}} \hookrightarrow T^*\mathcal{M}$ is a smooth embedding. $\hat{\mathcal{S}}$ is an embedded submanifold of co-dimension $1$. $\hat{\mathcal{S}}$ is an hypersurface.
 \end{justification}
 
 
@@ -639,9 +646,10 @@ As we are using time as a variable to identify states, we will use a different q
 \end{prop}
 
 \begin{justification}
-	We claim $\mathcal{T}_{\Delta s}$ is a self-homeomorphism on $T^*\mathcal{M}$. The extended state space for particles of a homogeneous classical material is $T^*\mathcal{M}$ by \ref{classical_extended_phase_space}. $\mathcal{T}_{\Delta s}$ is a deterministic and reversible evolution map and by \ref{detrevmap} is a self-homeomorphism.
+	We claim $\mathcal{T}_{\Delta s}$ is a self-homeomorphism on $T^*\mathcal{M}$. The extended state space for particles of a homogeneous classical material is $T^*\mathcal{M}$ by \ref{relativistic_symplectic_manifold}. $\mathcal{T}_{\Delta s}$ is a deterministic and reversible evolution map and by \ref{detrevmap} is a self-homeomorphism.
 	
-	We claim $\mathcal{T}_{\Delta s}$ is a symplectomorphism on $(T^*\mathcal{M}, \omega)$. The distribution on final states must be defined. The Jacobian for $\mathcal{T}_{\Delta s}$ exists and is non-zero. $\mathcal{T}_{\Delta s}$ is a diffeomorphism. A deterministic and reversible process conserves the number of states and possibilities. $\omega$ is the metric for the cardinality of possibilities. $\omega$ is invariant under a deterministic and reversible evolution map. $\mathcal{T}_{\Delta s}$ is a symplectomorphism by definition.\end{justification}
+	We claim $\mathcal{T}_{\Delta s}$ is a symplectomorphism on $(T^*\mathcal{M}, \omega)$. The distribution on final states must be defined. The Jacobian for $\mathcal{T}_{\Delta s}$ exists and is non-zero. $\mathcal{T}_{\Delta s}$ is a diffeomorphism. A deterministic and reversible process conserves the number of states and possibilities. $\omega$ is the metric for the cardinality of possibilities. $\omega$ is invariant under a deterministic and reversible evolution map. $\mathcal{T}_{\Delta s}$ is a symplectomorphism by definition.
+\end{justification}
 
 If we assume continuous time evolution we have the following:
 
@@ -656,7 +664,7 @@ If we assume continuous time evolution we have the following:
 \end{prop}
 
 \begin{justification}
-We claim the vector field $S \in T(T^*\mathcal{M})$ for the infinitesimal displacement $S^a = d\xi^a/ds$ admits a potential $\mathcal{H}$ such that $S^{a} \omega_{ab} = \partial_{b}\mathcal{H}$. The extended state space $T^*\mathcal{M}$ of a classical homogeneous material is a symplectic manifold by \ref{classical_extended_phase_space}. The map for infinitesimal evolution $\mathcal{T}_{ds}$ is an infinitesimal self-symplectomorphism by \ref{relativistic_canonical_transformation}. By \ref{symplectomorphism_generator} the infinitesimal displacement $S$ admits a potential $\mathcal{H}$ such that $S^{a} \omega_{ab} = \partial_{b}\mathcal{H}$
+We claim the vector field $S \in T(T^*\mathcal{M})$ for the infinitesimal displacement $S^a = d\xi^a/ds$ admits a potential $\mathcal{H}$ such that $S^{a} \omega_{ab} = \partial_{b}\mathcal{H}$. The extended state space $T^*\mathcal{M}$ of a classical homogeneous material is a symplectic manifold by \ref{relativistic_symplectic_manifold}. The map for infinitesimal evolution $\mathcal{T}_{ds}$ is an infinitesimal self-symplectomorphism by \ref{relativistic_canonical_transformation}. By \ref{symplectomorphism_generator} the infinitesimal displacement $S$ admits a potential $\mathcal{H}$ such that $S^{a} \omega_{ab} = \partial_{b}\mathcal{H}$
 
 We claim the state variables evolve according to the extended Hamilton's equations. $S^{a} \omega_{ab} = d_s\xi^a \omega_{ab} = \partial_{b}\mathcal{H}$. For $a = 0$ we have $d_s t \, (-1) = \partial_{E} \mathcal{H}$. For  $a=\{1,...,n\}$ we have $d_s q^i \, (+1) = \partial_{p^i} \mathcal{H}$. For $a=n+1$ we have $d_s E \, (+1) = \partial_{t} \mathcal{H}$. For $a=\{n+2,...,2n + 1\}$ we have $d_s p_i \, (-1) = \partial_{q^i} \mathcal{H}$.
 \end{justification}
@@ -675,7 +683,7 @@ The trajectory in time $t(s)$ is of particular importance. Since the evolution i
 
 With the extended Hamiltonian we are able to write the equations of motion for any choice of time and state variables. For example: $d_t q^i = d_t s \, d_s q^i = d_s q^i / d_s t = - \partial_{p_i} \mathcal{H} / \partial_{E} \mathcal{H}$. These equations must be the same as the ones given by a standard Hamiltonian in those coordinates. That is: $d_t q^i = \partial_{p_i} H = - \partial_{p_i} \mathcal{H} / \partial_{E} \mathcal{H}$. The partial derivatives of $H$ and $\mathcal{H}$ are related, and therefore the functions themselves are related. Working through the math, we find that the most general relationship is of the form: $\mathcal{H} = \lambda(t,E,q^i,p_i) \, (H(t,q^i,p_i) - E - \mathcal{h}(t))$ where $\lambda = d_s t$, $\mathcal{h}(t)$ is an arbitrary function and, most importantly, $E = H(t,q^i,p_i) + \mathcal{h}(t)$.
 
-The arbitrary function $\mathcal{h}(t)$ has no physical consequence: it is just a constant added to the Hamiltonian. We can either set it to zero or simply redefine the Hamiltonian to include it. Therefore we are left with $E = H(t,q^i,p_i)$. In other words: $E$ is the value of the Hamiltonian, the energy of the system. We have found the constraint we discussed when introducing \ref{classical_extended_phase_space}.
+The arbitrary function $\mathcal{h}(t)$ has no physical consequence: it is just a constant added to the Hamiltonian. We can either set it to zero or simply redefine the Hamiltonian to include it. Therefore we are left with $E = H(t,q^i,p_i)$. In other words: $E$ is the value of the Hamiltonian, the energy of the system. We have found the constraint we discussed when introducing \ref{relativistic_symplectic_manifold}.
 
 Note that $\mathcal{H}=0$ for all states $\mathcal{s} \in \bar{\mathcal{S}} \subset T^* \mathcal{M}$, since $\mathcal{H}=\lambda(H-E)$ and $E = H$. For all states we also have $\lambda \neq 0$. Therefore $\mathcal{H}=0$ only because $E = H$. We can extend $\mathcal{H}$ on all of $T^* \mathcal{M}$ making sure that $\mathcal{H} \neq 0$ outside of the complete state space $\bar{\mathcal{S}}$. This way we can directly use the constraint $\mathcal{H}=0$ to identify $\bar{\mathcal{S}}$ as a subspace of $T^* \mathcal{M}$.
 
@@ -713,15 +721,11 @@ Suppose we have a distribution of material $\rho_{\bar{\mathcal{c}}}(s)$ associa
 \end{prop}
 
 \begin{justification}
-	TODO: language consistency
-	
-	We claim $\mathcal{H} \rho_\mathcal{c}(s) = 0 \; \forall \mathcal{c} \in \mathcal{C} \wedge s \in \mathbbm{R}$. Let $\rho_\mathcal{c}(s) : T^*\mathcal{M} \rightarrow \mathbbm{R}$ be the distribution associated with a composite state $\mathcal{c}$ at a given value of $s$. The distribution is defined on physical states. By \ref{form_of_extended_hamiltonian} $supp(\rho_\mathcal{c}(s)) \subseteq T^*\mathcal{M} \,\backslash\, supp(\mathcal{H})$. $supp(\mathcal{H} \rho_\mathcal{c}(s)) = supp(\mathcal{H}) \cap supp(\rho_\mathcal{c}(s)) \subseteq \varnothing$.
-	
 	We claim $d_s \rho_\mathcal{c} (s) = \{ \rho_\mathcal{c}(s), \mathcal{H} \}$. Let $\rho_\mathcal{c} (s)$ be differentiable. $d_s \rho_\mathcal{c}(s) = \partial_a \rho_\mathcal{c}(s) d_s \xi^a = \partial_a \rho_\mathcal{c}(s) \omega^{ab} \partial_b \mathcal{H} = \{ \rho_\mathcal{c}(s), \mathcal{H} \}$.
 	
-	We claim $\mathcal{H} \rho_\mathcal{c} = 0 \; \forall \mathcal{c}$. Let $\rho_\mathcal{c} : T^*\mathcal{M} \rightarrow \mathbbm{R}$ be the distribution associated with a composite state $\mathcal{c}$ at all states at all times. The distribution is defined on physical states. By \ref{form_of_extended_hamiltonian} $supp(\rho_\mathcal{c}) \subseteq T^*\mathcal{M} \,\backslash\, supp(\mathcal{H})$. $supp(\mathcal{H} \rho_\mathcal{c}) = supp(\mathcal{H}) \cap supp(\rho_\mathcal{c}) \subseteq \varnothing$.
+	We claim $\mathcal{H} \rho_{\bar{\mathcal{c}}} = 0 \; \forall \bar{\mathcal{c}} \in \bar{\mathcal{C}}$. Let $\rho_{\bar{\mathcal{c}}} : T^*\mathcal{M} \rightarrow \mathbbm{R}$ be the distribution associated with an evolution $\bar{\mathcal{c}}$. $supp(\rho_{\bar{\mathcal{c}}}) \subseteq \bar{\mathcal{S}}$ as the distribution is defined on the complete state space of the particles. $supp(\mathcal{H}) = T^*\mathcal{M} \,\backslash\, \bar{\mathcal{S}}$ by \ref{form_of_extended_hamiltonian}. $supp(\mathcal{H} \rho_\mathcal{c}) = supp(\mathcal{H}) \cap supp(\rho_\mathcal{c}) = \varnothing$.
 	
-	We claim $d_s \rho_\mathcal{c} = \{ \rho_\mathcal{c}(s), \mathcal{H} \} = 0$. Let $\rho_\mathcal{c}$ be differentiable. $d_s \rho_\mathcal{c}= \partial_a \rho_\mathcal{c} d_s \xi^a = \partial_a \rho_\mathcal{c}(s) \omega^{ab} \partial_b \mathcal{H} = \{ \rho_\mathcal{c}, \mathcal{H} \}$. Let $\gamma : \mathbbm{R} \rightarrow T^*\mathcal{M}$ a particle trajectory. Then $\rho_\mathcal{c}(\lambda(s)) = \rho_\mathcal{c}(\lambda(s + \Delta s))$. $d_s \rho_\mathcal{c} = 0$.
+	We claim $d_s \rho_{\bar{\mathcal{c}}} = \{ \rho_{\bar{\mathcal{c}}}, \mathcal{H} \} = 0$. $d_s \rho_{\bar{\mathcal{c}}}= \partial_a \rho_{\bar{\mathcal{c}}} d_s \xi^a = \partial_a \rho_{\bar{\mathcal{c}}} \omega^{ab} \partial_b \mathcal{H} = \{ \rho_{\bar{\mathcal{c}}}, \mathcal{H} \}$. Let $\gamma : \mathbbm{R} \rightarrow T^*\mathcal{M}$ be a parametrization for a particle evolution $\bar{\mathcal{s}}$. Then $\rho_\mathcal{c}(\lambda(s)) = \rho_\mathcal{c}(\lambda(s + \Delta s))$. $d_s \rho_\mathcal{c} = 0$.
 	
 \end{justification}
 
