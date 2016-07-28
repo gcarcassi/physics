@@ -767,6 +767,24 @@ In this work we make the link conceptually explicit by assuming the following:
 	While we can make an argument why kinematic equivalence is important because it is valid for elementary system, we cannot actually make an argument why nature should be reducible to elementary system. While it fits our physical intuition, we have no a priori argument for it. We can imagine, in fact, that as we reduce the behavior of one material to its constituents we find the parts to possess richer and richer states. For example, most macroscopic object are neutral though the parts are charged. We could imagine that, while dividing into parts, we find more and more types of charges and forces. We do not have an argument why this cannot happen.
 \end{rationale}
 
+\section{Prelude to quantum}
+
+TODO
+
+\subsection{Classical uncertainty principle}
+
+\begin{align*}
+L = &\int (q-\mu_q)^2 \rho \, dqdp \int (p-\mu_p)^2 \rho \, dqdp \\
+&+ \lambda_1(\int \rho dqdp - \rho_{tot})\\
+&+ \lambda_2(- \int \rho \ln \rho \, dqdp - H_0)\\
+\delta L = &\int \delta \rho [(q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 \\ &+ \lambda_1 + \lambda_2 \ln \rho + \lambda_2 ] dqdp = 0 \\
+\rho = &\frac{\rho_{tot}}{ \sqrt{4 \pi ^2\sigma_q^2\sigma_p^2}} e^{-\frac{(q-\mu_q)^2(p-\mu_p)^2}{4\sigma_q^2\sigma_p^2}} \\
+= &\frac{\rho_{tot}}{e^{H_0 - 1}} e^{-\frac{\pi ^2(q-\mu_q)^2(p-\mu_p)^2}{\exp (2(H_0 - 1))}}
+\end{align*}
+\begin{align*}
+\sigma_q\sigma_p \geq \exp (H_0 - 1) / 2 \pi 
+\end{align*}
+
 \section{Quantum systems}
 
 TODO
