@@ -9,6 +9,11 @@
 \usepackage{dutchcal}
 \usepackage{braket}
 
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{calculator}
+\usepackage{standalone}
+
 \renewcommand\thesubsection{\thesection.\Alph{subsection}}
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
@@ -405,6 +410,12 @@ The Jacobian has to be unitary, therefore all elements $\partial_i \hat{k}^j$ mu
 Physically, this means that the state variable $k$, which is the classical analogue of the wave number, is expressed with the inverse of the unit used for $q$. If $q$ is in meters, $k$ is in inverse meters. Consider now the area $dq \wedge dk$ of an infinitesimal rectangular region. This quantity is dimensionless and therefore invariant. The total number of states will be proportional to it, as  doubling the range of $dq$ or $dk$ will give us double the number of possible states. We have $d\mu = \hbar dq \wedge dk$, where $\hbar$ is the proportionality constant that will depend on the unit chosen to count the possibilities of the pair $(q, k)$. That is, a unitary range of possibilities for $q$ and $k$ will give us $\hbar$ possibilities.\footnote{The actual value and physical dimensions of $\hbar$ are determined by the system of units, and should not be taken to describe some intrinsic physical property. Only dimensionless relationships to other physical constants, such as the fine structure constant $\alpha = e^2/\hbar c$, can possess that trait. That is why one can choose "natural units" for which $\hbar=1$. In SI units the relationship $\hbar dk = dp = m du$ between kinetic and conjugate momentum, derived later, sets the relationship between units.} The cardinality for states in a finite (i.e. compact) region $U \subseteq \mathcal{S}$ will be given by $\mu(U) = \int_U \hbar dq \wedge dk$: we are finally able to write the volume of integration in terms for state variables.
 
 We can generalize to the case where $\mathcal{Q}$ has more than one dimension. As we must be able to change one unit at a time, independently from the other, to each $q^i$ will correspond a $k_i$ that uses the inverse of the corresponding units. We have $\mathcal{S}\cong T^*\mathcal{Q}$ and $d\mu = \hbar^n dq^n \wedge dk_n$. But it's not just the volume that is preserved as we change state variables. Each pair $(q^i, k_i)$ is expressed by an independent unit with the cardinality of possibilities given by $\hbar dq^i \wedge dk_i$. We call such a pair a degree of freedom. As they are independent the total number of states is the product of the possibilities of each d.o.f.: $d\mu = \hbar^n dq^n \wedge dk_n = \prod \limits_{i=1}^n \hbar dq^i \wedge dk_i$. In other words: independent d.o.f. are orthogonal surfaces in $\mathcal{S}$. The possibilities of an arbitrary degree of freedom, then, will be $\sum \limits_{i=1}^n \hbar dq^i \wedge dk_i$, the sum of the projections over the $n$ orthogonal and independent d.o.f. defined by $(q^i, k_i)$.
+
+\begin{figure}
+	\includestandalone[width=\columnwidth]{pictures/independentDof}
+	\caption{The metric $\omega$ and its components along two independent degrees of freedom. As we change state variables, the components are still orthogonal to each other. Note: this is a 2D conceptualization of what happens in 4D.}
+	\label{fig:independent_dof}
+\end{figure}
 
 The cardinality of possibilities for each d.o.f. (i.e. the wedge product within a d.o.f) and the orthogonality of different d.o.f. (i.e. the scalar product across d.o.f.) must be the same regardless of the choice of state variables. We can express both requirements mathematically in a compact way. We first define conjugate momentum as $p_i=\hbar k_i$ and unified state variables as $\xi^a\equiv \{q^i, p_i\}$. Then we consider the canonical two-form $\omega$ given by the following components:
 \begin{align*}
