@@ -830,11 +830,7 @@ Since $g$ is symmetric, it can be diagonalized: $\omega= dq^i \wedge dp_i - dt \
 \end{prop}
 
 \begin{justification}
-	N.B. Though $du^\alpha \in TT\mathcal{M}$, its components change as the components of vectors in $T\mathcal{M}$ under coordinate transformation. There is a canonical way to associate between elements of $TT\mathcal{M}$ and $T\mathcal{M}$. Therefore we consider $du^\alpha \in T\mathcal{M}$ a vector as it is standard in physics.
-	
-	We claim $(\mathcal{M}, g)$ is a pseudo-Riemannian manifold where $g$ is a metric induced by $\omega$ under kinematic equivalence. Let $(dx^\alpha, du^\alpha)$ an infinitesimal range of possibilities for the kinematic variables of the particles of a minimal classical material. There exists a map $g : T\mathcal{M} \times T\mathcal{M} \rightarrow \mathbbm{R}$ such that $g(dx^\alpha, du^\alpha) \propto \omega(dq^\alpha, dp_\alpha)$. The map $g$ is linear, since a linear combination of infinitesimal ranges leads to the linear combination of possibilities. $g$ is a rank two tensor. Let $g(dx^\alpha, du^\beta) = 0$. $g(dx^\alpha, du^\beta) \propto \omega(dq^\alpha, dp_\beta) = 0 = \omega(dq^\beta, dp_\alpha) \propto g(dx^\beta, du^\alpha) = 0$. $g$ is reflexive. Position and velocity along the same direction use related units. They cannot form independent d.o.f.. $g(dx^\alpha, du^\alpha) \neq 0$. $g$ is not alternating. $g$ is symmetric. $g$ is a symmetric rank two tensor. $(\mathcal{M}, g)$ is a pseudo-Riemannian manifold.
-	
-	We claim $g$ is locally Minkowskian. Let $x^\alpha$ a choice of coordinate that diagonalizes $g$. This exists as $g$ is symmetric. $\omega(dq^\alpha, dp_\beta) = dq^i \wedge dp_i - dt \wedge dE \propto dq^i g_{ii} du^i + dt g_{00} du^0$. Let $dq^\alpha = dx^\alpha$. $g_{ii} > 0$ and $g_{00}$. $g$ has signature $(3, 1)$. Choosing one spatial units for all $dx^i$ and one temporal unit for $dt$ we can choose coordinates such that locally $g = (dx^i)^2 - c^2 dt^2$. $g$ is locally Minkowskian.
+	TODO
 \end{justification}
 
 The metric tensor $g$ and the constant $c$ found here are indeed the ones used in the context of relativity. Yet, they have acquired a different meaning. $g$ does not measure space-time distances: it measure cardinality of possibilities, like $\omega$. Directions in space are orthogonal not because the angle between them is $90^\circ$, but because they identify independent d.o.f.. Space and time, instead, are not independent and the geometry between them is different. In other words: $g$ inherits it's signature from $\omega$. The geometry of space-time is the geometry of the ranges for possible states.
@@ -850,6 +846,7 @@ Note, though, that this constraint applies only to deterministic and reversible 
 
 \subsection{Massive particles under scalar and vector potential forces}
 
+
 The link between $\omega$ and $g$ allows us to constrain the kind of diffeomorphism between state variables and kinematic variables. If we express the possibilities in terms of both state variables and kinematic variables we have: $dq^\alpha \wedge dp_\alpha \propto dx^\alpha du_\alpha$. Since  $p_\alpha=p_\alpha(x, u)$, we have $dp_\alpha = m du_\alpha$, where $m$ is the constant of proportionality. We recognize $m$ as the inertial mass. Integrating the expression, we have $p_\alpha = m u_\alpha + A_\alpha(x)$ where $A_\alpha(x)$ is an arbitrary function. This is the most general link between velocity and conjugate momentum, which is the sum of kinetic momentum and a scalar potential.
 
 This constrains the form of the extended Hamiltonian. $\frac{1}{m}g^{\alpha\beta}(p_\beta-A_\beta) = u^\alpha = d_s x^\alpha = d_s q^\alpha = \partial_{p_\alpha} \mathcal{H}$. Integrating we have $\mathcal{H}=\frac{1}{2m}(p_\alpha-A_\alpha)g^{\alpha\beta}(p_\beta-A_\beta)+V(x)$ where $V(x)$ is an arbitrary function. We can further constrain the Hamiltonian by choosing the natural parameterization for $s$ (also called unit speed or arc length parametrization) for which the modulus of the velocity is constant. We have $u^\alpha u_\alpha = - c^2 = \frac{1}{m^2}(p^\alpha-A^\alpha)(p_\alpha-A_\alpha)$. $\mathcal{H}=\frac{1}{2m}((p^\alpha-A^\alpha)(p_\alpha-A_\alpha) + m^2 c^2)$. Applying the same procedure in the time independent case yields the Hamiltonian $H=\frac{1}{2m}(p^i-A^i)(p_i-A_i)+V$.
@@ -861,10 +858,7 @@ The extended Hamiltonian for the particles of a classical material under the kin
 \end{prop}
 
 \begin{justification}
-	We claim the conjugate momentum expressed as a function of the kinematic variables is $p_\alpha = m u_\alpha + A_\alpha(x)$ where $A_\alpha \in \mathfrak{X}(\mathcal{M})$ is a differentiable vector field. $\omega(dq^\alpha, dp_\beta) = dq^\alpha \wedge dp_\alpha \propto g(dx^\alpha, du^\beta) = dx^\alpha du_\alpha$. Let $m$ be the proportionality constant. $dq^\alpha \wedge dp_\alpha = dx^\alpha \wedge \partial_{u_\beta} p_\alpha du_\beta = m dx^\alpha du_\alpha$. $\partial_{u_\beta} p_\alpha = m \delta_\alpha^\beta$. After integration $p_\alpha = m u_\alpha + A_\alpha(x)$ where $A$ is an arbitrary vector field.
-	
-	We claim the Hamiltonian is $\mathcal{H}=\frac{1}{2m}((p_\alpha-A_\alpha)g^{\alpha\beta}(p_\beta-A_\beta) + m^2 c^2)$.  $\frac{1}{m}g^{\alpha\beta}(p_\beta-A_\beta) = u^\alpha = d_s x^\alpha = d_s q^\alpha = \partial_{p_\alpha} \mathcal{H}$. After integration $\mathcal{H}=\frac{1}{2m}(p_\alpha-A_\alpha)g^{\alpha\beta}(p_\beta-A_\beta)+V(x)$ where $V$ is an arbitrary function. Let $s$ be the natural parametrization such that $u^\alpha u_\alpha = - c^2$. $V= \frac{1}{2}m c^2$ as $\mathcal{H}=0$ by \ref{form_of_extended_hamiltonian}. $\mathcal{H}=\frac{1}{2m}((p_\alpha-A_\alpha)g^{\alpha\beta}(p_\beta-A_\beta) + m^2 c^2)$.
-	
+	TODO
 \end{justification}
 
 The above discussion gives the inertial mass a new physical meaning: it is the conversion constant that tells us how to convert a range of velocity to a range of conjugate momentum with the same number of possibilities. In other words: the more massive the particles, the more states per unit velocity. Intuitively, a more massive body is harder to accelerate because it has to go through more states for the same change in velocity. Also note that the Hamiltonian excludes massless particles because the kinematic assumption does that implicitly. A massless particle always has the same velocity, $c$, therefore the trajectory is not enough to tell us the dynamics. The motion of the photon is not enough to tell us its energy or its momentum. Therefore it makes sense that, by assuming kinematic equivalence we derived equation valid only for massive particles.
@@ -875,7 +869,7 @@ Another important thing to notice is that the relationship between conjugate mom
 
 We should also ask whether any choice of $A$ actually represent a different case leading to different trajectories. The simplest and more insightful way to study this problem is to use the kinematic quantities $x^\alpha$ and $mu_\alpha$ as state variable. They are not going to be conjugates of each other but they do capture the entire physical description. Any change in $A$ that does not affect the relationship between $x^\alpha$ and $mu_\alpha$ does not change the physics. Expressing the Hamiltonian and the Poisson brackets in terms of the initial conditions we have:
 \begin{align*}
-\mathcal{H}&=\frac{1}{2}mu_\alpha u^\alpha + \frac{1}{2} m c^2 \\
+\mathcal{H}&=\frac{1}{2m}(mu_\alpha mu^\alpha + m^2 c^2) \\
 \{x^\alpha, x^\beta\} &= 0 \\
 \{x^\alpha, mu_\beta\} &= \delta^\alpha_\beta \\
 \{mu_\alpha, mu_\beta\} &= \{p_\alpha, - A_\beta\} + \{-A_\alpha, p_\beta\} \\
