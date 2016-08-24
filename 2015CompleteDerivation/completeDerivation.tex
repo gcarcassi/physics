@@ -906,36 +906,37 @@ We now have all the building block of classical mechanics, the consequences of t
 
 \section{Prelude to quantum}
 
-In principle, we should be able to simply introduce assumption \ref{???} and work our way to quantum mechanics. Unfortunately, given that all sorts of things have been said on quantum system, as well as their opposites, it is best to spend some time clarifying our take on some of these matters. This will decrease the chance of being misconstrued later.
+In principle, we could simply introduce assumption \ref{???} and work our way to quantum mechanics. Unfortunately, given the history and baggage associated with quantum systems, there is a high chance of being misconstrued. The intuitive pictures people have constructed or inherited are varied, may start from different premises and therefore it is easy to misinterpret what one is saying. Therefore we will first ground in classical mechanics the intuition that will be needed later, making the step into full quantum mechanics a gentler, and hopefully less confusing, one.
 
-We will spend this section talking about the similarities between classical and quantum system. We will see that classical distributions already possess qualitative properties that are typically associated with quantum systems. Therefore it is more natural to think of quantum systems, to a first approximation, as composite states then particle states. This will allow us in the next chapter to truly pinpoint how and why classical and quantum systems are different.
+We will see that, as a first approximation, quantum particles are more keenly described by classical composite states (i.e. distributions) as, unlike classical particles, they are made of a finite amount of material. We will also see that classical distributions already possess qualitative properties that are typically associated with quantum systems and construct a classical analogue of the uncertainty principle.
 
 \subsection{Particles and distributions}
 
 As we saw in the previous sections, classical particles should not be understood as point-like finite mass objects as this would open a series of problems and inconsistencies. The issues created by such misidentification are only amplified within the context of quantum mechanics. In fact, many issues preventing a satisfying intuitive picture stem from this confusion.
 
-The problem goes along these line. One assumes, implicitly or explicitly, that quantum particles are point-like. But they don't behave like one, they are described by a distribution. In some cases, that distribution experimentally becomes a probability distribution. So the state of a quantum particles is a probability distribution. Except that it self-interacts. So its a weird quantum probability distribution. The quantum particle behaves like its in more than one place at once. We learn this, we get used to it, we can get our calculations done... but it's still preposterous.
+The problem goes along these line. One assumes, implicitly or explicitly, that quantum particles are point-like. But they don't always behave like one, they also behave like a wave, a distribution. During measurements, it coincides experimentally with a probability distribution. So the state of a quantum particles is a probability distribution. Except that it self-interacts. So its a weird quantum probability distribution. The quantum particle behaves like its in more than one place at once. We learn this picture and, sometimes begrudgingly, we get used to it.
 
-The first thing to note here is that most objects behave like they are in more than one place at once. The earth is both under Milano and Ann Arbor. The readers right index finger is probably at a different place from his left eye. In fact, based on what we saw before, any object of finite mass is a distribution over a region, as discontinuous distributions are ruled out. An electron is an object of finite mass. Why should it be any different? In fact, this we are claiming that is different from any other object, shouldn't there be a high burden of proof?
+Here we contend that this picture is not only confusing and unnecessary, it also prevents to understand fully the deep links between classical and quantum mechanics, in the same way that thinking of classical particles as point-like objects prevented to see the holistic picture in classical mechanics.
 
-Part of the confusion seem to be the idea is that the electron is an elementary particle, and therefore should have no spatial extent. But that does not follow. First of all, because one can construct a counter example. Suppose you have objects constrained on the surface of a sphere. All their dynamics can be expressed by their polar and azimuthal angles. If we scale the sphere, the dynamics stays the same. We can shrink the whole sphere to a point: it is now a point-like object that is not elementary. Second of all, if elementary objects are point-like, they cannot know how many spatial dimensions are there. Now can the whole universe be reduced to elementary elements that have no idea how many spatial dimensions are there?
+The first thing to note here is that all objects behave like they are in more than one place at once. The earth is both under Milano and New York. Your right index finger is not, hopefully, at the same position of your his left eye. In fact, based on what we saw before, any object of finite mass is a distribution over a region, as discontinuous distributions are ruled out. An electron is an object of finite mass. Why should it be any different? In fact, shouldn't the burden of proof be on the claim that the electron is point-like, unlike any other finite mass object?
 
-Entertaining the thought that an electron is not a point-like object described by weird quantum probability, but an amount of material spread in space like any other, may seem, at this point, weird. Mainly because its not how we are taught to think about it, and trying out a new thought is hard work. But hopefully it should be evident that this new thought is not at all more preposterous than the old one.
+Part of the confusion seem to be the idea is that the electron is an elementary particle, and therefore should have no spatial extent. But that does not follow. Lack of spatial extend and lack of substructure are independent concepts. In fact: we can construct an infinitesimal object that is not elementary. Suppose you have dots constrained on the surface of a sphere. All their dynamics can be expressed by their polar and azimuthal angles. If we scale the sphere, the dynamics stays the same. We can shrink the whole sphere to a point: it is now a point-like object that is not elementary, as there is motion on its surface.
 
-In fact, if we accept it, we start to see that another critical feature usually associated with quantum systems is already there for classical distributions.
+Not only point-like object don't have to be elementary, but it's not clear how they can be elementary. How can the whole universe be reduced to elementary elements that have no idea how many spatial dimensions are there? Mathematically: the set of points by itself does not define the topology. How is it supposed to work?
+
+Entertaining the thought that an electron is actually physically distributed in space may seem preposterous, probably because it's not how we are taught to think about it. But it's no more preposterous than to think it point-like, described by a probability distribution that self-interacts.
+
+The first payoff of accepting that an electron is a finite amount of material distributed in space is that this is more consistent with classical mechanics as we have defined it\footnote{It is also more consistent with general relativity.}. The second payoff is that some features of classical mechanics already explain part of the behavior that we thought was inherently quantum.
 
 \subsection{Classical uncertainty principle}
 
 Suppose we have a finite amount of classical material distributed over a single d.o.f. $a_m = \int \rho_\mathcal{c} dq^n \wedge dp_n$. The Shannon entropy associated with the distribution, which can be though as the amount of information required to identify a particle of the distribution, is finite as well. $I(\rho_\mathcal{c}) = \int \rho_\mathcal{c} \log (\rho_\mathcal{c})  dq^n \wedge dp_n = I_0$. TODO: prove in appendix.
 
-As the state evolves into its final state, the amount of material remains the same: $a_m = \int \rho_{\hat{\mathcal{c}}} dq^n \wedge dp_n$. The final entropy will also remain the same since, like the distribution itself, is just another integrable function: $I(\rho_{\hat{\mathcal{c}}}) = I_0$.
+As the state evolves into its final state, the amount of material remains the same: $a_m = \int \rho_{\hat{\mathcal{c}}} dq^n \wedge dp_n$. The final entropy will also remain the same since the entropy, like the distribution itself, is just another integrable function: $I(\rho_{\hat{\mathcal{c}}}) = I_0$.
 
 In the same way that each particle is constrained to move along states at equal energy, the composite state is constrained to move along distributions at equal entropy. This makes sense: if the motion is deterministic and reversible, the same amount of information is required to identify a particle of material.
 
-We now ask the following question: once we fix the entropy, what is the relationship between the spread of the marginal distributions along $q$ and $p$? What is the distribution $\rho$ that minimizes the product of the variance $\sigma_q^2 \sigma_p^2 = \int (q-\mu_q)^2 \rho \, dqdp \int (p-\mu_p)^2 \rho \, dqdp$?
-
-Suppose that we let interact it with an entropy source for enough time. The marginal entropy
-
+We now ask the following question: once we fix the entropy, what is the relationship between the spread of the marginal distributions along $q$ and $p$? Using Lagrange multipliers, we fix the total amount of material $a_m$ and the total entropy $I_0$ and find the distribution that minimizes the the product of the variance $\sigma_q^2 \sigma_p^2 = \int (q-\mu_q)^2 \rho \, dqdp \int (p-\mu_p)^2 \rho \, dqdp$.
 \begin{align*}
 L = &\int (q-\mu_q)^2 \rho \, dqdp \int (p-\mu_p)^2 \rho \, dqdp \\
 &+ \lambda_1(\int \rho dqdp - \rho_{tot})\\
@@ -944,9 +945,24 @@ L = &\int (q-\mu_q)^2 \rho \, dqdp \int (p-\mu_p)^2 \rho \, dqdp \\
 \rho = &\frac{\rho_{tot}}{ \sqrt{4 \pi ^2\sigma_q^2\sigma_p^2}} e^{-\frac{(q-\mu_q)^2(p-\mu_p)^2}{4\sigma_q^2\sigma_p^2}} \\
 = &\frac{\rho_{tot}}{e^{H_0 - 1}} e^{-\frac{\pi ^2(q-\mu_q)^2(p-\mu_p)^2}{\exp (2(H_0 - 1))}}
 \end{align*}
+We find that the distribution that minimizes the spread is the product of two independent Gaussians. In quantum mechanics, the Gaussian wave packet is the state that minimizes uncertainty: this is the classical analogue.
+
+As the distribution evolves, the entropy is conserved and therefore the product $\sigma_q^2 \sigma_p^2$ can never be less the one given by the Gaussian distribution of the same entropy. We have:
 \begin{align*}
 \sigma_q\sigma_p \geq \exp (H_0 - 1) / 2 \pi 
 \end{align*}
+This constitute the classical equivalent of the Heisenberg uncertainty principle.
+
+The generalization to multiple d.o.f. is outside of the scope of this work. Note that this result is similar in spirit to the Gromov non-squeezing theorem and the symplectic camel, which are already generalized to multiple d.o.f., but the link here with information theory gives us further insight. In fact, it allows to understand the following picture.
+
+Suppose the overall motion is deterministc and reversible but that each particle is undergoing non deterministic motion. Suppose $\rho$ is a distribution at equilibrium of such motion. While each particle moves randomly, the overall distribution $\rho$ stays the same. The non deterministic motion is effectively just reshuffling the particles within the same distribution.
+
+Suppose now $\rho$ evolves adiabatically. At each instant we can assume it to be at equilibrium. At each instant the particles are reshuffled but the amount of entropy of the distribution remains the same. The overall evolution is still Hamiltonian, but the particle trajectories are now averages. The value of the entropy of the distribution is set by the non deterministic motion of the particles.
+
+If we assumed that all materials were interacting with the same background that caused all particles to exhibit a random walk of the same magnitude, as defined by the information entropy, then the classical uncertainty principle would apply to all materials with the same constant. It would also be in line to address some of the problems mentioned in \ref{infinitesimal_reducibility}, as determinism and reversibility at all scales conceptually does not work.
+
+It should now be clear that in classical mechanics we can already find some of the ingredients that are typically assumed to be characteristics of just quantum mechanics. Starting from well defined physical concepts is what allowed us to make such connection in simple and precise terms. Classical particles are not point-like objects, they are the limit of infinitesimal reductionism, and any finite amount of material is a distribution over phase space. Quantum particles are made of a finite amount of material, therefore will inherit some of their behavior from classical distributions. We are now ready to see where they get the remaining behavior.
+
 
 \section{Quantum systems}
 
