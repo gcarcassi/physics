@@ -284,19 +284,20 @@ What happens is that, because the variables are independent, the total number of
 We'll see that very similar relationships are what define Hamiltonian and Lagrangian mechanics. But recovering them in the continuous case is trickier, and in fact will be part of the challenge in the following sections. Consider the map $q'=aq$ with $0<a<1$. At first glance, it's a bijective continuous map so we may think it can represent a deterministic and reversible evolution. Yet, $\Delta q \equiv [-b, b] \supset \Delta q'$: a set of states is mapped to a proper subset (i.e. to fewer states) which does not make sense for a reversible process. In the limit where we apply the map an infinite amount of times, any value of $q$ will be brought infinitely close to $0$, which also does not sound like a reversible process. The issue is that while deterministic evolution will map points to points, not all point to point maps can be considered deterministic and reversible. Discrete sets already come with a way to measure and compare the number of elements which is preserved by any bijective map. With continuous sets, we need to do extra work to properly define a measure (or metric) that allows one to count states and possibilities.
 
 \section{Composite systems and reducibility}
+\label{sec:reducibility}
 
 % Review started
 
 Given that scientific reductionism (i.e. the idea of reducing physical systems and interactions to the sum of their constituent parts in order to make them easier to study) is at the heart of fundamental physics, we now explore how to characterize a system in terms of its components. That is, we want to study the relationship between the state space of a composite system and the state space of its parts. In general, this is quite a complicated thing to do, which requires intimate knowledge of the system at hand. So we simplify our problem and study a system made of infinitesimal homogeneous parts. What we'll find is that under the additional assumption that the system is infinitesimally reducible (i.e. its state is equivalent to the states of its parts) and that each part undergoes deterministic and reversible evolution, the motion is suitably described by the standard framework of classical Hamiltonian mechanics.
 
-\subsection{Homogeneous decomposable systems and vector spaces}
+\subsection{Homogeneous decomposable systems and real vector spaces}
 The notion that a system is decomposable means the states are equipped with a rule of composition that allows one to write $\mathcal{c}=\mathcal{c}_1+\mathcal{c}_2$: the composite system is the sum of its parts. For example, the state of a ball is equal to the state of its top and bottom parts.
 
 The notion that the system is homogeneous means that the states of the composite and of each part are not unrelated: they are all made of the same material.\footnote{Whether a system is homogeneous depends on context (e.g. air can be thought as homogeneous if the mixture of gases does not change in space or in time due to phase transitions or chemical processes) and one must check that such property is maintained by time evolution.} In fact, the state space $\mathcal{C}$ of all systems composed of such material will include the state of the system as well as the states of  its parts (i.e. $\mathcal{c}, \mathcal{c}_1, \mathcal{c}_2 \in \mathcal{C}$). Since combining any two systems made of a homogeneous material will always give us a system made of the same homogeneous material (e.g. combining elements made of water gives us another element made of water), the state space $\mathcal{C}$ is closed under composition.
 
 As we study the system under evolution, we'll also want to study state changes. For example, if a stable mixture of gas expands, we'll want to know the difference between the initial and final distributions. That is: $\delta\mathcal{c}=\hat{\mathcal{c}}-\mathcal{c}$. Note that such state difference may not describe a physical state: it may remove some material from one location to add it somewhere else. Yet, these state changes are still physically distinguishable objects that provide a configuration for the same homogeneous material, therefore we extend the state space $\mathcal{C}$ to include state differences.\footnote{Note that one can characterize a state difference without knowing the states themselves. If we take some amount of material out of a container we know how the state changed, yet we may not know the amount of material before or after. In certain cases one may be interested in measuring the asymmetry of a particular state without measuring (or without being able to measure) the full state itself.} All combined, this gives us the structure of an abelian group.
 
-\begin{prop}\label{reducible_state_space}
+\begin{prop}\label{prop:abelian_group}
 The state space $\mathcal{C}$ for a decomposable homogeneous material is an additive abelian (i.e. commutative) group.
 \end{prop}
 
@@ -322,7 +323,7 @@ The state space $\mathcal{C}$ for a classical (i.e. homogeneous infinitesimally 
 \end{prop}
 
 \begin{justification}
-We claim $\mathcal{C}$ is an abelian group. $\mathcal{C}$ is the state space for a decomposable homogeneous system. $\mathcal{C}$ is an abelian group  by \ref{reducible_state_space}.
+We claim $\mathcal{C}$ is an abelian group. $\mathcal{C}$ is the state space for a decomposable homogeneous system. $\mathcal{C}$ is an abelian group  by \ref{prop:abelian_group}.
 
 We claim $T$, the set of transformations that increase or decrease the amount of material in the system by a constant factor, is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics or differential geometry sense (a physical quantity/tensor with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $\tau: \mathbbm{R} \rightarrow T$ the mapping between a number and the transformation that increases or decreases the amount of material by that factor. This transformation exists: the system is infinitesimally decomposable and the amount can be changed continuously. Define on $T$ an addition $+: T \times T \rightarrow T$ and a multiplication $*: T \times T \rightarrow T$ such that $\tau(a) + \tau(b) = \tau(a+b)$ and $\tau(a) * \tau(b) = \tau(a*b)$, $a,b \in \mathbbm{R}$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $\tau$ is an isomorphism between $T$ and $\mathbbm{R}$ as fields.
 
@@ -965,13 +966,92 @@ The generalization to multiple d.o.f. is outside of the scope of this work. Note
 
 It should now be clear how in classical mechanics we can already find some of the ingredients that are typically assumed to be characteristics of quantum mechanics. It has its own flavor of anti-particles, CPT theorem and uncertainty principle. These are general features of an evolution that is deterministic, reversible and adiabatic (i.e. Hamiltonian dynamics). Quantum mechanics, as we'll see, just inherits these traits.
 
-\section{Quantum systems}
+\section{Irreducible systems}
 
+In this section we turn to a different case in which the relationship between the whole material and its parts is different from the one described in section \ref{sec:reducibility}. The system is still infinitesimally decomposable, made of infinitesimal parts as before, but this time it is irreducible. That is: the state and the evolution of the whole does not tell us anything about the state and the evolution of the parts. As the internal dynamics is undetermined, we'll find that each irreducible element is suitably described by the standard framework of quantum mechanics.
 
+\subsection{Quantized material}
 
-We now focus on a different type of homogeneous material: one that is irreducible. That is, the state and the evolution of the whole does not tell us anything about the state and the evolution of the parts. As the internal dynamics is undetermined, we'll find that each irreducible element is suitably described by the standard framework of quantum mechanics.
+In section \ref{sec:reducibility} we introduced the idea of a classical material, one that is homogeneous and infinitesimally reducible, which represented a way to relate the state of the whole system to the state of its parts. In this section we explore an alternative case.
 
-TODO
+We will call a \emph{quantized material} a homogeneous material that is finitely reducible. That is, as we decompose the system we can only assign a state to finite amounts of material, which we call \emph{quantum particle}. As the material is homogeneous, all its particles carry the same amount of material and are described by the same state space. Each quantum particle is irreducible: its state does not tell us anything about the state of its parts. While this idea should be familiar enough, it is best to iron out some details to avoid possible misconceptions.
+
+The first possible source of confusion is between divisibility, the idea that an object can be divided into parts, and reducibility, the idea that the state of the whole is equivalent to the state of the parts. Most of the time these two concepts overlap, but they are separate as we can see in the following examples.
+
+Consider the a planarian flatworm. If we cut it into multiple pieces, each part will grow into a new worm. Yet, the state of each worm is not the state of multiple worms put together. The planarian is divisible into multiple worms but it is not reducible to multiple worms. Consider a magnet. Its state is described, to a first approximation, by the position of the north and south poles. Yet, we cannot divide the magnet into a north and south pole. The magnet is reducible to the poles but is not divisible into the poles.
+
+Consider a muon. It will decay into an electron and two neutrinos. But the state of a muon is not the state of an electron and two neutrinos. The muon is divisible into the three particles but it is not reducible into them. Consider a proton. Its state is given by the state of its three valence quarks. Yet, we cannot divide the proton into the three quarks. The proton is reducible to quarks, but divisible into quarks.
+
+The fundamental property of a quantum particle, as introduced here, is not indivisibility: it's irreducibility. It is the state that cannot be further partitioned, not the material itself.
+
+Even more subtle is the difference between divisibility and decomposability, the idea that the object has parts. While we are agnostic on whether a quantum particle can be divided, we are implicitly assuming that it can be decomposed. Irreducibility describes the relationship between the state of the whole and the state of the parts, therefore parts are implicit in the definition. While these parts must exist, we cannot isolate them and act on them independently: if we were able to do that we could assign them a state.
+
+While we must be able to talk about parts of a quantum particles, not all questions will make sense. Can we ask what fraction of a quantum particle is in a particular region of space? Yes, since the particle is decomposed some part may be inside the volume. Can we ask where that same fraction will be at a later time? No, since the particle is irreducible we cannot describe the evolution of a part.
+
+The proper way to think of a quantized material is therefore the following: a continuum of infinitesimal parts clumped together to form quantum particles, the smallest amount of material to which we can assign a state. With this picture in mind, we can see, even before developing the math, how some features typical of quantum behaviors emerge.
+
+The first feature is the importance of statistics in the quantum particle state. Consider a part of a quantum particle in an initial state. As we cannot track its motion, it can be any part of the particle in its final state. That is, the motion of a part of a particle is a random walk within the evolution of a particle.
+
+The second feature is non locality. Suppose we have a quantum particle state distributed in space. Suppose we exert a force only on a subregion of its distribution. As the particle is irreducible, we cannot interact with only part of it: we affect also the part where no force is exerted. We cannot simply interact with the part at a specific region, as this would allow to assign a state to that part.
+
+Wave particle duality should be clear at this point. The quantum particle behaves like a wave in the sense that its parts form a distribution in space. Yet, it behaves as a single unit, as the state is one unit and cannot be separated.
+
+The most striking feature, though, is that we can predict the functional form for particle decay. Suppose a quantum particle spontaneously decays into two or more particles. Such process cannot be deterministic as the d.o.f. increase, therefore is not determined by the state of the quantum particle. As the decay is spontaneous, it is not triggered by the environment (i.e. external state). It is therefore triggered by the internal unstated dynamic of the parts. As we assumed the internal dynamic is unknown, we cannot learn anything about it by looking at the product of the decay. In particular, all states have to have equal chance of decay or we could tell that the internal dynamic is more stable for some states. The probability of decay is constant in time. The probability of survival follows the exponential distribution.
+
+As we see qualitatively how the features typical of quantum mechanics naturally emerge from this picture, we are ready to make this more quantitatively and mathematically precise.
+
+\subsection{Quantum particle and complex vector spaces}
+
+Turning these concept into a precise mathematical formulation is tricky as we need to formally characterize the unstated part which is not physically distinguishable. While many previous results do not apply, the classical derivation still can serve as a template.
+
+As in the classical case, the quantum particle is thought to be decomposable: different parts will be in different places, the evolution of the whole is the composition of the evolution of parts. Therefore \ref{prop:abelian_group} applies and the state space $\Psi$ of an irreducible material is an abelian group.
+
+Note, though, that we can't think of the parts as independent components. As the unstated part is statistical in nature, it will combine as statistical variables do. Suppose $X$ and $Y$ are two random variables, $\sigma^2_{X+Y} = \sigma^2_{X} + \sigma^2_{Y} + 2 \, \sigma_{X} \sigma_{Y} \rho_{X,Y}$, where $\sigma^2$ is the variance, $\sigma$ is the standard deviation, and $\rho_{X,Y}=COV(X,Y)/\sigma_{X} \sigma_{Y}$ is the Pearson correlation coefficient. As $-1\leq\rho_{X,Y}\leq+1$, the total variance can be greater or smaller then the sum of the independent parts, and the strength of the uncertainty within the unstated part is something physically distinguishable.
+
+Therefore, while the motion of the unstated part is not itself physically relevant, the correlation between the motion of the unstated part of two combined parts is very relevant. We'll see how interference can be understood in this context: it is constructive if the randomness is correlated while it is destructive if it is anti-correlated.
+
+So, how can we characterized these relationship between different configurations of the unstated parts? We can look at the classical derivation for guidance. In that case, we looked at the set of transformation that increase/decrease the amount of material. Those are the only type of transformation that we can apply on a classical system that do not change the overall state given by the distribution.
+
+As the classical material is homogeneous, permutations between classical particles in the same state $\mathcal{s}$ do not matter: the ordering is unstated. In a way, increasing/decreasing the amount of material increases/decreases the unstated part of the system.
+
+For the irreducible material we follow the same strategy: we find the state transformations that affect the unstated part while keeping the overall state, the distribution, unchanged.
+
+Suppose we have $\psi_1$ a state for an irreducible material characterized by one d.o.f. The material will be spread over the configurations of the infinitesimal fragments. As the material is homogeneous, the material is spread evenly among the such possible configuration. Counting configurations is therefore equivalent to counting amount of material. Each fragment would be identified by a pair of independent random variables $(A, B)$, as a d.o.f. is two-dimensional. The shape of the distribution and the actual values are not physically distinguishable: these are just dummy variables we assign to count the fragment configurations. We choose A and B to be uniform distributions from 0 to 1, so that the area is a square of unit size, which represent the unit of unstated  configurations the material is spread over.
+
+Suppose we have another state $\psi_2$, where only unstated part is changed. The unstated part can also be characterized by a square formed by two independent uniform distributions (C, D). Counting states on (C,D) is equivalent to counting them on (A,B), as they are simply different arrangements. As all distributions are uniform, they can only be connected by a linear operation. That is: $C=aA+bB$ and $D= -bA + aB$. We can write $\psi_2 = \tau(a,b) \psi_1$ as $a$ and $b$ are the only parameters of the transformation.
+
+The transformation $\tau(a,b)$ increases/decreases the area by the factor $a^2+b^2$ and rotates the square by $arctan(x/y)$. If we set $c=a+\imath b$ those same quantities can be expressed as $\rho^2=|c|^2$ and $\theta = arg(z)$, the modulus and the phase of a complex number. In other words: complex numbers provide a representation for the group of rotations and magnitude rescaling.
+
+For multiple independent d.o.f., we have one square each. As the material is irreducible, all areas need to be always the same since relative changes would allow to learn something about the motion of the infinitesimal fragments. This means that the transformation $\tau(c)$ has to be the same for all d.o.f. In other words, the group of transformations is the same regardless of the number of independent d.o.f. 
+
+Mathematically, the state space $\Psi$ for an irreducible material is a complex vector space.
+
+\begin{prop}\label{prop:complex_vector_space}
+	The state space $\Psi$ for an irreducible material is a vector space over $\mathbbm{C}$.
+\end{prop}
+
+\begin{justification}
+	TODO
+\end{justification}
+
+If $\mathcal{Q}$ is the space that defines our units, a state $\psi$ must tell us for each point $\mathcal{q} \in \mathcal{Q}$ how much material is there and the the correlation of the unstated part. That is: the state will be identified by $\psi : \mathcal{Q} \rightarrow \mathbbm{C}$, a complex function over the $\mathcal{Q}$.
+
+The square modulus at each point will give us the density of the material. As in the classical case, such density mush be integrable to give us the total amount of material. Therefore the function $\psi \in L^2(\mathcal{Q}, \mu)$ is square integrable. The norm $|\psi|^2 = \int_{\mathcal{Q}} |\psi(q)|^2 dq$ will give us the amount of material associated with the state.
+
+As the material is homogeneous, all particles of the material are made of the same amount. We can set, by convention, the amount of material for a particle to be unitary, therefore quantum particle states are the subset of $\Psi$ such that $|\psi|^2 = 1$. Note that changing the phase by the same amount everywhere is only changes the unstated part. Such change does not change the state, therefore distribution whose differ by a total phase are not physically distinguishable and represent the same physical state.
+
+\begin{prop}\label{prop:wavefuntion}
+	The state space $\Psi$ for an irreducible material is isomorphic to the space of Lebesgue square integrable differentiable functions over $\mathcal{Q}$. That is $\Psi \cong C^1(\mathcal{Q}) \cap L^1(\mathcal{Q}, \mu)$. The state space for a quantum particle is the projective space $\mathsf{P}(\Psi)$.
+\end{prop}
+\begin{justification}
+	TODO
+\end{justification}
+
+The observation made after \ref{prop:differentiable_manifold} in classical case are still valid: $\Psi$ is not a complete metric space. 
+
+\subsection{Irreducibility}
+
+\subsection{Quantum mechanics}
 
 %Note on composite systems and distinguishability. When putting together two classical system, just sum distributions. When putting together quantum system we have to clarify: combine to create one quantum system (sum in vector space) or two separate quantum system (symmetrized tensor product). In classical mechanics, 2a + 2b = (a+b) + (a+b). In quantum note |a> x |b> = |a>|b> + |b>|a> but (|a> + |b>) x (|a> + |b>) = |a>|a> + ... That is two quantum states in two different states is not the same as two quantum states spread equally over those two states. In classical they are.)
 
