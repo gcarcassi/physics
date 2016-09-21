@@ -1044,13 +1044,25 @@ The square modulus at each point will give us the density of the material. As in
 As the material is homogeneous, all particles of the material are made of the same amount. We can set, by convention, the amount of material for a particle to be unitary, therefore quantum particle states are the subset of $\Psi$ such that $|\psi|^2 = 1$. Note that changing the phase by the same amount everywhere is only changes the unstated part. Such change does not change the state, therefore distribution whose differ by a total phase are not physically distinguishable and represent the same physical state.
 
 \begin{prop}\label{prop:wavefuntion}
-	The state space $\Psi$ for an irreducible material is isomorphic to the space of Lebesgue square integrable differentiable functions over $\mathcal{Q}$. That is $\Psi \cong C^1(\mathcal{Q}) \cap L^1(\mathcal{Q}, \mu)$. The state space for a quantum particle is the projective space $\mathsf{P}(\Psi)$.
+	The state space $\Psi$ for an irreducible material is isomorphic to the space of Lebesgue square integrable differentiable functions over $\mathcal{Q}$. That is $\Psi \cong C^1(\mathcal{Q}) \cap L^2(\mathcal{Q}, \mu)$. The state space for a quantum particle is the projective space $\mathsf{P}(\Psi)$.
 \end{prop}
 \begin{justification}
 	TODO
 \end{justification}
 
-The observation made after \ref{prop:differentiable_manifold} in classical case are still valid: $\Psi$ is not a complete metric space. 
+\subsection{Inner product and operators}
+
+Both in the classical and quantum state the full state is identified by distributions on $\mathcal{Q}$. The $q^i$ do not label the states, but the infinitesimal parts. For a classical material, the infinitesimal parts can be given a state, have their own topological space and a set of local state variables $(q^i, p_i)$ to identify them. We can use the richness of theory of differentiable manifolds and metric spaces. For an irreducible material, the infinitesimal parts cannot be given a state, cannot be identified by a set of local variables. We have to develop other mathematical tools.
+
+To be on par with classical mechanics we need at least address three problems. We need to be able to compare two quantum states and ask what fraction of them share the same configuration: this will give us an inner product. We need to be able to express state variable distributions and expectations: this will give us linear operators. We need to identify the conjugate quantities $k_i$ and $p_i$. And we need to be mindful that the observations made after \ref{prop:differentiable_manifold} for the  classical case are still valid: $\Psi$ cannot be a complete metric space. Let's start with the first.
+
+The idea is that, given two states $\psi_1$ and $\psi_2$, we should be able to tell how much of $\psi_1$ is prepared in the same way of $\psi_2$. That is $\psi_1 = \alpha \psi_2 + \psi_3$ is the combination of the part that is prepared like $\psi_2$ (e.g. same distributions in position and momentum) and a part that is prepared completely differently. Let $\mathsf{P}_{\psi_2} : \Psi \rightarrow \Psi$ be the operator that gives us the equally prepared part $\mathsf{P}_{\psi_2} (\psi_1) \equiv \alpha \psi_2$. This operator must be linear in $\psi_1$: combining parts that are equally prepared still gives us parts that are equally prepared. It also gives us the same result if applied once or twice: once we isolated the part that is equally prepared, it remains the part that is equally prepared. $\mathsf{P}_{\psi_2}$ is therefore a projection: a linear operator such that $\mathsf{P}^2_{\psi_2}= \mathsf{P}_{\psi_2}$.
+
+From the norm and the projection we can define a product $< \cdot |\cdot> : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\mathsf{P}_{\psi_2} (\psi_1) \equiv \frac{<\psi_2|\psi_1>}{|\psi_2|^2} \psi_2$. If the arguments are the same, the projection returns the same state, therefore $<\psi_1|\psi_1> = |\psi_1|^2$: the product is positive definite. Since the projection is linear, the product is linear as well. 
+
+The coefficient $\alpha$ is a function of both $\psi_1$ and $\psi_2$, so we write it as $\alpha = <\psi_2|\psi_1>$. It is linear in $\psi_1$ as $\mathsf{P}_{\psi_2}$ is linear. The square module $|<\psi_2|\psi_1>|^2$ gives us the amount of material in $\psi_1$ that has the same distribution of $\psi_2$. $|<\psi_1|\psi_1>|^2$ As all states 
+
+Suppose we are . 
 
 \subsection{Irreducibility}
 
