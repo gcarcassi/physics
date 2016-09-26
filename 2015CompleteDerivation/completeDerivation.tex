@@ -1054,15 +1054,31 @@ As the material is homogeneous, all particles of the material are made of the sa
 
 Both in the classical and quantum state the full state is identified by distributions on $\mathcal{Q}$. The $q^i$ do not label the states, but the infinitesimal parts. For a classical material, the infinitesimal parts can be given a state, have their own topological space and a set of local state variables $(q^i, p_i)$ to identify them. We can use the richness of theory of differentiable manifolds and metric spaces. For an irreducible material, the infinitesimal parts cannot be given a state, cannot be identified by a set of local variables. We have to develop other mathematical tools.
 
-To be on par with classical mechanics we need at least address three problems. We need to be able to compare two quantum states and ask what fraction of them share the same configuration: this will give us an inner product. We need to be able to express state variable distributions and expectations: this will give us linear operators. We need to identify the conjugate quantities $k_i$ and $p_i$. And we need to be mindful that the observations made after \ref{prop:differentiable_manifold} for the  classical case are still valid: $\Psi$ cannot be a complete metric space. Let's start with the first.
+To be on par with classical mechanics we need at least address three problems. We need to be able to compare two quantum states and ask what fraction of them share the same configuration: this will give us an inner product. We need to be able to express state variable distributions and expectations: this will give us linear operators. We need to identify the conjugate quantities $k_i$ and $p_i$. Let's start with the first.
 
 The idea is that, given two states $\psi_1$ and $\psi_2$, we should be able to tell how much of $\psi_1$ is prepared in the same way of $\psi_2$. That is $\psi_1 = \alpha \psi_2 + \psi_3$ is the combination of the part that is prepared like $\psi_2$ (e.g. same distributions in position and momentum) and a part that is prepared completely differently. Let $\mathsf{P}_{\psi_2} : \Psi \rightarrow \Psi$ be the operator that gives us the equally prepared part $\mathsf{P}_{\psi_2} (\psi_1) \equiv \alpha \psi_2$. This operator must be linear in $\psi_1$: combining parts that are equally prepared still gives us parts that are equally prepared. It also gives us the same result if applied once or twice: once we isolated the part that is equally prepared, it remains the part that is equally prepared. $\mathsf{P}_{\psi_2}$ is therefore a projection: a linear operator such that $\mathsf{P}^2_{\psi_2}= \mathsf{P}_{\psi_2}$.
 
-From the norm and the projection we can define a product $< \cdot |\cdot> : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\mathsf{P}_{\psi_2} (\psi_1) \equiv \frac{<\psi_2|\psi_1>}{|\psi_2|^2} \psi_2$. If the arguments are the same, the projection returns the same state, therefore $<\psi_1|\psi_1> = |\psi_1|^2$: the product is positive definite. Since the projection is linear, the product is linear as well. 
+This projection has other useful properties. If $\psi_1$ is already prepared like $\psi_2$, then its projection on $\psi_2$ will be equal to $\psi_1$. Conversely, if the projection of $\psi_1$ is equal to itself, then it means that the state is already prepared like $\psi_2$. That is: $\mathsf{P}_{\psi_2} (\psi_1) = \psi_1 \Leftrightarrow \psi_1 = \alpha \psi_2$. Moreover, because the material is irreducible, if $23\%$ of $\psi_1$ is prepared like $\psi_2$, then $23\%$ of $\psi_2$ is prepared like $\psi_1$. If not, we could learn more (or less) about $\psi_1$ by studying the part of $\psi_2$ that is prepared like $\psi_1$. Therefore we have $\frac{|\mathsf{P}_{\psi_2} (\psi_1)|^2}{|\psi_1|^2}=\frac{|\mathsf{P}_{\psi_1} (\psi_2)|^2}{|\psi_2|^2}$. Lastly, if we take the projection of $\psi_1$ along $\psi_2$ and we project it again on $\psi_1$, we end up with a part of $\psi_1$. As this is a proper part of $\psi_1$, its state is just $\psi_1$ rescaled, no change in correlation. That is: $\mathsf{P}_{\psi_1} (\mathsf{P}_{\psi_2} (\psi_1)) = a \psi_1$ with $a \in \mathbbm{R}$.
 
-The coefficient $\alpha$ is a function of both $\psi_1$ and $\psi_2$, so we write it as $\alpha = <\psi_2|\psi_1>$. It is linear in $\psi_1$ as $\mathsf{P}_{\psi_2}$ is linear. The square module $|<\psi_2|\psi_1>|^2$ gives us the amount of material in $\psi_1$ that has the same distribution of $\psi_2$. $|<\psi_1|\psi_1>|^2$ As all states 
+From the norm and the projection we can define a complex product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\mathsf{P}_{\psi_2} (\psi_1) \equiv \frac{\langle \psi_2|\psi_1 \rangle}{|\psi_2|^2} \psi_2$. Because of the properties of the norm and the projections, the product is positive definite, linear and conjugate symmetric. This means the state space $\Psi$ for an irreducible material is an inner product space.
 
-Suppose we are . 
+\begin{prop}\label{prop:inner_product}
+	The state space $\Psi$ for an irreducible material is an inner product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$.
+\end{prop}
+\begin{justification}
+	TODO
+\end{justification}
+
+Note that the inner product only has an indirect physical definition, based on the norm and the projections. We'll therefore want to base our physical intuition on the latter concepts.
+
+Also note that the observations made after \ref{prop:differentiable_manifold} for the  classical case are still valid. $\Psi$ cannot be a complete metric space as it does not include discontinuous functions. Therefore it is only a pre-Hilbert space. For mathematical convenience, one can take its completion with respect to the norm induced by the inner product and obtain a Hilbert space. Yet, such object does no longer represent a physically meaningful entity.
+
+As such, we need to make sure that the rest of our definitions and justifications do not require a complete metric space to be valid or they would not be physically meaningful. In particular, we cannot write the usual link $\psi(q) = \langle q | \psi \rangle$ between the wave function and the inner product as the material cannot be prepared at a specific value if $q$ is a continuous variable.
+
+
+%If the arguments are the same, the projection returns the same state, therefore $<\psi_1|\psi_1> = |\psi_1|^2$: the product is positive definite. Since the projection is linear, the product is linear as well. 
+
+%The coefficient $\alpha$ is a function of both $\psi_1$ and $\psi_2$, so we write it as $\alpha = <\psi_2|\psi_1>$. It is linear in $\psi_1$ as $\mathsf{P}_{\psi_2}$ is linear. The square module $|<\psi_2|\psi_1>|^2$ gives us the amount of material in $\psi_1$ that has the same distribution of $\psi_2$. $|<\psi_1|\psi_1>|^2$ As all states 
 
 \subsection{Irreducibility}
 
@@ -1085,6 +1101,14 @@ Suppose we are .
 \section{Appendix: mathematical proofs}
 
 In this section we include mathematical demonstration in support of the physical arguments of the paper.
+
+\begin{thrm}\label{thrm:function_topology}
+	Let $X$ and $Y$ be Hausdorff and second countable topological spaces. Let $C(X, Y) \equiv \{f: X \rightarrow Y \; | \; f$ is continuous$\}$ be the space of continuous functions endowed with the Compact-Open Topology $\mathsf{T}$. Then $C(X, Y)$ is a Hausdorff and second countable topological space.
+\end{thrm}
+
+\begin{proof}
+	We claim $C(X, Y)$ is Haudorff. Let $f, g \in C(X, Y)$ such that $f \neq g$. $\exists x \in X$ such that $f(x)\neq g(x)$. Let $K = \{x\}$. $K$ is compact.
+\end{proof}
 
 \begin{thrm}[Extended Riesz theorem]\label{extended_riesz_theorem}
 	Let $(S, \tau)$ a locally compact Hausdorff space. Let $\Lambda = \{\Lambda_U : C(S) \rightarrow \mathbbm{R}\}_{U \subseteq S}$ a family of positive linear functionals such that $\forall U \subseteq S \; \Lambda_U = \Lambda_{\mathrm{int}(U)}$ and $\Lambda_{U_1} + \Lambda_{U_2} = \Lambda_{U_1 \cup U_2} + \Lambda_{U_1 \cap U_2} \; \forall U_1, U_2 \subseteq S$. Then there exists a unique Borel measure $\mu$ such that $\Lambda_U (\rho) = \int_{U} \rho d\mu \; \forall \rho \in C(S)$.
@@ -1118,7 +1142,7 @@ In this section we include mathematical demonstration in support of the physical
 	Let $(M, \omega)$ a symplectic manifold. Let $f: (M, \omega) \rightarrow (M, \omega)$ an infinitesimal self-symplectomorphism. Let $S \in TM \; | \; f(\xi^a(m)) = \xi^a(m) + S^a(m)dt \; \forall m \in M$ be the infinitesimal displacement. There exist a function $H: M \rightarrow \mathbbm{R}$ such that $S^{a} \omega_{ab} = \partial_{b}H$.
 \end{prop}
 
-\begin{justification}
+\begin{proof}
 	We claim the vector field $S \in T\mathcal{Q}$ admits a potential $H$ such that $S^{a} \omega_{ab} = \partial_{b}H$. Let $v, w \in T_m M$ be two vectors defined at a point $m \in M$. Let $v^a, w^b$ their components. Let $v'\equiv f v, w' \in T_{f(m)}M$ be the pushforward of $v, w$ by $f$. Since $f$ is a symplectomorphism we have $v^{a} \omega_{ab} w^{b} = v'^{a} \omega_{ab} w'^{b}$. The vector components change according to $v'^a = \partial_b \xi(t+dt)^a v^b = (\delta^a_b + \partial_b S^a dt) v^b$. We have:
 	\begin{align*}
 	v^{a} \omega_{ab} w^{b} &= v'^{a} \omega_{ab} w'^{b}  \\
@@ -1127,7 +1151,19 @@ In this section we include mathematical demonstration in support of the physical
 	&+ v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
 	\end{align*}
 	$v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$ where $S_{b} \equiv S^{a} \omega_{ab}$. The relationship must true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
-\end{justification}
+\end{proof}
+
+\begin{thrm}
+	Scalar product
+\end{thrm}
+
+\begin{proof}
+	We claim $\langle x , y \rangle = \langle x, \mathsf{P}_x(y)\rangle$. Let $x, y \in X$. $\langle x , y \rangle x = |x|^2 \mathsf{P}_x(y) = |x|^2 \mathsf{P}_x(\mathsf{P}_x(y)) = \langle x, \mathsf{P}_x(y)\rangle$.
+	
+	We claim $\mathsf{P}_x(y) = a x$ for some $a \in \mathbbm{C}$. Let $x, y \in X$. $\mathsf{P}_x(\mathsf{P}_x(y)) = \mathsf{P}_x(y)$. $\mathsf{P}_x(y) = a x$ for some $a \in \mathbbm{C}$
+	
+	We claim $\langle a x , y \rangle = a^\dagger \langle x , y \rangle$. Let $x, y \in X$ and $a \in \mathbbm{C}$. $\langle a x , y \rangle = \langle a x, \mathsf{P}_x(y)\rangle = \langle a x, b x\rangle$ for some $b \in \mathbbm{C}$. $\langle a x, b x\rangle = \frac{b}{a} \langle a x, a x\rangle = \frac{b}{a} |a x|^2 = \frac{b}{a} |a|^2 |x|^2 = \frac{a^\dagger ab}{a} \langle x, x\rangle = a^\dagger \langle x, b x\rangle = a^\dagger \langle x, \mathsf{P}_x(y)\rangle = a^\dagger \langle x , y \rangle$
+\end{proof}
 
 
 \begin{thebibliography}{0}
