@@ -1165,6 +1165,18 @@ In this section we include mathematical demonstration in support of the physical
 	We claim $\langle a x , y \rangle = a^\dagger \langle x , y \rangle$. Let $x, y \in X$ and $a \in \mathbbm{C}$. $\langle a x , y \rangle = \langle a x, \mathsf{P}_x(y)\rangle = \langle a x, b x\rangle$ for some $b \in \mathbbm{C}$. $\langle a x, b x\rangle = \frac{b}{a} \langle a x, a x\rangle = \frac{b}{a} |a x|^2 = \frac{b}{a} |a|^2 |x|^2 = \frac{a^\dagger ab}{a} \langle x, x\rangle = a^\dagger \langle x, b x\rangle = a^\dagger \langle x, \mathsf{P}_x(y)\rangle = a^\dagger \langle x , y \rangle$
 \end{proof}
 
+\begin{thrm}
+	Let $C^1(\mathcal{Q}, \mathbbm{C})$ the space of differentiable complex functions defined over $\mathcal{Q}$. Let $q : \mathcal{Q} \rightarrow \mathbbm{R}$ a differentiable function. Let $K_q$ a covariant linear operator: given an invertible differentiable function $\hat{q} : \mathbbm{R} \rightarrow \mathbbm{R}$ $K_{\hat{q}} = \partial_{\hat{q}} q K_{q}$. Then $K_q = a \partial_q$ for some $a \in \mathbbm{C}$.
+\end{thrm}
+
+\begin{proof}
+	We claim $K_q(f(q))= \partial_q f K_q(q)$. Let $I : \mathbbm{R} \rightarrow \mathbbm{R}$ be the identify function, that is $I \circ f = f \; \forall f : \mathbbm{R} \rightarrow \mathbbm{R}$. $K_q(q) = K_q(I(q)) = \partial_q I(q) K_{I}(I) = K_{I}(I)$ by covariance.
+	Let $f : \mathbbm{R} \rightarrow \mathbbm{R}$ be a differentiable invertible function. $K_q(f(q)) =K_q(I(f(q))) = \partial_q f K_{f}(I(f)) = \partial_q f \partial_f I(f) K_{I}(I) = \partial_q f K_q(q)$. Now let $f : \mathbbm{R} \rightarrow \mathbbm{R}$ be a differentiable function non necessarily invertible. It can be written as $f = f_1 + f_2$ with $f_1, f_2$ differentiable and invertible. By linearity $K_q(f)=K_q(f_1) + K_q(f_2) = \partial_q f_1 K_q(q) + \partial_q f_2 K_q(q)  = \partial_q f K_q(q)$.
+	
+	We claim $K_q$ is a derivation. Let $f,g,h$ be differentiable functions such that $h(q)=f(q)g(q)$. $K_q(ln(h(q)))=\partial_q ln(h(q)) K_q(q) = \frac{1}{h} \partial_q h K_q(q) = \frac{1}{h} K_q(h(q)) = K_q(ln(f(q)g(q))) = K_q(ln(f(q))) + K_q(ln(g(q))) = \frac{1}{f} K_q(f(q)) + \frac{1}{g} K_q(g(q))$. Multiplying by $h=fg$ we have $K_q(h(q)) = g K_q(f(q)) + f K_q(g(q))$. $K_q$ is a linear operator that satisfies the product rule. $K_q$ is a derivation by definition.
+	
+	We claim $K_q = a \partial_q$ for some $a \in \mathbbm{C}$. $K_q$ is a derivation. As $K_q(f(q))= \partial_q f K_q(q)$ it is a derivation along $q$, which can be expressed as $K_q(q)=a \partial_q$ for some $a \in \mathbbm{C}$.
+\end{proof}
 
 \begin{thebibliography}{0}
 
