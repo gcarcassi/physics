@@ -894,7 +894,7 @@ d_s (mu^\alpha) &= \{mu^\alpha, \mathcal{H}\} = F^{\alpha\beta} u_\beta
 \end{align*}
 where we recognize the covariant form of the Lorentz force.
 
-Any change of $A$ that leaves $F_{\alpha\beta}$ unchanged does not affect the evolution of any function of position and velocity. Such transformation is what we call a gauge transformation. Note the same group of transformations is found by fixing $A$ and changing $p$ such that the laws of motion don't change. In other words: $A$ and $p$ are defined relatively to the each other. $A$ defines the $0$ for $p$ and vice versa. The gauge group expresses the arbitrariness of such definition.
+Any change of $A$ that leaves $F_{\alpha\beta}$ unchanged does not affect the evolution of any function of position and velocity. Such transformation is what we call a gauge transformation. Note the same group of transformations is found by fixing $A$ and changing $p$ such that the laws of motion don't change. In other words: $A$ and $p$ are defined relatively to each other. $A$ defines the $0$ for $p$ and vice versa. The gauge group expresses the arbitrariness of such definition.
 
 The extended Hamiltonian we found is quadratic in energy, therefore negative energy states are possible. These correspond to the particle anti-states mentioned in \ref{prop:antistates}. As we fixed the natural parametrization, $u^\alpha u_\alpha = - c^2$, there are two cases: the parametrization is aligned with time, therefore $s=\tau$ where $\tau$ is proper time, or the parametrization is anti-aligned with time, therefore $s=-\tau$. The trajectory velocity $u^\alpha= \pm d_\tau x^\alpha$ is plus or minus the physical velocity depending on whether it's a standard particle state or an anti-state. Expanding the equation for the force, we have:
 \begin{align*}
@@ -1063,7 +1063,7 @@ This projection has other useful properties. If $\psi_1$ is already prepared lik
 From the norm and the projection we can define a complex product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\mathsf{P}_{\psi_2} (\psi_1) \equiv \frac{\langle \psi_2|\psi_1 \rangle}{|\psi_2|^2} \psi_2$. Because of the properties of the norm and the projections, the product is positive definite, linear and conjugate symmetric. This means the state space $\Psi$ for an irreducible material is an inner product space.
 
 \begin{prop}\label{prop:inner_product}
-	The state space $\Psi$ for an irreducible material is an inner product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$.
+	The state space $\Psi$ for an irreducible material is an inner product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\langle \psi_1 | \psi_2 \rangle = \int_\mathcal{Q} \psi_1^\dagger (q) \psi_2(q) dq$.
 \end{prop}
 \begin{justification}
 	TODO
@@ -1073,7 +1073,24 @@ Note that the inner product only has an indirect physical definition, based on t
 
 Also note that the observations made after \ref{prop:differentiable_manifold} for the  classical case are still valid. $\Psi$ cannot be a complete metric space as it does not include discontinuous functions. Therefore it is only a pre-Hilbert space. For mathematical convenience, one can take its completion with respect to the norm induced by the inner product and obtain a Hilbert space. Yet, such object does no longer represent a physically meaningful entity.
 
-As such, we need to make sure that the rest of our definitions and justifications do not require a complete metric space to be valid or they would not be physically meaningful. In particular, we cannot write the usual link $\psi(q) = \langle q | \psi \rangle$ between the wave function and the inner product as the material cannot be prepared at a specific value if $q$ is a continuous variable.
+As such, we need to make sure that the rest of our definitions and justifications do not require a complete metric space to be valid or they would not be physically meaningful. In particular, we cannot write the usual link $\psi(q) = \langle q | \psi \rangle$ between the wave function and the inner product as the material cannot be prepared at a specific value if $q$ is a continuous variable. For the same reason, we cannot show that to each state variable is associated an hermitian operator by constructing it from its eigenstates.
+
+The proceed in the following way. Suppose we have a state variable $f : \mathcal{Q} \rightarrow \mathbbm{R}$. Consider the product $f (q) \psi (q)$: it returns the value of $f$ weighted by the wave function. We can think of $f$ as an operator that takes a complex function of $\mathcal{Q}$ and returns another complex function of $\mathcal{Q}$. The operator is linear since $f (q) (a\psi_1 + b\psi_2) = a f \psi_1 + b f  \psi_2$. The operator is hermitian since $f^\dagger = f$. Consider $\langle \psi | F \psi \rangle = \langle F \psi | \psi \rangle = \int_\mathcal{Q} \psi^\dagger (q) f(q) \psi(q) dq = f(q) | \psi(q)|^2$. It integrates the value of $f$ weighted by the amount of the material: it is the expectation of the state variable $f$ over the distribution. 
+
+While $\mathcal{Q}$ is enough to define the system of units, it cannot be enough to define all the variables over which we can define the distributions. The conjugate variables $p_i=\hbar k_i$ cannot be expressed as a function of $q^i$, which reiterates the idea that we cannot specify all variables for each fragment. Suppose there is another set of state variables that provide another way to subdivide the fragments. Then those variables will form a manifold $\hat{\mathcal{Q}}$ such that each $\psi$ can be expressed as a wave function $\psi(\hat{q})$ over $\hat{\mathcal{Q}}$.
+
+As each state $\psi$ can be identified by a wavefunction on either space, there must be an operator $\Upsilon^q_{\hat{q}}(\psi(q)) = \psi(\hat{q})$ that converts the wave function on one space to the other. As to a linear combination of states corresponds a linear combination of wave function, $\Upsilon^q_{\hat{q}}$ is a linear operator. As converting the space again must give us the original wave function, $\Upsilon^{\hat{q}}_{q} \Upsilon^q_{\hat{q}}= 1$ is unitary. We can now define a have linear operator $\hat{F}$ corresponding to state variable $\hat{f} : \hat{\mathcal{Q}} \rightarrow \mathbbm{R}$. Using $\Upsilon^{\hat{q}}_{q}$ we can express $\hat{F}$ as an operator over complex functions of $\mathcal{Q}$ It will be still be linear and hermitian.
+
+That is: for each state variable we have a corresponding linear hermitian operator which can be expressed as function multiplication in a suitable choice of $\hat{\mathcal{Q}}$.
+
+\begin{prop}\label{prop:self_adjoint_operators}
+	For each fragment parameter $f$ there exist a corresponding self-adjoint linear operator $F : \Psi \rightarrow \Psi$. There exists a manifold $\hat{\mathcal{Q}}$ such that $f : \hat{\mathcal{Q}} \rightarrow \mathbbm{R}$. There exist an injective map $\Psi_{\hat{\mathcal{Q}}} : \Psi \rightarrow C^1(\hat{\mathcal{Q}}, \mathbbm{C})$.
+\end{prop}
+\begin{justification}
+	TODO
+\end{justification}
+
+The last thing to do is identify the operators corresponding to $k_i$ and $p_i$, expressed over the space of functions of $\mathcal{Q}$. We know that the operators have to be covariant: under a change of variables $K_{\hat{q}} = \partial_{\hat{q}} q K_{q}$. This is essentially the chain rule: the operator we are looking for is derivation by $q$. As it has to be self-adjoint, it will be of the form $K_{q} = a \imath \partial_q$ where $a$ is a real number. We chose $a$ to be negative by convention and to be unitary so that $K_{q}$ is expressed in units of inverse $q$ as in the classical case. Therefore we have $K_{i} = -\imath \partial_i$ and $P_{i} = -\imath \hbar \partial_i$.
 
 
 %If the arguments are the same, the projection returns the same state, therefore $<\psi_1|\psi_1> = |\psi_1|^2$: the product is positive definite. Since the projection is linear, the product is linear as well. 
