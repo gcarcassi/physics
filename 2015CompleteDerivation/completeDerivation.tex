@@ -418,12 +418,6 @@ Physically, this means that the state variable $k$, which is the classical analo
 
 We can generalize to the case where $\mathcal{Q}$ has more than one dimension. As we must be able to change one unit at a time, independently from the other, to each $q^i$ will correspond a $k_i$ that uses the inverse of the corresponding units. We have $\mathcal{S}\cong T^*\mathcal{Q}$ and $d\mu = \hbar^n dq^n \wedge dk_n$. But it's not just the volume that is preserved as we change state variables. Each pair $(q^i, k_i)$ is expressed by an independent unit with the cardinality of possibilities given by $\hbar dq^i \wedge dk_i$. We call such a pair a degree of freedom. As they are independent the total number of states is the product of the possibilities of each d.o.f.: $d\mu = \hbar^n dq^n \wedge dk_n = \prod \limits_{i=1}^n \hbar dq^i \wedge dk_i$. In other words: independent d.o.f. are orthogonal surfaces in $\mathcal{S}$. The possibilities of an arbitrary degree of freedom, then, will be $\sum \limits_{i=1}^n \hbar dq^i \wedge dk_i$, the sum of the projections over the $n$ orthogonal and independent d.o.f. defined by $(q^i, k_i)$.
 
-\begin{figure}
-	\includestandalone[width=\columnwidth]{pictures/independentDof}
-	\caption{The metric $\omega$ and its components along two independent degrees of freedom. As we change state variables, the components are still orthogonal to each other. Note: this is a 2D conceptualization of what happens in 4D.}
-	\label{fig:independent_dof}
-\end{figure}
-
 The cardinality of possibilities for each d.o.f. (i.e. the wedge product within a d.o.f.) and the orthogonality of different d.o.f. (i.e. the scalar product across d.o.f.) must be the same regardless of the choice of state variables. We can express both requirements mathematically in a compact way. We first define conjugate momentum as $p_i=\hbar k_i$ and unified state variables as $\xi^a\equiv \{q^i, p_i\}$. Then we consider the canonical two-form $\omega =\Sigma \, dq^i \wedge dp_i$ given by the following components:
 \begin{align*}
 \omega_{ab} =  \left[
@@ -440,6 +434,12 @@ The cardinality of possibilities for each d.o.f. (i.e. the wedge product within 
 \right] \\
 \end{align*}
 It returns the wedge product within a d.o.f. and the scalar product across. Requiring the invariance of this metric under state variable changes assures us the cardinality of states and possibilities is well defined.
+
+\begin{figure}
+	\includestandalone[width=\columnwidth]{pictures/independentDof}
+	\caption{The metric $\omega$ and its components along two independent degrees of freedom. As we change state variables, the new d.o.f. are also independent and therefore orthogonal to each other. Note: this is a 2D conceptualization of 4D space.}
+	\label{fig:independent_dof}
+\end{figure}
 
 This gives us insight on the physical meaning of the geometrical structure $T^*\mathcal{Q}$. The canonical one-form $\theta=k dq$ represents the geometrical object we associate with each particle state. The canonical two-form $\omega$ is the metric that quantifies the possibilities described by two given state variables. Note, instead, that the relationship $\omega = - \hbar d\theta$, while mathematically true, has no clear physical meaning as we have not defined what the exterior derivative on a state actually represents.
 
@@ -637,6 +637,12 @@ But in the previous case, the right angle was between the two independent d.o.f.
 \end{array}
 \right] \\
 \end{align*}
+
+\begin{figure}
+	\includestandalone[width=\columnwidth]{pictures/temporalDof}
+	\caption{The metric $\omega$ and its components along temporal and standard degrees of freedom. The two d.o.f. are not independent and therefore not orthogonal. The temporal d.o.f. is orthogonal to the metric as states are defined (and counted) independently of time. Compare with FIG.~\ref{fig:independent_dof}. Note: this is a 2D conceptualization of 4D space.}
+	\label{fig:temporal_dof}
+\end{figure}
 
 The metric $\omega$ is still the canonical two form expressed with the mathematically non-canonical, but physically meaningful, variable $E$. This allows us to better understand its physical meaning. The metric allows us to count the possibilities within a degree of freedom, adjusting the metric on $T^*\mathcal{M}$ to avoid the counting problems introduced by time variable changes.
 
