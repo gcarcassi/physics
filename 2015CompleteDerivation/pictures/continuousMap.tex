@@ -1,0 +1,71 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\begin{document}
+	\begin{tikzpicture}[scale=.4]
+
+		% INPUTS
+				
+		\newcommand{\displace}{23};			 % distance between the two plots, origin to origin		
+
+		\newcommand{\axislength}{10};	   	 % axis lengeth
+		\newcommand{\axisheight}{8};		 % axis height	
+
+		\newcommand{\horlinelength}{7};		% length of all horizontal lines
+		\newcommand{\vertlinelength}{7};	 % length of all vertical lines
+
+		\newcommand{\lineheighta}{4};		  % y-coordinate of first horizontal line in both plots
+		\newcommand{\lineheightb}{5.5};		 % y-coordinate of second horizontal line in both plots
+		\newcommand{\functionheight}{2};  % y-coordinate of function in right plot
+		
+		\newcommand{\linea}{3};					  % x-coordinate of first vertical line in left plot
+		\newcommand{\lineb}{5};				   	  % x-coordinate of second vertical line in left plot
+		\newcommand{\linec}{4};					  % x-coordinate of vertical line in right plot	
+		
+		\newcommand{\hmargin}{2};
+		\newcommand{\vmargin}{1.5};
+		
+		% styles		
+	    \tikzstyle{axis}=[thick,color=black];				
+	    \tikzstyle{line}=[color=black,dashed];  % dashed better than dotted?
+	    \tikzstyle{function}=[ultra thick,color=red];			    
+
+		% outer rectangle and name of diagram
+		\draw ({-\hmargin - \axislength},{- \axisheight - \vmargin}) rectangle ({\displace + \axislength + \hmargin},{\axisheight + \vmargin});
+
+	    				
+		% axes for left plot
+		\draw [style=axis] (0,-\axisheight) -- (0,\axisheight);		
+		\draw [style=axis] (-\axislength,0) -- (\axislength,0);		
+		
+		% lines in left plot
+		\draw [style=line] (\lineb,-\vertlinelength) -- (\lineb,\vertlinelength);
+		\draw [style=line] (\linea,-\vertlinelength) -- (\linea,\vertlinelength);		
+		
+		\draw [style=line] (-\horlinelength,\lineheighta) -- (\horlinelength,\lineheighta);		
+		\draw [style=line] (-\horlinelength,\lineheightb) -- (\horlinelength,\lineheightb);		
+
+		% function in left plot		
+		\draw [style=function] plot [smooth] coordinates {(-8,-3) (0,0) (\linea,\lineheighta) (\lineb,\lineheightb) (8,6)};
+		
+
+		
+		% axes for right plot
+		\draw [style=axis] (\displace + 0,-\axisheight) -- (\displace + 0,\axisheight);		
+		\draw [style=axis] (\displace + -\axislength,0) -- (\displace + \axislength,0);		
+		
+		% lines in right plot
+		\draw [style=line] (\displace + \linec,-\vertlinelength) -- (\displace + \linec,\vertlinelength);
+
+		\draw [style=line] (\displace + -\horlinelength,\lineheighta) -- (\displace + \horlinelength,\lineheighta);		
+		\draw [style=line] (\displace + -\horlinelength,\lineheightb) -- (\displace + \horlinelength,\lineheightb);		
+
+		% function including dot in right plot		
+		\draw [style=function]	(\displace + -8,\functionheight) -- (\displace + 8,\functionheight);
+		\fill [style=function] (\displace + \linec,4.75) circle (.25);
+		\filldraw [draw=red,fill=white,thick] (\displace + \linec,\functionheight) circle (.25);
+		
+
+	\end{tikzpicture}
+	
+\end{document}
