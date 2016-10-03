@@ -1177,19 +1177,22 @@ In this section we include mathematical demonstration in support of the physical
 \end{proof}
 
 \begin{thrm}
-	Scalar product
+	Let $V$ be a complex vector space. Let $| \cdot | ^2 : V \rightarrow \mathbbm{R}$ such that $|x|^2 \ge 0 \; \forall x \in V$ and $|x|^2 = 0 \Leftrightarrow x = 0$. Let $x \in V$ and $\mathsf{P}_x : V \rightarrow V$ be a family of projections (i.e. $\mathsf{P}_x$ linear and $\mathsf{P}_x \circ \mathsf{P}_x = \mathsf{P}_x$) such that: $\mathsf{P}_x (y) = y \Leftrightarrow y = a x$ for some $a \in \mathbbm{C}$; $|y|^2|\mathsf{P}_x (y)|^2=|x|^2|\mathsf{P}_y (x)|^2$; $\mathsf{P}_x (\mathsf{P}_y (x)) = r x$ for some $r \in \mathbbm{R}$.
+	Then $V$ is an inner product space with the product $\langle \cdot , \cdot \rangle : V \times V \rightarrow \mathbbm{C}$ defined by $\langle x , y \rangle x = |x|^2 \mathsf{P}_x (y)$.
 \end{thrm}
 
 \begin{proof}
-	We claim $\langle x , y \rangle = \langle x, \mathsf{P}_x(y)\rangle$. Let $x, y \in X$. $\langle x , y \rangle x = |x|^2 \mathsf{P}_x(y) = |x|^2 \mathsf{P}_x(\mathsf{P}_x(y)) = \langle x, \mathsf{P}_x(y)\rangle$.
+	We claim $\langle \cdot , \cdot \rangle$ is well defined. Let $x, y \in V$. $\mathsf{P}_x (\mathsf{P}_x (y)) =\mathsf{P}_x(y)$ as $\mathsf{P}_x$ is a projection. $\mathsf{P}_x(y) = a x $ for some $a \in \mathbbm{C}$ by the first property of $\mathsf{P}_x$. $\langle x , y \rangle = |x|^2 a$ exists and is unique. 
 	
-	We claim $\mathsf{P}_x(y) = a x$ for some $a \in \mathbbm{C}$. Let $x, y \in X$. $\mathsf{P}_x(\mathsf{P}_x(y)) = \mathsf{P}_x(y)$. $\mathsf{P}_x(y) = a x$ for some $a \in \mathbbm{C}$
+	We claim $\langle \cdot , \cdot \rangle$ is positive definite. Let $x \in V$. $\langle x , x \rangle x = |x|^2 \mathsf{P}_x(x) = |x|^2 x $. Therefore $\langle x , x \rangle = |x|^2 \ge 0$ and $\langle x , x \rangle = |x|^2 = 0 \Leftrightarrow x = 0$.
 	
-	We claim $\langle a x , y \rangle = a^\dagger \langle x , y \rangle$. Let $x, y \in X$ and $a \in \mathbbm{C}$. $\langle a x , y \rangle = \langle a x, \mathsf{P}_x(y)\rangle = \langle a x, b x\rangle$ for some $b \in \mathbbm{C}$. $\langle a x, b x\rangle = \frac{b}{a} \langle a x, a x\rangle = \frac{b}{a} |a x|^2 = \frac{b}{a} |a|^2 |x|^2 = \frac{a^\dagger ab}{a} \langle x, x\rangle = a^\dagger \langle x, b x\rangle = a^\dagger \langle x, \mathsf{P}_x(y)\rangle = a^\dagger \langle x , y \rangle$
+	We claim $\langle \cdot , \cdot \rangle$ is linear in the second argument. Let $x,y,z \in V$ and $a,b \in \mathbbm{C}$. $\langle x , a y + b z \rangle x = |x|^2 \mathsf{P}_x(a y + b z)=a  |x|^2 \mathsf{P}_x(y) + b  |x|^2 \mathsf{P}_x(z) = a \langle x , y \rangle x + b \langle x, z \rangle x$ by linearity of $\mathsf{P}_x$. Therefore $\langle x , a y + b z \rangle = a \langle x , y \rangle + b \langle x, z \rangle$.
+	
+	We claim $\langle \cdot , \cdot \rangle$ is conjugate symmetric. Let $x,y \in V$. $ | |x|^2\mathsf{P}_x(y)|^2 = |x|^4|\mathsf{P}_x(y)|^2 = |\langle x , y \rangle|^2 |x|^2$. Using the second property of the projection we have $|\langle x , y \rangle|^2 = |x|^2|\mathsf{P}_x(y)|^2 =  |y|^2|\mathsf{P}_y(x)|^2 = |\langle y , x \rangle|^2$. The modulus of the product is symmetric as a function of the arguments. Now consider $|x|^2|y|^2\mathsf{P}_x(\mathsf{P}_y(x)) = |x|^2 \langle y , x \rangle \mathsf{P}_x(y) = \langle y , x \rangle \langle x , y \rangle x$. The product $\langle x , y \rangle \langle y , x \rangle \in \mathbbm{R}$ by the third property of the projection. $\arg(\langle x , y \rangle) + \arg(\langle y , x \rangle)$ is $0$ or $\pi$. $\pi$ is excluded since $\langle x , x \rangle = |x|^2 \ge 0$. $\langle y , x \rangle$ and $\langle x , y \rangle$ have equal modulus and opposite phase. $\langle x , y \rangle = \langle y , x \rangle^\dagger$
 \end{proof}
 
 \begin{thrm}
-	Let $C^1(\mathcal{Q}, \mathbbm{C})$ the space of differentiable complex functions defined over $\mathcal{Q}$. Let $q : \mathcal{Q} \rightarrow \mathbbm{R}$ a differentiable function. Let $K_q$ a covariant linear operator: given an invertible differentiable function $\hat{q} : \mathbbm{R} \rightarrow \mathbbm{R}$ $K_{\hat{q}} = \partial_{\hat{q}} q K_{q}$. Then $K_q = a \partial_q$ for some $a \in \mathbbm{C}$.
+	Let $C^1(\mathcal{Q}, \mathbbm{C})$ be the space of differentiable complex functions defined over $\mathcal{Q}$. Let $q : \mathcal{Q} \rightarrow \mathbbm{R}$ a differentiable function. Let $K_q$ be a covariant linear operator, that is given an invertible differentiable function $\hat{q} : \mathbbm{R} \rightarrow \mathbbm{R}$ $K_{\hat{q}} = \partial_{\hat{q}} q K_{q}$. Then $K_q = a \partial_q$ for some $a \in \mathbbm{C}$.
 \end{thrm}
 
 \begin{proof}
@@ -1199,6 +1202,15 @@ In this section we include mathematical demonstration in support of the physical
 	We claim $K_q$ is a derivation. Let $f,g,h$ be differentiable functions such that $h(q)=f(q)g(q)$. $K_q(ln(h(q)))=\partial_q ln(h(q)) K_q(q) = \frac{1}{h} \partial_q h K_q(q) = \frac{1}{h} K_q(h(q)) = K_q(ln(f(q)g(q))) = K_q(ln(f(q))) + K_q(ln(g(q))) = \frac{1}{f} K_q(f(q)) + \frac{1}{g} K_q(g(q))$. Multiplying by $h=fg$ we have $K_q(h(q)) = g K_q(f(q)) + f K_q(g(q))$. $K_q$ is a linear operator that satisfies the product rule. $K_q$ is a derivation by definition.
 	
 	We claim $K_q = a \partial_q$ for some $a \in \mathbbm{C}$. $K_q$ is a derivation. As $K_q(f(q))= \partial_q f K_q(q)$ it is a derivation along $q$, which can be expressed as $K_q(q)=a \partial_q$ for some $a \in \mathbbm{C}$.
+\end{proof}
+
+\begin{thrm}
+	Let $G \equiv C^1(\mathcal{Q}, \mathbbm{C}) \cap L^1(\mathcal{Q}, \mathbbm{C})$ be the space of differentiable and integrable complex functions defined over $\mathcal{Q}$. Let $K$ be a linear adjoint operator of the form $a \partial_q$ with $a \in \mathbbm{C}$. Let $K$ be self-adjoint with respect to the inner product $\langle f, g \rangle = 
+	\int_{\mathcal{Q}} f^\dagger(q) g(q) dq$. Then $K= \imath r \partial_q$ with $r \in \mathbbm{R}$.
+\end{thrm}
+
+\begin{proof}
+	We claim $K= \imath r \partial_q$ with $r \in \mathbbm{R}$. Let $f,g \in G$. We have $\langle f, K g \rangle = \int_{\mathcal{Q}}f^\dagger a \partial_q g dq = f^\dagger g |_{\partial \mathcal{Q}}  - \int_{\mathcal{Q}} a \partial_qf^\dagger  g dq= \int_{\mathcal{Q}} (- a\partial_q f^\dagger) g dq = \int_{\mathcal{Q}} (- a^\dagger\partial_q f)^\dagger g dq = \langle - a^\dagger\partial_q f, g \rangle$ using integration by part and integrability of $f$ and $g$. $\langle - a^\dagger\partial_q f, g \rangle =\langle K f, g \rangle$ as $K$ is self-adjoint. $- a^\dagger\partial_q = a \partial_q$. $a = - a^\dagger$. $a = \imath r$ with $r \in \mathbbm{R}$.
 \end{proof}
 
 \begin{thebibliography}{0}
