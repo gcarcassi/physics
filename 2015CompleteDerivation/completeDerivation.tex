@@ -534,7 +534,7 @@ Mathematically, under the classical Hamiltonian assumption,  deterministic and r
 If we assume continuous time evolution we have the following:
 
 \begin{prop}\label{hamiltons_equations}
-	A continuous deterministic and reversible process for the particles of a classical material admits a Hamiltonian $H: T^*\mathcal{Q} \rightarrow \mathbbm{R}$ that allows us to write the laws of evolution as
+	A continuous deterministic and reversible process for the particles of a classical material admits a Hamiltonian $H \in C^2(T^*\mathcal{Q}, \mathbbm{R})$ that allows us to write the laws of evolution as
 \begin{align*}
 d_{t}q^i &= \partial_{p_i} H \\
 d_{t}p_i &= - \partial_{q^i} H
@@ -547,7 +547,9 @@ We claim the vector field $S \in T\mathcal{S}$ for the infinitesimal displacemen
 We claim the state variables evolve according to Hamilton's equations. $S^{a} \omega_{ab} = d_t\xi^a \omega_{ab} = \partial_{b}H$. For $b=\{1,...,n\}$ we have $d_tp_i (-1) = \partial_{q_i} H$. For $b=\{n+1,...,2n\}$ we have $d_tq^i (+1) = \partial_{p_i} H$.
 \end{justification}
 
-We recognize the familiar set of Hamilton's equations. They are the set of equations that describe the deterministic and reversible motion of the infinitesimal parts of an infinitesimally reducible homogeneous material. In other words: the forces that conserve energy (i.e. the value of a suitable Hamiltonian) are exactly the ones that provide deterministic and reversible motion. The challenge in their derivation mainly lies in the necessary use of different branches of mathematics (e.g. topology, measure theory, differential geometry, symplectic geometry). The conceptual meaning, on the other hand, is hopefully straight forward. 
+We recognize the familiar set of Hamilton's equations. They are the set of equations that describe the deterministic and reversible motion of the infinitesimal parts of an infinitesimally reducible homogeneous material. Note that the argument goes the other way as well. A system governed by Hamilton's equations is deterministic and reversible: the equation of motion given by $H$ are differentiable since $H$ is twice differentiable. Therefore the equations are Lipschitz continuous and, by the Picard-Lindel\"{o}f theorem, a unique solution exists.
+
+In other words: the forces that conserve energy (i.e. the value of a suitable Hamiltonian) are exactly the ones that provide deterministic and reversible motion. The challenge in their derivation mainly lies in the necessary use of different branches of mathematics (e.g. topology, measure theory, differential geometry, symplectic geometry). The conceptual meaning, on the other hand, is hopefully straightforward.
 
 It's important to realize that, during the derivation, multiple mathematical features (e.g. invariant densities, cotangent bundle for phase space, symplectomorphism) were justified by the same physical assumption. The math itself gives us no indication that the different features stem from the same source; therefore, the math itself does not give us a conceptually unified picture. This is one of the reasons we believe that starting from the physical description is objectively better if we are to come to a better understanding of our physical theories.
 
@@ -1168,7 +1170,7 @@ In this section we include mathematical demonstration in support of the physical
 \end{proof}
 
 \begin{prop}\label{symplectomorphism_generator}
-	Let $(M, \omega)$ a symplectic manifold. Let $f: (M, \omega) \rightarrow (M, \omega)$ an infinitesimal self-symplectomorphism. Let $S \in TM \; | \; f(\xi^a(m)) = \xi^a(m) + S^a(m)dt \; \forall m \in M$ be the infinitesimal displacement. There exist a function $H: M \rightarrow \mathbbm{R}$ such that $S^{a} \omega_{ab} = \partial_{b}H$.
+	Let $(M, \omega)$ a symplectic manifold. Let $f: (M, \omega) \rightarrow (M, \omega)$ an infinitesimal self-symplectomorphism. Let $S \in TM \; | \; f(\xi^a(m)) = \xi^a(m) + S^a(m)dt \; \forall m \in M$ be the infinitesimal displacement. There exists a function $H: M \rightarrow \mathbbm{R}$ such that $S^{a} \omega_{ab} = \partial_{b}H$ and $H \in C^2(M, \mathbbm{R})$.
 \end{prop}
 
 \begin{proof}
@@ -1180,6 +1182,8 @@ In this section we include mathematical demonstration in support of the physical
 	&+ v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
 	\end{align*}
 	$v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$ where $S_{b} \equiv S^{a} \omega_{ab}$. The relationship must true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
+	
+	We claim $H \in C^2(M, \mathbbm{R})$. $S$ is differentiable as it is the displacement of a symplectomorphism. The derivatives of $H$ are differentiable as $S_{a} = \partial_{a}H$. $H$ is twice differentiable.
 \end{proof}
 
 \begin{thrm}
