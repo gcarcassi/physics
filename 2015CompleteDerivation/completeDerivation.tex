@@ -1058,7 +1058,7 @@ The square modulus at each point will give us the density of the material. As in
 As the material is homogeneous, all particles of the material are made of the same amount. We can set, by convention, the amount of material for a particle to be unitary, therefore quantum particle states are the subset of $\Psi$ such that $|\psi|^2 = 1$. Note that changing the phase by the same amount everywhere is only changes the unstated part. Such change does not change the state, therefore distribution whose differ by a total phase are not physically distinguishable and represent the same physical state.
 
 \begin{prop}\label{prop:wavefuntion}
-	The state space $\Psi$ for an irreducible material is isomorphic to the space of Lebesgue square integrable differentiable functions over $\mathcal{Q}$. That is $\Psi \cong C^1(\mathcal{Q}) \cap L^2(\mathcal{Q}, \mu)$. The state space for a quantum particle is the projective space $\mathsf{P}(\Psi)$.
+	The state space $\Psi$ for an irreducible material is isomorphic to a subspace of the space of Lebesgue square integrable differentiable. That is $\Psi \cong \Psi(\mathcal{Q}, dp^i) \subseteq C^1(\mathcal{Q}) \cap L^2(\mathcal{Q}, \mu)$ under the isomorphism $\Upsilon_q : \Psi \leftrightarrow \Psi(\mathcal{Q}, dp^i)$ where $\Psi(\mathcal{Q}, dp^i)$ is the space of wave functions over $q^i$. The state space for a quantum particle is the projective space $\mathsf{P}(\Psi)$.
 \end{prop}
 \begin{justification}
 	TODO
@@ -1077,7 +1077,7 @@ This projection has other useful properties. If $\psi_1$ is already prepared lik
 From the norm and the projection we can define a complex product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\mathsf{P}_{\psi_2} (\psi_1) \equiv \frac{\langle \psi_2|\psi_1 \rangle}{|\psi_2|^2} \psi_2$. Because of the properties of the norm and the projections, the product is positive definite, linear and conjugate symmetric. This means the state space $\Psi$ for an irreducible material is an inner product space.
 
 \begin{prop}\label{prop:inner_product}
-	The state space $\Psi$ for an irreducible material is an inner product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\langle \psi_1 | \psi_2 \rangle = \int_\mathcal{Q} \psi_1^\dagger (q) \psi_2(q) dq$.
+	The state space $\Psi$ for an irreducible material is an inner product $\langle \cdot |\cdot \rangle : \Psi \times \Psi \rightarrow \mathbbm{C}$ such that $\langle \psi_1 | \psi_2 \rangle = \int_\mathcal{Q} \psi_1^\dagger (q^i) \psi_2(q^i) dq^i$.
 \end{prop}
 \begin{justification}
 	TODO
@@ -1095,17 +1095,31 @@ While $\mathcal{Q}$ is enough to define the system of units, it cannot be enough
 
 As each state $\psi$ can be identified by a wavefunction on either space, there must be an operator $\Upsilon^q_{\hat{q}}(\psi(q)) = \psi(\hat{q})$ that converts the wave function on one space to the other. As to a linear combination of states corresponds a linear combination of wave function, $\Upsilon^q_{\hat{q}}$ is a linear operator. As converting the space again must give us the original wave function, $\Upsilon^{\hat{q}}_{q} \Upsilon^q_{\hat{q}}= 1$ is unitary. We can now define a have linear operator $\hat{F}$ corresponding to state variable $\hat{f} : \hat{\mathcal{Q}} \rightarrow \mathbbm{R}$. Using $\Upsilon^{\hat{q}}_{q}$ we can express $\hat{F}$ as an operator over complex functions of $\mathcal{Q}$ It will be still be linear and hermitian.
 
+TODO: ranges of $q^i$ and $\hat{q}^i$ must be the same: there must be a bijective function between them. Bijection is continuous only if $\hat{q}^i(q^i)$. Otherwise can be discontinuous.
+
 That is: for each state variable we have a corresponding linear hermitian operator which can be expressed as function multiplication in a suitable choice of $\hat{\mathcal{Q}}$.
 
 \begin{prop}\label{prop:self_adjoint_operators}
-	For each fragment parameter $f$ there exist a corresponding self-adjoint linear operator $F : \Psi \rightarrow \Psi$. There exists a manifold $\hat{\mathcal{Q}}$ such that $f : \hat{\mathcal{Q}} \rightarrow \mathbbm{R}$. There exist an injective map $\Psi_{\hat{\mathcal{Q}}} : \Psi \rightarrow C^1(\hat{\mathcal{Q}}, \mathbbm{C})$.
+	For each fragment variable $f$ there exists a corresponding self-adjoint linear operator $F : \Psi \rightarrow \Psi$. There exist a manifold $\hat{\mathcal{Q}}$ such that $f : \hat{\mathcal{Q}} \rightarrow \mathbbm{R}$ and $\Upsilon_{\hat{\mathcal{q}}^i} : \Psi \leftrightarrow \Psi(\hat{\mathcal{Q}}, d\hat{q}^i)$ is an isomorphism.
 \end{prop}
 \begin{justification}
 	TODO
 \end{justification}
 
-The last thing to do is identify the operators corresponding to $k_i$ and $p_i$, expressed over the space of functions of $\mathcal{Q}$. We know that the operators have to be covariant: under a change of variables $K_{\hat{q}} = \partial_{\hat{q}} q K_{q}$. This is essentially the chain rule: the operator we are looking for is derivation by $q$. As it has to be self-adjoint, it will be of the form $K_{q} = a \imath \partial_q$ where $a$ is a real number. We chose $a$ to be negative by convention and to be unitary so that $K_{q}$ is expressed in units of inverse $q$ as in the classical case. Therefore we have $K_{i} = -\imath \partial_i$ and $P_{i} = -\imath \hbar \partial_i$.
+The last thing to do is identify the operators corresponding to $k_i$ and $p_i$, expressed over the space of functions of $\mathcal{Q}$. We know that the operators have to be covariant: under a change of variables $K_{\hat{q}} = \partial_{\hat{q}} q K_{q}$. This is essentially the chain rule: the operator we are looking for is derivation by $q$. As it has to be self-adjoint, it will be of the form $K_{q} = a \imath \partial_q$ where $a$ is a real number. We choose $a$ to be negative by convention and to be unitary so that $K_{q}$ is expressed in units of inverse $q$ as in the classical case. Therefore we have $K_{i} = -\imath \partial_i$ and $P_{i} = -\imath \hbar \partial_i$.
 
+TODO: Schar
+
+\begin{prop}\label{prop:momentum_operator}
+	The operator $P_i$ associated with the conjugate quantity of $q^i$ is $P_i = - \imath \hbar \partial_{i}$. The operator that changes the variable of the wave function from $q^i$ to $p^i$ is $\Upsilon^{q_i}_{p^i} (\psi(q^i)) = \frac{1}{(\sqrt{2\pi})^3} \int_{\mathcal{Q}} e^{\frac{q_i p^i }{\imath \hbar}} \psi(q^i) d^n q $.
+\end{prop}
+\begin{justification}
+	TODO
+\end{justification}
+
+We now have all the basic features of the state space of a quantum particle. And we have them by re-deriving them from first principles instead of using some kind of formal analogy. The similarity with the classical framework are simply due to some of the similar starting points.
+
+We reached the goal despite $\Psi$ is not being a complete metric space. 
 
 %If the arguments are the same, the projection returns the same state, therefore $<\psi_1|\psi_1> = |\psi_1|^2$: the product is positive definite. Since the projection is linear, the product is linear as well. 
 
@@ -1113,7 +1127,61 @@ The last thing to do is identify the operators corresponding to $k_i$ and $p_i$,
 
 \subsection{Irreducibility}
 
+Now that we have fully characterized what we mean by an irreducible material, we can stipulate the following:
+
+\begin{assump}[Infinitesimal reducibility]\label{ass:infinitesimal_reducibility}
+	The system under study is composed of an irreducible homogeneous material and as a whole undergoes deterministic and reversible evolution.
+\end{assump}
+
+\begin{rationale}
+	The idea is that each amount of material has a state, the physically distinguishable configuration of the distribution, and an unstated part, the physically indistinguishable configuration of the fragments of the material. The system is deterministic and reversible in the sense outlined in section ???: given the state of the system at one time (i.e. the whole distribution) we can predict/reconstruct the future/past states. But we cannot tells anything about the evolution of the unstated part (i.e. the motion of the fragments).
+	
+	As we saw, the state space recovered under this assumption is the one used in quantum mechanics. In the following sections we will also derive two types of state evolution: the deterministic and reversible one, corresponding to unitary evolution (e.g. the Schroedinger equation), and a non deterministic one useful to describe measurement interactions, corresponding to the projection postulate. Therefore, as the infinitesimal reducibility assumptions leads to classical mechanics, the irreducibility assumption leads to quantum mechanics.
+	
+	As we previously saw in section ???, the infinitesimal reducibility assumptions had its problem. How about the irreducibility assumption? How do they compare?
+	
+	The methodological assumes a different connotation. In order for the assumption to hold, we need to show that there are no processes at our disposal that can probe the constituents of a quantum particle. For example: an electron as a whole interacts with a photon as a whole. Note that this does not require showing that no such process exists: conceptually specific parts of the photon may be interacting with specific parts of the electron. But if those processes are not available to us, say because we can only manipulate whole photons and they always interacts with a whole electron, they cannot be used to create a more detailed picture. So we simply have to enumerate the processes available to us, which is, at least in principle, feasible.
+
+	The issues rising from a lack of perfect isolation all but disappear. Each degree of freedom comes with its own unstated part (i.e. the motion of the fragments within that d.o.f.) therefore these is no pretense of perfect isolation. It is built into the description.
+	
+	The problem of physically meaningless interaction is also considerably lessened. Even if we have multiple particles each with their state evolving deterministically, we can still imagine their unstated parts as interacting with each other. Therefore each quantum particle would not essentially reside in its own separate universe.
+	
+	In these way, the irreducibility assumption fares much better than the infinitesimal reducibility assumption. Yet, it is still plagued with some of the same problems.
+	
+	The problem of incompatibility of measurements and deterministic evolution at all levels still remains. This will lead us to require a different non deterministic evolution, that will allow us to recover the statistical interpretation of the wavefunction.
+	
+	The inability to define time by following a deterministic and reversible problem is still present.
+	
+	There is one additional problem, though, not present in the classical case. The quantum states, as we have defined them, are states at equilibrium: they all provide the same level of description for the fragments; they are all reachable from one another through unitary evolution (which we'll see corresponds to deterministic and reversible evolution). Therefore they cannot and should not be expected to provide a description under non deterministic evolution. Consider a muon decay: the initial state of the muon and the final states of the electron and neutrinos can certainly be well described by a quantum states. We have no reason to expect, though, that the while the muon is decaying into the resulting particles the state is always in equilibrium and therefore well described mathematically by a vector in a Hilbert space. After all, the state of a single spin one half particle cannot determine the future state of three spin on half particles.
+	
+	Using unitary evolution in those cases to make predictions, though, may still make physical sense. Quantities that are not affected by the particular evolution of the unstated part will have the same value under non-deterministic evolution and an equivalent quasi-static evolution. The distribution of final states is one such quantities by the irreducibility assumption: they don't care about the unstated part evolution. But it stands to reason that, at some point, the unstated part will have actual physical consequences. For example: it would be extremely reasonable to expect that is indeed the evolution of the unstated part that decides the moment in which the muon would decay.
+	
+	In light of what we discussed, the irreducibility assumption is less flawed but it still cannot be fundamental, in the sense that we cannot take it to strictly apply to all of the universe. We should not expect to solve open problems, such as the arrow of time and the measurement problem, within the assumption.
+\end{rationale}
+
 \subsection{Quantum mechanics}
+
+We are now ready to write the equation of motion for an irreducible material.
+
+\begin{prop}\label{unitary_evolution}
+	A deterministic and reversible evolution map $\mathcal{T}_{\Delta t}: \Psi \rightarrow \Psi$ for an irreducible material is a unitary operator. That is: $\langle \mathcal{T}_{\Delta t} \psi_1, \mathcal{T}_{\Delta t} \psi_2 \rangle = \langle \psi_1 , \psi_2 \rangle$ where $\psi_1, \psi_2 \in \Psi$. The time evolution for the wave function $\Upsilon_q \mathcal{T}_{\Delta t} \Upsilon^q : S(\mathcal{Q}, dq) \rightarrow S(\mathcal{Q}, dq)$ is a $C^{\infty}$-diffeomorphism.
+\end{prop}
+
+\begin{justification}
+\end{justification}
+	
+	
+\begin{prop}\label{prop:schroedinger_equation}
+	A continuous deterministic and reversible evolution for an irreducible material admits a Hamiltonian operator $H : \Psi \rightarrow \Psi$ that allows us to write the laws of evolution as
+	\begin{align*}
+	\imath \hbar \partial_t \psi = H \psi
+	\end{align*}
+\end{prop}
+
+\begin{justification}
+\end{justification}
+
+Note: we get time dependent Schroedinger. No basis for time independent.
 
 %Note on composite systems and distinguishability. When putting together two classical system, just sum distributions. When putting together quantum system we have to clarify: combine to create one quantum system (sum in vector space) or two separate quantum system (symmetrized tensor product). In classical mechanics, 2a + 2b = (a+b) + (a+b). In quantum note |a> x |b> = |a>|b> + |b>|a> but (|a> + |b>) x (|a> + |b>) = |a>|a> + ... That is two quantum states in two different states is not the same as two quantum states spread equally over those two states. In classical they are.)
 
@@ -1142,7 +1210,7 @@ In this section we include mathematical demonstration in support of the physical
 \end{proof}
 
 \begin{thrm}[Extended Riesz theorem]\label{extended_riesz_theorem}
-	Let $(S, \tau)$ a locally compact Hausdorff space. Let $\Lambda = \{\Lambda_U : C(S) \rightarrow \mathbbm{R}\}_{U \subseteq S}$ a family of positive linear functionals such that $\forall U \subseteq S \; \Lambda_U = \Lambda_{\mathrm{int}(U)}$ and $\Lambda_{U_1} + \Lambda_{U_2} = \Lambda_{U_1 \cup U_2} + \Lambda_{U_1 \cap U_2} \; \forall U_1, U_2 \subseteq S$. Then there exists a unique Borel measure $\mu$ such that $\Lambda_U (\rho) = \int_{U} \rho d\mu \; \forall \rho \in C(S)$.
+	Let $(S, \tau)$ be a locally compact Hausdorff space. Let $\Lambda = \{\Lambda_U : C(S) \rightarrow \mathbbm{R}\}_{U \subseteq S}$ a family of positive linear functionals such that $\forall U \subseteq S \; \Lambda_U = \Lambda_{\mathrm{int}(U)}$ and $\Lambda_{U_1} + \Lambda_{U_2} = \Lambda_{U_1 \cup U_2} + \Lambda_{U_1 \cap U_2} \; \forall U_1, U_2 \subseteq S$. Then there exists a unique Borel measure $\mu$ such that $\Lambda_U (\rho) = \int_{U} \rho d\mu \; \forall \rho \in C(S)$.
 \end{thrm}
 
 \begin{proof}
@@ -1186,7 +1254,7 @@ In this section we include mathematical demonstration in support of the physical
 	We claim $H \in C^2(M, \mathbbm{R})$. $S$ is differentiable as it is the displacement of a symplectomorphism. The derivatives of $H$ are differentiable as $S_{a} = \partial_{a}H$. $H$ is twice differentiable.
 \end{proof}
 
-\begin{thrm}
+\begin{thrm}\label{thrm:inner_product}
 	Let $V$ be a complex vector space. Let $| \cdot | ^2 : V \rightarrow \mathbbm{R}$ such that $|x|^2 \ge 0 \; \forall x \in V$ and $|x|^2 = 0 \Leftrightarrow x = 0$. Let $x \in V$ and $\mathsf{P}_x : V \rightarrow V$ be a family of projections (i.e. $\mathsf{P}_x$ linear and $\mathsf{P}_x \circ \mathsf{P}_x = \mathsf{P}_x$) such that: $\mathsf{P}_x (y) = y \Leftrightarrow y = a x$ for some $a \in \mathbbm{C}$; $|y|^2|\mathsf{P}_x (y)|^2=|x|^2|\mathsf{P}_y (x)|^2$; $\mathsf{P}_x (\mathsf{P}_y (x)) = r x$ for some $r \in \mathbbm{R}$.
 	Then $V$ is an inner product space with the product $\langle \cdot , \cdot \rangle : V \times V \rightarrow \mathbbm{C}$ defined by $\langle x , y \rangle x = |x|^2 \mathsf{P}_x (y)$.
 \end{thrm}
@@ -1201,7 +1269,7 @@ In this section we include mathematical demonstration in support of the physical
 	We claim $\langle \cdot , \cdot \rangle$ is conjugate symmetric. Let $x,y \in V$. $ | |x|^2\mathsf{P}_x(y)|^2 = |x|^4|\mathsf{P}_x(y)|^2 = |\langle x , y \rangle|^2 |x|^2$. Using the second property of the projection we have $|\langle x , y \rangle|^2 = |x|^2|\mathsf{P}_x(y)|^2 =  |y|^2|\mathsf{P}_y(x)|^2 = |\langle y , x \rangle|^2$. The modulus of the product is symmetric as a function of the arguments. Now consider $|x|^2|y|^2\mathsf{P}_x(\mathsf{P}_y(x)) = |x|^2 \langle y , x \rangle \mathsf{P}_x(y) = \langle y , x \rangle \langle x , y \rangle x$. The product $\langle x , y \rangle \langle y , x \rangle \in \mathbbm{R}$ by the third property of the projection. $\arg(\langle x , y \rangle) + \arg(\langle y , x \rangle)$ is $0$ or $\pi$. $\pi$ is excluded since $\langle x , x \rangle = |x|^2 \ge 0$. $\langle y , x \rangle$ and $\langle x , y \rangle$ have equal modulus and opposite phase. $\langle x , y \rangle = \langle y , x \rangle^\dagger$
 \end{proof}
 
-\begin{thrm}
+\begin{thrm}\label{thrm:covariant_operator}
 	Let $C^1(\mathcal{Q}, \mathbbm{C})$ be the space of differentiable complex functions defined over $\mathcal{Q}$. Let $q : \mathcal{Q} \rightarrow \mathbbm{R}$ a differentiable function. Let $K_q$ be a covariant linear operator, that is given an invertible differentiable function $\hat{q} : \mathbbm{R} \rightarrow \mathbbm{R}$ $K_{\hat{q}} = \partial_{\hat{q}} q K_{q}$. Then $K_q = a \partial_q$ for some $a \in \mathbbm{C}$.
 \end{thrm}
 
