@@ -334,7 +334,7 @@ The state space $\mathcal{C}$ for a classical (i.e. homogeneous infinitesimally 
 \end{prop}
 
 \begin{justification}
-We claim $\mathcal{C}$ is an abelian group. $\mathcal{C}$ is the state space for a decomposable homogeneous system and is therefore an abelian group  by \ref{prop:abelian_group}.
+We claim $\mathcal{C}$ is an abelian group. $\mathcal{C}$ is the state space for a decomposable homogeneous material and is therefore an abelian group  by \ref{prop:abelian_group}.
 
 We claim $T$, the set of transformations that increase or decrease the amount of material in the system by a constant factor, is a field\footnote{Here field is intended in the abstract algebraic sense (a nonzero commutative division ring) which has no relationship to the field in the physics or differential geometry sense (a physical quantity/tensor with a value for each point in space).} isomorphic to $\mathbbm{R}$. Consider $\tau: \mathbbm{R} \rightarrow T$ the mapping between a number and the transformation that increases or decreases the amount of material by that factor. This transformation exists: the system is infinitesimally decomposable and the amount can be changed continuously. Define on $T$ an addition $+: T \times T \rightarrow T$ and a multiplication $*: T \times T \rightarrow T$ such that $\tau(a) + \tau(b) = \tau(a+b)$ and $\tau(a) * \tau(b) = \tau(a*b)$, $a,b \in \mathbbm{R}$, so that the sum and product of the transformation is equal to the sum and product of their respective factors. $\tau$ is an isomorphism between $T$ and $\mathbbm{R}$ as fields.
 
@@ -500,7 +500,7 @@ Now that we have fully characterized what we mean by a classical material, we ca
 	\begin{itemize}[noitemsep]
 		\item The system under study is deterministic and reversible
 		\item The measuring device ascertains the state of the system
-		\item The system as a whole is deterministic and reversible
+		\item System and measuring device, as a whole, is deterministic and reversible
 	\end{itemize}
 	Unfortunately, these three requirements together are inconsistent. Say $a \in A$ is the initial state of our system and $b \in B$ the initial state of our measuring device: the final state $\hat{a}=\hat{a}(a)$ because the system is deterministic; $a=f(\hat{b})$ because we are able to know the initial state of the system by looking at the final state of the measuring device; $b=b(\hat{a},\hat{b})$ because the system as a whole is reversible. Since $\hat{a}$ is determined by $a$, and $a$ can be known from $\hat{b}$, $b = b(\hat{a}(f(\hat{b})), \hat{b}) = b(\hat{b})$ can be determined from just $\hat{b}$. But since $a=f(\hat{b})$, the whole past state could be reconstructed just by looking at the future state of the measuring device. But $(\hat{b}) \rightarrow (a, b)$ cannot be an injection, therefore we arrive at a contradiction.
 	
