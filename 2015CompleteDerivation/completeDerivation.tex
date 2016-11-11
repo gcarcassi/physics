@@ -931,9 +931,9 @@ We now have all the building block of classical mechanics, the consequences of t
 
 \section{Prelude to quantum}
 
-Before introducing assumption \ref{ass:irreducibility} and deriving quantum mechanics as its consequence, we first give a semi-classical account of the conceptual model we will be using. This allows to build the intuition more gradually and to show that classical and quantum mechanics are not as different as one may first imagine.
+Before introducing assumption \ref{ass:irreducibility} and deriving quantum mechanics as its consequence, we first give a semi-classical account of the conceptual model we will be using. This allows us to build the intuition more gradually and to show that classical and quantum mechanics are not as different as one may first imagine.
 
-We will see that, as a first approximation, quantum particles are more keenly described by classical composite states (i.e. a distribution in phase space) like any other object made of a finite amount of material. We'll also see that classical distributions already possess qualitative properties that are typically associated with quantum systems, including a classical analogue of the uncertainty principle.
+We will see that, as a first approximation, quantum particles are more keenly described by classical composite states (i.e. distributions in phase space) like any other object made of a finite amount of material. We'll also see that classical distributions already possess qualitative properties that are typically associated with quantum systems, including a classical analogue of the uncertainty principle.
 
 \subsection{The case against point particles}
 
@@ -967,10 +967,13 @@ L = &\int (q-\mu_q)^2 \rho \, dqdp \int (p-\mu_p)^2 \rho \, dqdp \\
 \delta L = &\int \delta \rho [(q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 \\ &+ \lambda_1 - \lambda_2 \ln \rho - \lambda_2 ] dqdp = 0 \\
 \lambda_2 \ln \rho = &\lambda_1 - \lambda_2 + (q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 \\
 \rho = &e^{\frac{\lambda_1 - \lambda_2}{\lambda_2}}e^{\frac{(q-\mu_q)^2 \sigma_p^2}{\lambda_2}}e^{\frac{\sigma_q^2 (p-\mu_p)^2}{\lambda_2}}\\
+\end{align*}
+We solve the multipliers and have:
+\begin{align*}
 \rho = &\frac{1}{ 2 \pi \sigma_q \sigma_p} e^{-\frac{(q-\mu_q)^2}{2\sigma_q^2}} e^{-\frac{(p-\mu_p)^2}{2\sigma_p^2}} \\
 I_0 = &\ln (2\sigma_q\sigma_p\pi) + 1
 \end{align*}
-(TODO: move the details of the math) We find that the distribution that minimizes the spread is the product of two independent Gaussians. Recall that in quantum mechanics, the Gaussian wave packet is the state that minimizes uncertainty: this is the classical analogue.
+We find that the distribution that minimizes the spread is the product of two independent Gaussians. Recall that in quantum mechanics, the Gaussian wave packet is the state that minimizes uncertainty: this is the classical analogue.
 
 As the distribution evolves, the entropy is conserved and therefore the product $\sigma_q^2 \sigma_p^2$ can never be less than the one given by the Gaussian distribution of the same entropy. We have:
 \begin{align*}
