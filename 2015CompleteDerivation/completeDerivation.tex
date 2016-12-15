@@ -45,11 +45,11 @@ The aim of this work is to show that particle mechanics, both classical and quan
 
 Assuming deterministic and reversible time evolution will give us a dynamical system, whose set of states form a topological space and whose law of evolution is a self-homeomorphism. Assuming the system is infinitesimally reducible, giving the state and the dynamics of the whole system is equivalent to giving the state and the dynamics of its infinitesimal parts, will give us a classical Hamiltonian system. Assuming the system is irreducible, giving the state and the dynamics of the whole system tells us nothing about the state and the dynamics of its substructure, will give us a quantum Hamiltonian system. Assuming kinematic equivalence, studying trajectories is equivalent to studying state evolution, will give us Lagrangian mechanics together and limit the form of the Hamiltonian/Lagrangian to the one with scalar and vector potential forces.
 
-We work strives as much as possible to be philosophically consistent, physically meaningful and mathematically precise.
+This work strives as much as possible to be philosophically consistent, physically meaningful and mathematically precise.
 \end{abstract}
 \maketitle
 
-\section{Status}
+\textbf{\emph{Status}}
 
 Section III - Done.
 
@@ -64,6 +64,49 @@ Section VII - Mostly done. Needs review.
 Section VIII - Mostly done. Needs review.
 
 Section IX - Mostly done. Needs review.
+
+\section{Introduction}
+
+While some branches of physics (e.g. Newtonian mechanics, thermodynamics, special relativity) are derived from physical assumptions (e.g. Newton's laws, laws of thermodynamics, invariance of the speed of light), others start by simply setting a mathematical framework. It is the case for classical Lagrangian mechanics, where we start by assuming the existence of a Lagrangian function whose path integral is minimized along the motion. It is the case for classical Hamiltonian mechanics, where we start by assuming the state is described by conjugate pairs $(q^i, p_i)$ and evolves according to Hamilton's equations. It is the case for quantum mechanics, where the state space is a complex inner product vector space and the state evolves according to Schroedinger's equations. That is, at the very core of many of our physical theories we have mathematical definitions instead of physical concepts.
+
+While we have grown accustomed to this state of affair, it is nonetheless troublesome as it has problematic consequences. Suppose you have a system in front of you, how can you tell whether it's Hamiltonian? Or classical? We know that these theories have different range of applicability. To describe a cannonball we should be using classical mechanics while for an electron we should be using quantum mechanics. Not all Hamiltonians admit a corresponding Lagrangian. How do we pick?
+
+If all we have are mathematical definitions, the only answer is that it is a Hamiltonian system if it obeys Hamiltonian mechanics. While many are indeed satisfied by such answer, one has to admit that it begs the question. We do not have a clear idea of what an Hamiltonian system is and how it different from a Lagrangian one. Or what makes a system classical and how it is different form a quantum system.
+
+We started this work with the unpretentious goal of exploring these questions. The idea was to create a math-to-physics dictionary so that each mathematical concept was clearly mapped to a crisp physical concept. But to make sure that such dictionary was complete, we had to make sure that all the relevant mathematical framework could be recovered. This lead to the mission of re-deriving as much as possible starting from physical assumptions.
+
+This approach pushed us further and further back to the basic definitions. For example, if we truly wanted to justify why the state space of Hamiltonian mechanics is charted by conjugate variables $q^i$ and $p_i$, we had to justify why it was a manifold as well, which in turn meant we needed to justify why it was a topological space. But when we did find physical concepts that mapped to these more basic mathematical definitions, we realized that this link was valid for a far wider range of cases: the concepts were more general than we expected.
+
+To our surprise, this pushed us to bring in other areas that were not within our horizon. The same link that allowed to justify Hamiltonian dynamics also gave us relativistic motion on the extended phase space. The same link that allowed to justify Lagrangian mechanics also gave us constrained the motion to free particles under scalar/vector potential forces. Since this happened repeatedly, it lead to think that, maybe, the picture we were developing was not simply ``a nicer way to think about things", but a fundamental framework to understand and link different parts of basic science and mathematics.
+
+%It felt like, when trying to assemble a jigsaw puzzle, you realize that the reason you can't find a piece is because you assembled the previous parts incorrectly and you end with a larger part that fits together a lot better.
+
+These unexpected connections lead to the realization that sometimes different mathematical concepts are expression of the same physical concept. That is: by putting physics first we can achieve a sort of unification of ideas that is not possible by math alone.
+
+The goal of this particular work is to report on this progress. The claim is that the whole architectural framework is solid enough to be convinced that it is possible to derive classical/quantum Hamiltonian/Lagrangian mechanics starting from a few physical principle. This is not just an exercise in style: this approach allows to make intuitive connections between different areas of physics and mathematics.
+
+The claim is that, starting from a few simple physical assumptions, we can derive classical/quantum Hamiltonian/Lagrangian mechanics. The claim is not that we have achieved perfection and that every proposition and justification cannot be improved. The claim is, simply, that it \emph{can} be done, and that doing so provides better insight and intuition that clarifies the physics being described and that allows to strengthen connections between different areas of math and physics. We will see that sometimes different mathematical concepts are the expression of one physical concept. Therefore, by putting physics, first we can achieve a sort of unification of ideas that is not possible by math alone.
+
+While trying to re-derive classical, quantum and (to some extent) relativistic mechanics may seem too broad a scope, it is necessary to ensure that the concepts we develop are truly general, that they can be applied to many different cases. If we could derive classical Hamiltonian mechanics on assumptions that are inapplicable to the quantum case, what good would it do? Quantum system are Hamiltonian systems, so clearly we haven't understood what makes a system Hamiltonian. The ability to apply the same physical concepts far and wide is what gives us confidence that these are truly general ideas and they capture the physical aspects we are describing.
+
+As brief overview, there are four assumptions we will consider. Assuming deterministic and reversible evolution will give us a dynamical system: a state and a law of evolution. Additionally assuming infinitesimal reducibility, studying the whole system is equivalent to studying its infinitesimal parts, gives us Hamiltonian mechanics. Additionally assuming kinematic equivalence, trajectories in space tell us everything about the system, gives us Lagrangian mechanics and constrains the motion to massive particles under scalar/vector potential forces. Relativistic motion arises when studying time dependent laws of evolution with no further assumption. Alternatively, as the second assumption we can take irreducibility, studying the whole systems tells us nothing about its parts, which leads to quantum (Hamiltonian) mechanics.
+
+In section \ref{sec:fundamental_model} we will describe in general what it means to study a physical system and how the assumption of determinism and reversibility plays into it. We will develop an abstract conceptual model that we will use when discussing the later assumptions.
+
+In section \ref{sec:dynamical_systems} we will show how the physical concept of physical distinguishability maps to the mathematical concept of topological spaces. Deterministic and reversible is an invertible continuous map (i.e. a homeomorphism) as it needs to preserve what is physically distinguishable.
+
+In section \ref{sec:reducibility} we will introduce the notion of a classical material, one for which we assume infinitesimal reducibility. The state of an arbitrary amount of material is a distribution over the states of the infinitesimal parts, the classical particles. As such distribution must be invariant under the arbitrary choice of units, for each variable $q^i$ that defines a unit there is a corresponding variable $k^i$ defined on the inverse of such unit. Classical particle states can be identified by conjugate pairs of state variable $(q^i, p_i)$ (i.e. a point in the cotangent bundle $T^*\mathcal{Q}$) and the number of possible initial conditions for each pair is given by $dq^i \wedge dp_i$ (i.e. the canonical symplectic form $\omega$). During evolution, the distribution must be mapped point by point which leads to Hamiltonian mechanics (i.e. a symplectomorphism on $T^*\mathcal{Q}$).
+
+In section \ref{sec:relativity} we will show that a relativistic version of Hamilton's equations arises naturally when we consider time dependent laws of evolution for distributions of classical material. This also gives the notion of deterministic and reversible evolution a characterization that is independent of any transformation that mixes time and state variables $(q^i, p_i)$.
+
+In section \ref{sec:Lagrangian} we will introduce the assumption of kinematic equivalence, studying the motion in space is equivalent to studying the evolution of the state. Under that assumption there is a link between the state variables $(q^i, p_i)$ and the kinematic variable $(x^i, u^i)$ (i.e. position and velocity). This link will allow us to express the number of possible initial conditions for d.o.f. in terms of $dx^i$ and $du^i$ (i.e. a metric tensor $g$). Such expression allows to constrain the Hamiltonian to the one for massive particles under scalar potential forces. Such assumption also allows for a Lagrangian formulation.
+
+In section \ref{sec:quantum_prelude} we will introduce some ideas in classical mechanics to more gently transition over quantum mechanics. We will see how classical materials (i.e. distributions over phase space) already have features that are typically associated with quantum systems and we will show how to construct a classical uncertainty principle that helps to build intuition used in the later section.
+
+In section \ref{sec:irreducibility} we will introduce the notion of an irreducible material, one for which studying the whole distribution does not tell us anything about the motion of its infinitesimal parts, the fragment. A unit amount of such material will correspond to a quantum particle. As this means that the states of such material are invariant under permutations of the configurations for the fragments, we will show that the state space of an irreducible material is a complex vector space. As we will still be able to tell how similar or different two states are, this will gives an inner product to the state space. Such comparisons will be preserved by deterministic and reversible evolution which leads to Schroedinger equation (i.e. a unitary transformation).
+
+In section \ref{sec:discussion} we will discuss of how this work could be extended in different directions.
+
 
 %TODO: Point out most modern physics starts by assuming some mathematical framework. Pros and cons of that.
 
@@ -84,15 +127,16 @@ Section IX - Mostly done. Needs review.
 The work is organized into:
 \begin{description}
   \item[Assumptions] these characterize the physical system we are studying and constitute the premise of our discussion. A \textbf{rationale} follows each assumption, which uses physical and sometimes philosophical arguments to motivate why (or why not) such an assumption makes sense (in a particular case).
-  \item[Propositions] these characterize the mathematical properties of the physical concepts we are studying. A \textbf{justification} follows each proposition to show why such characterization follows from the physical properties of the system. While the style of a justification is formal, it is not a pure mathematical proof as it necessarily has to mix physical and mathematical arguments.
+  \item[Propositions] these characterize the mathematical properties of the physical concepts we are studying. A \textbf{justification} follows each proposition to show why such characterization follows from the physical properties of the system. While the style of a justification is formal, it is not a pure mathematical proof as it necessarily has to mix physical and mathematical arguments. Before or after each proposition there is a \textbf{discussion} that conceptually explains the motivation and the result in a less formal, more approachable way.
   
-  Before or after each proposition there is a \textbf{discussion} that conceptually explains the motivation and the result in a less formal, more approachable way.
+  Justifications and discussions are designed to be independent to allow two separate types of reading style: one focused on higher level concepts and one focused on making sure the details follow. This inevitably leads to some repetition.
   
   \item[Theorems] these are pure mathematical statements that are used to simplify propositions. A mathematical \textbf{proof} follows each proposition. No mathematical breakthrough should be expected as we mostly use well known results from different fields. Theorems are grouped in the appendix.
 \end{description}
 This should allow readers with different focus and background to concentrate on the parts that are more keen on.
 
 \section{On studying a physical system}
+\label{sec:fundamental_model}
 
 % Status: Conceptual work done. Text ready. Incorporated Dave, Isaac and Christine feedback
 
@@ -139,6 +183,7 @@ Yet, this is a fundamental assumption in the sense that it is needed. If a parti
 \end{rationale}
 
 \section{States and state space}
+\label{sec:dynamical_systems}
 
 % Status: First subsection. Conceptual work done. Text ready. Incorporated Christine feedback
 % Second subsection. Conceptual work almost done. Need to finish the text
@@ -573,6 +618,7 @@ It's important to realize that, during the derivation, multiple mathematical fea
 Note that we could have taken different approaches. For example, we could have appealed to information theory and required our invariant distributions to preserve Shannon's information entropy, as no information should be gained or lost during a deterministic and reversible process. Or we could have appealed to statistical mechanics and required that the determinant of the covariance matrix be conserved, as a deterministic and reversible process should be defined at the same level of precision. With suitable treatment of independent d.o.f. both these approaches recover Hamiltonian mechanics as well. While the full treatment is outside the scope of this work, we want to underline that the definitions used in this work go a long way to building bridges at the core of different mathematical and scientific branches.
 
 \section{Time dependent evolution}
+\label{sec:relativity}
 
 We now generalize our discussion to include time dependent dynamics. This is needed when the evolution map is not the same at all instants or when state variables depend on time (e.g. changing to a moving frame).
 
@@ -790,6 +836,7 @@ Another important feature is that this formulation of relativistic Hamiltonian m
 As a final thought, we note how the physics maps less elegantly to the math in the time dependent case. The function space for $\bar{\mathcal{C}}$ is not simply the Lebesgue integrable differentiable functions, but those that are integrable on particular hyper-surfaces. The complete state space $\bar{\mathcal{S}}$ is a hyper-surface of $T^*\mathcal{M}$. The invariant Hamiltonian is needed to identify that subspace. This may be a hint that a better formulation is lurking, one where we consider the particle evolutions $\bar{\mathcal{s}}$ as the primary objects and label those (instead of the states). The distribution of material would simply be a distribution over the particle evolutions, a Lebesgue integrable differentiable function. Yet, the need to be able to describe the evolution in terms of physically meaningful state variables will most likely re-impose the extra structure.
 
 \section{Kinematics and minimal materials}
+\label{sec:Lagrangian}
 
 We will now focus our attention on the simplest possible classical material: one that is fully described by its motion in space, i.e.~the internal dynamics can be ignored. What we'll find is that the dynamics of its infinitesimal parts follows classical Lagrangian mechanics. Furthermore, the Hamiltonian of the system is constrained to the one of a free particle under scalar and vector potential forces.
 
@@ -936,6 +983,7 @@ To sum up, the kinematic assumption has more inherent consequences one would exp
 We now have all the building block of classical mechanics, the consequences of three seemingly simple assumptions. We have more insight of why these blocks fit together the way they do. But we have also placed ourselves in a very good position to move forward to quantum systems by using the new physical insights we have gained.
 
 \section{Prelude to quantum}
+\label{sec:quantum_prelude}
 
 Before introducing assumption \ref{ass:irreducibility} and deriving quantum mechanics as its consequence, we first give a semi-classical account of the conceptual picture that emerges. This allows us to build the intuition more gradually and to show that classical and quantum mechanics are not as different as one may first imagine.
 
@@ -1002,6 +1050,7 @@ This discussion shows, once again, how we can already find in classical mechanic
 The discussion also gives us an intuitive physical picture that we will develop further in the next section: a quantum particle is a well determined distribution of not well determined fragments. The distribution as a whole can be studied and evolves deterministically while the fragments do not.
 
 \section{Irreducible systems}
+\label{sec:irreducibility}
 
 In this section we explore a different relationship between the whole and its parts. We will consider an irreducible material, one where the state and the evolution of the whole does not tell us anything about the state and the evolution of the parts. The material is still conceptually infinitesimally decomposable, made of infinitesimal parts which we call fragments. But each fragment cannot be studied independently and therefore cannot be assigned a state: the internal dynamics is undetermined. We'll find that the evolution of an irreducible material is suitably described by the standard framework of quantum mechanics.
 
@@ -1352,6 +1401,7 @@ We therefore have arrived to all the major underpinning of quantum mechanics and
 %$\mathbbm{I}$ represents all the possible values of a state variable representing the best description of an infinitesimal part that a composite system can give. $\mathcal{e}(i)$ represents a composite system made of a unit amount of particles, all prepared in the state determined by $i$. $a_i$ represents a transformation that changes the whole state, without affecting the value $i$ for any infinitesimal part. For a classical system, $i$ represents the full information about the infinitesimal part, and therefore includes the value of all state variables (i.e. the state vector); the only transformation left is increasing/decreasing the amount of particles by a scalar multiple. For a different system, where $i$ does not represent the full state of the parts, $\mathcal{e}(i)$ will be an ensemble and $a_i$ also represents an internal transformation of such ensemble. This is intuitively how we decouple the composite state into the part $i$ that describes the infinitesimal parts, and the part $a_i$ that describes how the parts are composed. Giving a full description of the state space of a decomposable system means fully characterizing these components: the state variable $\mathbbm{I}$ and the set of transformations $A$. In the classical case $\mathcal{e}(i)$ form a basis of a real vector space, where $i$ is the state vector for an infinitesimal part, and $a_i$ a real valued coefficient that represents the amount of particles in each state, which describes how the parts are combined.
 
 \section{Discussion and further work}
+\label{sec:discussion}
 
 As we went through many details in the derivation, it is time to step back and conclude with a few general remark.
 
@@ -1379,26 +1429,26 @@ In the near future it would seem appropriate to extend this work to the remainin
 
 \section{Conclusion}
 
-We have seen that much of fundamental physics can be derived from a few simple physical assumption (and lots of hard work). In doing so we obtained a more unified picture of the different branches of fundamental physics centered around the idea of deterministic and reversible evolution of distributions of material. The main physical concepts can be summarized by the following points:
+We have seen that much of fundamental physics can be derived from a few simple physical assumption (and lots of hard work). In doing so we obtained a more unified picture of the different branches of fundamental physics centered around the idea of deterministic and reversible evolution of distributions of a homogeneous material. The main physical concepts can be summarized by the following points:
 
 \begin{itemize}
 
-\item The state space is not just a collection of states but also captures its physical properties such as physical distinguishability (represented by a topology), the ability to count states (represented by a measure, symplectic form or metric tensor) or decomposability (represented by a vector space structure).
+\item A state space is not just a collection of states for the system under study but it must also capture physical properties such as physical distinguishability (represented by a topology), the ability to count states (represented by a measure, symplectic form or metric tensor) or decomposability (represented by a vector space structure).
 
 \item Deterministic and reversible evolution is a one-to-one map that preserves the nature of the system (e.g. physical distinguishability, state count and decomposability). Therefore it is an isomorphism on the mathematical structure defined by the state space (e.g. homeomorphism, canonical transformation, unitary transformation), not just a state-to-state bijection.
 
-\item Classical Hamiltonian mechanics describes the evolution of a homogeneous material for which the state is equivalent to the states of all its infinitesimal parts, the classical particles. The state space for classical particles is the symplectic manifold $(T^*\mathcal{Q}, \omega)$; deterministic and reversible evolution is a symplectomorphism (i.e. a canonical transformation).
+\item Classical Hamiltonian mechanics describes the evolution of a homogeneous material whose state is equivalent to the states of all its infinitesimal parts, the classical particles. The state space for classical particles is a symplectic manifold $(T^*\mathcal{Q}, \omega)$ as this allows coordinate invariant density distributions; deterministic and reversible evolution for such state space is a symplectomorphism (i.e. a canonical transformation).
 
-\item If the classical particle states are fully characterized by their motion in space, then the states also evolve according to Lagrangian mechanics and the motion is that of a massive particle under scalar/vector potential forces.
+\item Assuming classical particle states are fully characterized by their trajectory in space, the states also evolve according to Lagrangian mechanics and the motion is that of a massive particle under scalar/vector potential forces.
 
 \item Relativistic motion arises by properly handling time dependent deterministic and reversible evolution for the material (i.e. distributions over phase space).
 
-\item Quantum (Hamiltonian) mechanics describes the evolution of a homogeneous material for which the state can only be reduced up to finite parts, the quantum particles, whose internal motion is undetermined. The state space for quantum particles is an inner vector product space $(\Psi, \langle \cdot , \cdot \rangle)$; deterministic and reversible evolution is a unitary transformation.
+\item Quantum (Hamiltonian) mechanics describes the evolution of a homogeneous material for which the state can only be reduced up to finite parts, the quantum particles, whose internal motion is undetermined. The state space for quantum particles is an inner vector product space $(\Psi, \langle \cdot , \cdot \rangle)$; deterministic and reversible evolution for such state space is a unitary transformation.
 \end{itemize}
 
-While we are sure that some mathematical details can be improved, the feel that the overall ``conceptual castle" is solid. The starting concepts are simple, the conceptual mapping of those concepts into math is often straight forward and it often gave intuitive ideas that connects to different branches of math and physics: it cannot be a simple coincidence.
+While we are sure that some mathematical details can be improved, we feel that the overall ``conceptual castle" is solid. The starting concepts are simple, the conceptual mapping of those concepts into math is often straight forward and the intuitive ideas that emerge help connecting different branches of math and physics. This is unlikely a matter of simple coincidence.
 
-While the scope of this work is limited to re-founding and re-understanding the already known physical theories, it is our hope that this insight may also lead to new ideas to address some of the open problems in the foundations of physics.
+While the scope of this work is limited to re-founding and re-understanding physical theories already experimentally established, it may also has the potential to provide new insights and ideas on how to address some of the open problems in the foundations of physics.
 
 
 %We also have a more unified picture of fundamental physics which, after all ideas are digested, helps the intuition to gain insight that span across the different field. It also illustrate a new approach in fundamental physics: one where we better clarify our starting physical assumption and definition, where physics comes first, and they are later captured with mathematical definitions.
