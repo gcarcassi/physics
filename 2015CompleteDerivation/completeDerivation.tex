@@ -1,4 +1,5 @@
-\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+%\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+\documentclass[draft,smallextended,nospthms]{svjour3} 
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -14,8 +15,8 @@
 \usepackage{calculator}
 \usepackage{standalone}
 
-\renewcommand\thesubsection{\thesection.\Alph{subsection}}
-\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%\renewcommand\thesubsection{\thesection.\Alph{subsection}}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
 
 \newtheorem{assump}{Assumption}
@@ -36,10 +37,22 @@
 
 \title{DRAFT \\ From physical principles to classical and quantum \\ Hamiltonian and Lagrangian particle mechanics}
 \author{Gabriele Carcassi, Christine A. Aidala, David J. Baker, Lydia Bieri}
-\affiliation{University of Michigan, Ann Arbor, MI 48109}
-\email{carcassi@umich.edu}
+%\affiliation{University of Michigan, Ann Arbor, MI 48109}
+
+\institute{G. Carcassi \at
+	University of Michigan, Ann Arbor, MI 48109 \\
+%	Tel.: +123-45-678910\\
+%	Fax: +123-45-678910\\
+	\email{carcassi@umich.edu}           %  \\
+	%             \emph{Present address:} of F. Author  %  if needed
+}
+
+\titlerunning{From physical principles to classical and quantum particle mechanics}
+
 \date{\today}
 
+\maketitle
+	
 \begin{abstract}
 \textbf{This manuscript is a work in progress.} Ideas are constantly reshaped to find more precise and elegant arguments. It is provided as is to stimulate discussion.  \textbf{Make sure you have the latest version from http://assumptionsofphysics.org}
 
@@ -49,25 +62,25 @@ Assuming deterministic and reversible time evolution will give us a dynamical sy
 
 This work strives as much as possible to be philosophically consistent, physically meaningful and mathematically precise.
 \end{abstract}
-\maketitle
-
-\textbf{\emph{Status}}
-
-Section III - Done.
-
-Section IV - Done.
-
-Section V - Done.
-
-Section VI - Mostly done. Needs review.
-
-Section VII - Mostly done. Needs review.
-
-Section VIII - Mostly done. Needs review.
-
-Section IX - Mostly done. Needs review.
 
 \section{Introduction}
+
+Status:
+\begin{itemize}
+\item Section \ref{sec:fundamental_model}: Done.
+
+\item Section \ref{sec:dynamical_systems}: Done.
+
+\item Section \ref{sec:reducibility}: Done.
+
+\item Section \ref{sec:relativity}: Done.
+
+\item Section \ref{sec:Lagrangian}: Mostly done. Needs review.
+
+\item Section \ref{sec:quantum_prelude}: Mostly done. Needs review.
+
+\item Section \ref{sec:irreducibility}: Mostly done. Needs review.
+\end{itemize}
 
 While some branches of physics (e.g. Newtonian mechanics(ref?), thermodynamics(ref?), special relativity(ref?)) are derived from physical principles (e.g. Newton's laws, laws of thermodynamics, invariance of the speed of light), others start by simply setting a mathematical framework. It is the case for classical Lagrangian mechanics(ref?), where we start by assuming the existence of a Lagrangian function whose path integral is minimized during the motion. It is the case for classical Hamiltonian mechanics(ref?), where we start by assuming the state is described by conjugate pairs $(q^i, p_i)$ and evolves according to Hamilton's equations. It is the case for quantum mechanics(ref?), where the state space is a complex inner product vector space and the state evolves according to Schroedinger's equations. That is, at the very core of some of our physical theories we have mathematical definitions instead of physical ideas.
 
@@ -761,7 +774,7 @@ We claim the vector field $S \in T(T^*\mathcal{M})$ for the infinitesimal displa
 We claim the state variables evolve according to the extended Hamilton equations. $S^{a} \omega_{ab} = d_s\xi^a \omega_{ab} = \partial_{b}\mathcal{H}$. For $a = 0$ we have $d_s t \, (-1) = \partial_{E} \mathcal{H}$. For  $a=\{1,...,n\}$ we have $d_s q^i \, (+1) = \partial_{p^i} \mathcal{H}$. For $a=n+1$ we have $d_s E \, (+1) = \partial_{t} \mathcal{H}$. For $a=\{n+2,...,2n + 1\}$ we have $d_s p_i \, (-1) = \partial_{q^i} \mathcal{H}$.
 \end{justification}
 
-We recognize the equations as those for Hamiltonian mechanics on the extended phase space.\cite{Synge, Struckmeier}
+We recognize the equations as those for Hamiltonian mechanics on the extended phase space.\cite{Synge,Struckmeier}
 
 The trajectory in time $t(s)$ is of particular importance. Since the evolution is deterministic and reversible, for each value of $s$ we need to have one and only one value of $t$. Therefore $t(s)$ is invertible, strictly monotonic and $d_{s}t$ along a trajectory cannot change sign. This means there are two classes of states: the ones where the parametrization $s$ is aligned with time $t$, which we call standard states, and the ones where the parametrization $s$ is anti-aligned with time $t$, which we call anti-states. Let us call $\lambda : T^*\mathcal{M} \rightarrow \mathbb{R}$ the function $\lambda (\xi^a) \mapsto d_s t |_{\xi^a}$ that returns the change of $t$ along $s$. $\lambda > 0$ for all standard states while $\lambda < 0$ for all anti-states.  Note that since the parametrization is conventional and can be changed to $s'=-s$, what we call standard and anti-states is also conventional. What is physical and not conventional, though, is that standard and anti-states cannot be connected by deterministic and reversible evolution.\footnote{This represents the classical analogue for quantum anti-particle states.}
 
@@ -784,7 +797,7 @@ Note that $\mathcal{H}=0$ for all states $\mathcal{s} \in \bar{\mathcal{S}} \sub
 This way $\mathcal{H}$ gives both the constraint $\mathcal{H}=0$ to identify states and the map $d_s \xi^a=\omega^{ab} \partial_b \mathcal{H}$ to identify their evolution.
 
 \begin{prop}\label{prop:form_of_invariant_hamiltonian}
-	The form of the invariant Hamiltonian is $\mathcal{H} = \lambda(t,q^i,E,p_i) \, (H(t,q^i,p_i) - E)$ where $H(t,q^i,p_i)$ is the standard Hamiltonian at each instant $t$, the conjugate time variable $E = H(t,q^i,p_i)$ represents the value of the Hamiltonian, and  $\lambda : \bar{\mathcal{S}} \rightarrow \mathbb{R}$ where $\lambda(\xi^a) = d_s t$. $\bar{\mathcal{S}}$ is the level set for $\mathcal{H} = 0$.
+	The form of the invariant Hamiltonian is given by $\mathcal{H} = \lambda(t,q^i,E,p_i) \,  (H(t,q^i,p_i) - E)$ where $H(t,q^i,p_i)$ is the standard Hamiltonian at each instant $t$, the conjugate time variable $E = H(t,q^i,p_i)$ represents the value of the Hamiltonian, and  $\lambda : \bar{\mathcal{S}} \rightarrow \mathbb{R}$ where $\lambda(\xi^a) = d_s t$. $\bar{\mathcal{S}}$ is the level set for $\mathcal{H} = 0$.
 \end{prop}
 
 \begin{justification}
@@ -1111,7 +1124,7 @@ If the amount of material is connected to the area of two uniform distributions,
 \begin{equation}\label{eqn:correlation}
 \sigma^2_{X+Y} = \sigma^2_{X} + \sigma^2_{Y} + 2 \, \sigma_{X} \sigma_{Y} \rho_{X,Y}
 \end{equation}
-where $\sigma^2$ is the variance, $\sigma$ is the standard deviation, and $\rho_{X,Y}=COV(X,Y)/\sigma_{X} \sigma_{Y}$ is the Pearson correlation coefficient. As $-1\leq\rho_{X,Y}\leq+1$, the total variance can be greater or smaller than the sum of the variance of the components. Now suppose $\psi$ is the state for a unit amount of irreducible material (i.e. a quantum particle). We can write $c \psi = (c_1 + c_2) \psi = c_1 \psi + c_2 \psi$. We have:
+where $\sigma^2$ is the variance, $\sigma$ the standard deviation, $\rho_{X,Y}= COV(X,Y)/\sigma_{X} \sigma_{Y}$ is the Pearson correlation coefficient. As $-1\leq\rho_{X,Y}\leq+1$, the total variance can be greater or smaller than the sum of the variance of the components. Now suppose $\psi$ is the state for a unit amount of irreducible material (i.e. a quantum particle). We can write $c \psi = (c_1 + c_2) \psi = c_1 \psi + c_2 \psi$. We have:
 \begin{equation}\label{eqn:correlation_state}
 |c_1+c_2|^2=|c_1|^2 + |c_2|^2 + 2 |c_1||c_2|\cos(\theta_{c_2} - \theta_{c_1})
 \end{equation}
@@ -1533,7 +1546,8 @@ In this section we include mathematical demonstration in support of the physical
 \bibitem{deGosson} de Gosson, M. A., ``The symplectic camel and the uncertainty principle: the tip of an iceberg?'', Foundations of Physics 39, pp. 194--214, (2009).
 \bibitem{Stewart} Stewart, I., ``The symplectic camel'', Nature 329, pp. 17--18, (1987).
 \bibitem{Lanczos} Lanczos, C., ``The variational principles of mechanics'', University of Toronto Press, (1949).
-\bibitem{Synge} Synge, J. L., ``Classical dynamics'', Encyclopedia of Physics Vol 3/1, Springer (1960).
+\bibitem{Synge} Synge, J. L.: Classical dynamics. Encyclopedia of Physics Vol 3/1, Springer (1960)
+
 \bibitem{Struckmeier} Struckmeier, J., ``Hamiltonian dynamics on the symplectic extended phase space for autonomous and non-autonomous systems'', J. Phys. A: Math. Gen. 38, pp. 1257--1278, (2005).
 \bibitem{Lee} Lee, J. M.: Introduction to Smooth Manifolds. Springer (2003)
 \bibitem{LeeTM} Lee, J. M.: Introduction to Topological Manifolds. Springer (2000)
