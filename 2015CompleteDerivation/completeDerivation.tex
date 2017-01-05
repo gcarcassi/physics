@@ -813,8 +813,7 @@ As an example, the Hamiltonian and invariant Hamiltonian for a relativistic free
 \begin{aligned}
 H &= c \sqrt{m^2 c^2 + p^i p_i} \\
 \mathcal{H} &= \frac{1}{2m} ( p^i p_i - (E/c)^2 + m^2c^2) \\
- &= \frac{1}{2mc^2} (c \sqrt{m^2 c^2 + p^i p_i} + E) \\
- &(c \sqrt{m^2 c^2 + p^i p_i} - E) \\
+ &= \frac{1}{2mc^2} (c \sqrt{m^2 c^2 + p^i p_i} + E) (c \sqrt{m^2 c^2 + p^i p_i} - E) \\
 \lambda &= \frac{1}{2mc^2} (c \sqrt{m^2 c^2 + p^i p_i} + E)
 \end{aligned}
 \end{equation}
@@ -1028,9 +1027,8 @@ As the state evolves into its final state, the amount of material remains the sa
 We now ask the following question: once we fix the entropy, what is the relationship between the spread of the marginal distributions along $q$ and $p$? Using Lagrange multipliers, we fix the total amount of material to $1$ and the total entropy $I_0$ and find the distribution that minimizes the product of the variance $\sigma_q^2 \sigma_p^2 = \int (q-\mu_q)^2 \rho_{\mathcal{c}} \, dqdp \int (p-\mu_p)^2 \rho_{\mathcal{c}} \, dqdp$.
 \begin{align*}
 L = &\int (q-\mu_q)^2 \rho_{\mathcal{c}} \, dqdp \int (p-\mu_p)^2 \rho_{\mathcal{c}} \, dqdp \\
-&+ \lambda_1(\int \rho_{\mathcal{c}} dqdp - 1)\\
-&+ \lambda_2(- \int \rho_{\mathcal{c}} \ln \rho_{\mathcal{c}} \, dqdp - I_0)\\
-\delta L = &\int \delta \rho_{\mathcal{c}} [(q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 \\ &+ \lambda_1 - \lambda_2 \ln \rho_{\mathcal{c}} - \lambda_2 ] dqdp = 0 \\
+&+ \lambda_1(\int \rho_{\mathcal{c}} dqdp - 1) + \lambda_2(- \int \rho_{\mathcal{c}} \ln \rho_{\mathcal{c}} \, dqdp - I_0)\\
+\delta L = &\int \delta \rho_{\mathcal{c}} [(q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 + \lambda_1 - \lambda_2 \ln \rho_{\mathcal{c}} - \lambda_2 ] dqdp = 0 \\
 \lambda_2 \ln \rho_{\mathcal{c}} = &\lambda_1 - \lambda_2 + (q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 \\
 \rho_{\mathcal{c}} = &e^{\frac{\lambda_1 - \lambda_2}{\lambda_2}}e^{\frac{(q-\mu_q)^2 \sigma_p^2}{\lambda_2}}e^{\frac{\sigma_q^2 (p-\mu_p)^2}{\lambda_2}}\\
 \end{align*}
@@ -1492,10 +1490,9 @@ In this section we include mathematical demonstration in support of the physical
 	\begin{align*}
 	v^{a} \omega_{ab} w^{b} &= v'^{a} \omega_{ab} w'^{b}  \\
 	&= (v^{a} + \partial_{c} S^{a} v^{c} dt) \omega_{ab} ( w^{b} + \partial_{d} S^{b} w^{d} dt) \\
-	&= v^{a} \omega_{ab} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{ab} w^{b} \\
-	&+ v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
+	&= v^{a} \omega_{ab} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{ab} w^{b} + v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
 	\end{align*}
-	$v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$ where $S_{b} \equiv S^{a} \omega_{ab}$. The relationship must true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
+	$v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$ where $S_{b} \equiv S^{a} \omega_{ab}$. The relationship must be true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
 	
 	We claim $H \in C^2(M, \mathbb{R})$. $S$ is differentiable as it is the displacement of a symplectomorphism. The derivatives of $H$ are differentiable as $S_{a} = \partial_{a}H$. $H$ is twice differentiable.
 \end{proof}
