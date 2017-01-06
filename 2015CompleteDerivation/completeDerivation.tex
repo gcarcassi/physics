@@ -1,11 +1,10 @@
 %\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
-\documentclass[smallextended,nospthms]{svjour3} 
+\documentclass[smallextended]{svjour3} 
 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{amsfonts}
-\usepackage{amsthm}
 \usepackage{dutchcal}
 \usepackage{braket}
 \usepackage{enumitem}
@@ -15,20 +14,37 @@
 \usepackage{calculator}
 \usepackage{standalone}
 
+%----
+
+% Theorem definitions using amsthm
+
+%\usepackage{amsthm}
+
 %\renewcommand\thesubsection{\thesection.\Alph{subsection}}
 %\renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
 
-\newtheorem{assump}{Assumption}
-\renewcommand*{\theassump}{\Roman{assump}}
-\newtheorem{thrm}[equation]{Theorem}
+%\newtheorem{assump}{Assumption}
+%\renewcommand*{\theassump}{\Roman{assump}}
+%\newtheorem{thrm}[equation]{Theorem}
 
-\theoremstyle{definition}
-\newtheorem{prop}[equation]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{prop}[equation]{Proposition}
 
-\newenvironment{rationale}{\emph{Rationale}.}{\qed}
-\newenvironment{justification}{\emph{Justification}.}{\qed}
-\renewenvironment{proof}{\emph{Proof}.}{\qed}
+%\newenvironment{rationale}{\emph{Rationale}.}{\qed}
+%\newenvironment{justification}{\emph{Justification}.}{\qed}
+%\renewenvironment{proof}{\emph{Proof}.}{\qed}
+
+%----
+
+\spnewtheorem{assump}{Assumption}{\bf}{\it}
+\renewcommand{\theassump}{\Roman{assump}}
+\spnewtheorem{prop}[equation]{Proposition}{\bf}{\rm}
+\spnewtheorem{thrm}[equation]{Theorem}{\bf}{\it}
+
+\newenvironment{rationale}{\emph{Rationale}.}{\hfill\(\qed\)}
+\newenvironment{justification}{\emph{Justification}.}{\hfill\(\qed\)}
+\renewenvironment{proof}{\emph{Proof}.}{\hfill\(\qed\)}
 
 %TODO: decide on identity function typesetting
 \newcommand{\id}{\textrm{id}}
@@ -41,12 +57,10 @@
 
 \institute{G. Carcassi \at
 	University of Michigan, Ann Arbor, MI 48109 \\
-%	Tel.: +123-45-678910\\
-%	Fax: +123-45-678910\\
 	\email{carcassi@umich.edu}           %  \\
-	%             \emph{Present address:} of F. Author  %  if needed
 }
 
+% As the page margins are so large, the full title does not fit
 \titlerunning{From physical principles to classical and quantum particle mechanics}
 
 \date{\today}
@@ -234,7 +248,6 @@ We claim $\mathcal{S}$ has a topology $\mathsf{T}$. Consider the set of all poss
 We claim that $\mathsf{T}$ is Hausdorff. Let $\mathcal{s_1}, \mathcal{s_2} \in \mathcal{S}$. As states are physically distinguishable, there must exist a physical process with two possible outcomes $V_1, V_2 \in \mathsf{T}$ for which $s_1 \in V_1, s_2 \in V_2, V_1 \cap V_2 = \varnothing$. $\mathcal{S}$ is Hausdorff by definition.
 
 We claim that $\mathsf{T}$ is second countable. Consider the set of outcomes of a process. As each can provide only a finite amount of information (e.g. is identified by a finite number of digits), the set of outcomes is countable. This remains true when combining processes: the number of processes we can combine is finite as is the number of times we can prepare the same state and the set of intersections obtained from the countable outcomes of a finite number of processes is still countable. Consider a basis for the topology. Suppose it is of cardinality greater than countable. Then the basis would be able to distinguish among states in a way that no physical process ever could. The topology could distinguish among states that are not physically distinguishable. The basis for the topology cannot be of cardinality greater than countable. By contradiction, $\mathcal{S}$ must be second countable.
-
 \end{justification}
 
 Note that the arguments that led to the topological space had nothing to do with states per se, just that they are physically distinguishable. States, though, are not the only objects with that property. In fact: any element of a set of physical objects (e.g. forces, physical properties such as mass or charge, time) needs to be physically distinguishable to be well defined. We can generalize the above justification: any set of physically distinguishable elements is a topological space.
@@ -1240,7 +1253,6 @@ That is: for each fragment variable $f$ we have a corresponding linear self-adjo
 	We claim that for each fragment variable $f : \hat{\mathcal{Q}} \rightarrow \mathbb{R}$ there exists a corresponding self-adjoint linear operator $F_{[\hat{q}^i]} : \Psi(\hat{\mathcal{Q}}, d\hat{q}^i) \rightarrow C(\hat{\mathcal{Q}}, \mathbb{C})$ such that $\int \psi^\dagger(\hat{q}^i) F_{[\hat{q}^i]}( \psi(\hat{q}^i)) d^n \hat{q}$ is, if it exists, the expectation of $f$ multiplied by the amount of material. The expectation value of $f$ multiplied by the amount of material is given by $\int f(\hat{q}^i) \rho(\hat{q}^i) d^n\hat{q}$ where $\hat{q}^i$ provide a maximal set of fragment variables such that $f=f(\hat{q}^i)$. We have $\int f(\hat{q}^i) \rho(\hat{q}^i) d^n\hat{q} = \int \psi^\dagger(\hat{q}^i) f(\hat{q}^i) \psi(\hat{q}^i) d^{n}\hat{q}$. Let $F_{[\hat{q}^i]} : \Psi(\hat{\mathcal{Q}}, d\hat{q}^i) \rightarrow C(\hat{\mathcal{Q}}, \mathbb{C})$ such that $F_{[\hat{q}^i]} (\psi(\hat{q}^i)) = f(\hat{q}^i) \psi(\hat{q}^i)$. $F_{[\hat{q}^i]}$ is a linear operator. $F_{[\hat{q}^i]}$ is self-adjoint as $\int (F_{[\hat{q}^i]}(\psi(\hat{q}^i)))^\dagger \psi(\hat{q}^i) d^{n}\hat{q} = \int (f(\hat{q}^i) \psi(\hat{q}^i))^\dagger \psi(\hat{q}^i) d^{n}\hat{q} = \int \psi^\dagger(\hat{q}^i) f(\hat{q}^i) \psi(\hat{q}^i) d^{n}\hat{q} = \int \psi^\dagger(\hat{q}^i) F_{[\hat{q}^i]} (\psi(\hat{q}^i)) d^{n}\hat{q}$.
 		
 	We claim that for any fragment variable $f$ there exists a corresponding self-adjoint linear operator $F_{[q^i]} : \Psi(\mathcal{Q}, dq^i) \rightarrow C(\mathcal{Q}, \mathbb{C})$ such that $\int \psi^\dagger(q^i) F_{[q^i]}( \psi(q^i)) d^nq$ is, if it exists, the expectation of $f$ multiplied by the amount of material. Let $f$ be a fragment variable. There exists a corresponding self-adjoint linear operator $F_{[\hat{q}^i]} : \Psi(\hat{\mathcal{Q}}, d\hat{q}^i) \rightarrow C(\hat{\mathcal{Q}}, \mathbb{C})$ where $\hat{\mathcal{Q}}$ provides a maximal set of fragment variables. As both $\hat{\mathcal{Q}}$ and $\mathcal{Q}$ provide a maximal set, we can define $\Upsilon^{q^i}_{\hat{q}^i} \equiv \Upsilon_{\hat{q}^i} \circ \Upsilon_{q^i}^{-1}$ which transforms a wave function over $\mathcal{Q}$ into a wave function over $\hat{\mathcal{Q}}$. $\Upsilon^{q^i}_{\hat{q}^i}$ is an isomorphism as $\Upsilon_{\hat{q}^i}$ and $\Upsilon_{q^i}$ are isomorphisms. $\Upsilon^{q^i}_{\hat{q}^i}$ is unitary as $\Upsilon^{\hat{q}^i}_{q^i} \circ \Upsilon^{q^i}_{\hat{q}^i} = (\Upsilon^{q^i}_{\hat{q}^i})^{-1} \circ \Upsilon^{q^i}_{\hat{q}^i} = I$. We can extend $\Upsilon^{q^i}_{\hat{q}^i}$ on all continuous functions and define $F_{[q^i]} \equiv \Upsilon^{\hat{q}^i}_{q^i} \circ F_{[\hat{q}^i]} \circ \Upsilon^{q^i}_{\hat{q}^i}$. $F_{[q^i]}$ is a self-adjoint linear operator. $\int \psi^\dagger(q^i) F_{[q^i]}( \psi(q^i)) d^nq = \int \psi^\dagger(\hat{q}^i) F_{[\hat{q}^i]}( \psi(\hat{q}^i)) d^n \hat{q}$ is, if it exists, the expectation of $f$ multiplied by the amount of material.
-
 \end{justification}
 
 The last thing to do is characterize the conjugate variables $k_i$ and $p_i$. To be precise, we want to find $K_{i [q^i]}$, the operators that act on the wave functions over $q^i$ corresponding to fragment variables $k_i$. We know that the operators have to be covariant: under a change of units $\hat{q}^j = \hat{q}^j(q^i)$ we must have $\hat{K}_{j[q^i]} = \partial_{\hat{q}^j} q^i K_{i [q^i]}$. In other words: we are looking for the set of linear operators that obey the chain rule. This turns out to be the space of derivations, therefore $K_{i [q^i]}$ will be the derivatives in the direction of the corresponding $q^i$. They have to be self-adjoint, so they will be of the form $K_{i [q^i]} = a \imath \partial_{i}$ where $a$ is a real number. We choose $a$ to be negative by convention and to be unitary so that $k_i$ is expressed in units of inverse $q^i$ as in the classical case. Therefore we have $K_{i [q^i]} = -\imath \partial_i$ and $P_{i [q^i]} = -\imath \hbar \partial_i$.
