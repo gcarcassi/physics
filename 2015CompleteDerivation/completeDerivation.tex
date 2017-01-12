@@ -1,5 +1,13 @@
-%\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
-\documentclass[smallextended]{svjour3} 
+\newif\ifjournal
+%\journaltrue
+\journalfalse
+
+\ifjournal
+	\documentclass[smallextended]{svjour3} 
+\else 
+	\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+\fi
+
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -14,37 +22,38 @@
 \usepackage{calculator}
 \usepackage{standalone}
 
-%----
-
-% Theorem definitions using amsthm
-
-%\usepackage{amsthm}
-
-%\renewcommand\thesubsection{\thesection.\Alph{subsection}}
-%\renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
 
-%\newtheorem{assump}{Assumption}
-%\renewcommand*{\theassump}{\Roman{assump}}
-%\newtheorem{thrm}[equation]{Theorem}
+\ifjournal
+	\spnewtheorem{assump}{Assumption}{\bf}{\it}
+	\renewcommand{\theassump}{\Roman{assump}}
+	\spnewtheorem{prop}[equation]{Proposition}{\bf}{\rm}
+	\spnewtheorem{thrm}[equation]{Theorem}{\bf}{\it}
 
-%\theoremstyle{definition}
-%\newtheorem{prop}[equation]{Proposition}
+	\newenvironment{rationale}{\emph{Rationale}.}{\hfill\(\qed\)}
+	\newenvironment{justification}{\emph{Justification}.}{\hfill\(\qed\)}
+	\renewenvironment{proof}{\emph{Proof}.}{\hfill\(\qed\)}
+\else
+	% Theorem definitions using amsthm
 
-%\newenvironment{rationale}{\emph{Rationale}.}{\qed}
-%\newenvironment{justification}{\emph{Justification}.}{\qed}
-%\renewenvironment{proof}{\emph{Proof}.}{\qed}
+	\usepackage{amsthm}
 
-%----
+	\renewcommand\thesubsection{\thesection.\Alph{subsection}}
+	\renewcommand{\theequation}{\thesection.\arabic{equation}}
 
-\spnewtheorem{assump}{Assumption}{\bf}{\it}
-\renewcommand{\theassump}{\Roman{assump}}
-\spnewtheorem{prop}[equation]{Proposition}{\bf}{\rm}
-\spnewtheorem{thrm}[equation]{Theorem}{\bf}{\it}
+	\newtheorem{assump}{Assumption}
+	\renewcommand*{\theassump}{\Roman{assump}}
+	\newtheorem{thrm}[equation]{Theorem}
 
-\newenvironment{rationale}{\emph{Rationale}.}{\hfill\(\qed\)}
-\newenvironment{justification}{\emph{Justification}.}{\hfill\(\qed\)}
-\renewenvironment{proof}{\emph{Proof}.}{\hfill\(\qed\)}
+	\theoremstyle{definition}
+	\newtheorem{prop}[equation]{Proposition}
+
+	\newenvironment{rationale}{\emph{Rationale}.}{\qed}
+	\newenvironment{justification}{\emph{Justification}.}{\qed}
+	\renewenvironment{proof}{\emph{Proof}.}{\qed}
+
+\fi
+
 
 %TODO: decide on identity function typesetting
 \newcommand{\id}{\textrm{id}}
@@ -53,19 +62,27 @@
 
 \title{DRAFT \\ From physical principles to classical and quantum \\ Hamiltonian and Lagrangian particle mechanics}
 \author{Gabriele Carcassi, Christine A. Aidala, David J. Baker, Lydia Bieri}
-%\affiliation{University of Michigan, Ann Arbor, MI 48109}
 
-\institute{G. Carcassi \at
-	University of Michigan, Ann Arbor, MI 48109 \\
-	\email{carcassi@umich.edu}           %  \\
-}
+\ifjournal
+	\institute{G. Carcassi \at
+		University of Michigan, Ann Arbor, MI 48109 \\
+		\email{carcassi@umich.edu}           %  \\
+	}
+\else
+	\affiliation{University of Michigan, Ann Arbor, MI 48109}
+\fi
 
-% As the page margins are so large, the full title does not fit
-\titlerunning{From physical principles to classical and quantum particle mechanics}
+\ifjournal
+	% As the page margins are so large, the full title does not fit
+	\titlerunning{From physical principles to classical and quantum particle mechanics}
+\fi
 
 \date{\today}
 
-\maketitle
+\ifjournal
+    % Journal format has this before the abstract
+	\maketitle
+\fi
 	
 \begin{abstract}
 \textbf{This manuscript is a work in progress.} Ideas are constantly reshaped to find more precise and elegant arguments. It is provided as is to stimulate discussion.  \textbf{Make sure you have the latest version from http://assumptionsofphysics.org}
@@ -76,6 +93,12 @@ Assuming deterministic and reversible time evolution will give us a dynamical sy
 
 This work strives as much as possible to be philosophically consistent, physically meaningful and mathematically precise.
 \end{abstract}
+
+\ifjournal
+\else
+	\maketitle
+\fi
+
 
 \section{Introduction}
 
