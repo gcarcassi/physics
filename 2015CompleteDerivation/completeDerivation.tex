@@ -58,6 +58,13 @@
 %TODO: decide on identity function typesetting
 \newcommand{\id}{\textrm{id}}
 
+\newcommand{\journal}[1]{\ifjournal#1\fi}
+\newcommand{\arxiv}[1]{\ifjournal\else#1\fi}
+
+\renewcommand{\descriptionlabel}[1]{%
+	\hspace\labelsep \upshape\bfseries #1:%
+}
+
 \begin{document}
 
 \title{DRAFT \\ From physical principles to classical and quantum \\ Hamiltonian and Lagrangian particle mechanics}
@@ -79,10 +86,8 @@
 
 \date{\today}
 
-\ifjournal
-    % Journal format has this before the abstract
-	\maketitle
-\fi
+% Journal format has this before the abstract
+\journal{\maketitle}
 	
 \begin{abstract}
 \textbf{This manuscript is a work in progress.} Ideas are constantly reshaped to find more precise and elegant arguments. It is provided as is to stimulate discussion.  \textbf{Make sure you have the latest version from http://assumptionsofphysics.org}
@@ -94,10 +99,7 @@ Assuming deterministic and reversible time evolution will give us a dynamical sy
 This work strives as much as possible to be philosophically consistent, physically meaningful and mathematically precise.
 \end{abstract}
 
-\ifjournal
-\else
-	\maketitle
-\fi
+\arxiv{\maketitle}
 
 
 \section{Introduction}
@@ -158,11 +160,11 @@ The overall layout of this work is a balance between the need to show that the d
 
 The deductive aspect is formally organized into the following:
 \begin{description}
-  \item[Assumptions:] these characterize the physical system we are studying and constitute the premise of our discussion. A \textbf{rationale} follows each assumption, which uses physical and sometimes philosophical arguments to motivate why (or not) such an assumption makes sense in a particular case.
+  \item[Assumptions] these characterize the physical system we are studying and constitute the premise of our discussion. A \textbf{rationale} follows each assumption, which uses physical and sometimes philosophical arguments to motivate why (or not) such an assumption makes sense in a particular case.
   
-  \item[Propositions:] these capture the properties of our physical objects into mathematical language. A \textbf{justification} follows each proposition to show the necessity of such a characterization. While the style of a justification is formal, it is not a pure mathematical proof as it necessarily has to mix physical and mathematical arguments.
+  \item[Propositions] these capture the properties of our physical objects into mathematical language. A \textbf{justification} follows each proposition to show the necessity of such a characterization. While the style of a justification is formal, it is not a pure mathematical proof as it necessarily has to mix physical and mathematical arguments.
   
-  \item[Theorems:] these are pure mathematical statements that are used to simplify propositions. A mathematical \textbf{proof} follows each theorem. No mathematical breakthrough should be expected as we mostly use well known results from different fields. Theorems are grouped in the appendix.
+  \item[Theorems] these are pure mathematical statements that are used to simplify propositions. A mathematical \textbf{proof} follows each theorem. No mathematical breakthrough should be expected as we mostly use well known results from different fields. Theorems are grouped in the appendix.
 \end{description}
 
 As these sections are clearly demarcated, they allow us to make sure that each justification only references past propositions and avoid circular arguments. It also makes it easier to read the work at the desired level of detail. Interspersed between each step of the more formal treatment, there are numerous discussions that conceptually explain motivations and results in a more approachable way. These can use more concrete and intuitive examples which may, in some cases, make forward references. As both the formal and more intuitive parts need to cover the same material, this will inevitably lead to some repetition.
@@ -534,7 +536,7 @@ It returns the wedge product within a d.o.f. and the scalar product across. Requ
 
 \begin{figure}
 	\includestandalone[width=\columnwidth]{pictures/independentDof}
-	\caption{The metric $\omega$ and its components along two independent degrees of freedom. As we change state variables, the new d.o.f. are also independent and therefore orthogonal to each other. Note: this is a 2D conceptualization of 4D space.}
+	\caption{The symplectic form $\omega$ and its components along two independent degrees of freedom. As we change state variables, the new d.o.f. are also independent and therefore orthogonal to each other. Note: this is a 2D conceptualization of 4D space.}
 	\label{fig:independent_dof}
 \end{figure}
 
@@ -1056,8 +1058,11 @@ As the state evolves into its final state, the amount of material remains the sa
 We now ask the following question: once we fix the entropy, what is the relationship between the spread of the marginal distributions along $q$ and $p$? Using Lagrange multipliers, we fix the total amount of material to $1$ and the total entropy $I_0$ and find the distribution that minimizes the product of the variance $\sigma_q^2 \sigma_p^2 = \int (q-\mu_q)^2 \rho_{\mathcal{c}} \, dqdp \int (p-\mu_p)^2 \rho_{\mathcal{c}} \, dqdp$.
 \begin{align*}
 L = &\int (q-\mu_q)^2 \rho_{\mathcal{c}} \, dqdp \int (p-\mu_p)^2 \rho_{\mathcal{c}} \, dqdp \\
-&+ \lambda_1(\int \rho_{\mathcal{c}} dqdp - 1) + \lambda_2(- \int \rho_{\mathcal{c}} \ln \rho_{\mathcal{c}} \, dqdp - I_0)\\
-\delta L = &\int \delta \rho_{\mathcal{c}} [(q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 + \lambda_1 - \lambda_2 \ln \rho_{\mathcal{c}} - \lambda_2 ] dqdp = 0 \\
+\journal{ 
+	&+ \lambda_1(\int \rho_{\mathcal{c}} dqdp - 1) + \lambda_2(- \int \rho_{\mathcal{c}} \ln \rho_{\mathcal{c}} \, dqdp - I_0)\\ }
+\arxiv{ 
+	&+ \lambda_1(\int \rho_{\mathcal{c}} dqdp - 1) \\ &+ \lambda_2(- \int \rho_{\mathcal{c}} \ln \rho_{\mathcal{c}} \, dqdp - I_0)\\ }
+\delta L = &\int \delta \rho_{\mathcal{c}} [(q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 + \\ &\lambda_1 - \lambda_2 \ln \rho_{\mathcal{c}} - \lambda_2 ] dqdp = 0 \\
 \lambda_2 \ln \rho_{\mathcal{c}} = &\lambda_1 - \lambda_2 + (q-\mu_q)^2 \sigma_p^2 + \sigma_q^2 (p-\mu_p)^2 \\
 \rho_{\mathcal{c}} = &e^{\frac{\lambda_1 - \lambda_2}{\lambda_2}}e^{\frac{(q-\mu_q)^2 \sigma_p^2}{\lambda_2}}e^{\frac{\sigma_q^2 (p-\mu_p)^2}{\lambda_2}}\\
 \end{align*}
@@ -1510,7 +1515,7 @@ In this section we include mathematical demonstration in support of the physical
 	\begin{align*}
 	v^{a} \omega_{ab} w^{b} &= v'^{a} \omega_{ab} w'^{b}  \\
 	&= (v^{a} + \partial_{c} S^{a} v^{c} dt) \omega_{ab} ( w^{b} + \partial_{d} S^{b} w^{d} dt) \\
-	&= v^{a} \omega_{ab} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{ab} w^{b} + v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt + O(dt^2)
+	&= v^{a} \omega_{ab} w^{b} + (\partial_{c} S^{a} v^{c} \omega_{ab} w^{b} + v^{a} \omega_{ab} \partial_{d} S^{b} w^{d}) dt \\ &+ O(dt^2)
 	\end{align*}
 	$v^{c} w^{b} \partial_{c} S_{b} - v^{a} w^{d} \partial_{d} S_{a} = 0$ where $S_{b} \equiv S^{a} \omega_{ab}$. The relationship must be true for and pair of vector, therefore $\partial_{a} S_{b} - \partial_{b} S_{a} = curl(S_{a}) = 0$. $S$ is a curl free vector field and admits a potential $H$ such that $S_{a} = \partial_{a}H$.
 	
