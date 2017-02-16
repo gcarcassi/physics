@@ -1,0 +1,47 @@
+\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{assump1}{Classical assumption}
+\newtheorem*{assump2}{Determinism and Reversibility assumption}
+
+\begin{document}
+
+\section{Notes for Lagrangian}
+
+Define a Lagrangian $L : T\mathcal{Q} \rightarrow \mathbb{R}$. Define the action $S = \int_{t_0}^{t_1} L dt$. Minimize/maximize the action $\delta S = 0$. Obtain the Euler-Lagrange equations $\partial_{q^i}L-d_t \partial_{\dot{q}^i}L=0$.
+
+When is the minimization/maximization problem well defined? Conjecture: it is only well defined when L is twice differentiable and concave in $\dot{q}^i$ (hyper-regular).
+
+One d.o.f. case. Expand the total derivative:
+\begin{align*}
+0&=\partial_{q}L-d_t \partial_{\dot{q}}L \\
+&=\partial_{q}L- \partial_{\dot{q}} (d_tL) \\
+&=\partial_{q}L- \partial_{\dot{q}} (\partial_{q}L \; d_t q + \partial_{\dot{q}}L \; d_t \dot{q}) \\
+&=\partial_{q}L- \partial_{\dot{q}} (\partial_{q}L \; \dot{q} + \partial_{\dot{q}}L \; \ddot{q}) \\
+&=\partial_{q}L- \partial_{\dot{q}} \partial_{q}L \; \dot{q} + \partial_{\dot{q}}\partial_{\dot{q}}L \; \ddot{q} \\
+\end{align*}
+
+$L$ has to be twice differentiable for the equation to make sense. If $\partial_{\dot{q}}\partial_{\dot{q}}L \neq 0$ then it is an equation in $\ddot{q}$ with a unique solution. If not, it becomes the constrain $\partial_{q}L- \partial_{\dot{q}} \partial_{q}L \; \dot{q} = 0$ on $L$. What does this constrain corresponds to?
+
+Suppose we are in a region such that $\partial_{\dot{q}}\partial_{\dot{q}}L = 0$ and $L$ satisfies the constrain $\partial_{q}L- \partial_{\dot{q}} \partial_{q}L \; \dot{q} = 0$. Let $M(q, \dot{q}) \equiv \partial_{q}L$. We have $\partial_{\dot{q}} M \; \dot{q} = M$. Then we have $M=N(q)\dot{q}$. Which means $\partial_{q}L = N(q)\dot{q}$, $L = R(q) \dot{q} + A(\dot{q})$ where $N = \partial_q R$. Since $\partial_{\dot{q}}\partial_{\dot{q}}L = 0$ on the region, $A(\dot{q})$ is a constant. As adding a constant to $L$ does not change the equations of motion, we choose $A(\dot{q})=0$ on the region.
+
+Consider now the action $S = \int_{t_0}^{t_1} L dt = \int_{t_0}^{t_1} R(q) \dot{q} dt = \int_{t_0}^{t_1} R(q) \frac{dq}{dt} dt = \int_{q_0}^{q_1} R(q) dq$. Let $U$ be the anti-derivative of $R$, that is $\partial_q U = R$. $S = U(q_1) - U(q_0)$. That is: the action is path independent.
+
+Therefore in a region where $\partial_{\dot{q}}\partial_{\dot{q}}L = 0$, the only solution of the equations corresponds to the case when the action is path independent. All path minimizes/maximize the action.
+
+If the minimization/maximization of the action is well defined only if the Lagrangian is convex, then functions that do not satisfy this requirement are not to be considered valid Lagrangians. This means that all Lagrangians will have a corresponding Hamiltonian. But the reverse is not true: all twice differentiable functions are valid Hamiltonian and only the convex in $p$ will have a corresponding Lagrangian. That is: the space of valid Hamiltonian systems is bigger than that of valid Lagrangian systems.
+
+\end{document}

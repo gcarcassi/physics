@@ -1,0 +1,142 @@
+\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{assump1}{Classical assumption}
+\newtheorem*{assump2}{Determinism and Reversibility assumption}
+
+\begin{document}
+
+\section{Notes for Galilean and Lorentz transformation in phase space}
+
+\subsection{Standard phase-space}
+
+Change of coordinates associated with Galilean boost.
+
+\begin{align*}
+\hat{q} &= q + vt \\
+q &= \hat{q} - vt \\
+d\hat{q} &= dq + v dt \\
+\end{align*}
+
+Note that $d\hat{q}$ cannot be properly expressed just in terms of $dq$ and $dp$ as $t$ is not a function of $q$ and $p$. We (improperly) treat $t$ as a constant, define $d\hat{q}$ at constant $t$ and have $d\hat{q} = dq$.
+
+Momentum transforms like a covector under coordinate transformations.
+
+\begin{align*}
+\hat{p} &= \frac{\partial q}{\partial \hat{q}} p = p \\
+d \hat{p} &= dp
+\end{align*}
+
+Already note that momentum does not transform as one would expect. We have $d\hat{q} \wedge d\hat{p} = dq \wedge dp$.
+
+Given $\hat{H} : T^*\mathcal{Q} \rightarrow \mathbbm{R}$, the equations of motions transform in the following way:
+\begin{align*}
+\frac{d\hat{q}}{dt} &= \frac{dq}{dt} + v = \frac{\partial \hat{H}}{\partial \hat{p}}= \frac{\partial \hat{H}}{\partial q} \frac{\partial q}{\partial \hat{p}} + \frac{\partial \hat{H}}{\partial p} \frac{\partial p}{\partial \hat{p}} \\
+&= \frac{\partial \hat{H}}{\partial p} \\
+\frac{dq}{dt} &= \frac{\partial \hat{H}}{\partial p} - v = \frac{\partial (\hat{H} - vp)}{\partial p} \\
+\frac{d\hat{p}}{dt} &= \frac{dp}{dt} = - \frac{\partial \hat{H}}{\partial \hat{q}} = - \frac{\partial \hat{H}}{\partial q} \frac{\partial q}{\partial \hat{q}} - \frac{\partial \hat{H}}{\partial p} \frac{\partial p}{\partial \hat{q}} \\
+&=  - \frac{\partial \hat{H}}{\partial q} = \frac{\partial (\hat{H} - vp)}{\partial q}
+\end{align*}
+
+We have $H = \hat{H} - vp$: the Hamiltonian is not invariant. The fact that the Hamiltonian, a function of phase space only, has to change signals another problem. That is: we are not being consistent on how we are treating $t$. For the differential, we treated it as a constant. For the derivative, we treated it as an independent variable.
+
+Suppose $\hat{H} = \frac{1}{2m} \hat{p}^2 + V(\hat{q})$. We have:
+\begin{align*}
+H &= \hat{H} - vp = \frac{1}{2m} \hat{p}^2 -v\hat{p} + V(\hat{q})\\
+&= \frac{1}{2m} (\hat{p} - mv)^2 - \frac{1}{2} mv^2 + V(\hat{q}) \\
+\end{align*}
+
+We can define:
+\begin{align*}
+\bar{q} &= \hat{q} - vt \\
+\bar{p} &= \hat{p} - mv \\
+\bar{H} &= \frac{1}{2m} \bar{p}^2 - \frac{1}{2} mv^2 + V(\bar{q} + vt)
+\end{align*}
+and obtain the expected transformation. Note that the new Hamiltonian is no longer just a function of $T^*\mathcal{Q}$: it's a function of t as well.
+
+In other words, to perform a Galilean boost in phase space we have to:
+\begin{itemize}
+	\item Ambivalently treat $t$ as a constant or an independent variable depending on the situation
+	\item Adjust the Hamiltonian based on how the equations of motion change
+	\item Transform conjugate momentum not simply as a covector, but based on how the form of the Hamiltonian and how it transforms
+\end{itemize}
+
+That is why one does not do this at all. Typically one starts with the Lagrangian to get the new expressions for the conjugate momentum and the Hamiltonian. But even in that case, the transformation rules applied to the velocity are not the ones for vectors: they are the ones for derivatives in $t$.
+
+\subsection{Extended phase-space}
+
+In extended phase space, the change of coordinates associated with Galilean boost is:
+
+\begin{align*}
+\hat{q} &= q + vt \\
+\hat{t} &= t \\
+q &= \hat{q} - vt \\
+t &= \hat{t} \\
+d\hat{q} &= dq + v dt \\
+d\hat{t} &= dt
+\end{align*}
+
+We can now properly express the differentials. Momentum transforms like a covector under coordinate transformations.
+
+TODO: Fix here
+
+\begin{align*}
+\hat{p} &= \frac{\partial q}{\partial \hat{q}} p + \frac{\partial t}{\partial \hat{q}} E = p \\
+\hat{E} &= \frac{\partial q}{\partial \hat{t}} p + \frac{\partial t}{\partial \hat{t}} E = -vp + E \\
+d \hat{p} &= dp \\
+d \hat{E} &= -v dp + dE
+\end{align*}
+
+The symplectic form $\omega = d\hat{q} \wedge d\hat{p} - d\hat{t} \wedge d\hat{E}$ transforms like:
+
+\begin{align*}
+\omega &= d\hat{q} \wedge d\hat{p} - d\hat{t} \wedge d\hat{E} \\
+&= (dq + v dt) \wedge dp - dt \wedge (-v dp + dE)\\
+&= dq \wedge dp - dt \wedge dE + 2v dt \wedge dp
+\end{align*}
+
+and therefore is not preserved.
+
+The change of coordinates associated with Lorentz boost is:
+
+\begin{align*}
+\hat{q} &= q cosh \zeta  + ct sinh \zeta  \\
+\hat{t} &= \frac{1}{c} q sinh \zeta + t cosh \zeta \\
+q &= \hat{q} cosh \zeta - c\hat{t} sinh \zeta \\
+t &= - \frac{1}{c} \hat{q} sinh \zeta + \hat{t} cosh \zeta \\
+d\hat{q} &= dq cosh \zeta  + cdt sinh \zeta \\
+d\hat{t} &= \frac{1}{c} dq sinh \zeta + dt cosh \zeta
+\end{align*}
+
+Momentum transforms like a covector under coordinate transformations.
+
+\begin{align*}
+\hat{p} &= \frac{\partial q}{\partial \hat{q}} p + \frac{\partial t}{\partial \hat{q}} E = p cosh \zeta - \frac{1}{c} E sinh \\
+\hat{E} &= \frac{\partial q}{\partial \hat{t}} p + \frac{\partial t}{\partial \hat{t}} E = - c p sinh + E cosh \zeta \\
+d \hat{p} &= dp cosh \zeta - \frac{1}{c} dE sinh \\
+d \hat{E} &= - c dp sinh + dE cosh \zeta
+\end{align*}
+
+The symplectic form $\omega = d\hat{q} \wedge d\hat{p} - d\hat{t} \wedge d\hat{E}$ transforms like:
+
+\begin{align*}
+\omega &= d\hat{q} \wedge d\hat{p} - d\hat{t} \wedge d\hat{E} \\
+&= (dq cosh \zeta  + cdt sinh \zeta) \wedge (dp cosh \zeta - \frac{1}{c} dE sinh) \\
+&- (\frac{1}{c} dq sinh \zeta + dt cosh \zeta) \wedge (- c dp sinh + dE cosh)\\
+&= (cosh^2 ) dq \wedge dp - dt \wedge dE + 2v dt \wedge dp
+\end{align*}
+
+\end{document}
