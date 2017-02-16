@@ -1,0 +1,127 @@
+\newif\ifjournal
+%\journaltrue
+\journalfalse
+
+\ifjournal
+	\documentclass[smallextended]{svjour3} 
+\else 
+	\documentclass[aps,pra,10pt,twocolumn,floatfix,nofootinbib]{revtex4-1}
+\fi
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{dutchcal}
+\usepackage{braket}
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{calculator}
+\usepackage{standalone}
+
+\numberwithin{equation}{section}
+
+\ifjournal
+	\spnewtheorem{assump}{Assumption}{\bf}{\it}
+	\renewcommand{\theassump}{\Roman{assump}}
+	\spnewtheorem{prop}[equation]{Proposition}{\bf}{\rm}
+	\spnewtheorem{thrm}[equation]{Theorem}{\bf}{\it}
+
+	\newenvironment{rationale}{\emph{Rationale}.}{\hfill\(\qed\)}
+	\newenvironment{justification}{\emph{Justification}.}{\hfill\(\qed\)}
+	\renewenvironment{proof}{\emph{Proof}.}{\hfill\(\qed\)}
+\else
+	% Theorem definitions using amsthm
+
+	\usepackage{amsthm}
+
+	\renewcommand\thesubsection{\thesection.\Alph{subsection}}
+	\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+	\newtheorem{assump}{Assumption}
+	\renewcommand*{\theassump}{\Roman{assump}}
+	\newtheorem{thrm}[equation]{Theorem}
+
+	\theoremstyle{definition}
+	\newtheorem{prop}[equation]{Proposition}
+
+	\newenvironment{rationale}{\emph{Rationale}.}{\qed}
+	\newenvironment{justification}{\emph{Justification}.}{\qed}
+	\renewenvironment{proof}{\emph{Proof}.}{\qed}
+
+\fi
+
+
+%TODO: decide on identity function typesetting
+\newcommand{\id}{\textrm{id}}
+
+\newcommand{\journal}[1]{\ifjournal#1\fi}
+\newcommand{\arxiv}[1]{\ifjournal\else#1\fi}
+
+\renewcommand{\descriptionlabel}[1]{%
+	\hspace\labelsep \upshape\bfseries #1:%
+}
+
+\begin{document}
+
+\title{DRAFT \\ Hamiltonian mechanics is conservation of information}
+\author{Gabriele Carcassi, Christine A. Aidala}
+
+\ifjournal
+	\institute{G. Carcassi \at
+		University of Michigan, Ann Arbor, MI 48109 \\
+		\email{carcassi@umich.edu}           %  \\
+	}
+\else
+	\affiliation{University of Michigan, Ann Arbor, MI 48109}
+\fi
+
+%\ifjournal
+%	% As the page margins are so large, the full title does not fit
+%	\titlerunning{From physical principles to classical and quantum particle mechanics}
+%\fi
+
+\date{\today}
+
+% Journal format has this before the abstract
+\journal{\maketitle}
+	
+\begin{abstract}
+\textbf{This manuscript is a work in progress.} Ideas are constantly reshaped to find more precise and elegant arguments. It is provided as is to stimulate discussion.  \textbf{Make sure you have the latest version from http://assumptionsofphysics.org}
+
+In this work we show that the canonical transformations of classical Hamiltonian mechanics are exactly the transformations that preserve information.
+\end{abstract}
+
+\arxiv{\maketitle}
+
+\section{Introduction}
+
+\section{Something}
+
+\begin{prop}
+	Transported coordinates are canonical. Distributions are function of the point and are transported.
+\end{prop}
+
+$(T^*\mathcal{Q}, \omega)$, $(q^i, p_j)$ set of canonical coordinates, $F: T^*\mathcal{Q} \rightarrow T^*\mathcal{Q}$ such that $\omega = F^* \omega$ where $F^*$ is the pullback. $\hat{q}^i = q^i \circ F^{-1}$ and $\hat{p}_i = p_i \circ F^{-1}$.
+
+$F^* (\sum d\hat{q}^i \wedge d\hat{p}_i) =\sum F^* (d\hat{q}^i \wedge d\hat{p}_i) =  \sum (F^* d\hat{q}^i)\wedge (F^* d\hat{p}_i) = \sum d(\hat{q}^i \circ F)\wedge d(\hat{p}_i \circ F) = \sum d(q^i \circ F^{-1} \circ F)\wedge d(p_i \circ F^{-1} \circ F) = \sum dq^i\wedge dp_i = \omega = F^* \omega$. $\omega =  \sum d\hat{q}^i \wedge d\hat{p}_i$. $(\hat{q}^i, \hat{p}_j)$ is a set of canonical coordinates.
+
+$\rho(q^i, p_j) : \mathbb{R}^{2n} \rightarrow \mathbb{R}$ integrable and differentiable. $\rho (q^i, p_j) \, dq^n \wedge dp_n = \rho (q^i, p_j) \, \omega^n = \rho (q^i(\hat{q}^i, \hat{p}_j), p_j(\hat{q}^i, \hat{p}_j)) \, d\hat{q}^n \wedge d\hat{p}_n$. $\rho$, defined on the symplectic structure, transforms like a function. We can write $\rho : (T^*\mathcal{Q}, \omega) \rightarrow \mathbb{R}$.
+
+$\hat{\rho} : (T^*\mathcal{Q}, \omega) \rightarrow \mathbb{R}$ such that $\hat{\rho} = \rho \circ F^{-1 }$. $\hat{\rho}(\hat{q}^i, \hat{p}_j) = \hat{\rho} \circ (\hat{q}^i, \hat{p}_j)^{-1} = \rho \circ F^{-1} \circ (q^i \circ F^{-1}, p_i \circ F^{-1}) ^ {-1}= \rho \circ F^{-1} \circ F \circ (q^i, p_j) ^ {-1} = \rho \circ (q^i, p_j) ^ {-1} = \rho (q^i, p_j)$.
+
+\begin{prop}
+	Canonical transformations transport marginal distributions and preserve independence.
+\end{prop}
+
+\begin{prop}
+	Canonical transformations transport mutual information.
+\end{prop}
+
+\begin{thebibliography}{0}
+	
+\end{thebibliography}
+
+\end{document}

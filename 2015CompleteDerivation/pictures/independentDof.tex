@@ -35,24 +35,27 @@
 	\newcommand{\phivar}{90-\thetavar};							  % second angle 
 	\newcommand{\phiprimevar}{90-\thetaprimevar};	 	   % second prime angle
 	
+	% styles
+	\tikzstyle{triangle}=[ultra thick,fill=white,opacity=0.5];
+	\tikzstyle{projection} = [fill=yellow,fill opacity=0.1,text opacity =1,text=black];
 	
 	% drawing the right basic triangle 
-	\filldraw[fill=red,opacity=0.5] (0,0) -- (\xvar,0) -- (\xvar,\yvar) -- cycle;
+	\filldraw[style=triangle] (0,0) -- (\xvar,0) -- (\xvar,\yvar) -- cycle;
 	
-	\filldraw[fill=red,fill opacity=0.1,draw opacity=.2,text opacity =1,text=black] (0,0) rectangle (\xvar,-\xvar) node[pos=.5] {\large $ {dq^1}\wedge {dp_1}$};
+	\filldraw[style=projection] (0,0) rectangle (\xvar,-\xvar) node[pos=.5] {\large $ {dq^1}\wedge {dp_1}$};
 	
-	\filldraw[fill=red,fill opacity=0.1,draw opacity=.2,text opacity =1,text=black] (\xvar,0) rectangle (\xvar + \yvar, \yvar) node[pos=.5] {\large ${dq^2}\wedge {dp_2}$};
+	\filldraw[style=projection] (\xvar,0) rectangle (\xvar + \yvar, \yvar) node[pos=.5] {\large ${dq^2}\wedge {dp_2}$};
 	
-	\filldraw[fill=red,fill opacity=0.1,draw opacity=.2,text opacity =1,text=black,rotate around={\thetavar:(0,0)}]  (0,0) rectangle ({\omegalength}, {\omegalength}) node[pos=.5, rotate={\thetavar}] {\large $\omega$};
+	\filldraw[style=projection,rotate around={\thetavar:(0,0)}]  (0,0) rectangle ({\omegalength}, {\omegalength}) node[pos=.5, rotate={\thetavar}] {\large $\omega$};
 	
 	% drawing the complex right triangle  
-	\filldraw[black,fill=yellow,opacity=0.5,rotate around={\thetavar:(\dvar,0)}] ({\dvar + \omegalength},0) -- ({\dvar},0) -- ++({-\thetaprimevar}: {\xprimevar}) -- ++({\phiprimevar}:{\yprimevar});
+	\filldraw[style=triangle,rotate around={\thetavar:(\dvar,0)}] ({\dvar + \omegalength},0) -- ({\dvar},0) -- ++({-\thetaprimevar}: {\xprimevar}) -- ++({\phiprimevar}:{\yprimevar});
 	
-	\filldraw[black,fill=yellow,fill opacity=0.1,draw opacity=.2,text opacity =1,text=black,rotate around={\thetavar - \thetaprimevar:(\dvar,0)}]  (\dvar,0) rectangle (\dvar + \xprimevar,-\xprimevar) node[pos=.5, rotate=\thetavar-\thetaprimevar] {\large $d\hat{q}^1\wedge d\hat{p}_1$};
+	\filldraw[style=projection,rotate around={\thetavar - \thetaprimevar:(\dvar,0)}]  (\dvar,0) rectangle (\dvar + \xprimevar,-\xprimevar) node[pos=.5, rotate=\thetavar-\thetaprimevar] {\large $d\hat{q}^1\wedge d\hat{p}_1$};
 	
-	\filldraw[black,fill=yellow,fill opacity=0.1,draw opacity=.2,text opacity =1,text=black,rotate around={\thetavar - \thetaprimevar:(\dvar,0)}]  ({\dvar + \xprimevar},0) rectangle ({\dvar + \xprimevar + \yprimevar}, {\yprimevar}) node[pos=.5, rotate={\thetavar-\thetaprimevar}] {\large $d\hat{q}^2\wedge d\hat{p}_2$};
+	\filldraw[style=projection,rotate around={\thetavar - \thetaprimevar:(\dvar,0)}]  ({\dvar + \xprimevar},0) rectangle ({\dvar + \xprimevar + \yprimevar}, {\yprimevar}) node[pos=.5, rotate={\thetavar-\thetaprimevar}] {\large $d\hat{q}^2\wedge d\hat{p}_2$};
 	
-	\filldraw[black,fill=yellow,fill opacity=0.1,draw opacity=.2,text opacity =1,text=black,rotate around={\thetavar:(\dvar,0)}]  (\dvar,0) rectangle ({\dvar + \omegalength}, {\omegalength}) node[pos=.5, rotate=\thetavar] {\large $\omega$};		
+	\filldraw[style=projection,rotate around={\thetavar:(\dvar,0)}]  (\dvar,0) rectangle ({\dvar + \omegalength}, {\omegalength}) node[pos=.5, rotate=\thetavar] {\large $\omega$};		
 	
 	
 	\end{tikzpicture}
