@@ -1,0 +1,33 @@
+Dear editors,
+
+Thank you for your consideration of our manuscript "...". While we feel strongly that Foundations of Physics is the most appropriate journal to publish this work, we recognize that it is longer than typical articles published by the journal. We found no explicit page limit in the author guidelines, and since we feel it is the necessary length to develop and support the far-reaching conclusions of the work, we are submitting it as is.
+
+We feel that the scope and spirit of the journal match excellently those of the paper, which was written in collaboration with a philosopher and a mathematician.  Furthermore, part of this work was already presented at Foundations2016 at the London School of Economics and has led to fruitful ongoing discussions with members of the community.
+
+The paper is a derivation from assumptions to conclusions.  To ensure that the logic and text are sound and accessible to the broad readership of Foundations of Physics, we have solicited and included feedback from several individuals working within physics, philosophy, and mathematics.
+
+Dear editors,
+
+Thank you for your consideration of our manuscript "...". Part of this work was presented at Foundations2016 at the London School of Economics, which led to fruitful ongoing discussions with members of the community, and therefore we feel strongly that Foundations of Physics is the most appropriate journal to publish it. However, we recognize that it is longer than typical articles published by the journal. We found no explicit page limit in the author guidelines, and since we feel it is the necessary length to develop and support the far-reaching conclusions of the work, we are submitting it as is, hoping it is acceptable.
+
+Thanks,
+...
+
+
+
+logic makes sense, only the things that the logic requires are included, there's enough material to show the conclusion and not much more.
+
+Right length because we have tested on multiple people, including physicists, philosophers, and mathematicians.
+
+
+Acknowledge longer than typically published
+
+Talk at Foundations2016
+
+No page limit explicitly given
+
+State we feel it belongs in the journal
+
+State why we feel is the right length
+
+Express willingness to be flexible
