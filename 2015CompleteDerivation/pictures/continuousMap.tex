@@ -26,9 +26,9 @@
 		\newcommand{\vmargin}{1.5};
 		
 		% styles		
-	    \tikzstyle{axis}=[thick,color=black];				
+	    \tikzstyle{axis}=[color=black];				
 	    \tikzstyle{line}=[color=black,dashed];  % dashed better than dotted?
-	    \tikzstyle{function}=[ultra thick,color=red];			    
+	    \tikzstyle{function}=[ultra thick,color=blue];			    
 
 		% outer rectangle and name of diagram
 		\draw ({-\hmargin - \axislength},{- \axisheight - \vmargin}) rectangle ({\displace + \axislength + \hmargin},{\axisheight + \vmargin});
@@ -63,7 +63,7 @@
 		% function including dot in right plot		
 		\draw [style=function]	(\displace + -8,\functionheight) -- (\displace + 8,\functionheight);
 		\fill [style=function] (\displace + \linec,4.75) circle (.25);
-		\filldraw [draw=red,fill=white,thick] (\displace + \linec,\functionheight) circle (.25);
+		\filldraw [draw=blue,fill=white,thick] (\displace + \linec,\functionheight) circle (.25);
 		
 
 	\end{tikzpicture}
