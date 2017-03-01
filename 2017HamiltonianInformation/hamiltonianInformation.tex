@@ -127,12 +127,18 @@ Let $\rho=\rho_1\rho_2$. $\hat{\rho}(\hat{q}^i, \hat{p}_j) =\rho(q^i, p_j)=\rho_
 
 Prove the opposite: from transport and independence of marginal distributions to canonical transformation.
 
+Suppose we can write $\rho=\prod\rho_i(q^i,p_i)$. Then $1 = \int_{\mathcal{M}} \rho dq^n\wedge dp_n$ but also $1 = \prod \int_{\mathcal{M}_i} \rho_i dq^i\wedge dp_i$. $\int_{\mathcal{M}} \prod\rho_i(q^i,p_i) dq^n\wedge dp_n = \prod \int_{\mathcal{M}_i} \rho_i dq^i\wedge dp_i$. $dq^n\wedge dp_n = \bigwedge dq^i\wedge dp_i = \frac{(\sum dq^i\wedge dp_i)^n}{n!}$. $\omega = \sum dq^i\wedge dp_i$. $(q^i,p_j)$ are canonical coordinates. Suppose $F$ is such that $\hat{\rho}(\hat{q}^i, \hat{p}_j) = \rho(q^i, p_j)$, $\hat{\rho}_1(\hat{q}_1^i, \hat{p}_{1j})=\rho_1(q_1^i, p_{1j})$ and $\hat{\rho}_2(\hat{q}_2^i, \hat{p}_{2j})=\rho_2(q_2^i, p_{2j})$. For each pair $(q^i, p_i)$ we have $\int_{\mathcal{M}_i} \rho_i dq^i \wedge dp_i = \int_{\hat{\mathcal{M}}_i} \hat{\rho}_i d\hat{q}^i \wedge d\hat{p}_i$ for all $\rho$ and $\hat{\rho}$: $dq^i \wedge dp_i = d\hat{q}^i \wedge d\hat{p}_i$. $\sum dq^i \wedge dp_i = \sum d\hat{q}^i \wedge d\hat{p}_i$. $(\hat{q}^i,\hat{p}_j)$ are canonical coordinates. $F$ is a canonical transformation.
+
 Conjecture: the manifold for the marginal distributions is not always a cotangent bundle.
 
 
 \begin{prop}
 	Canonical transformations transport mutual information.
 \end{prop}
+
+If $F$ canonical transformation, $I_{ij} = \int_{T^*\mathcal{Q}} \rho \log (\frac{\rho}{\rho_i \rho_j}) dq^n dp_n = \int_{T^*\mathcal{Q}} \hat{\rho} \log (\frac{\hat{\rho}}{\hat{\rho}_i \hat{\rho}_j}) dq^n dp_n = \hat{I}_{ij}$.
+
+Suppose $I_{ij} = \int_{T^*\mathcal{Q}} \rho \log (\frac{\rho}{\rho_i \rho_j}) dq^n dp_n = \int_{T^*\mathcal{Q}} \hat{\rho} \log (\frac{\hat{\rho}}{\hat{\rho}_i \hat{\rho}_j}) dq^n dp_n = \hat{I}_{ij}$ for all $\rho$. Then $\rho(q^i, p_j)=\hat{\rho}(\hat{q}^i, \hat{p}_j)$ and $\rho_i(q^i, p_i)=\hat{\rho}_i(\hat{q}^i, \hat{p}_i)$. In particular, if $I_{ij} = \hat{I}_{ij} = 0$ if $i\neq j$ we can write $\rho=\prod\rho_i(q^i,p_i) = \hat{\rho} = \prod\rho_i(\hat{q}^i,\hat{p}_i)$. $F$ is a canonical transformation as it preserves independence of marginal distributions.
 
 \begin{thebibliography}{0}
 	
