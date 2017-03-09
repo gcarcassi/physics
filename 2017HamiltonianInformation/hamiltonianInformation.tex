@@ -98,6 +98,51 @@ In this work we show that the canonical transformations of classical Hamiltonian
 
 \section{Introduction}
 
+\section{Distributions as observer dependent}
+
+The main concept at the heart of this work is the idea of a distribution or density. What we want to do is talk about its information entropy (i.e. how many bits are required to identify one of its elements) and its evolution in time. But before we can do that, we have to clarify some issues that appear when dealing with distributions: mainly that they are not invariant under change of variables. Partially to address this problem, differential geometry and probability theory formalize the concept in different ways. This creates further difficulties as we want to mix ideas from both camps. For example, we will want to talk about marginal distributions on manifolds. In this section we want to clarify what the problems are, how they are formally addressed in both disciplines so that we can build a bridge and highlight the connection.
+
+We start with our physical intuition. Distributions are widely used tools in all branches of physics: mass or charge densities, probability distributions over energy, cross sections and so on. All these objects are the limit of a ration between two quantities which can be integrated to get final values. For example, if $\mathbf{x}$ is the coordinate of a point, $V$ is a volume and $\rho$ is a mass distribution, the integral
+\begin{equation}
+m =\int_V \rho(\mathbf{x}) dV
+\end{equation}
+tells us the total mass within the given volume.
+
+Similarly, we can define the information entropy for the distribution as
+\begin{equation}
+I(\rho) =-\int \rho(\mathbf{x}) \ln (\rho(\mathbf{x})) dV
+\end{equation}
+which quantifies the amount of information needed to identify an element within the distribution.
+
+Densities, though, are not invariant. Intuitively, if we change units of the denominator the distribution changes value. For example, $1$ kg/m becomes $1000$ kg/km: the number changes but the units allow us to understand that the overall quantity remains the same. In general, if $\mathbf{y}=\mathbf{y}(\mathbf{x})$ we can recover how the density changes by requiring that the mass in each volume is the same no matter what coordinates are used. That is
+\begin{align*}
+m &=\int_V \rho_x(\mathbf{x}) dV_x = \int_V \rho_y(\mathbf{y}) dV_y \\
+&=\int_V\rho_y(\mathbf{y}) \left|\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\right| dV_x
+\end{align*}
+\begin{equation}
+\rho_x(\mathbf{x}) = \rho_y(\mathbf{y}) \left|\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\right|
+\end{equation}
+the density is multiplied by the Jacobian of the transformation.
+
+Similarly, we can see that information entropy is not invariant
+\begin{align*}
+I(\rho_x) &=-\int \rho_x(\mathbf{x}) \ln (\rho_x(\mathbf{x})) dV_x \\
+&=-\int \rho_y(\mathbf{y}) \left|\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\right| \ln (\rho_y(\mathbf{y}) \left|\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\right|) dV_x \\
+&=-\int \rho_y(\mathbf{y}) \ln (\rho_y(\mathbf{y}) \left|\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\right|) dV_y \\
+&=-\int \rho_y(\mathbf{y}) \ln (\rho_y(\mathbf{y})) dV_y - \int \rho_y(\mathbf{y}) \ln (\left|\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\right|) dV_y \\&=I(\rho_y) - \int \rho_y(\mathbf{y}) \ln (\left|\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\right|) dV_y
+\end{align*}
+The reason is that, in the continuous case, the information entropy is not an absolute number of bits, but it's relative to uniform distribution over a unit size. That is: if the distribution is over a continuous variable, it would take an infinite amount of information to specify an element. But we can tell, for example, that to specify an element within a uniform distribution between $[0,2]$ we need a bit more than to specify an element within a uniform distribution between $[0,1]$. If we change coordinate what happens is that we change our reference therefore the information entropy appears to change.
+
+The punchline is the following: while physically we think as a distribution as a number associated to a point, mathematically it is not. That is, given the manifold $\mathcal{M}$ on which we define the distribution, the latter is \emph{not} $\rho : \mathcal{M} \rightarrow \mathbb{R}$. That would be invariant under coordinate transformation, as a point is a point in any coordinates.
+
+In differential geometry, a density is defined at each point as a function that takes a parallelepiped, identified by n vectors, and returns a number. That is $\mu : V \times ... \times V \rightarrow \mathbb{R}$. Physically, this includes both the distribution and the volume: it bundles $\rho(\mathbf{x}) dV$ because this is the invariant object. While this allows us to recast integration in a coordinate independent way, the object we have does not quite map to our physics intuition. It also does not allow to easily express quantities, like information entropy or expectations, that operate on $\rho(\mathbf{x})$ as a function at a point.
+
+In statistics, instead, the approach is different. The probability measure is a function that takes a set of events and assigns it a number between zero and one. That is $Pr : \sigma(\Omega) \rightarrow [0,1]$ does not on how the events are labeled. Random variables $X : \Omega \rightarrow \mathbb{R}$ are simply real valued functions of the events, not coordinates for some point on a manifold. For distributions, the starting point is the cumulative distribution function $F_X(x)=Pr(X<x)$ and the probability density function is its Radon–Nikodym derivative $\rho_X = \frac{dF_X}{dx}$. That is: the integral is the primal objects while the density is derived.\footnote{This actually makes more physical sense: what we measure is the amount of mass in a finite region and the density is the limit for a smaller and smaller one.} We therefore have densities defined at values, but they are not invariant objects. This is not an issue as probabilities are not objective entities. For example, there is no absolute probability for an electron to be in a state of spin up: it depends on the ensemble considered (e.g. an electron gas, electron pairs in a superconductor, ...). Therefore it does not matter if they depend on the choice of labels.
+
+Given the situation, though, a question arises spontaneously: what if we wanted to define probabilities at each point on a manifold stuch that they were invariant? What kind of mathematical structure would we get? We already know that such manifold would have to be differentiable, because only on a set of coordinates that are differentiable we can define the Jacobian and therefore we can properly transform the density and the information entropy. What other structure is needed?
+
+As we'll see, the answer is: we need, and only need, a symplectic structure. We need the type of structure we have in phase space for Hamiltonian mechanics. And if we require such distributions and their information entropy to be preserved over time, we get Hamiltonian motion.
+
 \section{Something}
 
 \begin{prop}
