@@ -63,7 +63,7 @@ We can define:
 \begin{align*}
 \bar{q} &= \hat{q} - vt \\
 \bar{p} &= \hat{p} - mv \\
-\bar{H} &= \frac{1}{2m} \bar{p}^2 - \frac{1}{2} mv^2 + V(\bar{q} + vt)
+\bar{H} &= \frac{1}{2m} \bar{p}^2 mv^2 + V(\bar{q} + vt)
 \end{align*}
 and obtain the expected transformation. Note that the new Hamiltonian is no longer just a function of $T^*\mathcal{Q}$: it's a function of t as well.
 
@@ -75,6 +75,20 @@ In other words, to perform a Galilean boost in phase space we have to:
 \end{itemize}
 
 That is why one does not do this at all. Typically one starts with the Lagrangian to get the new expressions for the conjugate momentum and the Hamiltonian. But even in that case, the transformation rules applied to the velocity are not the ones for vectors: they are the ones for derivatives in $t$.
+
+Let's now change the time unit.
+\begin{align*}
+\hat{q} &= q \\
+\hat{p} &= p \\
+\hat{t} &= a t \\
+\end{align*}
+It is canonical in the sense that $d\hat{q} \wedge d\hat{p} = dq \wedge dp$. But it does not preserve the density $\rho(\hat{q},\hat{p},\hat{t}) =\frac{1}{a} \rho(q,p,t)$. The equations of motion transform in the following way:
+\begin{align*}
+\frac{d\hat{q}}{d\hat{t}} &= \frac{1}{a} \frac{dq}{dt}= \frac{\partial \hat{H}}{\partial \hat{p}}= \frac{\partial \hat{H}}{\partial p} \\
+\frac{d\hat{p}}{dt} &= \frac{1}{a} \frac{dp}{dt} = - \frac{\partial \hat{H}}{\partial \hat{q}} = - \frac{\partial \hat{H}}{\partial q}
+\end{align*}
+
+We have $\hat{H}= \frac{1}{a}H$. The Hamiltonian is not invariant, but rather changes as a covariant time component.
 
 \subsection{Extended phase-space}
 
