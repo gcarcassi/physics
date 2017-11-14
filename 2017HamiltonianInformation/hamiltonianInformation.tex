@@ -66,7 +66,7 @@
 
 \begin{document}
 
-\title{DRAFT \\ Hamiltonian mechanics is conservation of information}
+\title{DRAFT \\ Hamiltonian mechanics is conservation of information \\ (or why isolated systems conserve energy)}
 \author{Gabriele Carcassi, Christine A. Aidala}
 
 \ifjournal
@@ -159,22 +159,41 @@ The density and the information entropy associated with it do not change.
 
 Conversely, suppose we have a transformation that preserves the density and the information entropy. Then the Jacobian determinant of such transformation has to be unitary everywhere. But, for one degree of freedom, the Jacobian coincides with the Poisson bracket: the transformation must be canonical.
 
-We recast this reasoning using symplectic geometry, as this will be useful later. For each distribution $\rho(q, p)$ we can associate a two form $\rho(q, p) \omega$ where $\omega=dq\wedge dp$ is the two form that returns the are of an infinitesimal surface. In other words, the distribution is the component of the two form associated with it. The integral of the two form over a region will give us the integral of the distribution over a region.
+We can formalize this intuition using symplectic geometry. A distribution is a function $\varrho : \mathcal{M} \rightarrow \mathbb{R}$ that at each point gives the value of the density measured over a standardized invariant (canonical) unit. For example, for a mass distribution over phase space, it would be in $\frac{Kg}{m \times Kg \frac{m}{s}} = \frac{s}{m^2}$. Canonical units measure in a standard way the count of possible states.
 
-Under a change of coordinates, we have $\rho(Q, P) dQ \wedge dP = \rho(q,p) dq \wedge dp$. If the transformation is canonical $\omega = dq \wedge dp = dQ \wedge dP$. Therefore $\rho(Q, P) \omega = \rho(q,p) \omega$ which gives $\rho(Q, P) = \rho(q,p)$. Conversely, if $\rho(Q, P) = \rho(q,p)$, we find $dQ \wedge dP = dq \wedge dp = \omega$: the transformation is canonical. In other words: a symplectic structure is exactly the structure needed to define coordinate invariant distributions on a 2 dimensional smooth manifold.
+Given of two smooth variables $f,g \in C^\infty(\mathcal{M})$ of phase space, we have an operation $\{ f , g \} : C^\infty(\mathcal{M}) \times C^\infty(\mathcal{M}) \rightarrow C^\infty(\mathcal{M})$ that tells us, at each point, the scale factor between the area in units of $(f,g)$ and the area in canonical units. As in the example before, it would be $\frac{\textsf{units}(f) \times \textsf{units}(g)}{m \times Kg \frac{m}{s}}$. We have $\rho(f,g) = \frac{\varrho(q,p)}{\{ f , g \}}$. Note that the density cannot be expressed in terms of those variables if the bracket is zero.
+
+Given two vectors $v,w \in T\mathcal{M}$ we have a form $\omega(v,w) : T\mathcal{M} \times T\mathcal{M} \rightarrow \mathbb{R}$ that returns the area of the infinitesimal surface given by those two vectors in canonical units. The form is linear $\omega(u,\alpha v+ \beta w)=\alpha\omega(u, v)+\beta\omega(u,w)$ since we are just combining rectangular shapes. The form is skew-symmetric as the area does not change under a $90$ degree rotation $\omega(v,w) = \omega(w,-v) = -\omega(w,v)$.
+
+Two variables $q,p$ are canonical if they measure area in canonical units. For example, if $m \times Kg \frac{m}{s}$ is the canonical unit, angle in radians and angular momentum in $Kg \frac{m^2}{s}$ are canonical. By the previous definitions, if $q,p$ are canonical then $\{ q , p \} = 1$ and $\omega = dq \wedge dp$.
+
+The area given by vectors $e_q$ and $e_p$ is unitary in canonical units. If we express it in units of $(f,q)$ we have the scale factor $\{ f , g \}$. We can do so by using the differentials $(df\wedge dg) (e_q, e_p) = df(e_q)\wedge dg(e_p) - df(e_p)\wedge dg(e_q)$. Each element extracts the component of the vector along the variable. Therefore we obtain $\{ f , g \} = \frac{\partial f}{\partial q} \frac{\partial g}{\partial p}- \frac{\partial f}{\partial p} \frac{\partial g}{\partial q}$, the standard expression for the Poisson bracket. This can then be understood, instead of in terms of flow, in terms of ratio of areas, which is also confirmed by its units.
+
+To express the density in terms of two generic variables $(f, g)$ we need to know the area given by a square in the standardized units. This allows to express the density in terms of the units of $(f, g)$ instead of the standardized unit. This means that given the two variables $f,g \in C^\infty(\mathcal{M})$ on phase space, we must have an operation $\{ f , g \} : C^\infty(\mathcal{M}) \times C^\infty(\mathcal{M}) \rightarrow C^\infty(\mathcal{M})$ that tells us, at each point, the scale factor between the area in units of $(f,g)$ and the area in standardized units. As in the example before, it would be $\frac{\textsf{units}(f) \times \textsf{units}(g)}{m \times Kg \frac{m}{s}}$.
+
+We can integrate the density using $\int_{\Sigma}\varrho \, \omega(d\Sigma)$. $\varrho \, \omega(d\Sigma)$, in fact, will give us the amount of the distribution in the infinitesimal area. Note that $\int_{\Sigma}\varrho \, \omega(d\Sigma) = \int_{\Sigma}\frac{\varrho}{\{f,g\}} \, \{f,g\} \omega(d\Sigma) =\int_{\Sigma}\rho(f,g) \, df\wedge dg$. That is, we can express integration in any coordinates for which the Poisson bracket is non-zero.
+
+In other words, a symplectic manifold $(\mathcal{M}, \omega)$ is exactly the structure needed to define invariant distributions. In the same way the metric tensor $g$ defines lengths in a Riemannian manifold, the symplectic form $\omega$ defines areas over which we can define our densities.
 
 If we require the distribution and its information entropy to be preserved through time evolution, then time evolution is a canonical transformation as well. As such, it allows a potential $H : \mathcal{M} \rightarrow \mathbb{R}$ such that
 \begin{align}
 S^q \equiv \frac{dq}{dt} &= \frac{\partial H}{\partial p} \\
 S^p \equiv \frac{dp}{dt} &= - \frac{\partial H}{\partial q}
 \end{align} 
-where the vector $S$ tells us the infinitesimal displacement of each state. As time passes, both the distribution value and the volume where it is defined are conserved. This means that $S$, as a vector field, is divergence free. As such, it admits a potential such that $S = \mathrm{curl}(H)$ which leads to the previous equations.
+where the vector field $S$ tells us the infinitesimal displacement of each state. This can be understood in terms of simple vector calculus. As time passes, both the distribution value and the volume where it is defined are conserved. This means that $S$, as a vector field, is divergence free. As such, it admits a potential such that $S = \mathrm{curl}(H)$ which leads to the previous equations.
 
-We are now in a position to ``have our invariant distribution and integrate it too". On the symplectic structure, our density is a scalar function $\rho : \mathcal{M} \rightarrow \mathbb{R}$. It has the two form $\rho \omega$ associate with it, in case we want to speak the language of differential geometry, and it has the function $\rho(q,p)$ in local coordinate, in case we want to speak the language of statistics and define quantities like the information entropy.
+
+We are now in a position to ``have our invariant distribution and integrate it too". On the symplectic structure, our density is a scalar function $\varrho : \mathcal{M} \rightarrow \mathbb{R}$. It has the two form $\rho \omega$ associate with it, in case we want to speak the language of differential geometry, and it has the function $\rho(q,p)$ in local coordinate, in case we want to speak the language of statistics and define quantities like the information entropy.
 
 \section{Multiple degree of freedom}
 
 The generalization to multiple degrees of freedom is conceptually very simple: not only we will need to preserve the distribution and the entropy, but we will do it for each independent degree of freedom. One needs to be careful, though, as it may be misconstrued to mean something much stronger that it actually is.
+
+Suppose we have system characterized by $n$ independent degrees of freedom. To each will correspond a set of canonical coordinates $(q^i, p_i)$ and together they will give us all the possible states for our system. Moreover, if we define a distribution $\rho_i(q^i,p_i)$ for each d.o.f., we must be able to define a joint distribution $\rho(q^i,p_j) = \prod \rho_i(q^i,p_i)$ on the whole system.
+
+That is: not only want to define the distribution as a whole in a way that is invariant. We want to make sure each marginal distribution on each independent d.o.f. is invariant as well. Not only the Jacobian of the whole transformation needs to be unitary, but also the two dimensional Jacobian on each independent d.o.f. and that is precisely what the preservation of the Poisson brackets do.
+
+We can again formalize this intuition using symplectic geometry. We have $\mathcal{M} = \mathcal{M}_1 \times \dots \times \mathcal{M}_n$. Each individual manifold has a symplectic form $\omega_1$. For each $\mathcal{M}_i$ we have an invariant marginal distribution $\varrho_i : \mathcal{M}_i \rightarrow \mathbb{R}$. On the whole space we want an invariant distribution $\varrho : \mathcal{M} \rightarrow \mathbb{R}$ such that $\prod \int_{\Sigma_i} \varrho_i \omega_i = \int_{\Sigma} \varrho \bigwedge \omega_i $
 
 $\varrho = \{q,p\} \rho(q,p)$
 
