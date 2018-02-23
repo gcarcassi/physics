@@ -1,0 +1,186 @@
+% Using template from
+% Title:    A LaTeX Template For Responses To a Referees' Reports
+% Author:   Petr Zemek <s3rvac@gmail.com>
+% Homepage: https://blog.petrzemek.net/2016/07/17/latex-template-for-responses-to-referees-reports/
+% License:  CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+\documentclass[10pt]{article}
+
+% Allow Unicode input (alternatively, you can use XeLaTeX or LuaLaTeX)
+\usepackage[utf8]{inputenc}
+
+\usepackage{microtype,xparse,tcolorbox,amsfonts}
+\newenvironment{reviewer-comment }{}{}
+\tcbuselibrary{skins}
+\tcolorboxenvironment{reviewer-comment }{empty,
+  left = 1em, top = 1ex, bottom = 1ex,
+  borderline west = {2pt} {0pt} {black!20},
+}
+\ExplSyntaxOn
+\NewDocumentEnvironment {response} { +m O{black!20} } {
+  \IfValueT {#1} {
+    \begin{reviewer-comment~}
+      \setlength\parindent{2em}
+      \noindent
+%      \ttfamily
+       #1
+    \end{reviewer-comment~}
+  }
+  \par\noindent\ignorespaces
+} { \bigskip\par }
+
+\NewDocumentCommand \Reviewer { m } {
+  \section*{Comments~by~Reviewer~#1}
+}
+\ExplSyntaxOff
+\AtBeginDocument{\maketitle\thispagestyle{empty}\noindent}
+
+% You can get probably get rid of these definitions:
+\newcommand\meta[1]{$\langle\hbox{#1}\rangle$}
+\newcommand\PaperTitle[1]{``\textit{#1}''}
+
+\title{Statement on the Revision of \meta{Paper ID} \\
+  Based on the Referees' Report}
+\author{Author1 \and Author2 \and Author3}
+\date{\today}
+
+\begin{document}
+This statement concerns our revision of the \meta{Paper ID} paper,
+entitled \PaperTitle{\meta{Paper Title}}, based on the referees'
+report.
+
+\Reviewer{\#1}
+
+
+\begin{response}{Classical Mechanics (Lagrangian and Hamiltonian, and also Newtonian Mechanics), Quantumn Mechanics, and Relativity Theory all have their quite well understood, albeit different, mathematical formulations, where for each a sensible space of physical states are defined, equipped with meningful topology, and if possible by a differentiable structure, so that one can study time evolution operators that describe the dynamics in these spaces. 
+		
+		This is hardly news! In this very long paper, I was unable to dig out,  however much I wished for it to be there, truly new unifying principles than went beyond eloquent rephrasings of what is already known.  
+		
+		``Advancing Knowledge in the field" is a criterion for acceptance to this journal, and the authors really must work harder to convince this referee (and probably many others) that they have brought new knowledge, new insight, new perspectives, to the field. To me, they don't seem to be advancing anything.  }
+	
+As the first sentence in the abstract says ``the aim of this work is to show that particle mechanics, both classical and quantum, Hamiltonian and Lagrangian, can be derived from few simple physical assumptions." That is the claim of the paper, which we personally find new and unexpected. That we can justify the basic laws of physics, not by experiment, not by arbitrarily setting an arbitrary mathematical framework, but by logical reasoning.
+
+If one opens a textbook about computer science theory, one finds it starts by defining what performing computation means and from that the fundamental results in decidability and complexity theory follow. If one opens a textbook about group theory, one finds it starts by defining what a group is and from that the fundamental results in representation theory follow. The point of the paper is to show that we can do that for physics as well. Once we fully specify what we are studying and how, we already get the laws of motion.
+
+The reaction from a few colleagues to our work is along these lines: ``Well, you recover the same equations that we already have? So there are no new predictions. So there is no new physics. Why is this interesting?" This seems to be the reaction of the reviewer when he says he was unable to dig out anything new beyond the eloquent rephrasing. Indeed, if one is looking for ``new physics" or ``new mathematical results", one will be disappointed. However, we made no claims to the contrary. We state, over and over, that we derive only the known particle mechanics. Why would one expect something different?
+
+The advancement, in this case, lies in renewed understanding. This is akin to what happened at the beginning of the nineteenth century when mathematicians started reworking the foundations of math, reformulating it on logic and set theory. At the beginning, that work did not immediately produce new concrete results as well and some were skeptical of its usefulness. Yet now axiomatic set theory is the basis of all mathematics. Unfortunately, the physics community never really engaged in a similar process. Most of the people who now work on foundations of physics are really looking for new physics, and not in trying to clarify what we already have, what are the most basic requirements to do physics and how much physics is already contained in those assumptions.
+
+Now, it is perfectly fine that the referee is not interested in this topic or sees no value in this approach at this point. Maybe he will be more interested when we will expand it to the case where the assumption underpinning quantum mechanics (i.e. irreducibility) fails and, by using similar techniques, we try to derive what mathematical framework needs to follow, having first identified exactly what mathematical operation can no longer be justified. But before we can do that, we have to check we can at least get what we know. And we can guarantee the referee that there are others in the scientific community that believe this is a very reasonable way to ``Advance Knowledge in the field": we have met them at difference conferences. 
+
+\end{response}
+\begin{response}{
+		
+		Niels Bohr famously made the distinction between precision and clarity, and it seems that here the authors have chosen precision to such a degree that all traces of a clear message are completely lost. 
+		
+		It is possible that, hidden somewhere in the expanse of over 40 journal pages, there may be snippets of new insight, new approaches to constructing mathematical pictures. If so, the task is on the authors to destill these decisive differencs from conventional wisdom, and then present them more clearly (i.e., briefly), instead of hiding them in a capacious and overwhelming word gush. 
+		
+		I recommend re-submission of a much shorter version. I suggest the authors provide examples where their method/approach shines, and the standard approach is not so good. Then we may see if they have advanced knowledge in the field of mathematical modelling. 
+	}
+We strongly agree that this work is far too detailed to be accessible by the largest audience. In fact, we have numerous other activities (e.g. talks, videos, target student lectures, ...) that take some of the insights and make them more accessible. However, this is not that work.
+
+To boil it down to the essentials, the article consists of a \textbf{claim} (i.e. particle mechanics can be derived from physical principles) and a \textbf{demonstration} (not a formal mathematical proof, but still a series of arguments that follow from hypothesis to conclusion). The claim is essentially made in the abstract. It takes the rest of the work to show the claim is valid. While we can create a shorter version with just the highlights of the derivation, we still need to write somewhere the full demonstration. Otherwise we would just be giving a set of unsubstantiated claims. If the proof of a mathematical theorem takes 400 pages, it takes 400 pages and it's published in full. It's not rejected because ``it's too long" or ``it's too detailed". Those are not valid arguments against a demonstration. Yes, few people would actually bother to go through the whole 400 pages. Yes, most people will read the highlights. But it still needs to be written down.
+
+We can ask the question: is the paper unreasonably long for what it sets itself up to do? Maybe the reviewer is right and this can be accomplished in 10 pages. We offer a back of the envelope calculation. We are deriving from scratch the underpinning of classical and quantum Hamiltonian/Lagrangian particle mechanics, including the relativistic case, under scalar/vector potential forces. These are taught at an undergraduate level in, let's say, 3 to 4 classes. We can say, for the sake of argument, that the derivation presented in this paper would replace the chapters of the books that introduce the equations and the basic concepts. Let's say a chapter each, of approximately 30-40 pages. We are at 90-160 pages. We are talking to a more advanced audience, so let's divide by 3. We get 30-50 pages, which is in the ballpark of the article. So, objectively, we would be skeptical that in 10 pages one is able to prove anything of this kind.
+
+What we find particularly frustrating is that we are already in a world where detailed and thoughtful discussion is disparaged in favor of comments limited to 140 characters. We would hope that the scientific community as a whole still values that someone still takes the time to get into the nitty-gritty details to check whether something is correct or merely ``sounds" correct. We agree that not everybody can go into the excruciatingly boring details of everything, and we do not fault the reviewer for not being interested in those details. Yet, the idea that such type of work should not be conducted and published is what the referee is, maybe unintentionally, advocating.
+
+If the referee is of the opinion that ``the basic laws of physics can be derived from few physical assumptions" is of no interest to the entire physics community, then fine. If the referee is of the opinion that the demonstration is wrong, then the referee should highlight the part where he believes it to be incorrect. But the referee doesn't do either. We hope that the referee recognizes that what we are doing is of value to the scientific community in general, though maybe not to him in particular, and maybe reconsiders his position.
+
+In conclusion, we do not believe there is a practical way to address the referee's concerns. The first objection is that it is difficult to find what is the point of this paper. The abstract starts with ``The aim of this work is to show that particle mechanics, both classical and quantum, Hamiltonian and Lagrangian, can be derived from few simple physical assumptions." The introduction states: ``The main goal is to show that it is possible to derive classical/quantum Hamiltonian/Lagrangian particle mechanics starting from few physical assumptions." And the title is ``From physical assumptions to classical and quantum Hamiltonian and Lagrangian particle mechanics". We cannot find a way to make the claim more clear than this. The claim is novel (no such comprehensive work has been attempted) and is of interested (even to those that argue against us). The second objection is that the paper should be much shorter. As argued before, this would severely compromise the ability to demonstrate the claim, reducing it to a mere conjecture. We agree that another shorter submission with the highlights should be submitted, but not as a replacement to the comprehensive work.
+
+\end{response}
+
+\Reviewer{\#2}
+\begin{response}{Let me start, contrary to the custom, with the conclusion: I recommend this article
+		for publication in Journal of Physics Communication. The reason is not that I agree with
+		authors or have similar point of view. The real reason is that in my opinion what is lacking
+		in the contemporary theoretical physics is a deep considerations of its foundations. It seems
+		to me that we, as a community of physicists, have arrived to the boundaries of our abilities
+		to create meaningful physical theories. Some of us study, often with success, ``particular
+		case of particular case" of a physical system while others create ``supersymmetric quasi-q-
+		quantum" field theories in n dimensions and drift into pure mathematics not really having
+		any physical example. Very rarely we go back into the foundations of even well established
+		theories trying to understand their origin and maybe understand what prevents us from
+		developing it further, or what might be a reason for arising difficulties. Authors made the
+		effort of justifying the mathematical language used in physics by examining the very basic
+		physical assumptions than one should make to proceed.}
+
+We appreciate that the reviewer has grasped in full the aim and the spirit of our work.
+
+\end{response}
+\begin{response}{On page 7 there is Proposition IV.4 that says ``A map $f : \mathcal{S}_1 \to \mathcal{S}_2$ between two sets
+		of physically distinguishable elements $\mathcal{S}_1$ and $\mathcal{S}_2$ is a continuous map." It was explained
+		earlier in the text that $\mathcal{S}_1$ and $\mathcal{S}_2$ are topological spaces. Reading the above proposition
+		literary we should conclude that the topology of $\mathcal{S}_1$ needs to be trivial in a sense that any
+		subset is open. At least if we understand that `a map' means usually `any map' or `all
+		the maps'. Later on it is said that this proposition explains why in physics we use `well
+		behaved functions'. Does it mean that all are well behaved? I do not suppose so.}
+ We thank the referee for catching the imprecision. We modified the proposition to read ``A map $f:\mathcal{S}_1 \rightarrow \mathcal{S}_2$ that represents a physical relationship between two sets of physically distinguishable elements $\mathcal{S}_1$ and $\mathcal{S}_2$ is a continuous map." This qualifies that, yes, mathematically we are free to choose whatever function we may want. But if the function has to describe a physical relationship then it has to map measurable outcomes to measurable outcomes.
+\end{response}
+
+\begin{response}{From the section about Hamiltonian mechanics I gained the impression that authors
+consider Hamiltonian mechanics as fundamental while Lagrangian mechanics plays the
+secondary role. I must admit that my opinion is quite the opposite. I think Lagrangian
+mechanics is fundamental while Hamiltonian mechanics is in a sense derived and plays
+the secondary role.}
+Indeed there is ample debate in philosophy of science on whether Hamiltonian or Lagrangian mechanics plays the more fundamental role. See for example:
+\begin{itemize}
+	\item Jill North, \emph{The ``Structure" of physics}, 
+	Journal of Philosophy 106 (2):57-88 (2009)
+	\item  Erik Curiel, \emph{Classical Mechanics is Lagrangian; It Is Not Hamiltonian}, Brit. J. Phil. Sci. 65 (2014), 269–321
+	\item Thomas William Barrett, \emph{On the Structure of Classical Mechanics},	
+	The British Journal for the Philosophy of Science, Volume 66, Issue 4, 1 December 2015, Pages 801–828
+\end{itemize}
+
+This paper does not take a side per se. To make that more clear, we added a footnote right before the introduction of the Lagrangian that states: ``Given that we introduce Lagrangian Mechanics only now, the reader may get the impression that we believe that Hamiltonian mechanics is somehow more fundamental than Lagrangian mechanics. This is not the case. What happens is that under the assumption of deterministic and reversible evolution, as stated by V.I. Arnold, ``Lagrangian mechanics is contained in Hamiltonian mechanics as a special case". In this work deriving Hamiltonian mechanics first is therefore more natural as the argument proceeds from the more general to the more specific, and as we are interested in seeing how much can be derived from each individual assumption."
+
+In other words, assuming deterministic and reversible evolution leads to assuming Lagrangians are regular and therefore admit a Hamiltonian. Hamiltonian systems need not be convex to be deterministic and reversible. For example, $H=c|p|$ is a perfectly valid Hamiltonian that given initial conditions $q_0$ and $p_0$ leads to the solution $q(t)=q_0 + c \, sign(p_0)$ and $p(t)=p_0$ and it does not admit a Lagrangian. In this setting, Lagrangian systems are a proper subset of Hamiltonian systems, so focusing on phase-space evolution yields the more general picture. But under different assumptions, the prevalent picture would be different.
+
+\end{response}
+
+\begin{response}{I could argue by showing, that the version of relativistic Hamiltoniam
+		mechanics authors propose as a direct consequence of their assumptions, is in my opinion
+		not correct. Let us think of the simplest case of a free particle in Special Relativity Theory.
+		From Minkowski we have learned how to deal with problems of relativity, i.e. problem of
+		working in coordinates relative to a reference frame and constant checking if our physical
+		quantities transform properly by Lorenz transformation. I assume here that the space-time
+		is a Minkowski space, i.e. four dimensional affine space modeled on four dimesional vector space $V$ with bilinear form of sygnature (1; 3) (or (3; 1) if you are more physicist than math-
+		ematician) and with time orientation. Than the behaviour of a particle is fully described
+		by its world line which is one dimensional oriented submanifold of $M$. We can parameterize
+		this submanifold by its proper time, but in principle there is no need of it. Knowing the
+		submanifold we can calculate the parametrisation, but it does not add any new knowledge
+		about the particle itself. Phase trajectories in $T*M$ are also one dimensional oriented sub-
+		manifolds in the mass shell i.e. satisfying the condition $\eta(p, p) = m^2$. An equation for such
+		object as one dimensional submanifold is one dimensional distribution rather than vector
+		field. More precisely, in case of oriented submanifolds, half-distribution to encode orientation. Such an object can be obtained in the realm of Hamiltonian mechanics, in case we
+		think in terms of Lagrangian submanifolds rather than Hamiltonian vector fields and allow
+		more general generating objects for Lagrangian submanifolds than just functions. For me
+		the correct Hamiltonian description of a free relativistic particle in Minkowski space-time is
+		the Lagrangian submanifold of $TT^*M$ generated by the following Morse family of functions
+		$H : \mathbb{R}_+ \times T*M \to R,$ $H(r, x, p) = r(
+		\sqrt{\eta(p, p)} - m)$ where $x \in M, p \in V*, \mathbb{R} \ni r > 0$.
+		This can be derived form invariant but singular Lagrangian $L(x, v) = m \sqrt{\eta(v, v)}$ defined
+		on $TM$. I suppose I have assumed $c = 1$ here. The details of this approach can be found
+		in a paper W. M. Tulczyjew, P. Urbanski, Slow and careful Legendre transformation for
+		singular Lagrangians, Acta Phys. Polon. B 30 (1999), 2909-2978. which is available also
+		in arXiv.}
+\end{response}
+
+The version of relativistic Hamiltonian mechanics we derive is one of the standard formulations. To our knowledge, it was first developed by Synge, and was named Hamiltonian mechanics on the ``extended phase-space" by Lanczos (Synge preferred ``space of states and energy"). It was developed by other authors and is included in V.I.Arnold Mathematical Methods of Classical Mechanics. It returns the usual predictions, including for the case of a free particle.
+
+We assume that by ``correct" the reviewer means ``the right way to look at it". The only claim we make is that it is a good way as long as the assumption we derived it from holds: if one is studying the deterministic motion of an infinitesimally reducible material, then it will work very well. Outside of that scope (e.g. a system described by a singular Lagrangian, a system under dissipative forces, etc.) we give no guarantees.
+
+That said, there are numerous points of contact between Hamiltonian mechanics on the extended phase space and the formalism shown by the reviewer. The behavior of a particle is in general a line in $T^*M$ parameterized by $s$ (not necessarily proper time). If the system is also Lagrangian, then the projection of that line on $M$ will be unique. In the justification for Proposition V.7 we introduce the infinitesimal displacement $S \in T\mathcal{S}$. Since $\mathcal{S}$ is $T^*\mathcal{Q}$, $S \in TT^*\mathcal{Q}$, in line with the reviewer comment. The extended Hamiltonian for a free particle is given at VI.8 and is $\mathcal{H} = \frac{1}{2m} ( p^i p_i - (E/c)^2 + m^2c^2)$. Since $\mathcal{H}=0$, we can change the sign of $\mathcal{H}$, which will simply change the parametrization of the trajectories from $s$ to $-s$. We choose $\eta_{\alpha \beta}$ with signature $(+,-,-,-)$, so we have $(E/c)^2 - p^i p_i = p_\alpha \eta^{\alpha \beta} p_\beta$. We can rewrite $\hat{\mathcal{H}} = -\mathcal{H} = \frac{1}{2m} (\sqrt{p_\alpha \eta^{\alpha \beta} p_\beta} + mc) ( \sqrt{p_\alpha \eta^{\alpha \beta} p_\beta} - mc) = r ( \sqrt{p_\alpha \eta^{\alpha \beta} p_\beta} - mc)$. This fits the form set in the comment by setting $r$ appropriately.
+
+The main difference is that in this formalism the extended Lagrangian is $\mathcal{L}=\frac{1}{2} m(u^\alpha \eta_{\alpha \beta} u^\beta - c^2)$ which is in terms of the four velocity. The Hessian is $\partial_{u^\alpha}\partial_{u^\beta} \mathcal{L} = \frac{1}{2}m \eta_{\alpha \beta}$ so the Lagrangian is not singular.
+
+We are unsure, though, that these types of comparisons belong to this paper which is already quite long. We feel a critique to the different ``flavors" of mechanics would distract from the main objective of the paper, and would belong to a different work.
+
+\begin{response}{Summarising, I really think we should discuss foundations of physics much more than
+		we do. For this the paper From physical assumptions to classical and quantum Hamiltonian
+		and Lagrangian particle mechanics might be an excellent starting point.}
+\end{response}
+
+We couldn't agree more.
+
+\end{document}
