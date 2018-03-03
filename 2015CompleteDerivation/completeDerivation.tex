@@ -279,7 +279,7 @@ We claim that $\mathcal{T}_{\Delta t}$ is a self-homeomorphism as it is a contin
 Again, we note that the arguments that lead to continuity had nothing to do with states per se, just that the relationship is between physically distinguishable objects. We can then generalize the above justification.
 
 \begin{prop}\label{prop:continuity}
-	A map $f:\mathcal{S_1} \rightarrow \mathcal{S_2}$ between two sets of physically distinguishable elements $\mathcal{S_1}$ and $\mathcal{S_2}$ is a continuous map.
+	A map $f:\mathcal{S_1} \rightarrow \mathcal{S_2}$ that represents a physical relationship between two sets of physically distinguishable elements $\mathcal{S_1}$ and $\mathcal{S_2}$ is a continuous map.
 \end{prop}
 
 \begin{justification}
@@ -915,7 +915,7 @@ Mathematically, the state space $\bar{\mathcal{S}} \subset T^*\mathcal{M}$ is di
 	We claim $(x^\alpha, u^\alpha) \mapsto (q^\alpha, p_\alpha)$ is a diffeomorphism. Let $\bar{\mathcal{c}}$ be the evolution of a minimal classical material. Let $\rho_{\bar{\mathcal{c}}} : \bar{\mathcal{S}} \rightarrow \mathbb{R}$ be the distribution associated with $\bar{\mathcal{c}}$. $\rho_{\bar{\mathcal{c}}}(\mathcal{s}(x^\alpha, u^\alpha))$ as the material is minimal. $\rho_{\bar{\mathcal{c}}}(x^\alpha, u^\alpha)$ is differentiable by the same logic expressed in \ref{prop:differentiable_manifold}. $(x^\alpha, u^\alpha) \mapsto (q^\alpha, p_\alpha)$ is a diffeomorphism as it is a homeomorphism that maps a differentiable function to a differentiable function.
 \end{justification}
 
-This relationship allows us to write the kinematic variables in terms of the state variables. In particular we have $u^\alpha=u^\alpha(q^\alpha, p_\alpha)$. As the relationship is invertible, these functions must be monotonic in $p_\alpha$. Since $\partial_{p_\alpha} \mathcal{H}=d_s q^\alpha= u^\alpha$, $\mathcal{H}$ is convex in $p_\alpha$. Under such conditions we can define a Legendre transformation $\mathcal{L}=u^\alpha p_\alpha - \mathcal{H}$. Such transformation is the Lagrangian of the system and the motion is given by the Euler-Lagrange equation. For the time independent case, we define $L=v^i p_i - H$ where $v^i=d_t x^i$.
+This relationship allows us to write the kinematic variables in terms of the state variables. In particular we have $u^\alpha=u^\alpha(q^\alpha, p_\alpha)$. As the relationship is invertible, these functions must be monotonic in $p_\alpha$. Since $\partial_{p_\alpha} \mathcal{H}=d_s q^\alpha= u^\alpha$, $\mathcal{H}$ is convex in $p_\alpha$. Under such conditions we can define a Legendre transformation $\mathcal{L}=u^\alpha p_\alpha - \mathcal{H}$. Such transformation is the Lagrangian of the system and the motion is given by the Euler-Lagrange equation. For the time independent case, we define $L=v^i p_i - H$ where $v^i=d_t x^i$.\footnote{Given that we introduce Lagrangian mechanics only now, the reader may get the impression that we believe that Hamiltonian mechanics is somehow more fundamental than Lagrangian mechanics. This is not the case. What happens is that under the assumption of deterministic and reversible evolution, as stated by V.I. Arnold, ``Lagrangian mechanics is contained in Hamiltonian mechanics as a special case".\cite{Arnold} In this work deriving Hamiltonian mechanics first is therefore more natural as the argument proceeds from the more general to the more specific, and as we are interested in seeing how much can be derived from each individual assumption.}
 
 \begin{prop}\label{prop:lagrangian}
 	Let $\mathcal{H}$ be an invariant Hamiltonian defined on $T^*\mathcal{M}$. Under the kinematic assumption, we can define the Legendre transform $\mathcal{L}=u^\alpha p_\alpha - \mathcal{H}$ which we call the \emph{extended Lagrangian}.
@@ -1619,6 +1619,8 @@ Springer (2010)
 
 
 \bibitem{ClCPT} Bell, J. S.: Time reversal in field theory. Proceedings of the Royal Society of London A, 231 (1187), 479-95, (1955)
+
+\bibitem{Arnold} Arnold, V.I.: Mathematical Methods of Classical Mechanics, Springer, (1989)
 
 \bibitem{EPR} Einstein, A., Podolsky, B.,  Rosen, N.: Can quantum-mechanical description of physical reality be considered complete? Phys. Rev. 47 777 (1935)
 
