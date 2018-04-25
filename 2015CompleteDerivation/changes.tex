@@ -1,0 +1,65 @@
+% Using template from
+% Title:    A LaTeX Template For Responses To a Referees' Reports
+% Author:   Petr Zemek <s3rvac@gmail.com>
+% Homepage: https://blog.petrzemek.net/2016/07/17/latex-template-for-responses-to-referees-reports/
+% License:  CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+\documentclass[10pt]{article}
+
+% Allow Unicode input (alternatively, you can use XeLaTeX or LuaLaTeX)
+\usepackage[utf8]{inputenc}
+
+\usepackage{microtype,xparse,tcolorbox,amsfonts}
+\newenvironment{reviewer-comment }{}{}
+\tcbuselibrary{skins}
+\tcolorboxenvironment{reviewer-comment }{empty,
+  left = 1em, top = 1ex, bottom = 1ex,
+  borderline west = {2pt} {0pt} {black!20},
+}
+\ExplSyntaxOn
+\NewDocumentEnvironment {response} { +m O{black!20} } {
+  \IfValueT {#1} {
+    \begin{reviewer-comment~}
+      \setlength\parindent{2em}
+      \noindent
+%      \ttfamily
+       #1
+    \end{reviewer-comment~}
+  }
+  \par\noindent\ignorespaces
+} { \bigskip\par }
+
+\NewDocumentCommand \Reviewer { m } {
+  \section*{Comments~by~Reviewer~#1}
+}
+\ExplSyntaxOff
+\AtBeginDocument{\maketitle\thispagestyle{empty}\noindent}
+
+% You can get probably get rid of these definitions:
+\newcommand\meta[1]{$\langle\hbox{#1}\rangle$}
+\newcommand\PaperTitle[1]{``\textit{#1}''}
+
+\title{Changes of JPCO-100515 \\
+  Based on the Referees' Reports}
+\author{Gabriele Carcassi \and Christine A. Aidala \and David J. Baker \and Lydia Bieri}
+\date{\today}
+
+\begin{document}
+This statement concerns the changes of submission JPCO-100515,
+entitled \textit{From physical assumptions to classical and quantum Hamiltonian and Lagrangian particle mechanics}, based on the referees'
+reports.
+
+~\newline
+
+On page 7, we modified Proposition IV.4 from ``A map $f : \mathcal{S}_1 \to \mathcal{S}_2$ between two sets
+ of physically distinguishable elements $\mathcal{S}_1$ and $\mathcal{S}_2$ is a continuous map." to  ``A map $f:\mathcal{S}_1 \rightarrow \mathcal{S}_2$ that represents a physical relationship between two sets of physically distinguishable elements $\mathcal{S}_1$ and $\mathcal{S}_2$ is a continuous map."
+
+~\newline
+
+
+On page 225, before Proposition VII.2, we added a footnote right before the introduction of the Lagrangian that states: ``Given that we introduce Lagrangian mechanics only now, the reader may get the impression that we believe that Hamiltonian mechanics is somehow more fundamental than Lagrangian mechanics. This is not the case. What happens is that under the assumption of deterministic and reversible evolution, as stated by V.I. Arnold, ``Lagrangian mechanics is contained in Hamiltonian mechanics as a special case". In this work deriving Hamiltonian mechanics first is therefore more natural as the argument proceeds from the more general to the more specific, and as we are interested in seeing how much can be derived from each individual assumption."
+
+~\newline
+
+In the bibliography, we added reference to Arnold, V.I.: Mathematical Methods of Classical Mechanics, Springer, (1989).
+
+\end{document}
