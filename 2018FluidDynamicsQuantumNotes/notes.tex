@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.25in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{dutchcal}
+\usepackage{braket}
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{calculator}
+\usepackage{standalone}
+
+
+
+\begin{document}
+
+\begin{equation}
+	\imath \hbar \frac{\partial}{\partial t} \psi = (- \frac{\hbar^2 \nabla^2}{2m} + V ) \psi
+\end{equation}
+
+\begin{equation}
+\psi = r e ^{\imath \theta}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\rho &= r^2 \\
+\nabla \rho &= \nabla r^2 = 2 r \nabla r \\
+\nabla r &= \frac{\nabla \rho}{2r} \\
+\frac{\partial}{\partial t} \rho &= \frac{\partial}{\partial t} r^2 = 2 r  \frac{\partial}{\partial t} r \\
+\frac{\partial r}{\partial t} &= \frac{1}{2r} \frac{\partial \rho}{\partial t} \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+	\imath \hbar \frac{\partial}{\partial t} r e ^{\imath \theta} &= (- \frac{\hbar^2 \nabla^2}{2m} + V ) r e ^{\imath \theta} \\
+	\imath \hbar \frac{\partial r}{\partial t} e ^{\imath \theta} - \hbar r \frac{\partial \theta}{\partial t} e ^{\imath \theta} &= - \frac{\hbar^2 \nabla}{2m} (\nabla r e ^{\imath \theta} + r \imath \nabla \theta e ^{\imath \theta} ) + V r e ^{\imath \theta} \\
+	\imath \hbar \frac{\partial r}{\partial t} e ^{\imath \theta} - \hbar r \frac{\partial \theta}{\partial t} e ^{\imath \theta} &= - \frac{\hbar^2}{2m} (\nabla ^2 r e ^{\imath \theta} + \nabla r \imath \nabla \theta e ^{\imath \theta} + \nabla r \imath \nabla \theta e ^{\imath \theta} + r \imath \nabla^2 \theta e ^{\imath \theta} - r | \nabla \theta |^2 e ^{\imath \theta} ) + V r e ^{\imath \theta} \\
+	\imath \hbar \frac{\partial r}{\partial t} - \hbar r \frac{\partial \theta}{\partial t} &= - \frac{\hbar^2}{2m} (\nabla ^2 r + \nabla r \imath \nabla \theta + \nabla r \imath \nabla \theta + r \imath \nabla^2 \theta - r | \nabla \theta |^2 ) + V r \\
+\end{aligned}
+\end{equation}
+	
+
+\begin{equation}
+\begin{cases}
+\hbar \dfrac{\partial r}{\partial t}  = - \dfrac{\hbar^2}{2m} (2\nabla r \nabla \theta  r \nabla^2 \theta) \\
+- \hbar r \dfrac{\partial \theta}{\partial t} = - \dfrac{\hbar^2}{2m} (\nabla ^2 r  - r | \nabla \theta |^2 ) + V r \\
+\end{cases}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\dfrac{\partial r}{\partial t}  = - \dfrac{\hbar}{2m} (2\nabla r \nabla \theta + r \nabla^2 \theta) \\
+\frac{1}{2r} \frac{\partial \rho}{\partial t} = - \dfrac{\hbar}{2m} (2\frac{\nabla \rho}{2r}\nabla \theta + r \nabla^2 \theta) \\
+\frac{\partial \rho}{\partial t} = - \dfrac{\hbar}{m} (\nabla \rho \nabla \theta + r^2 \nabla^2 \theta) \\
+\frac{\partial \rho}{\partial t} = - \nabla \left( \rho  \dfrac{\hbar \nabla \theta}{m}\right) \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+& u = \dfrac{\hbar \nabla \theta}{m} \\
+& \nabla \left( \rho  u\right) + \frac{\partial \rho}{\partial t} = 0\\
+& \oint mu dl = 2\pi n \hbar
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+& - \hbar r \dfrac{\partial \theta}{\partial t} = - \dfrac{\hbar^2}{2m} (\nabla ^2 r  - r | \nabla \theta |^2 ) + V r \\
+& - \hbar \dfrac{\partial \theta}{\partial t} = - \dfrac{\hbar^2}{2m} \left(\dfrac{\nabla ^2 r}{r}  -  | \nabla \theta |^2 \right) + V \\
+& - \hbar \dfrac{\partial \theta}{\partial t} = - \dfrac{\hbar^2}{2m} \dfrac{\nabla ^2 r}{r}  + \dfrac{1}{2} m u^2 + V \\
+& - \hbar \dfrac{\partial \theta}{\partial t} = - \dfrac{\hbar^2}{4m} \left( \dfrac{\nabla ^2 \rho}{\rho} - \dfrac{|\nabla  \rho|^2}{2\rho^2} \right)  + \dfrac{1}{2} m u^2 + V
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+& E = - \hbar \dfrac{\partial \theta}{\partial t} \\
+& \nabla \left( \rho  u\right) + \frac{\partial \rho}{\partial t} = 0\\
+& E = - \dfrac{\hbar^2}{2m} \dfrac{\nabla ^2 r}{r}  + \dfrac{1}{2} m u^2 + V
+\end{aligned}
+\end{equation}
+
+	
+\end{document}
