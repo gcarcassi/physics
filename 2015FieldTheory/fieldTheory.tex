@@ -19,6 +19,76 @@
 
 \begin{document}
 
+\section{Notes for Dirac (spin) equation}
+\begin{align*}
+&\xi^a\equiv\{t, q^i, -E, p_i\} \\
+&\xi^a(s)\\
+&\omega \equiv  dq^i \wedge dp_i - dt \wedge dE \\
+&\omega_{ab} =  \left[
+\begin{array}{cc}
+	0 & 1 \\
+	-1 & 0 \\
+\end{array}
+\right] \otimes \left[
+\begin{array}{cccc}
+	1 & 0 & 0 & 0\\
+	0 & 1 & 0 & 0\\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1 \\
+\end{array}
+\right] \\
+&\mathcal{H}\equiv\mathcal{H}(\xi^a) \\
+&\mathcal{H} = 0 \\
+&d_s \mathcal{H} = 0 \\
+&d_s\xi^a\omega_{a b} = \partial_b\mathcal{H}  \\
+\end{align*}
+
+For free particle:
+\begin{align*}
+\mathcal{H} &= \frac{1}{2m} \mu^{\alpha\beta} p_\alpha p_\beta + \frac{1}{2} mc^2
+\end{align*}
+
+To quantum (Klein Gordon):
+\begin{align*}
+p_\alpha &= \imath \hbar \partial_\alpha \\
+\mathcal{H} &= \frac{\hbar^2}{2m} (\mu^{\alpha\beta} \partial_\alpha \partial_\beta + \frac{m^2c^2}{\hbar^2} )
+\end{align*}
+
+For free particle:
+\begin{align*}
+\mathcal{H} &= \frac{1}{2m} \mu^{\alpha\beta} p_\alpha p_\beta + \frac{1}{2} mc^2
+\end{align*}
+
+For spin 1/2 (Dirac):
+\begin{align*}
+u^\alpha s_\beta &= 0 \\
+u^\alpha &= c \frac{1}{2} (n_R + n_L) \\
+s^\alpha &= \frac{\hbar}{2} \frac{1}{2} (n_R - n_L) \\
+\mathcal{H} &= u^\alpha p_\alpha + mc^2 \\
+u^\alpha &= c \gamma^\alpha \\
+p_\alpha &= \imath \hbar \partial_\alpha \\
+\mathcal{H} &= c (\gamma^\alpha \imath \hbar \partial_\alpha + mc)
+\end{align*}
+
+For non relativistic spin 1/2:
+\begin{align*}
+\eta^a &\equiv \{\theta^{xy}, s_z\} \\
+\omega &= d\theta_{xy} \wedge ds_z \\
+s_i &= ( \sqrt{1-s_z^2} cos \theta^{xy}, \sqrt{1-s_z^2} sin \theta^{xy}, s_z) \\
+\{ s_x, s_y \} &= \frac{\partial s_x}{\partial \theta^{xy}} \frac{\partial s_y}{\partial s_z} - \frac{\partial s_y}{\partial \theta^{xy}} \frac{\partial s_x}{\partial s_z} \\
+&= \sqrt{1-s_z^2} (-1) sin \theta^{xy} \frac{-s_z}{\sqrt{1-s_z^2}}sin \theta^{xy}  \\
+&- \sqrt{1-s_z^2} cos \theta^{xy} \frac{-s_z}{\sqrt{1-s_z^2}}cos \theta^{xy} \\
+&= s_z \\
+\{ s_y, s_z \} &= \frac{\partial s_y}{\partial \theta^{xy}} \frac{\partial s_z}{\partial s_z} - \frac{\partial s_z}{\partial \theta^{xy}} \frac{\partial s_y}{\partial s_z}\\
+&= \sqrt{1-s_z^2} cos \theta^{xy} = s_x\\
+\{ s_z, s_x \} &= \frac{\partial s_z}{\partial \theta^{xy}} \frac{\partial s_x}{\partial s_z} - \frac{\partial s_x}{\partial \theta^{xy}} \frac{\partial s_z}{\partial s_z}\\
+&= - \sqrt{1-s_z^2} (-1) sin \theta^{xy} = s_y \\
+\{ s_i, s_j \} &= \epsilon_{ijk} s_k \\
+H &= B^i s_i \\
+\{ s_i, H \} &= \epsilon_{ijk}B^i s_k \\
+\end{align*}
+
+
 \section{Notes for classical Field Theory}
 
 Use roman letters for phase space indexes. Use greek letters for space-time indexes.
